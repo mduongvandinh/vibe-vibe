@@ -1,65 +1,65 @@
 ---
-title: "2.6 场景应用：这些思维工具不只是用来「做产品」的"
+title: "2.6 Ứng dụng thực tế: Các công cụ tư duy không chỉ dùng để 「làm sản phẩm」"
 ---
 
-# 2.6 场景应用：这些思维工具不只是用来「做产品」的
+# 2.6 Ứng dụng thực tế: Các công cụ tư duy không chỉ dùng để 「làm sản phẩm」
 
-前面五节，我们学习了五种思维工具：JTBD思维、逆向思维、减法思维、故事思维、灵魂三问。
+Năm phần trước, chúng ta đã học năm công cụ tư duy: Tư duy JTBD, tư duy ngược, tư duy trừ, tư duy câu chuyện, ba câu hỏi cốt lõi.
 
-你可能会想：这些不都是产品经理、创业者用的吗？和我有什么关系？
+Có thể bạn sẽ nghĩ: Những cái này không phải dành cho product manager, founder sao? Liên quan gì đến tôi?
 
-这一节要告诉你：**这些思维工具的本质是「想清楚问题」的能力，而这个能力适用于你能想到的任何场景。**
-
-
-## 经过本节学习，你将掌握
-
-- 理解思维工具的通用性：同一套方法，不同场景的应用
-- 掌握数据分析场景的需求描述方法和 Prompt 模板
-- 掌握自动化脚本场景的任务评估和 Prompt 模板
-- 掌握个人工具和家人工具场景的设计原则
-- 获得一套可直接复制使用的场景化 Prompt 模板库
+Phần này muốn nói với bạn: **Bản chất của các công cụ tư duy này là khả năng「nghĩ rõ vấn đề」, và khả năng này áp dụng được cho bất kỳ tình huống nào bạn nghĩ đến.**
 
 
-## 核心洞见
+## Sau khi học xong phần này, bạn sẽ nắm được
 
-> **不管你想做什么——小工具、数据分析、自动化脚本——核心思维方式都是一样的：先想清楚问题，再动手解决。**
-
-前面的思维工具不是「产品经理专用」，而是「定义问题专用」。
-
-- 你做数据分析，也需要问「谁要看这个分析？他们要做什么决策？」——这是 JTBD 思维
-- 你写自动化脚本，也需要想「什么情况下会出错？」——这是逆向思维
-- 你给自己做小工具，也需要克制「功能越多越好」的冲动——这是减法思维
-
-**思维工具是通用的，变化的只是应用场景。**
+- Hiểu tính phổ quát của công cụ tư duy: Cùng một phương pháp, ứng dụng trong các tình huống khác nhau
+- Nắm được phương pháp mô tả nhu cầu và template Prompt cho tình huống phân tích dữ liệu
+- Nắm được phương pháp đánh giá task và template Prompt cho tình huống script tự động hóa
+- Nắm được nguyên tắc thiết kế cho tình huống công cụ cá nhân và công cụ gia đình
+- Có được bộ template Prompt theo tình huống có thể sao chép và dùng ngay
 
 
-## 四大场景速览
+## Insight cốt lõi
 
-本节覆盖四类最常见的 Vibe Coding 场景：
+> **Dù bạn muốn làm gì - công cụ nhỏ, phân tích dữ liệu, script tự động hóa - cách tư duy cốt lõi đều giống nhau: Trước tiên nghĩ rõ vấn đề, rồi mới giải quyết.**
 
-| 场景 | 典型需求 | 核心挑战 | 思维工具重点 |
+Các công cụ tư duy trước không phải là「dành riêng cho product manager」, mà là「dành riêng cho việc định nghĩa vấn đề」.
+
+- Khi làm phân tích dữ liệu, bạn cũng cần hỏi「Ai sẽ xem phân tích này? Họ cần đưa ra quyết định gì?」- Đây là tư duy JTBD
+- Khi viết script tự động hóa, bạn cũng cần nghĩ「Trường hợp nào sẽ bị lỗi?」- Đây là tư duy ngược
+- Khi làm công cụ cho bản thân, bạn cũng cần kiềm chế cơn thôi thúc「càng nhiều tính năng càng tốt」- Đây là tư duy trừ
+
+**Công cụ tư duy là phổ quát, chỉ có tình huống ứng dụng thay đổi.**
+
+
+## Tổng quan bốn tình huống lớn
+
+Phần này bao gồm bốn loại tình huống Vibe Coding phổ biến nhất:
+
+| Tình huống | Nhu cầu điển hình | Thách thức cốt lõi | Trọng tâm công cụ tư duy |
 |-----|---------|---------|------------|
-| **数据分析** | 分析Excel、做图表、写报告 | 不知道要回答什么问题 | JTBD（为谁分析）、减法（聚焦核心问题） |
-| **自动化脚本** | 批量处理文件、定时任务 | 不知道从哪开始自动化 | 逆向（识别出错场景）、减法（先做最痛的一步） |
-| **个人工具** | 记账、番茄钟、笔记 | 容易过度设计 | 减法（只做核心功能）、灵魂三问（自己的真实痛点） |
-| **家人工具** | 吃药提醒、相册、快捷入口 | 不了解真实使用场景 | 故事思维（站在他们角度）、逆向（什么会让他们用不了） |
+| **Phân tích dữ liệu** | Phân tích Excel, làm biểu đồ, viết báo cáo | Không biết cần trả lời câu hỏi gì | JTBD (phân tích cho ai), trừ (tập trung vào vấn đề cốt lõi) |
+| **Script tự động hóa** | Xử lý file hàng loạt, task định kỳ | Không biết bắt đầu tự động hóa từ đâu | Ngược (nhận diện tình huống lỗi), trừ (làm bước đau nhất trước) |
+| **Công cụ cá nhân** | Ghi sổ chi tiêu, pomodoro, ghi chú | Dễ thiết kế quá mức | Trừ (chỉ làm tính năng cốt lõi), ba câu hỏi (pain point thực sự của bản thân) |
+| **Công cụ gia đình** | Nhắc uống thuốc, album ảnh, lối tắt | Không hiểu tình huống sử dụng thực tế | Tư duy câu chuyện (đứng ở góc độ của họ), ngược (cái gì khiến họ không dùng được) |
 
 
-## 本节结构
+## Cấu trúc phần này
 
-接下来，我们将逐一展开这四个场景：
+Tiếp theo, chúng ta sẽ khai triển từng tình huống:
 
-1. **核心洞见**：为什么同一套思维工具可以应用于不同场景
-2. **数据分析场景**：如何用思维工具让 AI 做出有价值的分析
-3. **自动化脚本场景**：如何识别值得自动化的任务，避免常见陷阱
-4. **个人工具场景**：如何克制过度设计的冲动，做出真正会用的工具
-5. **家人工具场景**：如何为非技术用户设计简单易用的工具
-6. **本节总结**：场景化 Prompt 模板速查表
+1. **Insight cốt lõi**: Tại sao cùng một bộ công cụ tư duy có thể áp dụng cho các tình huống khác nhau
+2. **Tình huống phân tích dữ liệu**: Cách dùng công cụ tư duy để AI làm phân tích có giá trị
+3. **Tình huống script tự động hóa**: Cách nhận diện task đáng tự động hóa, tránh bẫy thường gặp
+4. **Tình huống công cụ cá nhân**: Cách kiềm chế cơn thôi thúc thiết kế quá mức, làm công cụ thực sự dùng được
+5. **Tình huống công cụ gia đình**: Cách thiết kế công cụ đơn giản dễ dùng cho người dùng không am hiểu kỹ thuật
+6. **Tổng kết phần này**: Bảng tra cứu nhanh template Prompt theo tình huống
 
-每个场景都会提供：
-- 思维工具的具体应用方法
-- 真实案例和完整 Prompt 示例
-- 常见误区和避坑指南
-- 可直接复制使用的模板
+Mỗi tình huống sẽ cung cấp:
+- Phương pháp áp dụng cụ thể của công cụ tư duy
+- Case study thật và ví dụ Prompt đầy đủ
+- Sai lầm thường gặp và hướng dẫn tránh
+- Template có thể sao chép dùng trực tiếp
 
-准备好了吗？让我们从「核心洞见」开始。
+Sẵn sàng chưa? Hãy bắt đầu từ「Insight cốt lõi」.

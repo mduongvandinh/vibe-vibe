@@ -1,34 +1,33 @@
 ---
-title: "6.5 接入微信/QQ 登录——第三方登录集成深度：微信/QQ/钉钉/企业微信"
-typora-root-url: ../../public
+title: "6.5 Tích hợp Đăng nhập WeChat/QQ——Tích hợp Sâu Đăng nhập Bên thứ ba: WeChat/QQ/DingTalk/Enterprise WeChat"
 ---
 
-# 6.5 接入微信/QQ 登录——第三方登录集成深度
+# 6.5 Tích hợp Đăng nhập WeChat/QQ——Tích hợp Sâu Đăng nhập Bên thứ ba
 
-## 认知重构
+## Tái cấu trúc Nhận thức
 
-国内第三方登录和 Google/GitHub 登录的技术原理完全相同——都是 OAuth 2.0 授权码模式。但实际接入时会遇到很多"中国特色"：
+Nguyên lý kỹ thuật của đăng nhập bên thứ ba trong nước và đăng nhập Google/GitHub hoàn toàn giống nhau——đều là chế độ mã hóa OAuth 2.0. Nhưng khi tích hợp thực tế, bạn sẽ gặp phải rất nhiều "đặc thù của Trung Quốc":
 
-- 申请流程复杂，需要企业资质
-- 微信生态碎片化（开放平台 vs 公众号）
-- 钉钉/企微主要面向企业内部应用
-- 文档和 SDK 的使用体验参差不齐
+- Quy trình ứng tuyển phức tạp, cần tài liệu của công ty
+- Hệ sinh thái WeChat bị phân mảnh (Nền tảng Mở vs Tài khoản Công chúng)
+- DingTalk/Enterprise WeChat chủ yếu dành cho các ứng dụng nội bộ của doanh nghiệp
+- Trải nghiệm sử dụng tài liệu và SDK không đều
 
 ```mermaid
 flowchart TD
-    subgraph Platforms["国内主流登录平台"]
-        WeChat["微信\n扫码/公众号"]
-        QQ["QQ互联\n个人用户"]
-        DingTalk["钉钉\n企业应用"]
-        WeCom["企业微信\n企业内部"]
+    subgraph Platforms["Nền tảng đăng nhập chính trong nước"]
+        WeChat["WeChat\nQuét mã/Tài khoản công chúng"]
+        QQ["QQ Connect\nNguời dùng cá nhân"]
+        DingTalk["DingTalk\nỨng dụng Enterprise"]
+        WeCom["Enterprise WeChat\nNội bộ doanh nghiệp"]
     end
-    
-    subgraph Scenarios["适用场景"]
-        C2C["C端产品"]
-        B2B["B端产品"]
-        Internal["企业内部"]
+
+    subgraph Scenarios["Kịch bản ứng dụng"]
+        C2C["Sản phẩm C2C"]
+        B2B["Sản phẩm B2B"]
+        Internal["Nội bộ doanh nghiệp"]
     end
-    
+
     WeChat --> C2C
     QQ --> C2C
     DingTalk --> B2B
@@ -36,53 +35,53 @@ flowchart TD
     WeCom --> Internal
 ```
 
-## 本节内容
+## Nội dung của phần này
 
-| 小节 | 核心问题 | 你将学会 |
+| Phần | Câu hỏi cốt lõi | Bạn sẽ học được |
 |------|----------|----------|
-| 6.5.1 OAuth 流程 | 授权码模式是什么？ | 理解第三方登录的通用原理 |
-| 6.5.2 微信登录 | 微信登录怎么接？ | 开放平台与公众号登录 |
-| 6.5.3 QQ 登录 | QQ 登录怎么接？ | QQ 互联平台配置 |
-| 6.5.4 钉钉登录 | 钉钉登录怎么接？ | 企业应用与第三方应用 |
-| 6.5.5 账号绑定 | 多平台账号怎么统一？ | 用户账号合并策略 |
-| 6.5.6 错误处理 | 登录失败怎么办？ | 异常情况与用户提示 |
+| 6.5.1 OAuth Flow | OAuth 2.0 authorization code mode là gì? | Hiểu nguyên lý chung của đăng nhập bên thứ ba |
+| 6.5.2 WeChat Login | Làm thế nào để tích hợp đăng nhập WeChat? | Đăng nhập nền tảng mở và tài khoản công chúng |
+| 6.5.3 QQ Login | Làm thế nào để tích hợp đăng nhập QQ? | Cấu hình nền tảng QQ Connect |
+| 6.5.4 DingTalk Login | Làm thế nào để tích hợp đăng nhập DingTalk? | Ứng dụng doanh nghiệp và ứng dụng bên thứ ba |
+| 6.5.5 Account Binding | Làm thế nào để thống nhất tài khoản đa nền tảng? | Chiến lược gộp tài khoản người dùng |
+| 6.5.6 Error Handling | Làm thế nào khi đăng nhập không thành công? | Xử lý các tình huống ngoại lệ và thông báo cho người dùng |
 
-## 平台对比速览
+## Bảng so sánh nền tảng nhanh
 
-| 平台 | 申请难度 | 适用场景 | 是否需要企业资质 |
+| Nền tảng | Độ khó ứng tuyển | Kịch bản ứng dụng | Cần tài liệu công ty |
 |------|----------|----------|------------------|
-| 微信开放平台 | 高 | C 端产品 | 是 |
-| 微信公众号 | 中 | H5/公众号内 | 是（服务号） |
-| QQ 互联 | 中 | C 端产品 | 否（但需审核） |
-| 钉钉 | 低 | B 端/企业内 | 企业入驻即可 |
-| 企业微信 | 低 | 企业内部 | 企业入驻即可 |
+| WeChat Open Platform | Cao | Sản phẩm C2C | Có |
+| WeChat Official Account | Trung bình | H5/Official Account | Có (Service Account) |
+| QQ Connect | Trung bình | Sản phẩm C2C | Không (nhưng cần xét duyệt) |
+| DingTalk | Thấp | B2B/Nội bộ doanh nghiệp | Có thể nhập vào doanh nghiệp |
+| Enterprise WeChat | Thấp | Nội bộ doanh nghiệp | Có thể nhập vào doanh nghiệp |
 
-## 通用开发模式
+## Mô hình phát triển chung
 
-无论接入哪个平台，代码结构都类似：
+Bất kể tích hợp nền tảng nào, cấu trúc mã giống nhau:
 
 ```typescript
-// 1. 生成授权 URL，重定向用户
+// 1. Tạo Authorization URL, chuyển hướng người dùng
 export async function GET(request: Request) {
   const authUrl = buildAuthUrl({
     client_id: process.env.PLATFORM_CLIENT_ID,
     redirect_uri: 'https://your-site.com/api/auth/callback',
-    state: generateState(),  // 防 CSRF
+    state: generateState(),  // Ngăn chặn CSRF
     scope: 'user_info',
   })
   return Response.redirect(authUrl)
 }
 
-// 2. 接收回调，换取 access_token
+// 2. Nhận lại cuộc gọi, trao đổi access_token
 export async function GET(request: Request) {
   const { code, state } = getSearchParams(request)
-  
-  // 验证 state
+
+  // Xác minh state
   if (!verifyState(state)) {
     return Response.redirect('/login?error=invalid_state')
   }
-  
-  // 用 code 换 token
+
+  // Sử dụng code để trao đổi token
   const tokenResponse = await fetch(TOKEN_URL, {
     method: 'POST',
     body: new URLSearchParams({
@@ -91,36 +90,36 @@ export async function GET(request: Request) {
       client_secret: process.env.CLIENT_SECRET,
     }),
   })
-  
+
   const { access_token } = await tokenResponse.json()
-  
-  // 3. 用 token 获取用户信息
+
+  // 3. Sử dụng token để lấy thông tin người dùng
   const userInfo = await fetchUserInfo(access_token)
-  
-  // 4. 创建或关联本地用户
+
+  // 4. Tạo hoặc liên kết người dùng cục bộ
   const user = await findOrCreateUser(userInfo)
-  
-  // 5. 创建会话
+
+  // 5. Tạo phiên
   await createSession(user)
-  
+
   return Response.redirect('/dashboard')
 }
 ```
 
-## AI 协作提示
+## Gợi ý hợp tác với AI
 
-向 AI 描述国内第三方登录需求时：
+Khi mô tả nhu cầu đăng nhập bên thứ ba trong nước cho AI:
 
-- "实现微信扫码登录，使用 OAuth 2.0 授权码模式"
-- "在服务端存储 state 防止 CSRF 攻击"
-- "处理用户首次登录和账号绑定的逻辑"
-- "添加登录失败的错误处理和用户提示"
+- "Triển khai đăng nhập quét mã WeChat, sử dụng chế độ mã hóa OAuth 2.0 authorization code"
+- "Lưu trữ state trên máy chủ để ngăn chặn cuộc tấn công CSRF"
+- "Xử lý logic cho lần đăng nhập lần đầu tiên và ràng buộc tài khoản"
+- "Thêm xử lý lỗi đăng nhập và thông báo cho người dùng"
 
-::: warning 国内登录接入清单
-1. [ ] 准备好企业资质材料
-2. [ ] 在各平台完成应用注册
-3. [ ] 配置正确的回调地址
-4. [ ] 实现 state 参数防 CSRF
-5. [ ] 处理多平台账号绑定逻辑
-6. [ ] 完善错误提示和异常处理
+::: warning Danh sách kiểm tra tích hợp đăng nhập trong nước
+1. [ ] Chuẩn bị tài liệu tài chính của công ty
+2. [ ] Hoàn thành đăng ký ứng dụng trên mỗi nền tảng
+3. [ ] Cấu hình địa chỉ gọi lại chính xác
+4. [ ] Triển khai state parameter để ngăn chặn CSRF
+5. [ ] Xử lý logic ràng buộc tài khoản đa nền tảng
+6. [ ] Hoàn thiện thông báo lỗi và xử lý ngoại lệ
 :::

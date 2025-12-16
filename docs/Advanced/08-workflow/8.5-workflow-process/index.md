@@ -1,68 +1,67 @@
 ---
-title: "8.5 开工前对齐了吗——文档与评审：基本\"对齐—验收—留痕\"流程"
-typora-root-url: ../../public
+title: '8.5 Đã căn chỉnh trước khi bắt đầu không——Tài liệu Và Đánh giá: Quy trình cơ bản \"Căn chỉnh—Nghiệm thu—Để lại dấu vết\""'
 ---
 
-# 8.5 开工前对齐了吗——工作流程
+# 8.5 Đã căn chỉnh trước khi bắt đầu không——Quy trình làm việc
 
-再好的代码也救不了"做错了方向"——对齐、评审、验收是确保产出价值的关键流程。
+Dù code viết tốt đến mấy cũng cứu không nổi "sai hướng"——căn chỉnh, đánh giá, nghiệm thu là quy trình chủ chốt để đảm bảo giá trị đầu ra.
 
-## 为什么需要流程
+## Tại sao cần có quy trình
 
-| 问题 | 后果 | 解决方案 |
+| Vấn đề | Hậu quả | Giải pháp |
 |------|------|----------|
-| 需求理解偏差 | 做完发现不是要的 | 需求对齐 |
-| 技术方案有坑 | 开发到一半发现走不通 | 技术评审 |
-| 完成标准模糊 | 做完不知道算不算完 | 验收标准 |
-| 上线无规范 | 上线后出问题不知道怎么回滚 | 部署流程 |
+| Lệch hiểu yêu cầu | Làm xong phát hiện không phải cái cần | Căn chỉnh yêu cầu |
+| Phương án kỹ thuật có rủi ro | Phát triển nửa chừng phát hiện không thể tiếp tục | Đánh giá kỹ thuật |
+| Tiêu chí hoàn thành mơ hồ | Làm xong không biết coi như xong hay chưa | Tiêu chí nghiệm thu |
+| Lên sóng không chuẩn | Lên sóng xong phát hiện lỗi không biết rollback | Quy trình triển khai |
 
-## 完整开发流程
+## Quy trình phát triển toàn vẹn
 
 ```mermaid
 flowchart LR
-    A[需求对齐] --> B[技术评审]
-    B --> C[开发实现]
-    C --> D[代码审查]
-    D --> E[功能验收]
-    E --> F[部署上线]
-    F --> G[监控反馈]
+    A[Căn chỉnh yêu cầu] --> B[Đánh giá kỹ thuật]
+    B --> C[Phát triển thực hiện]
+    C --> D[Đánh giá code]
+    D --> E[Nghiệm thu chức năng]
+    E --> F[Triển khai lên sóng]
+    F --> G[Giám sát phản hồi]
 ```
 
-## 本节结构
+## Cấu trúc của phần này
 
-1. **需求对齐**：PRD 评审与确认，确保做对的事
-2. **技术评审**：方案设计与风险评估，确保技术可行
-3. **验收标准**：功能测试与性能指标，确保质量达标
-4. **部署流程**：1Panel 部署与上线规范
+1. **Căn chỉnh yêu cầu**：Đánh giá PRD và xác nhận, đảm bảo làm đúng việc
+2. **Đánh giá kỹ thuật**：Thiết kế phương án và đánh giá rủi ro, đảm bảo khả năng kỹ thuật
+3. **Tiêu chí nghiệm thu**：Kiểm thử chức năng và chỉ số hiệu suất, đảm bảo chất lượng đạt chuẩn
+4. **Quy trình triển khai**：Triển khai 1Panel và quy chuẩn lên sóng
 
-## 流程简化原则
+## Nguyên tắc đơn giản hóa quy trình
 
-对于小团队或个人项目，可以简化流程：
+Với đội nhỏ hoặc dự án cá nhân, có thể đơn giản hóa quy trình:
 
-| 完整流程 | 简化版本 |
+| Quy trình đầy đủ | Phiên bản đơn giản |
 |----------|----------|
-| PRD 文档 | 简单 Feature List |
-| 技术评审会 | 自己写个 ADR |
-| 测试团队验收 | 自动化测试 + 自测 |
-| 运维部署 | CI/CD 自动化 |
+| Tài liệu PRD | Danh sách Feature đơn giản |
+| Hội họp đánh giá kỹ thuật | Tự viết ADR |
+| Nghiệm thu từ đội test | Kiểm thử tự động + tự test |
+| Triển khai bởi vận hành | Tự động hóa CI/CD |
 
-**核心原则**：
-- 有记录 > 无记录
-- 自动化 > 手动操作
-- 尽早发现问题 > 上线后修复
+**Nguyên tắc cốt lõi**：
+- Có ghi chép > Không ghi chép
+- Tự động hóa > Thao tác thủ công
+- Phát hiện sớm > Sửa sau khi lên sóng
 
-## AI 协作指南
+## Hướng dẫn cộng tác AI
 
-AI 可以辅助流程中的多个环节：
+AI có thể hỗ trợ các khâu trong quy trình:
 
-- **需求对齐**：帮助拆解需求、生成用户故事
-- **技术评审**：分析技术方案的优劣
-- **验收标准**：生成测试用例、检查边界条件
-- **部署流程**：生成部署脚本、检查配置
+- **Căn chỉnh yêu cầu**：Giúp chia nhỏ yêu cầu, tạo câu chuyện người dùng
+- **Đánh giá kỹ thuật**：Phân tích ưu khuyết của phương án kỹ thuật
+- **Tiêu chí nghiệm thu**：Tạo bộ kiểm thử, kiểm tra điều kiện ranh giới
+- **Quy trình triển khai**：Tạo kịch bản triển khai, kiểm tra cấu hình
 
-## 验收清单
+## Danh sách nghiệm thu
 
-- [ ] 理解开发流程各阶段的作用
-- [ ] 能根据项目规模选择合适的流程
-- [ ] 掌握需求对齐和技术评审的基本方法
-- [ ] 了解验收标准和部署规范
+- [ ] Hiểu được tác dụng từng giai đoạn của quy trình phát triển
+- [ ] Có khả năng chọn quy trình phù hợp theo quy mô dự án
+- [ ] Nắm vững cách thức căn chỉnh yêu cầu và đánh giá kỹ thuật cơ bản
+- [ ] Hiểu về tiêu chí nghiệm thu và quy chuẩn triển khai

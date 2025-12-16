@@ -1,54 +1,53 @@
 ---
-title: "9 ｜测试与质量"
-typora-root-url: ../public
+title: "9 | Testing và Chất Lượng"
 ---
 
-# 9 ｜测试与质量
+# 9 | Testing và Chất Lượng
 
-**测试不是奢侈品，而是单人开发者最可靠的护城河。**
+**Testing không phải là xa xỉ phẩm, mà là hào chống vững chắc nhất của developer đơn lẻ.**
 
-对于独立开发者或小团队来说，没有专职 QA 帮你把关质量，每次上线都是一次赌博。测试就是你的自动化质检员——它在你睡觉的时候守护代码，在你重构的时候告诉你哪里出了问题。
+Đối với các independent developer hoặc team nhỏ, không có QA chuyên nghiệp giúp bạn kiểm soát chất lượng, mỗi lần deploy đều như một canh bạc. Testing chính là nhân viên kiểm định tự động của bạn - nó canh giữ code khi bạn ngủ, cho bạn biết vấn đề ở đâu khi bạn refactor.
 
-## 本章定位
+## Định Vị Chương Này
 
-本章专为 Vibe Coding 开发者设计，聚焦于**投入产出比最高的测试策略**。我们不追求 100% 覆盖率的完美主义，而是用最少的测试代码换取最大的质量保障。
+Chương này được thiết kế đặc biệt cho các Vibe Coding developer, tập trung vào **chiến lược testing có ROI cao nhất**. Chúng ta không theo đuổi chủ nghĩa hoàn hảo với 100% coverage, mà dùng ít code test nhất để đổi lấy đảm bảo chất lượng tối đa.
 
-## 核心理念
+## Lý Niệm Cốt Lõi
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                   测试金字塔                          │
+│                   Kim Tự Tháp Testing                │
 ├─────────────────────────────────────────────────────┤
 │                    ▲                                │
-│                   /E2E\        成本高，数量少          │
+│                   /E2E\        Chi phí cao, số lượng ít│
 │                  /─────\                             │
-│                 /  API  \      重点投入               │
+│                 /  API  \      Đầu tư trọng tâm       │
 │                /─────────\                           │
-│               /  Service  \    核心覆盖               │
+│               /  Service  \    Bao phủ cốt lõi        │
 │              /─────────────\                         │
-│             /     Unit      \  基础保障               │
+│             /     Unit      \  Đảm bảo nền tảng       │
 │            ─────────────────                         │
 └─────────────────────────────────────────────────────┘
 ```
 
-## 章节导览
+## Tổng Quan Chương
 
-| 章节 | 主题 | 解决的问题 |
+| Chương | Chủ Đề | Giải Quyết Vấn Đề Gì |
 |------|------|-----------|
-| 9.1 | 测试策略 | 如何用最少时间写出最有价值的测试 |
-| 9.2 | 测试环境 | 如何隔离测试，不污染生产数据 |
-| 9.3 | 自动化测试 | 如何配置 Jest 和测试数据库 |
-| 9.4 | 日志规范 | 如何快速定位问题并安全记录 |
-| 9.5 | CI 质量门禁 | 如何让机器人自动守护代码质量 |
+| 9.1 | Chiến lược testing | Làm thế nào viết test có giá trị nhất với ít thời gian nhất |
+| 9.2 | Môi trường test | Làm thế nào cách ly test, không làm bẩn dữ liệu production |
+| 9.3 | Automated testing | Làm thế nào cấu hình Jest và test database |
+| 9.4 | Quy chuẩn logging | Làm thế nào định vị vấn đề nhanh chóng và ghi log an toàn |
+| 9.5 | CI quality gate | Làm thế nào để robot tự động bảo vệ chất lượng code |
 
-## Vibe Coding 测试哲学
+## Triết Lý Testing của Vibe Coding
 
-在传统开发中，测试往往被视为"写完代码后的额外工作"。但在 AI 辅助开发的时代，测试的定位发生了根本变化：
+Trong phát triển truyền thống, testing thường được xem là "công việc thêm sau khi viết xong code". Nhưng trong thời đại phát triển có trợ giúp AI, định vị của testing đã có sự thay đổi căn bản:
 
-1. **测试是 AI 代码的验收标准**：当 AI 帮你生成代码时，测试用例就是你验收其质量的唯一客观标准
-2. **测试是重构的安全网**：有了测试，你可以大胆让 AI 重构代码，而不用担心引入 bug
-3. **测试是文档的替代品**：好的测试用例本身就是最鲜活的使用文档
+1. **Testing là tiêu chuẩn nghiệm thu code AI**: Khi AI giúp bạn sinh code, test case chính là tiêu chuẩn khách quan duy nhất để nghiệm thu chất lượng của nó
+2. **Testing là lưới an toàn khi refactor**: Có testing, bạn có thể yên tâm để AI refactor code mà không lo sợ đưa bug vào
+3. **Testing là thay thế cho documentation**: Test case tốt chính là documentation sống động nhất
 
-## 本章小结
+## Tóm Tắt Chương
 
-测试与质量保障是软件工程的基石。本章将带你建立一套实用的测试体系：从策略选择到环境隔离，从自动化测试到日志规范，最终通过 CI 质量门禁形成完整的质量闭环。记住，好的测试不是写得多，而是写得准。
+Testing và đảm bảo chất lượng là nền tảng của software engineering. Chương này sẽ đưa bạn xây dựng một hệ thống testing thực dụng: từ lựa chọn chiến lược đến cách ly môi trường, từ automated testing đến quy chuẩn logging, cuối cùng thông qua CI quality gate hình thành vòng khép kín chất lượng hoàn chỉnh. Hãy nhớ, testing tốt không phải viết nhiều, mà là viết đúng.

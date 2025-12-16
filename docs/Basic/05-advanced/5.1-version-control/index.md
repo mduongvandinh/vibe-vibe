@@ -1,56 +1,56 @@
 ---
-title: "5.1 后悔药：代码改崩了怎么办"
+title: "5.1 Viên thuốc hối hận: Mã bị hỏng thì làm sao"
 order: 1
 ---
 
-# 5.1 后悔药：代码改崩了怎么办
+# 5.1 Viên thuốc hối hận: Mã bị hỏng thì làm sao
 
-还记得你在第四章做的待办清单吗？那是你的第一个真正能用的作品。
+Bạn còn nhớ danh sách việc cần làm mà bạn đã làm ở chương bốn không? Đó là tác phẩm thực sự đầu tiên của bạn có thể sử dụng được.
 
-现在，我们要给它装上"时光机"。
+Bây giờ, chúng ta sẽ lắp "máy thời gian" cho nó.
 
-## 为什么需要版本管理
+## Tại sao cần quản lý phiên bản
 
-你辛苦做了 2 小时的项目，想加个新功能，结果改着改着整个页面白屏了。更惨的是：你不记得改了哪里，想改回去也改不回去。
+Bạn đã lao động cất công trong 2 giờ để làm dự án, muốn thêm một tính năng mới, nhưng càng sửa càng lệch, rồi cả trang bị trắng rồi. Tệ hơn nữa: bạn không nhớ đã sửa ở đâu, muốn sửa lại cũng không được.
 
-这种事情，几乎每个学习者都会遇到。
+Cách này, hầu như mỗi người học đều sẽ gặp phải.
 
-**版本管理就是给你的代码装上"时光机"**——随时可以回到过去的某个状态，就像游戏里的存档点。
+**Quản lý phiên bản chính là lắp "máy thời gian" cho mã của bạn** -- bạn có thể quay lại trạng thái nào đó ở quá khứ bất cứ lúc nào, giống như điểm lưu trong trò chơi.
 
-## 三级方案：从零门槛到进阶
+## Ba cấp độ giải pháp: từ không ngưỡng ngại đến nâng cao
 
-根据你的需求和时间，我们提供三级方案：
+Dựa trên nhu cầu và thời gian của bạn, chúng tôi cung cấp ba cấp độ giải pháp:
 
-| 级别 | 方案 | 适合谁 | 学习时间 |
+| Cấp độ | Giải pháp | Phù hợp cho ai | Thời gian học |
 |------|------|--------|---------|
-| **零门槛** | AI IDE 自带历史 | 所有人 | 5 分钟 |
-| **简单** | 手动复制文件夹 | 想要额外保险的人 | 3 分钟 |
-| **进阶** | GitHub Desktop | 想要云端备份、为进阶版打基础 | 15 分钟 |
+| **Không ngưỡng ngại** | Lịch sử tích hợp của AI IDE | Mọi người | 5 phút |
+| **Đơn giản** | Sao chép thủ công các thư mục | Những người muốn bảo hiểm bổ sung | 3 phút |
+| **Nâng cao** | GitHub Desktop | Những người muốn sao lưu trên đám mây, chuẩn bị cho phiên bản nâng cao | 15 phút |
 
-建议：**至少掌握零门槛方案**。如果时间充裕，GitHub Desktop 会让你受益更多。
+Gợi ý: **Ít nhất hãy nắm vững giải pháp không ngưỡng ngại**. Nếu có thời gian dư, GitHub Desktop sẽ mang lại nhiều lợi ích hơn cho bạn.
 
-## 章节导航
+## Hướng dẫn chương
 
-| 小节 | 主题 | 预计时间 |
+| Mục nhỏ | Chủ đề | Thời gian dự kiến |
 |------|------|---------|
-| [5.1.1](./5.1.1-nightmare.md) | 一个真实的噩梦场景 | 3 分钟 |
-| [5.1.2](./5.1.2-ide-history.md) | 零门槛方案：AI IDE 自带历史 | 8 分钟 |
-| [5.1.3](./5.1.3-manual.md) | 手动版本管理 | 3 分钟 |
-| [5.1.4](./5.1.4-github-desktop.md) | 进阶方案：GitHub Desktop 入门 | 5 分钟 |
-| [5.1.5](./5.1.5-practice.md) | GitHub Desktop 实操 | 10 分钟 |
-| [5.1.6](./5.1.6-best-practices.md) | 版本管理最佳实践 | 5 分钟 |
+| [5.1.1](./5.1.1-nightmare.md) | Một tình huống ác mộng thực tế | 3 phút |
+| [5.1.2](./5.1.2-ide-history.md) | Giải pháp không ngưỡng ngại: Lịch sử tích hợp của AI IDE | 8 phút |
+| [5.1.3](./5.1.3-manual.md) | Quản lý phiên bản thủ công | 3 phút |
+| [5.1.4](./5.1.4-github-desktop.md) | Giải pháp nâng cao: Nhập môn GitHub Desktop | 5 phút |
+| [5.1.5](./5.1.5-practice.md) | Thực hành GitHub Desktop | 10 phút |
+| [5.1.6](./5.1.6-best-practices.md) | Thực tiễn tốt nhất cho quản lý phiên bản | 5 phút |
 
-**预计总时间：约 30-35 分钟**
+**Tổng thời gian dự kiến: khoảng 30-35 phút**
 
-## 学完本节，你将掌握
+## Sau khi hoàn thành chương này, bạn sẽ có thể
 
-- 使用 AI IDE 自带的历史功能回退代码
-- 用手动方式保存项目的重要版本
-- 使用 GitHub Desktop 进行版本管理（可选）
-- 把项目上传到 GitHub 云端备份（可选）
+- Sử dụng tính năng lịch sử tích hợp của AI IDE để hoàn tác mã
+- Lưu các phiên bản quan trọng của dự án theo cách thủ công
+- Sử dụng GitHub Desktop để quản lý phiên bản (tùy chọn)
+- Tải dự án lên sao lưu đám mây GitHub (tùy chọn)
 
-::: tip 核心观点
-版本管理不是高级技能，是基本生存技能。就像写文档要随时保存一样，写代码也需要随时"存档"。
+::: tip Quan điểm cốt lõi
+Quản lý phiên bản không phải là một kỹ năng nâng cao, mà là một kỹ năng sống sót cơ bản. Giống như khi viết tài liệu cần luôn lưu, viết mã cũng cần luôn "lưu trữ".
 :::
 
-→ [5.1.1 一个真实的噩梦场景](./5.1.1-nightmare.md)
+→ [5.1.1 Một tình huống ác mộng thực tế](./5.1.1-nightmare.md)

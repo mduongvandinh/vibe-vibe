@@ -1,49 +1,49 @@
 ---
-title: "5.5 知边界：Vibe Coding 的能与不能"
+title: "5.5 Biết Ranh Giới: Những Gì Vibe Coding Có Thể và Không Thể"
 order: 1
 ---
 
-# 5.5 知边界：Vibe Coding 的能与不能
+# 5.5 Biết Ranh Giới: Những Gì Vibe Coding Có Thể và Không Thể
 
-> **本节目标**：清晰认识 Vibe Coding 的能力边界，在擅长的领域充分发挥，在不擅长的领域知道何时寻求帮助。
+> **Mục tiêu của phần này**: Hiểu rõ ranh giới khả năng của Vibe Coding, phát huy hết sức mạnh trong những lĩnh vực mình giỏi, và biết khi nào nên tìm kiếm sự giúp đỡ trong những lĩnh vực không phải điểm mạnh.
 
-经过本节学习，你将掌握：
-- Vibe Coding 擅长解决哪类问题
-- Vibe Coding 的真实局限性在哪里
-- 如何判断自己是否需要学习更多
-- 与 AI 协作的正确心态
+Sau khi học xong phần này, bạn sẽ nắm vững:
+- Vibe Coding giỏi giải quyết những loại vấn đề nào
+- Những hạn chế thực sự của Vibe Coding ở đâu
+- Cách đánh giá xem liệu bạn có cần học thêm hay không
+- Tâm thế đúng đắn khi hợp tác với AI
 
-## 为什么要知道边界
+## Tại Sao Phải Biết Ranh Giới
 
-你可能会想："学这个干嘛？知道能做什么不就行了？"
+Bạn có thể sẽ nghĩ: "Học cái này để làm gì? Chỉ cần biết nó có thể làm gì là được rồi?"
 
-这个想法很自然，但了解边界其实是为了**更好地发挥**，而不是限制你。
+Suy nghĩ đó rất tự nhiên, nhưng hiểu rõ ranh giới lại là để **phát huy tốt hơn**, chứ không phải để hạn chế bạn.
 
-打个比方：你买了一辆代步车，它能让你轻松在城市里通勤。但如果你开着它去越野、去赛车，结果可能不太美好。知道它擅长什么、不擅长什么，才能把它用在最合适的地方。
+Lấy ví dụ: Bạn mua một chiếc xe đi lại, nó giúp bạn di chuyển dễ dàng trong thành phố. Nhưng nếu bạn lái nó đi off-road hay đua xe, kết quả có thể sẽ không tốt. Biết nó giỏi cái gì, không giỏi cái gì, bạn mới có thể dùng nó ở đúng chỗ.
 
-Vibe Coding 也是如此：
+Vibe Coding cũng vậy:
 
-| 知道边界后 | 你可以 |
+| Sau khi biết ranh giới | Bạn có thể |
 |-----------|--------|
-| 了解擅长领域 | 在这些领域大胆尝试，快速出成果 |
-| 了解局限性 | 遇到困难时不自我怀疑，知道是工具的问题 |
-| 识别升级信号 | 在正确的时机决定是否深入学习 |
-| 建立正确心态 | 把 AI 当工具而非魔法，保持掌控感 |
+| Hiểu những lĩnh vực mình giỏi | Dám thử nghiệm, tạo ra kết quả nhanh chóng |
+| Biết những hạn chế | Không tự hoài nghi khi gặp khó, hiểu là vấn đề của công cụ |
+| Nhận biết tín hiệu nâng cấp | Quyết định đúng lúc có nên học thêm hay không |
+| Xây dựng tâm thế đúng đắn | Coi AI là công cụ chứ không phải phép thuật, giữ cảm giác kiểm soát |
 
-## 章节导航
+## Hướng Dẫn Các Chương
 
-| 小节 | 主题 | 你将了解 |
+| Phần | Chủ Đề | Bạn Sẽ Hiểu |
 |------|------|---------|
-| [5.5.1](./5.5.1-what-can-do.md) | Vibe Coding 能做什么 | 擅长领域 + 真实数据 |
-| [5.5.2](./5.5.2-limitations.md) | Vibe Coding 的局限性 | 不擅长领域 + 背后原因 |
-| [5.5.3](./5.5.3-upgrade-signals.md) | 什么信号告诉你需要学更多 | 6个升级信号 + 自测清单 |
-| [5.5.4](./5.5.4-right-mindset.md) | 正确的心态 | 人机协作的正确姿势 |
-| [5.5.5](./5.5.5-advanced-preview.md) | 进阶版预告 | 下一步学什么 |
+| [5.5.1](./5.5.1-what-can-do.md) | Vibe Coding Có Thể Làm Gì | Những lĩnh vực giỏi + Dữ liệu thực tế |
+| [5.5.2](./5.5.2-limitations.md) | Những Hạn Chế của Vibe Coding | Những lĩnh vực không giỏi + Lý do đằng sau |
+| [5.5.3](./5.5.3-upgrade-signals.md) | Những Tín Hiệu Nói Bạn Cần Học Thêm | 6 tín hiệu nâng cấp + Danh sách tự kiểm tra |
+| [5.5.4](./5.5.4-right-mindset.md) | Tâm Thế Đúng Đắn | Những cách thức hợp tác đúng đắn giữa người và máy |
+| [5.5.5](./5.5.5-advanced-preview.md) | Xem Trước Phiên Bản Nâng Cao | Bạn nên học gì tiếp theo |
 
-**预计总时间：约 15 分钟**
+**Thời gian ước tính: khoảng 15 phút**
 
-::: tip 一句话总结
-知道边界，是为了在边界内玩得更好，也为了在需要时勇敢跨越边界。
+::: tip Tóm tắt một câu
+Biết ranh giới để chơi tốt hơn trong ranh giới đó, cũng như để dũng cảm vượt qua ranh giới khi cần thiết.
 :::
 
-→ [5.5.1 Vibe Coding 能做什么](./5.5.1-what-can-do.md)
+→ [5.5.1 Vibe Coding Có Thể Làm Gì](./5.5.1-what-can-do.md)

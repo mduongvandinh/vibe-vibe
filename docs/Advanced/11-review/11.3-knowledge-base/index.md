@@ -1,70 +1,69 @@
 ---
-title: "11.3 把踩过的坑变成地图——课程化产出：PRD/方案/部署笔记沉淀到 `/docs`"
-typora-root-url: ../../public
+title: "11.3 Biến những cái bẫy đã đạp qua thành bản đồ——Kết quả sản phẩm theo hình thức khóa học: Sâu xa PRD/Phương án/Ghi chú triển khai vào `/docs`"
 ---
 
-# 11.3 知识沉淀：课程化产出
+# 11.3 Sâu xa kiến thức: Kết quả sản phẩm theo hình thức khóa học
 
-## 认知重构
+## Tái cấu trúc nhận thức
 
-项目结束不是终点，**把过程中的经验变成可复用的知识**才是真正的收获。好的知识沉淀能让团队避免重复踩坑，加速新人上手。
+Kết thúc dự án không phải là điểm cuối cùng, **biến kinh nghiệm từ quá trình thành kiến thức có thể tái sử dụng** mới là lợi ích thực sự. Sâu xa kiến thức tốt cho phép đội tránh đạp lại cái bẫy, gia tốc onboarding của nhân sự mới.
 
 ```mermaid
 flowchart LR
-    subgraph Input["项目过程"]
-        PRD["需求文档"]
-        Design["技术方案"]
-        Code["代码实现"]
-        Bug["踩过的坑"]
+    subgraph Input["Quy trình dự án"]
+        PRD["Tài liệu yêu cầu"]
+        Design["Phương án kỹ thuật"]
+        Code["Triển khai code"]
+        Bug["Những cái bẫy đã đạp"]
     end
-    
-    subgraph Output["知识产出"]
-        Docs["项目文档"]
-        BP["最佳实践"]
-        Course["教学材料"]
+
+    subgraph Output["Kết quả kiến thức"]
+        Docs["Tài liệu dự án"]
+        BP["Best practices"]
+        Course["Tài liệu giáo dục"]
     end
-    
+
     Input --> Output
 ```
 
-## 本节内容
+## Nội dung chương này
 
-| 小节 | 核心问题 | 你将学会 |
+| Tiểu mục | Câu hỏi cốt lõi | Bạn sẽ học được |
 |------|----------|----------|
-| 11.3.1 文档结构 | 文档放哪里？ | 项目文档的组织方式 |
-| 11.3.2 知识沉淀 | 经验如何传承？ | 最佳实践总结方法 |
-| 11.3.3 教学材料 | 如何教别人？ | 案例研究与练习题 |
-| 11.3.4 版本控制 | 文档怎么更新？ | 文档与代码同步 |
+| 11.3.1 Cấu trúc tài liệu | Tài liệu đặt ở đâu? | Cách tổ chức tài liệu dự án |
+| 11.3.2 Sâu xa kiến thức | Kinh nghiệm truyền lại như thế nào? | Phương pháp tóm tắt best practices |
+| 11.3.3 Tài liệu giáo dục | Dạy người khác như thế nào? | Nghiên cứu trường hợp và bài tập |
+| 11.3.4 Kiểm soát phiên bản | Tài liệu cập nhật như thế nào? | Đồng bộ tài liệu và code |
 
-## 为什么要做知识沉淀
+## Tại sao phải sâu xa kiến thức
 
-1. **避免重复踩坑**：把问题和解决方案记录下来
-2. **加速新人上手**：有据可查比口耳相传更可靠
-3. **形成团队资产**：知识不会因人员流动而丢失
-4. **促进持续改进**：复盘总结推动流程优化
+1. **Tránh đạp lại cái bẫy**: Ghi chép vấn đề và giải pháp
+2. **Gia tốc onboarding**: Có tài liệu tham khảo tin cậy hơn truyền miệng
+3. **Tạo thành tài sản đội**: Kiến thức không bị mất do nhân sự chuyển công tác
+4. **Thúc đẩy cải tiến liên tục**: Phục hồi tóm tắt thúc đẩy tối ưu quy trình
 
-## 文档即代码
+## Tài liệu như code
 
 ```
 project/
 ├── docs/
-│   ├── prd/           # 产品需求文档
-│   ├── design/        # 技术设计方案
-│   ├── api/           # API 文档
-│   ├── deploy/        # 部署指南
-│   └── postmortem/    # 复盘报告
+│   ├── prd/           # Tài liệu yêu cầu sản phẩm
+│   ├── design/        # Phương án thiết kế kỹ thuật
+│   ├── api/           # API documentation
+│   ├── deploy/        # Hướng dẫn triển khai
+│   └── postmortem/    # Báo cáo phục hồi
 ├── src/
 └── package.json
 ```
 
-## AI 协作提示
+## Gợi ý hợp tác AI
 
-在进行知识沉淀时，可以这样与 AI 协作：
+Khi sâu xa kiến thức, bạn có thể hợp tác với AI như sau:
 
-- "根据这段代码生成 API 文档"
-- "把这次排查问题的过程写成复盘报告"
-- "将这个项目的架构整理成技术方案文档"
+- "Tạo API documentation dựa trên đoạn code này"
+- "Viết báo cáo phục hồi từ quá trình xử lý sự cố này"
+- "Tổ chức kiến trúc của dự án này thành tài liệu phương án kỹ thuật"
 
-::: tip 写文档的原则
-好的文档不是写给现在的自己看的，而是写给**三个月后的自己**或**新加入的同事**看的。写完后问自己：一个完全不了解背景的人能看懂吗？
+::: tip Nguyên tắc viết tài liệu
+Tài liệu tốt không được viết cho bản thân bây giờ, mà được viết cho **bản thân ba tháng sau** hoặc **đồng nghiệp mới gia nhập**. Sau khi viết, hỏi bản thân: Liệu một người hoàn toàn không hiểu bối cảnh có thể hiểu được không?
 :::

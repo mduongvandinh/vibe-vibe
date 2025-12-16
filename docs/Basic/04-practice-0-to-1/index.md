@@ -1,107 +1,107 @@
 ---
-title: "第 4 章：实战 —— 从 0 到 1 开发个人工具"
+title: "Chương 4: Thực chiến — Phát triển công cụ cá nhân từ 0 đến 1"
 order: 1
 ---
 
-# 第 4 章：实战 —— 从 0 到 1 开发个人工具
+# Chương 4: Thực chiến — Phát triển công cụ cá nhân từ 0 đến 1
 
-> **章节定位**：本章是 Vibe Coding 的核心实践章节，将前三章学到的思维和技法真正落地，手把手带你完成第一个完整的 AI 编程项目。
+> **Định vị chương**: Chương này là chương thực hành cốt lõi của Vibe Coding, sẽ thực sự làm rơi vào thực tế tư duy và kỹ pháp học được ở ba chương trước, dẫn bạn từng bước hoàn thành dự án lập trình AI đầu tiên hoàn chỉnh.
 
-## 从"纸上谈兵"到"真刀真枪"
+## Từ "giáo điều" đến "thực chiến"
 
-在前三章，我们完成了重要的准备工作：
+Trong ba chương trước, chúng ta đã hoàn thành công việc chuẩn bị quan trọng:
 
-| 章节 | 你学到了什么 | 比喻 |
+| Chương | Bạn đã học được gì | Ví dụ |
 |------|-------------|------|
-| 第一章 觉醒 | 理解 Vibe Coding 是什么 | 认识新世界 |
-| 第二章 心法 | 用产品经理思维想清楚要做什么 | 写好剧本 |
-| 第三章 技法 | 用结构化方法与 AI 高效沟通 | 学会导演的语言 |
-| **第四章 实战** | **真正动手做出一个产品** | **开拍！** |
+| Chương 1 Thức tỉnh | Hiểu Vibe Coding là gì | Nhận biết thế giới mới |
+| Chương 2 Tâm pháp | Dùng tư duy product manager nghĩ rõ cần làm gì | Viết kịch bản tốt |
+| Chương 3 Kỹ pháp | Dùng phương pháp có cấu trúc giao tiếp hiệu quả với AI | Học ngôn ngữ của đạo diễn |
+| **Chương 4 Thực chiến** | **Thực sự ra tay làm ra một sản phẩm** | **Bắt đầu quay!** |
 
-本章，我们要把前面学的全部用起来——**做一个真正能用的东西**。
+Chương này, chúng ta sẽ dùng hết những gì đã học ở trước — **làm một thứ thực sự có thể dùng được**.
 
-不是看别人做，不是想象着做，而是你自己亲手做出来。
+Không phải xem người khác làm, không phải tưởng tượng làm, mà là bạn tự tay làm ra.
 
-## 为什么选择「待办清单」作为第一个项目
+## Tại sao chọn "todo list" làm dự án đầu tiên
 
-你可能会问：为什么不做个更酷炫的东西？比如 AI 聊天机器人、图片生成器？
+Bạn có thể hỏi: Tại sao không làm thứ gì ngầu hơn? Ví dụ chatbot AI, công cụ tạo ảnh?
 
-我们选择「个人待办清单」，有三个重要原因：
+Chúng tôi chọn "todo list cá nhân", có ba lý do quan trọng:
 
-### 1. 包含完整的 CRUD 操作
+### 1. Bao gồm đầy đủ thao tác CRUD
 
-| 操作 | 英文 | 在待办清单中的体现 |
+| Thao tác | Tiếng Anh | Thể hiện trong todo list |
 |------|------|-------------------|
-| 创建 | Create | 添加新任务 |
-| 读取 | Read | 显示任务列表 |
-| 更新 | Update | 标记任务完成 |
-| 删除 | Delete | 删除任务 |
+| Tạo | Create | Thêm task mới |
+| Đọc | Read | Hiển thị danh sách task |
+| Cập nhật | Update | Đánh dấu task hoàn thành |
+| Xóa | Delete | Xóa task |
 
-这四个操作是几乎所有应用的基础。学会了这个，做其他项目就是换个皮。
+Bốn thao tác này là nền tảng của hầu như mọi ứng dụng. Học được cái này, làm dự án khác chỉ là đổi vỏ ngoài.
 
-### 2. 与第二章案例无缝衔接
+### 2. Kết nối liền mạch với ví dụ chương 2
 
-还记得第二章的小李吗？他想做一个待办清单来管理自己的任务。我们在第二章帮他做了：
-- 灵魂三问分析
-- 用户画像
-- MVP 功能定义
-- 简易 PRD
+Còn nhớ Tiểu Lý ở chương 2 không? Anh ấy muốn làm một todo list để quản lý task của mình. Chúng ta ở chương 2 đã giúp anh ấy làm:
+- Phân tích ba câu hỏi linh hồn
+- User persona
+- Định nghĩa tính năng MVP
+- PRD đơn giản
 
-现在，我们要把小李的想法**真正做出来**。
+Bây giờ, chúng ta sẽ **thực sự làm ra** ý tưởng của Tiểu Lý.
 
-### 3. 做完真的能用
+### 3. Làm xong thực sự dùng được
 
-这不是一个"练习项目"——做完后，你真的可以用它来管理自己的待办事项。刷新页面数据还在，手机上也能打开。这种"我做的东西真的能用"的成就感，是学习编程最大的动力。
+Đây không phải "dự án luyện tập" — làm xong, bạn thực sự có thể dùng nó để quản lý công việc của mình. Refresh trang dữ liệu vẫn còn, mở trên điện thoại cũng được. Cảm giác thành tựu "thứ tôi làm thực sự dùng được" này, chính là động lực lớn nhất để học lập trình.
 
-## 本章如何整合前几章内容
+## Chương này tích hợp nội dung các chương trước như thế nào
 
-| 来自章节 | 你将用到 | 用在哪里 |
+| Từ chương | Bạn sẽ dùng | Dùng ở đâu |
 |---------|---------|---------|
-| 第二章 心法 | 小李的PRD、灵魂三问、MVP定义 | 4.1 明确要做什么 |
-| 第三章 技法 | S.C.A.F.F.框架、迭代对话技巧 | 4.2-4.4 写Prompt、调整优化 |
+| Chương 2 Tâm pháp | PRD của Tiểu Lý, ba câu hỏi linh hồn, định nghĩa MVP | 4.1 Xác định rõ cần làm gì |
+| Chương 3 Kỹ pháp | Framework S.C.A.F.F., kỹ thuật đối thoại lặp | 4.2-4.4 Viết Prompt, điều chỉnh tối ưu |
 
-本章是前两章的"实战演练场"——第二章教你想清楚，第三章教你说明白，本章让你真正做出来。
+Chương này là "sân tập thực chiến" của hai chương trước — chương 2 dạy bạn nghĩ rõ, chương 3 dạy bạn nói rõ, chương này để bạn thực sự làm ra.
 
-## 本章学习目标
+## Mục tiêu học tập chương này
 
-完成本章学习后，你将：
+Hoàn thành chương này, bạn sẽ:
 
-- ✅ 独立完成一个包含增删改查功能的完整网页应用
-- ✅ 掌握从想法到产品的完整工作流程
-- ✅ 学会使用 AI IDE 进行开发
-- ✅ 能够在 AI 代码出错时进行调试和修复
-- ✅ 理解数据存储的基本概念（localStorage）
-- ✅ 拥有一个可以展示给朋友的真实作品
+- ✅ Hoàn thành độc lập một ứng dụng web hoàn chỉnh có chức năng thêm xóa sửa tìm
+- ✅ Nắm vững quy trình làm việc hoàn chỉnh từ ý tưởng đến sản phẩm
+- ✅ Học cách dùng AI IDE để phát triển
+- ✅ Có thể debug và sửa khi code AI báo lỗi
+- ✅ Hiểu khái niệm cơ bản về lưu trữ dữ liệu (localStorage)
+- ✅ Có một tác phẩm thực có thể khoe với bạn bè
 
-## 本章结构预览
+## Cấu trúc chương này
 
 ```
-4.1 开始之前 → 整合准备工作，选择工具
-4.2 第一轮：搭建页面 → 先把"脸"做出来
-4.3 第二轮：实现功能 → 让它能响应操作
-4.4 第三轮：数据存储 → 让它记住你的数据
-4.5 Debug 实战 → 当 AI 代码报错时怎么办
-4.6 收尾与回顾 → 完整项目展示与经验总结
+4.1 Trước khi bắt đầu → Tích hợp công việc chuẩn bị, chọn công cụ
+4.2 Vòng 1: Xây dựng trang → Trước hết làm "giao diện"
+4.3 Vòng 2: Thực hiện chức năng → Để nó phản ứng với thao tác
+4.4 Vòng 3: Lưu trữ dữ liệu → Để nó nhớ dữ liệu của bạn
+4.5 Debug thực chiến → Khi code AI báo lỗi thì làm sao
+4.6 Tổng kết và nhìn lại → Trình bày dự án hoàn chỉnh và tổng kết kinh nghiệm
 ```
 
-## 预计时间
+## Thời gian dự kiến
 
-| 章节 | 预计时间 | 难度 |
+| Mục | Thời gian dự kiến | Độ khó |
 |------|---------|------|
-| 4.1 开始之前 | 15 分钟 | ⭐ |
-| 4.2 搭建页面 | 20 分钟 | ⭐ |
-| 4.3 实现功能 | 30 分钟 | ⭐⭐ |
-| 4.4 数据存储 | 20 分钟 | ⭐⭐ |
-| 4.5 Debug 实战 | 20 分钟 | ⭐⭐ |
-| 4.6 收尾回顾 | 15 分钟 | ⭐ |
-| **总计** | **约 2 小时** | |
+| 4.1 Trước khi bắt đầu | 15 phút | ⭐ |
+| 4.2 Xây dựng trang | 20 phút | ⭐ |
+| 4.3 Thực hiện chức năng | 30 phút | ⭐⭐ |
+| 4.4 Lưu trữ dữ liệu | 20 phút | ⭐⭐ |
+| 4.5 Debug thực chiến | 20 phút | ⭐⭐ |
+| 4.6 Tổng kết nhìn lại | 15 phút | ⭐ |
+| **Tổng cộng** | **Khoảng 2 giờ** | |
 
-::: tip 💡 建议
-可以一口气做完，也可以分成 2-3 次。每完成一轮都有阶段性成果，随时可以暂停。
+::: tip 💡 Đề xuất
+Có thể làm một mạch, cũng có thể chia thành 2-3 lần. Mỗi lần hoàn thành một vòng đều có thành quả giai đoạn, có thể tạm dừng bất cứ lúc nào.
 :::
 
-## 准备好了吗？
+## Sẵn sàng chưa?
 
-让我们开始动手做东西！
+Hãy bắt đầu ra tay làm đồ thôi!
 
-→ [4.1 开始之前](./4.1-before-start/)
+→ [4.1 Trước khi bắt đầu](./4.1-before-start/)

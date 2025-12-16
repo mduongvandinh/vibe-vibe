@@ -1,64 +1,63 @@
 ---
-title: "3.4 告别选择困难症——Tailwind + shadcn/ui：统一设计体系与组件库"
-typora-root-url: ../../public
+title: "3.4 Tạm biệt hội chứng khó lựa chọn——Tailwind + shadcn/ui: Hệ thống design thống nhất và component library"
 ---
 
-# 3.4 告别选择困难症——Tailwind + shadcn/ui
+# 3.4 Tạm biệt hội chứng khó lựa chọn——Tailwind + shadcn/ui
 
-### 一句话破题
+### Tóm tắt một câu
 
-Tailwind 提供原子化样式类，shadcn/ui 提供可定制组件，两者结合是 Next.js 项目的最佳样式方案。
+Tailwind cung cấp atomic style classes, shadcn/ui cung cấp customizable components, hai thứ kết hợp là phương án styling tốt nhất cho dự án Next.js.
 
-### 核心价值
+### Giá trị cốt lõi
 
-CSS 的世界充满选择：CSS Modules、Styled Components、Emotion、Sass……每种方案都有优缺点。Tailwind + shadcn/ui 的组合已成为 React 社区的主流选择，也是 Vibe Coding 技术栈的标配。
+Thế giới CSS đầy rẫy lựa chọn: CSS Modules, Styled Components, Emotion, Sass... Mỗi phương án đều có ưu nhược điểm. Sự kết hợp Tailwind + shadcn/ui đã trở thành lựa chọn chủ đạo của React community, cũng là chuẩn của tech stack Vibe Coding.
 
-### 为什么选择这套方案？
+### Tại sao chọn bộ phương án này?
 
 ```mermaid
 graph TD
-    A["样式方案选择"] --> B{"需求是什么?"}
-    B -->|"快速开发"| C["Tailwind CSS"]
-    B -->|"一致性组件"| D["shadcn/ui"]
-    B -->|"深度定制"| E["两者结合"]
-    
-    C --> F["原子类 + 响应式"]
-    D --> G["复制代码 + 完全可控"]
-    E --> H["最佳实践"]
+    A["Lựa chọn phương án styling"] --> B{"Nhu cầu là gì?"}
+    B -->|"Phát triển nhanh"| C["Tailwind CSS"]
+    B -->|"Component nhất quán"| D["shadcn/ui"]
+    B -->|"Tùy chỉnh sâu"| E["Kết hợp cả hai"]
+
+    C --> F["Atomic classes + responsive"]
+    D --> G["Copy code + hoàn toàn kiểm soát"]
+    E --> H["Best practices"]
 ```
 
-| 方案 | 优点 | 缺点 |
+| Phương án | Ưu điểm | Nhược điểm |
 |------|------|------|
-| **Tailwind CSS** | 无需命名、快速迭代、体积小 | 类名长、需要学习 |
-| **shadcn/ui** | 高质量组件、完全可定制 | 需要手动安装 |
-| **传统 CSS** | 熟悉、无学习成本 | 命名困难、样式冲突 |
-| **CSS-in-JS** | 组件化、动态样式 | 运行时开销 |
+| **Tailwind CSS** | Không cần naming, iteration nhanh, size nhỏ | Class names dài, cần học |
+| **shadcn/ui** | High-quality components, hoàn toàn customizable | Cần cài đặt thủ công |
+| **CSS truyền thống** | Quen thuộc, không cần học | Khó naming, style conflicts |
+| **CSS-in-JS** | Component hóa, dynamic styles | Runtime overhead |
 
-### 本节导航
+### Điều hướng phần này
 
-| 小节 | 主题 | 核心内容 |
+| Section | Chủ đề | Nội dung cốt lõi |
 |------|------|----------|
-| **3.4.1** | Tailwind CSS | 原子化 CSS、常用类、响应式 |
-| **3.4.2** | shadcn/ui | 安装使用、组件定制 |
-| **3.4.3** | 设计系统 | 颜色/字体/间距规范 |
-| **3.4.4** | 响应式设计 | 移动优先、断点策略 |
+| **3.4.1** | Tailwind CSS | Atomic CSS, classes thường dùng, responsive |
+| **3.4.2** | shadcn/ui | Cài đặt sử dụng, tùy chỉnh component |
+| **3.4.3** | Design system | Quy chuẩn color/font/spacing |
+| **3.4.4** | Responsive design | Mobile-first, breakpoint strategy |
 
-### 快速开始
+### Bắt đầu nhanh
 
-**1. 创建项目时已包含 Tailwind**
+**1. Khi tạo project đã bao gồm Tailwind**
 
 ```bash
 npx create-next-app@latest my-app
-# 选择 Yes 使用 Tailwind CSS
+# Chọn Yes để sử dụng Tailwind CSS
 ```
 
-**2. 安装 shadcn/ui**
+**2. Cài đặt shadcn/ui**
 
 ```bash
 npx shadcn@latest init
 ```
 
-**3. 添加组件**
+**3. Thêm components**
 
 ```bash
 npx shadcn@latest add button
@@ -66,31 +65,31 @@ npx shadcn@latest add card
 npx shadcn@latest add input
 ```
 
-### AI 协作指南
+### Hướng dẫn cộng tác AI
 
-**核心意图**：让 AI 使用 Tailwind + shadcn 生成一致的 UI 代码。
+**Ý định cốt lõi**: Để AI sử dụng Tailwind + shadcn generate UI code nhất quán.
 
-**需求定义公式**：
-- 功能描述：我需要一个 [组件/页面]
-- 样式要求：使用 Tailwind CSS
-- 组件要求：使用 shadcn/ui 的 [组件名]
+**Công thức định nghĩa yêu cầu**:
+- Mô tả chức năng: Tôi cần một [component/page]
+- Yêu cầu styling: Sử dụng Tailwind CSS
+- Yêu cầu component: Sử dụng [tên component] của shadcn/ui
 
-**关键术语**：`Tailwind`、`shadcn/ui`、`cn()`、`className`、`响应式`
+**Thuật ngữ chính**: `Tailwind`, `shadcn/ui`, `cn()`, `className`, `responsive`
 
-**示例 Prompt**：
+**Ví dụ Prompt**:
 
 ```
-请用 Tailwind CSS 和 shadcn/ui 创建一个登录表单：
-- 使用 Card 作为容器
-- 使用 Input 组件（邮箱和密码）
-- 使用 Button 组件（登录按钮）
-- 添加"忘记密码"链接
-- 响应式：移动端全宽，桌面端最大 400px
+Vui lòng dùng Tailwind CSS và shadcn/ui tạo login form:
+- Sử dụng Card làm container
+- Sử dụng Input component (email và password)
+- Sử dụng Button component (login button)
+- Thêm link "Quên mật khẩu"
+- Responsive: mobile full width, desktop tối đa 400px
 ```
 
-### 验收清单
+### Checklist nghiệm thu
 
-- [ ] Tailwind 配置正确，样式生效
-- [ ] shadcn/ui 组件正确安装和导入
-- [ ] 组件使用 `cn()` 合并样式类
-- [ ] 响应式断点设置合理
+- [ ] Tailwind config đúng, styles hoạt động
+- [ ] shadcn/ui components cài đặt và import đúng
+- [ ] Components sử dụng `cn()` để merge style classes
+- [ ] Responsive breakpoints thiết lập hợp lý

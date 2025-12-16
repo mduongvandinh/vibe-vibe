@@ -1,36 +1,35 @@
 ---
-title: "1 ｜概念与准备"
-typora-root-url: ../public
+title: "1 | Khái niệm và Chuẩn bị"
 ---
 
-# 1 ｜概念与准备（从思维到工具）
+# 1 | Khái niệm và Chuẩn bị (Từ tư duy đến công cụ)
 
-本章是从"了解概念"到"动手实践"的过渡阶段。在 Bootcamp 中，你已经建立了对全栈开发和 Vibe Coding 的基本认知；现在，我们要把这些认知转化为**可执行的行动**。
+Chương này là giai đoạn chuyển tiếp từ "hiểu khái niệm" đến "thực hành". Trong Bootcamp, bạn đã xây dựng được nhận thức cơ bản về phát triển fullstack và Vibe Coding; giờ đây, chúng ta sẽ chuyển hóa những nhận thức này thành **hành động có thể thực thi**.
 
-### 本章目标
+### Mục tiêu chương
 
-完成本章学习后，你将能够：
+Sau khi hoàn thành chương này, bạn sẽ có thể:
 
-1. **搭建完整的开发环境**：拥有一套可以立即开始编码的工具链（IDE、Node.js、Git）
-2. **跑通第一个 Next.js 项目**：亲眼看到 Hello World 页面在浏览器中运行
-3. **建立 Vibe Coding 心法**：理解如何从"写代码"转变为"指挥 AI 写代码"
-4. **完成首次部署**：让你的作品拥有一个全世界都能访问的 URL
-5. **掌握 AI 协作工作流**：学会如何与 AI 高效配合，而非被 AI 牵着走
+1. **Xây dựng môi trường phát triển hoàn chỉnh**: Sở hữu một bộ công cụ có thể bắt đầu coding ngay lập tức (IDE, Node.js, Git)
+2. **Chạy thành công dự án Next.js đầu tiên**: Tận mắt nhìn thấy trang Hello World chạy trong trình duyệt
+3. **Thiết lập tư duy Vibe Coding**: Hiểu cách chuyển từ "viết code" sang "chỉ huy AI viết code"
+4. **Hoàn thành lần deploy đầu tiên**: Cho tác phẩm của bạn có một URL mà cả thế giới có thể truy cập
+5. **Nắm vững quy trình làm việc với AI**: Học cách phối hợp hiệu quả với AI, thay vì bị AI dắt mũi
 
-### 章节导航
+### Dẫn đường chương
 
-| 小节 | 主题 | 你将学到 |
+| Tiểu mục | Chủ đề | Bạn sẽ học được |
 |------|------|----------|
-| 1.1 | 工具装配与验证 | 选择 IDE、配置 AI 助手、初始化 Next.js 项目 |
-| 1.2 | Vibe Coding 心法 | 思维转变、提示工程、代码审查、模型选择 |
-| 1.3 | 最小上线实战 | 用 1Panel 完成第一次部署 |
-| 1.4 | AI 协作工作流 | 建立可复用的人机协作模式 |
-| 1.5 | 工具链全景 | IDE/Git/数据库/部署平台的全面配置 |
+| 1.1 | Lắp ráp và Xác minh Công cụ | Chọn IDE, cấu hình AI assistant, khởi tạo dự án Next.js |
+| 1.2 | Tư duy Vibe Coding | Chuyển đổi tư duy, kỹ thuật prompt, code review, lựa chọn model |
+| 1.3 | Thực chiến MVP Online | Hoàn thành lần deploy đầu tiên với 1Panel |
+| 1.4 | Quy trình Cộng tác với AI | Xây dựng mô hình cộng tác người-máy có thể tái sử dụng |
+| 1.5 | Toàn cảnh Bộ công cụ | Cấu hình toàn diện IDE/Git/Database/Platform deploy |
 
-### 学习建议
+### Gợi ý học tập
 
-本章内容偏实操，建议你：
+Nội dung chương này thiên thực hành, khuyên bạn nên:
 
-- **边看边做**：每个小节都有实际操作步骤，动手比看更重要
-- **不要追求完美**：先跑通最小闭环，再迭代优化
-- **遇到问题找 AI**：这正是 Vibe Coding 的核心——用自然语言描述问题，让 AI 帮你解决
+- **Vừa xem vừa làm**: Mỗi tiểu mục đều có các bước thao tác thực tế, quan trọng ở việc làm hơn là xem
+- **Đừng theo đuổi hoàn hảo**: Chạy thông vòng lặp tối thiểu trước, sau đó mới tối ưu dần
+- **Gặp vấn đề hãy tìm AI**: Đây chính là cốt lõi của Vibe Coding - mô tả vấn đề bằng ngôn ngữ tự nhiên, để AI giúp bạn giải quyết

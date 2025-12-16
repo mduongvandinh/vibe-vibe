@@ -1,16 +1,15 @@
 ---
-title: "8.3 让你看懂改了什么——提交规范：Conventional Commits 与 Release Note"
-typora-root-url: ../../public
+title: "8.3 Hiểu được những gì đã thay đổi——Quy chuẩn Commit: Conventional Commits và Release Note"
 ---
 
-# 8.3 让你(和 AI)看懂改了什么——提交规范
+# 8.3 Hiểu được những gì đã thay đổi——Quy chuẩn Commit
 
-好的提交信息是给未来的自己和队友写的说明书——也是让 AI 理解代码变更的关键。
+Những commit message tốt là sổ tay hướng dẫn cho bản thân sau này và các đồng nghiệp——cũng là chìa khóa để AI hiểu được những thay đổi mã.
 
-## 为什么提交规范很重要
+## Tại sao quy chuẩn commit lại quan trọng
 
 ```bash
-# 差的提交历史
+# Lịch sử commit tệ
 git log --oneline
 a1b2c3d fix
 b2c3d4e update
@@ -18,7 +17,7 @@ c3d4e5f fix bug
 d4e5f6g 改了点东西
 e5f6g7h WIP
 
-# 好的提交历史
+# Lịch sử commit tốt
 git log --oneline
 a1b2c3d feat: 添加用户登录功能
 b2c3d4e fix: 修复登录验证失败的问题
@@ -27,15 +26,15 @@ d4e5f6g refactor: 重构用户认证模块
 e5f6g7h test: 添加登录功能的单元测试
 ```
 
-**规范提交的价值**：
-- 快速定位问题引入的提交
-- 自动生成 CHANGELOG
-- 方便代码审查
-- 让 AI 更容易理解代码变更意图
+**Giá trị của việc tuân theo quy chuẩn commit**:
+- Định vị nhanh commit nơi vấn đề được đưa vào
+- Tự động tạo CHANGELOG
+- Dễ dàng thực hiện review code
+- Giúp AI hiểu rõ hơn ý định thay đổi mã
 
-## Conventional Commits 规范
+## Quy chuẩn Conventional Commits
 
-Conventional Commits 是目前最流行的提交信息规范：
+Conventional Commits là quy chuẩn commit message phổ biến nhất hiện nay:
 
 ```
 <type>(<scope>): <description>
@@ -45,33 +44,33 @@ Conventional Commits 是目前最流行的提交信息规范：
 [optional footer(s)]
 ```
 
-### 核心元素
+### Các phần tử cốt lõi
 
-| 元素 | 说明 | 示例 |
+| Phần tử | Mô tả | Ví dụ |
 |------|------|------|
-| type | 变更类型 | feat, fix, docs |
-| scope | 影响范围（可选） | auth, api, ui |
-| description | 简短描述 | 添加用户登录 |
-| body | 详细说明（可选） | 多行详细描述 |
-| footer | 关联信息（可选） | Closes #123 |
+| type | Loại thay đổi | feat, fix, docs |
+| scope | Phạm vi ảnh hưởng (tùy chọn) | auth, api, ui |
+| description | Mô tả ngắn gọn | 添加用户登录 |
+| body | Mô tả chi tiết (tùy chọn) | Mô tả chi tiết nhiều dòng |
+| footer | Thông tin liên quan (tùy chọn) | Closes #123 |
 
-## 本节结构
+## Cấu trúc phần này
 
-1. **提交格式**：Conventional Commits 标准格式详解
-2. **类型分类**：feat/fix/docs 等类型的使用场景
-3. **自动化检查**：commitlint 与 husky 配置
-4. **CHANGELOG 生成**：从提交历史自动生成发布日志
+1. **commit format**：Chi tiết định dạng tiêu chuẩn Conventional Commits
+2. **Phân loại loại**：Các trường hợp sử dụng cho feat/fix/docs...
+3. **Kiểm tra tự động**：Cấu hình commitlint và husky
+4. **Tạo CHANGELOG**：Tự động tạo nhật ký phát hành từ lịch sử commit
 
-## 快速示例
+## Ví dụ nhanh
 
 ```bash
-# 功能提交
+# Commit tính năng
 git commit -m "feat(auth): 添加 Google OAuth 登录"
 
-# 修复提交
+# Commit sửa lỗi
 git commit -m "fix(api): 修复用户查询分页错误"
 
-# 带 body 的提交
+# Commit có body
 git commit -m "refactor(database): 优化查询性能
 
 - 添加复合索引
@@ -81,9 +80,9 @@ git commit -m "refactor(database): 优化查询性能
 Closes #456"
 ```
 
-## 验收清单
+## Danh sách kiểm tra
 
-- [ ] 理解 Conventional Commits 规范
-- [ ] 能正确使用 type 和 scope
-- [ ] 会配置 commitlint 自动检查
-- [ ] 能使用工具自动生成 CHANGELOG
+- [ ] Hiểu rõ quy chuẩn Conventional Commits
+- [ ] Có thể sử dụng type và scope một cách chính xác
+- [ ] Biết cách cấu hình commitlint để kiểm tra tự động
+- [ ] Có thể sử dụng các công cụ để tự động tạo CHANGELOG

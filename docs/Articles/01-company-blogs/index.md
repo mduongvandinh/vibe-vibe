@@ -1,9 +1,9 @@
 ---
-title: "知名公司博客"
+title: "Blog Các Công Ty Nổi Tiếng"
 ---
 
-# 知名公司博客
+# Blog Các Công Ty Nổi Tiếng
 
-来自顶级科技公司的技术博客和工程实践分享。
+Blog công nghệ và chia sẻ thực hành kỹ thuật từ các công ty công nghệ hàng đầu.
 
-教程开发中
+Hướng dẫn đang được phát triển

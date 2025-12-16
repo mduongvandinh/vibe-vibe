@@ -1,48 +1,48 @@
 ---
-title: "3.7 本章总结与实战演练"
+title: "3.7 Tổng kết chương và Luyện tập thực hành"
 ---
 
-# 3.7 本章总结与实战演练
+# 3.7 Tổng kết chương và Luyện tập thực hành
 
-> **本节目标**：回顾本章核心内容，整合第二章与第三章的完整工作流，通过实战演练内化技能。
-
-
-## 经过本节学习，你将掌握
-
-- 本章六大核心技能的精华总结与快速回顾
-- 从「想清楚」到「说明白」的完整工作流
-- 一份可随时查阅的提示词速查清单
-- 四个综合练习，帮助你内化所学技能
-- 为下一章实战开发做好准备
+> **Mục tiêu phần này**: Ôn tập nội dung cốt lõi của chương, tích hợp quy trình làm việc hoàn chỉnh từ Chương 2 và Chương 3, nội hóa kỹ năng thông qua thực hành.
 
 
-## 为什么需要这一节
+## Sau khi học phần này, bạn sẽ nắm vững
 
-学完前面六节，你已经掌握了与 AI 对话的核心技能。但零散的知识点需要整合，才能形成真正可用的能力。
-
-本节的任务是：
-
-1. **回顾**：把六节内容压缩成「记住什么」
-2. **整合**：把第二章的思考成果和第三章的表达技巧串联起来
-3. **实践**：通过综合练习，把知识转化为技能
-4. **准备**：为下一章的实战开发做好准备
+- Tổng hợp tinh túy và ôn tập nhanh 6 kỹ năng cốt lõi của chương
+- Quy trình làm việc hoàn chỉnh từ "nghĩ rõ ràng" đến "diễn đạt rõ ràng"
+- Danh sách tham khảo nhanh prompt có thể tra cứu bất cứ lúc nào
+- 4 bài tập tổng hợp giúp bạn nội hóa kỹ năng đã học
+- Chuẩn bị sẵn sàng cho thực hành phát triển ở chương tiếp theo
 
 
-## 本节结构
+## Tại sao cần phần này
 
-| 小节 | 内容 | 你会得到 |
+Sau khi học 6 phần trước, bạn đã nắm vững các kỹ năng cốt lõi để đối thoại với AI. Nhưng kiến thức rời rạc cần được tích hợp mới trở thành năng lực thực sự có thể áp dụng.
+
+Nhiệm vụ của phần này là:
+
+1. **Ôn tập**: Nén 6 phần nội dung thành "điều cần nhớ"
+2. **Tích hợp**: Kết nối thành quả tư duy từ Chương 2 với kỹ thuật diễn đạt từ Chương 3
+3. **Thực hành**: Chuyển hóa kiến thức thành kỹ năng thông qua các bài tập tổng hợp
+4. **Chuẩn bị**: Sẵn sàng cho thực hành phát triển ở chương tiếp theo
+
+
+## Cấu trúc phần này
+
+| Tiểu mục | Nội dung | Bạn sẽ nhận được |
 |-----|------|---------|
-| 3.7.1 | 核心要点回顾 | 六大技能速查表、技巧选择决策树 |
-| 3.7.2 | 完整工作流 | 从想法到代码的八步流程、小李案例完整演示 |
-| 3.7.3 | 提示词速查清单 | 可打印的一页纸速查表、分场景 Prompt 模板 |
-| 3.7.4 | 实战演练 | 四个综合练习及参考答案 |
-| 3.7.5 | 下一章预告 | 能力盘点、课后作业、第四章预告 |
+| 3.7.1 | Ôn tập điểm cốt lõi | Bảng tham khảo nhanh 6 kỹ năng, sơ đồ ra quyết định chọn kỹ thuật |
+| 3.7.2 | Quy trình làm việc hoàn chỉnh | Quy trình 8 bước từ ý tưởng đến code, demo hoàn chỉnh case study Tiểu Lý |
+| 3.7.3 | Danh sách tham khảo nhanh Prompt | Bảng tham khảo 1 trang có thể in ra, template Prompt theo tình huống |
+| 3.7.4 | Luyện tập thực hành | 4 bài tập tổng hợp và đáp án tham khảo |
+| 3.7.5 | Dự báo chương tiếp theo | Kiểm kê năng lực, bài tập về nhà, dự báo Chương 4 |
 
 
-## 学习建议
+## Gợi ý học tập
 
-- **3.7.1-3.7.3**：快速浏览，收藏备用
-- **3.7.4**：认真完成练习，对照参考答案自评
-- **3.7.5**：完成课后作业，为下一章做准备
+- **3.7.1-3.7.3**: Đọc nhanh, lưu lại để sử dụng
+- **3.7.4**: Làm bài tập nghiêm túc, đối chiếu đáp án tham khảo để tự đánh giá
+- **3.7.5**: Hoàn thành bài tập về nhà, chuẩn bị cho chương tiếp theo
 
-准备好了吗？让我们开始最后的整合与实践。
+Sẵn sàng chưa? Hãy bắt đầu với việc tích hợp và thực hành cuối cùng.

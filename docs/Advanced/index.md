@@ -1,96 +1,96 @@
 ---
-title: "进阶篇"
+title: "Phần Nâng Cao"
 ---
 
-# 进阶篇
+# Phần Nâng Cao
 
-::: warning 🚧 内部预览版本声明
-**本项目目前处于早期开发阶段**，大部分内容皆为初稿，尚未经过全面的人工二次审核与校对。
+::: warning 🚧 Thông báo phiên bản xem trước nội bộ
+**Dự án này hiện đang trong giai đoạn phát triển sớm**, phần lớn nội dung đều là bản thảo đầu tiên, chưa qua review và hiệu đính thủ công toàn diện lần hai.
 :::
 
-完成基础篇的学习后，你可以在这里继续深入学习 AI 辅助开发的进阶技能。
+Sau khi hoàn thành phần cơ bản, bạn có thể tiếp tục học sâu các kỹ năng nâng cao về phát triển hỗ trợ AI tại đây.
 
-## 推荐的整体开发流程
+## Quy trình phát triển tổng thể được đề xuất
 
-在 Vibe Coding 体系下，我们建议你用一套「AI 友好的」开发流程来完成一个项目，从想法到上线，大致可以拆解为以下步骤：
+Trong hệ thống Vibe Coding, chúng tôi đề nghị bạn dùng một quy trình phát triển "thân thiện với AI" để hoàn thành dự án, từ ý tưởng đến lên mạng, đại khái có thể tách thành các bước sau:
 
-1. 理清思路  
-   把脑子里的想法先用自然语言写出来：目标用户是谁、要解决什么问题、希望看到什么结果，而不是一上来就写代码。
+1. Lý rõ tư duy
+   Viết ra bằng ngôn ngữ tự nhiên những ý tưởng trong đầu trước: người dùng mục tiêu là ai, muốn giải quyết vấn đề gì, hi vọng thấy kết quả gì, chứ không phải vừa bắt đầu đã viết code.
 
-2. 写 PRD（需求文档）  
-   用结构化的方式描述功能：背景、目标、用户故事、功能列表、非功能需求等，让自己和 AI 都知道要做什么、不做什么。
+2. Viết PRD (Tài liệu yêu cầu)
+   Dùng cách có cấu trúc để mô tả chức năng: bối cảnh, mục tiêu, user story, danh sách tính năng, yêu cầu phi chức năng v.v., để cả bạn và AI đều biết cần làm gì, không làm gì.
 
-3. 写技术文档（技术方案草稿）  
-   明确技术栈（例如 Next.js 16 + TypeScript + Prisma）、系统架构、关键数据结构、外部依赖（第三方 API、数据库、消息队列等）。
+3. Viết tài liệu kỹ thuật (Bản thảo phương án kỹ thuật)
+   Làm rõ tech stack (ví dụ Next.js 16 + TypeScript + Prisma), kiến trúc hệ thống, cấu trúc dữ liệu quan trọng, phụ thuộc bên ngoài (API bên thứ ba, database, message queue v.v.).
 
-4. 多 AI 评审  
-   把 PRD 和技术文档丢给多个 AI 进行「挑错」和补充：  
-   - 让 AI 帮你找需求里的漏洞和模糊点  
-   - 让 AI 提出潜在风险和边界情况  
-   - 让 AI 给出替代方案和改进建议
+4. Review nhiều AI
+   Đưa PRD và tài liệu kỹ thuật cho nhiều AI "soi lỗi" và bổ sung:
+   - Để AI giúp bạn tìm lỗ hổng và điểm mơ hồ trong yêu cầu
+   - Để AI đưa ra rủi ro tiềm ẩn và trường hợp biên
+   - Để AI đưa ra phương án thay thế và đề xuất cải thiện
 
-5. 让 AI 反复向你发问  
-   反转一下，让 AI 扮演「较真产品经理 / 架构师」，围绕你的方案不断提问，你负责回答并在文档中持续修正和补充。
+5. Để AI liên tục hỏi bạn
+   Đảo ngược lại, để AI đóng vai "product manager / architect cứng rắn", liên tục đặt câu hỏi về phương án của bạn, bạn phụ trách trả lời và liên tục chỉnh sửa bổ sung trong tài liệu.
 
-6. 定稿 PRD 与技术方案  
-   当问题基本被问透、主要风险都有对应方案后，将 PRD 和技术文档整理成一个「当前版本的定稿」，作为后续开发的单一事实来源。
+6. Định bản PRD và phương án kỹ thuật
+   Khi vấn đề cơ bản đã được hỏi kỹ, các rủi ro chính đều có phương án tương ứng, sắp xếp PRD và tài liệu kỹ thuật thành "bản định của phiên bản hiện tại", làm nguồn sự thật duy nhất cho phát triển sau này.
 
-7. 准备环境变量与基础设施  
-   提前规划好环境变量和基础设施，例如：  
-   - 数据库连接、存储、第三方服务密钥  
-   - 本地与线上环境的配置规范  
-   - `.env` 文件的结构和管理方式
+7. Chuẩn bị biến môi trường và cơ sở hạ tầng
+   Lập kế hoạch trước biến môi trường và cơ sở hạ tầng, ví dụ:
+   - Kết nối database, storage, khóa dịch vụ bên thứ ba
+   - Chuẩn mực cấu hình môi trường local và online
+   - Cấu trúc và cách quản lý file `.env`
 
-8. 准备开发环境并初始化项目  
-   按技术方案在本地搭建开发环境：  
-   - 初始化项目与基础目录结构  
-   - 安装依赖、配置 Lint/Format、TypeScript 等  
-   - 搭好最小可运行的骨架（首页、健康检查等）
+8. Chuẩn bị môi trường dev và khởi tạo dự án
+   Theo phương án kỹ thuật setup môi trường dev local:
+   - Khởi tạo dự án và cấu trúc thư mục cơ bản
+   - Cài dependency, config Lint/Format, TypeScript v.v.
+   - Dựng khung chạy được tối thiểu (trang chủ, health check v.v.)
 
-9. 让 AI 正式参与开发  
-   基于 PRD 和技术文档驱动 AI：  
-   - 让 AI 帮你拆分任务和规划迭代顺序  
-   - 让 AI 输出初版代码，你负责审阅与调整  
-   - 每次改动都尽量和文档、需求保持一致
+9. Để AI chính thức tham gia phát triển
+   Dựa trên PRD và tài liệu kỹ thuật để drive AI:
+   - Để AI giúp bạn tách task và lập kế hoạch thứ tự lặp
+   - Để AI output code phiên bản đầu, bạn phụ trách review và điều chỉnh
+   - Mỗi lần thay đổi đều cố gắng giữ nhất quán với tài liệu, yêu cầu
 
-10. 遇到不懂的功能就问  
-    对于不熟悉的框架特性或语法，不要硬写：  
-    - 询问 AI 获取解释与示例  
-    - 同时结合官方文档验证关键用法
+10. Gặp chức năng không hiểu thì hỏi
+    Đối với tính năng framework hoặc cú pháp không quen thuộc, đừng cứng viết:
+    - Hỏi AI để lấy giải thích và ví dụ
+    - Đồng thời kết hợp tài liệu chính thức để xác minh cách dùng quan trọng
 
-11. 引入外部 API 先看文档  
-    当需要对接任意外部 API（支付、登录、AI 模型等）时：  
-    - 优先阅读官方文档和使用限制  
-    - 再把关键信息转化成你项目里的「接口契约」，由 AI 帮你生成封装代码。
+11. Đưa vào API bên ngoài xem doc trước
+    Khi cần đối tiếp bất kỳ API bên ngoài nào (thanh toán, đăng nhập, AI model v.v.):
+    - Ưu tiên đọc tài liệu chính thức và giới hạn sử dụng
+    - Sau đó chuyển thông tin quan trọng thành "contract interface" trong dự án của bạn, để AI giúp bạn sinh code đóng gói.
 
-12. 迭代优化  
-    按照「小步快跑」的节奏迭代：  
-    - 先让功能正确，再优化体验与性能  
-    - 用 AI 帮你做重构、命名优化、代码风格统一
+12. Tối ưu lặp
+    Theo nhịp "chạy nhanh từng bước nhỏ" để lặp:
+    - Để chức năng đúng trước, sau đó tối ưu trải nghiệm và hiệu năng
+    - Dùng AI giúp bạn refactor, tối ưu naming, thống nhất style code
 
-13. Git 存档与文档更新  
-    每一轮有意义的改动都应包含：  
-    - 提交代码到 Git（带上清晰的提交信息）  
-    - 更新对应的 PRD、技术文档、接口说明  
-    - 让仓库既是代码库，也是知识库
+13. Lưu trữ Git và cập nhật tài liệu
+    Mỗi vòng thay đổi có ý nghĩa đều nên bao gồm:
+    - Commit code vào Git (kèm thông tin commit rõ ràng)
+    - Cập nhật PRD, tài liệu kỹ thuật, mô tả interface tương ứng
+    - Để repo vừa là code base, vừa là knowledge base
 
 
-请先完成 [基础篇](/Basic/) 的学习。
+Hãy hoàn thành phần học [Phần Cơ Bản](/Basic/) trước.
 
-## 进阶篇的定位：建立认知地图与协作语料
+## Định vị Phần Nâng Cao: Xây dựng bản đồ nhận thức và ngữ liệu cộng tác
 
-本进阶篇**不要求你必须亲自手写每一行代码**，也不追求让你成为每一个技术领域的专家。它的核心作用在于：
+Phần nâng cao này **không yêu cầu bạn phải tự tay viết từng dòng code**, cũng không theo đuổi việc biến bạn thành chuyên gia mỗi lĩnh vực kỹ thuật. Tác dụng cốt lõi của nó là:
 
-1. **帮你理清概念，建立心理预期**  
-   让你知道在全栈开发过程中会遇到哪些环节、哪些名词（如 Prisma、ORM、Middleware、Server Actions 等），它们各自起什么作用。当问题出现时，你知道它属于哪个范畴，应该去哪里找答案。
+1. **Giúp bạn lý rõ khái niệm, xây dựng kỳ vọng tâm lý**
+   Để bạn biết trong quá trình phát triển full-stack sẽ gặp những khâu nào, những từ ngữ nào (như Prisma, ORM, Middleware, Server Actions v.v.), chúng đóng vai trò gì. Khi vấn đề xuất hiện, bạn biết nó thuộc phạm trù nào, nên đi đâu tìm câu trả lời.
 
-2. **让你更好地指挥 AI**  
-   当你理解了这些概念和流程，你就不再是只能说“帮我写个网站”的小白，而是能说出“请用 Next.js 16 App Router + Prisma 实现用户认证，注意处理 Session”的指挥官。你知道的越多，给 AI 的指令就越精准，AI 产出的代码质量就越高。
+2. **Để bạn chỉ huy AI tốt hơn**
+   Khi bạn hiểu các khái niệm và quy trình này, bạn không còn là người mới chỉ biết nói "giúp tôi viết một trang web", mà có thể nói ra "hãy dùng Next.js 16 App Router + Prisma thực hiện authentication người dùng, chú ý xử lý Session" như một chỉ huy viên. Bạn biết càng nhiều, chỉ thị cho AI càng chính xác, chất lượng code AI output càng cao.
 
-3. **提供可供 AI 参考的“范例库”**  
-   文档中的代码示例和最佳实践，不仅仅是给你看的，更是给你未来的 AI 助手看的。在开发时，你可以直接把这些文档或代码段丢给 AI，告诉它：“请参考这个模式来实现我的功能”。
+3. **Cung cấp "thư viện mẫu" để AI tham khảo**
+   Các ví dụ code và best practices trong tài liệu, không chỉ để bạn xem, mà còn để AI assistant tương lai của bạn xem. Khi phát triển, bạn có thể trực tiếp đưa các tài liệu hoặc đoạn code này cho AI, bảo nó: "Hãy tham khảo pattern này để thực hiện chức năng của tôi".
 
-**简而言之：**  
-这里的学习是为了让你**“懂行”**，从而更好地与 AI 协作，而不是为了让你变成一个脱离 AI 也能默写代码的传统程序员。请带着这种心态，轻松地开始进阶之旅。
+**Nói tóm lại:**
+Học tập ở đây là để bạn **"hiểu rành"**, từ đó cộng tác tốt hơn với AI, chứ không phải để biến bạn thành lập trình viên truyền thống tách khỏi AI vẫn thuộc code được. Hãy mang tâm thái này, thoải mái bắt đầu hành trình nâng cao.
 
-目前的章节主要以文字和核心概念为主，具体的实操演示、完整项目演练等，将在后续的「实践篇」中逐步展开。请保持关注，期待接下来的实践部分更新。
+Các chương hiện tại chủ yếu là văn bản và khái niệm cốt lõi, demo thực hành cụ thể, diễn tập dự án hoàn chỉnh v.v., sẽ dần dần mở ra trong "Phần Thực Hành" sau này. Hãy tiếp tục theo dõi, mong chờ phần thực hành tiếp theo được cập nhật.

@@ -1,49 +1,48 @@
 ---
-title: "8.4 哪些文件不该进仓库——`.gitignore` 管理：依赖/构建/敏感/IDE/系统/日志"
-typora-root-url: ../../public
+title: "8.4 Những tệp nào không nên vào kho lưu trữ—`.gitignore` quản lý: phụ thuộc/xây dựng/nhạy cảm/IDE/hệ thống/nhật ký"
 ---
 
-# 8.4 哪些文件不该进仓库——Gitignore 进阶
+# 8.4 Những tệp nào không nên vào kho lưu trữ—Gitignore nâng cao
 
-`.gitignore` 是代码仓库的"门卫"——它决定哪些文件能进，哪些文件留在门外。
+`.gitignore` là "người bảo vệ" của kho lưu trữ mã—nó quyết định tệp nào có thể vào, tệp nào ở ngoài cửa.
 
-## 为什么需要 .gitignore
+## Tại sao cần .gitignore
 
-**不该进仓库的文件**：
+**Các tệp không nên vào kho lưu trữ**:
 
-| 类型 | 示例 | 原因 |
+| Loại | Ví dụ | Lý do |
 |------|------|------|
-| 依赖目录 | node_modules | 太大，可通过 package.json 恢复 |
-| 构建产物 | .next, out, dist | 可重新构建 |
-| 敏感信息 | .env, *.pem | 安全风险 |
-| 系统文件 | .DS_Store | 与代码无关 |
-| IDE 配置 | .idea, .vscode | 个人偏好 |
-| 日志文件 | *.log | 临时数据 |
+| Thư mục phụ thuộc | node_modules | Quá lớn, có thể khôi phục qua package.json |
+| Sản phẩm xây dựng | .next, out, dist | Có thể xây dựng lại |
+| Thông tin nhạy cảm | .env, *.pem | Rủi ro bảo mật |
+| Tệp hệ thống | .DS_Store | Không liên quan đến mã |
+| Cấu hình IDE | .idea, .vscode | Sở thích cá nhân |
+| Tệp nhật ký | *.log | Dữ liệu tạm thời |
 
-## Next.js 项目的 .gitignore
+## .gitignore cho dự án Next.js
 
 ```gitignore
-# 依赖目录
+# Thư mục phụ thuộc
 node_modules/
 .pnpm-store/
 
-# 构建产物
+# Sản phẩm xây dựng
 .next/
 out/
 dist/
 build/
 
-# 环境变量
+# Biến môi trường
 .env
 .env.local
 .env.*.local
 
-# 日志
+# Nhật ký
 *.log
 npm-debug.log*
 pnpm-debug.log*
 
-# 系统文件
+# Tệp hệ thống
 .DS_Store
 Thumbs.db
 
@@ -53,7 +52,7 @@ Thumbs.db
 *.swp
 *.swo
 
-# 测试覆盖率
+# Độ bao phủ kiểm tra
 coverage/
 
 # TypeScript
@@ -62,32 +61,32 @@ coverage/
 # Vercel
 .vercel
 
-# 本地数据库
+# Cơ sở dữ liệu cục bộ
 *.db
 *.sqlite
 ```
 
-## 本节结构
+## Cấu trúc phần này
 
-1. **依赖与构建产物**：node_modules、.next、out 等
-2. **敏感文件**：.env 管理与 .env.example 模板
-3. **系统与 IDE 文件**：跨平台忽略配置
-4. **防误提交**：pre-commit 钩子检查
+1. **Phụ thuộc và sản phẩm xây dựng**: node_modules, .next, out, v.v.
+2. **Tệp nhạy cảm**: quản lý .env và mẫu .env.example
+3. **Tệp hệ thống và IDE**: cấu hình bỏ qua đa nền tảng
+4. **Ngăn chặn cam kết sai**: kiểm tra pre-commit hook
 
-## .gitignore 语法速查
+## Tham chiếu nhanh cú pháp .gitignore
 
-| 语法 | 含义 | 示例 |
+| Cú pháp | Ý nghĩa | Ví dụ |
 |------|------|------|
-| `*` | 匹配任意字符 | `*.log` |
-| `**` | 匹配任意目录 | `**/node_modules` |
-| `!` | 取反（不忽略） | `!.env.example` |
-| `/` 开头 | 只匹配根目录 | `/dist` |
-| `/` 结尾 | 只匹配目录 | `logs/` |
-| `#` | 注释 | `# 忽略日志` |
+| `*` | Khớp bất kỳ ký tự nào | `*.log` |
+| `**` | Khớp bất kỳ thư mục nào | `**/node_modules` |
+| `!` | Phủ định (không bỏ qua) | `!.env.example` |
+| `/` ở đầu | Chỉ khớp thư mục gốc | `/dist` |
+| `/` ở cuối | Chỉ khớp thư mục | `logs/` |
+| `#` | Bình luận | `# bỏ qua nhật ký` |
 
-## 验收清单
+## Danh sách kiểm tra chấp nhận
 
-- [ ] 了解哪些文件应该被忽略
-- [ ] 能编写基本的 .gitignore 规则
-- [ ] 理解敏感文件的处理方式
-- [ ] 知道如何配置全局 gitignore
+- [ ] Hiểu những tệp nào nên bị bỏ qua
+- [ ] Có thể viết các quy tắc .gitignore cơ bản
+- [ ] Hiểu cách xử lý tệp nhạy cảm
+- [ ] Biết cách cấu hình gitignore toàn cục

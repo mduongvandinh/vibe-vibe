@@ -1,54 +1,53 @@
 ---
-title: "11 ｜发布、复盘与教学沉淀"
-typora-root-url: ../public
+title: "11 ｜Phát hành, Đánh giá lại và Tích lũy Kinh nghiệm Dạy dỗ"
 ---
 
-# 11 ｜发布、复盘与教学沉淀
+# 11 ｜Phát hành, Đánh giá lại và Tích lũy Kinh nghiệm Dạy dỗ
 
-## 认知重构
+## Tái cấu trúc Nhận thức
 
-代码写完不是终点，**发布出去、从中学习、把经验传承下去**才是完整的闭环。本章将带你掌握从个人项目到团队协作都适用的发布与复盘方法论。
+Viết xong mã không phải là điểm kết thúc, **phát hành ra ngoài, học hỏi từ đó, truyền lại kinh nghiệm** mới là vòng lặp hoàn chỉnh. Chương này sẽ giúp bạn nắm vững các phương pháp phát hành và đánh giá lại áp dụng được cho cả dự án cá nhân lẫn hợp tác nhóm.
 
 ```mermaid
 flowchart LR
-    subgraph Cycle["持续改进循环"]
-        Dev["开发"] --> Release["发布"]
-        Release --> Review["复盘"]
-        Review --> Doc["沉淀"]
+    subgraph Cycle["Vòng lặp Cải thiện Liên tục"]
+        Dev["Phát triển"] --> Release["Phát hành"]
+        Release --> Review["Đánh giá lại"]
+        Review --> Doc["Tích lũy"]
         Doc --> Dev
     end
 ```
 
-## 本章内容
+## Nội dung Chương
 
-| 小节 | 核心问题 | 你将学会 |
+| Tiết học | Câu hỏi Cốt lõi | Bạn sẽ Học được |
 |------|----------|----------|
-| 11.1 语义化版本与发布流 | 版本号怎么定？ | SemVer 规范、Release 流程、Git Tag |
-| 11.2 GitHub Actions 部署 | 如何自动上线？ | CI/CD 配置、质量门禁、自动部署 |
-| 11.3 知识沉淀 | 经验如何传承？ | 文档结构、最佳实践、教学材料 |
-| 11.4 复盘模板 | 问题如何闭环？ | 根因分析、修复方案、预防措施 |
+| 11.1 Semantic Versioning và Quy trình Phát hành | Làm cách nào để định nghĩa số phiên bản? | SemVer Specification, Release Workflow, Git Tag |
+| 11.2 GitHub Actions Deployment | Làm cách nào để tự động triển khai? | CI/CD Configuration, Quality Gates, Automatic Deployment |
+| 11.3 Tích lũy Kiến thức | Làm cách nào để truyền lại kinh nghiệm? | Cấu trúc Tài liệu, Best Practices, Tài liệu Dạy dỗ |
+| 11.4 Mẫu Đánh giá lại | Làm cách nào để kết thúc vấn đề? | Phân tích Nguyên nhân, Phương án Khắc phục, Biện pháp Phòng ngừa |
 
-## 为什么这一章很重要
+## Tại sao Chương này Quan trọng
 
-对于 Vibe Coding 而言，这一章是把**个人能力转化为团队资产**的关键：
+Đối với Vibe Coding, chương này là chìa khóa để **chuyển đổi khả năng cá nhân thành tài sản nhóm**:
 
-1. **版本管理**：让你的发布可追溯、可回滚
-2. **自动化部署**：减少人为失误，提升发布效率
-3. **知识沉淀**：踩过的坑变成地图，下次不再重蹈覆辙
-4. **复盘机制**：从每次事故中提炼出可复用的经验
+1. **Quản lý Phiên bản**: Làm cho phát hành của bạn có thể truy tìm được, có thể rollback
+2. **Tự động hóa Triển khai**: Giảm lỗi con người, nâng cao hiệu quả phát hành
+3. **Tích lũy Kiến thức**: Những lỗi đã mắc phải trở thành bản đồ, lần sau không tái diễn
+4. **Cơ chế Đánh giá lại**: Rút ra kinh nghiệm có thể tái sử dụng từ mỗi sự cố
 
-## AI 协作提示
+## AI Collaboration Tips
 
-在进行发布和复盘工作时，可以这样与 AI 协作：
+Khi thực hiện công việc phát hành và đánh giá lại, bạn có thể hợp tác với AI theo cách này:
 
-- "帮我分析这次发布的风险点"
-- "根据这次事故写一份复盘报告"
-- "把这个项目的经验总结成文档模板"
-- "生成这个版本的 CHANGELOG"
+- "Giúp tôi phân tích các điểm rủi ro trong lần phát hành này"
+- "Viết một báo cáo đánh giá lại dựa trên sự cố này"
+- "Tóm tắt kinh nghiệm của dự án này thành một mẫu tài liệu"
+- "Tạo ra CHANGELOG cho phiên bản này"
 
-::: warning 本章检查清单
-1. [ ] 理解 SemVer 版本号规范
-2. [ ] 能够配置基本的 GitHub Actions
-3. [ ] 掌握文档组织的最佳实践
-4. [ ] 会使用复盘模板进行问题分析
+::: warning Danh sách Kiểm tra Chương
+1. [ ] Hiểu rõ SemVer Specification
+2. [ ] Có thể cấu hình GitHub Actions cơ bản
+3. [ ] Nắm vững Best Practices trong Tổ chức Tài liệu
+4. [ ] Biết cách sử dụng Mẫu Đánh giá lại để Phân tích Vấn đề
 :::

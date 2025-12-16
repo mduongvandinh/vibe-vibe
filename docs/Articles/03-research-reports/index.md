@@ -1,9 +1,9 @@
 ---
-title: "研究报告"
+title: "Báo Cáo Nghiên Cứu"
 ---
 
-# 研究报告
+# Báo Cáo Nghiên Cứu
 
-AI 发展报告、开发者调查、行业趋势等重要研究资料。
+Tài liệu nghiên cứu quan trọng về báo cáo phát triển AI, khảo sát nhà phát triển, và xu hướng ngành.
 
-教程开发中
+Hướng dẫn đang được phát triển

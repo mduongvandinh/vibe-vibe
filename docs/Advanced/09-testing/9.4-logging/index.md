@@ -1,48 +1,47 @@
 ---
-title: "9.4 出了错如何快速定位——错误处理与日志规范：级别/上下文/脱敏；修复 → 文档同步"
-typora-root-url: ../../public
+title: "9.4 Lỗi xảy ra rồi định vị nhanh như thế nào——Xử lý lỗi và quy chuẩn logging: Mức độ/Ngữ cảnh/Mặt nạ; Sửa chữa → Đồng bộ tài liệu"
 ---
 
-# 9.4 出了错如何快速定位——错误处理与日志规范：级别/上下文/脱敏；修复 → 文档同步
+# 9.4 Lỗi xảy ra rồi định vị nhanh như thế nào——Xử lý lỗi và quy chuẩn logging: Mức độ/Ngữ cảnh/Mặt nạ; Sửa chữa → Đồng bộ tài liệu
 
-**好的日志是生产环境的"黑匣子"——出问题时能快速定位，平时不碍事。**
+**Một hệ thống logging tốt là "hộp đen" của môi trường production——khi có vấn đề có thể định vị nhanh, bình thường không gây trở ngại.**
 
-## 日志系统架构
+## Kiến trúc hệ thống logging
 
 ```mermaid
 graph TD
-    A[应用代码] --> B[日志库]
-    B --> C{日志级别}
-    C -->|ERROR| D[错误追踪]
-    C -->|WARN| E[告警系统]
-    C -->|INFO| F[运行日志]
-    C -->|DEBUG| G[调试日志]
-    
+    A[Mã ứng dụng] --> B[Thư viện logging]
+    B --> C{Log level}
+    C -->|ERROR| D[Theo dõi lỗi]
+    C -->|WARN| E[Hệ thống cảnh báo]
+    C -->|INFO| F[Log chạy]
+    C -->|DEBUG| G[Log gỡ lỗi]
+
     D --> H[Sentry/Datadog]
     E --> I[PagerDuty/钉钉]
     F --> J[CloudWatch/ELK]
-    G --> K[本地文件]
+    G --> K[Tệp tin cục bộ]
 ```
 
-## 本章内容
+## Nội dung của chương này
 
-| 小节 | 主题 | 核心内容 |
+| Phần | Chủ đề | Nội dung cốt lõi |
 |------|------|----------|
-| 9.4.1 | 日志级别 | ERROR/WARN/INFO/DEBUG 的正确使用 |
-| 9.4.2 | 上下文信息 | 请求 ID、用户 ID、操作类型的注入 |
-| 9.4.3 | 敏感信息脱敏 | 密码、Token、身份证号的安全处理 |
-| 9.4.4 | 错误恢复 | 异常处理与用户友好提示 |
-| 9.4.5 | 文档同步 | 错误码文档的维护与更新 |
+| 9.4.1 | Log level | Sử dụng đúng cách ERROR/WARN/INFO/DEBUG |
+| 9.4.2 | Thông tin ngữ cảnh | Tiêm Request ID, User ID, loại hoạt động |
+| 9.4.3 | Mặt nạ thông tin nhạy cảm | Xử lý an toàn mật khẩu, Token, số CMND |
+| 9.4.4 | Phục hồi lỗi | Xử lý ngoại lệ và gợi ý thân thiện người dùng |
+| 9.4.5 | Đồng bộ tài liệu | Duy trì và cập nhật tài liệu mã lỗi |
 
-## 日志库选择
+## Chọn thư viện logging
 
-| 库 | 特点 | 适用场景 |
+| Thư viện | Đặc điểm | Trường hợp áp dụng |
 |----|------|----------|
-| pino | 高性能 JSON 日志 | 生产环境 |
-| winston | 功能丰富，可扩展 | 复杂需求 |
-| console | 零依赖 | 开发调试 |
+| pino | JSON logging hiệu suất cao | Môi trường production |
+| winston | Chức năng phong phú, có thể mở rộng | Nhu cầu phức tạp |
+| console | Không phụ thuộc | Gỡ lỗi phát triển |
 
-## 快速配置
+## Cấu hình nhanh
 
 ```typescript
 // lib/logger.ts
@@ -50,32 +49,32 @@ import pino from 'pino';
 
 export const logger = pino({
   level: process.env.LOG_LEVEL || 'info',
-  transport: process.env.NODE_ENV === 'development' 
-    ? { target: 'pino-pretty' } 
+  transport: process.env.NODE_ENV === 'development'
+    ? { target: 'pino-pretty' }
     : undefined,
   redact: ['password', 'token', 'authorization'],
 });
 ```
 
 ```typescript
-// 使用示例
+// Ví dụ sử dụng
 import { logger } from '@/lib/logger';
 
-// 记录不同级别的日志
-logger.error({ err, userId }, '支付处理失败');
-logger.warn({ orderId }, '库存不足，已降级处理');
-logger.info({ action: 'login', userId }, '用户登录');
-logger.debug({ query }, '数据库查询');
+// Ghi log ở các mức độ khác nhau
+logger.error({ err, userId }, 'Xử lý thanh toán thất bại');
+logger.warn({ orderId }, 'Tồn kho không đủ, đã giảm cấp');
+logger.info({ action: 'login', userId }, 'Người dùng đăng nhập');
+logger.debug({ query }, 'Truy vấn cơ sở dữ liệu');
 ```
 
-## 核心原则
+## Các nguyên tắc cốt lõi
 
-1. **生产环境只记录 INFO 及以上**：DEBUG 日志量太大
-2. **结构化日志**：使用 JSON 格式，便于搜索和聚合
-3. **敏感信息必须脱敏**：密码、Token、个人信息
-4. **错误要有上下文**：谁、在哪、做什么、为什么失败
-5. **文档与代码同步**：错误码变更时更新文档
+1. **Production chỉ ghi log INFO trở lên**: Volume log DEBUG quá lớn
+2. **Structured logging**: Sử dụng định dạng JSON, thuận tiện cho tìm kiếm và tổng hợp
+3. **Thông tin nhạy cảm phải được mặt nạ**: Mật khẩu, Token, thông tin cá nhân
+4. **Lỗi phải có ngữ cảnh**: Ai, ở đâu, làm gì, tại sao thất bại
+5. **Tài liệu và mã đồng bộ**: Khi thay đổi mã lỗi phải cập nhật tài liệu
 
-## 本节小结
+## Tóm tắt chương này
 
-日志是生产环境的"眼睛"。通过分级记录、结构化输出、敏感信息脱敏，让日志既能帮助排查问题，又不会泄露用户隐私。接下来的小节会详细讲解每个方面的实现细节。
+Logging là "mắt" của môi trường production. Thông qua ghi log theo phân cấp, xuất kết quả có cấu trúc, mặt nạ thông tin nhạy cảm, log vừa có thể giúp khắc phục sự cố, vừa không bị lộ lực riêng tư người dùng. Các phần tiếp theo sẽ giải thích chi tiết cách thực hiện từng khía cạnh.

@@ -1,58 +1,56 @@
 ---
-title: "1.2 你不是一个人在战斗——Vibe Coding 心法：从\"写代码\"到\"指挥 AI 写代码\""
-typora-root-url: ../../public
+title: '1.2 Bạn không chiến đấu một mình - Tâm pháp Vibe Coding: Từ \"viết code\" đến \"chỉ huy AI viết code\""'
 ---
 
-# 1.2 你不是一个人在战斗——Vibe Coding 心法：从"写代码"到"指挥 AI 写代码"
+# 1.2 Bạn không chiến đấu một mình - Tâm pháp Vibe Coding: Từ "viết code" đến "chỉ huy AI viết code"
 
-### 认知重构
+### Tái cấu trúc nhận thức
 
-传统编程的核心能力是"写代码"——你需要记住语法、理解 API、手搓每一行逻辑。而 Vibe Coding 的核心能力是"指挥 AI 写代码"——你需要清晰地定义需求、有效地沟通意图、准确地验收结果。
+Năng lực cốt lõi của lập trình truyền thống là "viết code" - bạn cần nhớ cú pháp, hiểu API, tự tay viết từng dòng logic. Còn năng lực cốt lõi của Vibe Coding là "chỉ huy AI viết code" - bạn cần định nghĩa rõ ràng yêu cầu, truyền đạt ý định hiệu quả, nghiệm thu kết quả chính xác.
 
-**这是一次角色的根本性转变：从"施工工人"变成"项目总设计师"。**
+**Đây là sự chuyển đổi căn bản về vai trò: từ "công nhân thi công" thành "tổng kiến trúc sư dự án".**
 
-### 本节目标
+### Mục tiêu bài học
 
-学完本节后，你将建立以下核心能力：
+Sau khi học xong bài này, bạn sẽ thiết lập được các năng lực cốt lõi sau:
 
-1. **思维转变**：从编码员到指挥官的身份认知
-2. **提示工程**：如何与 AI 有效沟通
-3. **代码审查**：如何验收 AI 的产出
-4. **工具选择**：不同场景下选择合适的 AI 模型
+1. **Chuyển đổi tư duy**: Nhận thức vai trò từ coder sang commander
+2. **Prompt engineering**: Cách giao tiếp hiệu quả với AI
+3. **Code review**: Cách nghiệm thu output của AI
+4. **Lựa chọn công cụ**: Chọn AI model phù hợp theo từng tình huống
 
-### Vibe Coding 的核心循环
+### Vòng lặp cốt lõi của Vibe Coding
 
 ```mermaid
 graph LR
-    A["定义需求"] --> B["下达指令"]
-    B --> C["AI 生成代码"]
-    C --> D["审查验收"]
-    D --> E{"通过?"}
-    E -- "是" --> F["合并代码"]
-    E -- "否" --> G["反馈修正"]
+    A["Định nghĩa yêu cầu"] --> B["Hạ lệnh"]
+    B --> C["AI sinh code"]
+    C --> D["Review nghiệm thu"]
+    D --> E{"Pass?"}
+    E -- "Có" --> F["Merge code"]
+    E -- "Không" --> G["Feedback sửa"]
     G --> B
 ```
 
-这个循环的关键点：
+Điểm then chốt của vòng lặp này:
 
-- **定义需求**：你需要非常清楚自己想要什么（这比写代码更难）
-- **下达指令**：用 AI 能理解的方式表达需求
-- **审查验收**：判断 AI 的产出是否符合预期
-- **反馈修正**：如果不对，告诉 AI 哪里不对、怎么改
+- **Định nghĩa yêu cầu**: Bạn cần rất rõ mình muốn gì (khó hơn viết code)
+- **Hạ lệnh**: Biểu đạt yêu cầu theo cách AI hiểu được
+- **Review nghiệm thu**: Đánh giá output của AI có đáp ứng kỳ vọng không
+- **Feedback sửa**: Nếu không đúng, nói cho AI biết sai chỗ nào, sửa thế nào
 
-### 子章节导航
+### Dẫn đường tiểu mục
 
-| 章节 | 主题 | 核心问题 |
+| Tiểu mục | Chủ đề | Vấn đề cốt lõi |
 |------|------|----------|
-| 1.2.1 | 从编码员到指挥官 | 如何转变思维？ |
-| 1.2.2 | AI Native 应用特点 | AI 时代的应用有何不同？ |
-| 1.2.3 | 提示工程基础 | 如何与 AI 有效沟通？ |
-| 1.2.4 | 代码审查 | 如何验收 AI 的代码？ |
-| 1.2.5 | 模型选择指南 | 什么场景用什么工具？ |
+| 1.2.1 | Từ Coder sang Commander | Làm thế nào chuyển đổi tư duy? |
+| 1.2.2 | Đặc điểm ứng dụng AI Native | Ứng dụng thời đại AI khác biệt như thế nào? |
+| 1.2.3 | Cơ bản Prompt Engineering | Cách giao tiếp hiệu quả với AI? |
+| 1.2.4 | Code Review | Cách nghiệm thu code của AI? |
 
-### 心法口诀
+### Khẩu quyết tâm pháp
 
-> **想清楚**：先明确你要什么，再开口
-> **说明白**：用结构化的语言表达需求
-> **看仔细**：AI 的代码不是写完就能用
-> **改到位**：反馈要具体，不要泛泛而谈
+> **Nghĩ rõ ràng**: Xác định rõ bạn muốn gì, rồi mới nói
+> **Nói rõ ràng**: Dùng ngôn ngữ có cấu trúc để biểu đạt yêu cầu
+> **Xem kỹ càng**: Code của AI không phải viết xong là dùng được
+> **Sửa đúng chỗ**: Feedback phải cụ thể, đừng nói chung chung

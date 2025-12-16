@@ -1,9 +1,9 @@
 ---
-title: "核心技能 (Core 1-4)"
+title: "Kỹ Năng Cốt Lõi (Core 1-4)"
 ---
 
-# 核心技能 (Core 1-4)
+# Kỹ Năng Cốt Lõi (Core 1-4)
 
-基于 Sean's Stories 系列，掌握全栈开发的四大核心技能。
+Dựa trên chuỗi bài của Sean's Stories, nắm vững bốn kỹ năng cốt lõi của phát triển fullstack.
 
-教程开发中
+Hướng dẫn đang được phát triển

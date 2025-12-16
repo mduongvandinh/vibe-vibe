@@ -1,19 +1,18 @@
 ---
-title: "5 ｜产品与文档（让人和 AI 都读得懂）"
-typora-root-url: ../public
+title: "5 ｜Sản phẩm và Tài liệu (Để cả người và AI đều đọc được)"
 ---
 
-# 5 ｜产品与文档（让人和 AI 都读得懂）
+# 5 ｜Sản phẩm và Tài liệu (Để cả người và AI đều đọc được)
 
-在 Vibe Coding 时代，**文档不再是"写给领导看的 PPT"**，而是你与 AI 结对编程的核心沟通界面。
+Trong thời đại Vibe Coding, **tài liệu không còn là "bản PPT cho sếp xem"**, mà là giao diện giao tiếp cốt lõi của bạn với AI trong lập trình cặp đôi.
 
-传统开发流程中，产品经理写 PRD、开发看 PRD、测试根据 PRD 写用例——文档是人与人之间的契约。但在 AI 辅助开发中，这份契约的读者多了一个"AI"。**如果 AI 读不懂你的需求，它就无法帮你写出正确的代码。**
+Trong quy trình phát triển truyền thống, product manager viết PRD, developer đọc PRD, tester viết test case theo PRD — tài liệu là hợp đồng giữa người với người. Nhưng trong phát triển có sự hỗ trợ của AI, hợp đồng này thêm một độc giả là "AI". **Nếu AI không đọc được yêu cầu của bạn, nó không thể giúp bạn viết code đúng.**
 
-本章将教你：
+Chương này sẽ dạy bạn:
 
-- 如何用"AI 能理解的方式"定义产品需求
-- 如何让 AI 帮你从模糊的想法中提炼出清晰的功能列表
-- 如何写出既能让人审查、又能让 AI 执行的结构化文档
-- 如何建立"文档与代码同步"的工程化实践
+- Cách định nghĩa yêu cầu sản phẩm "theo cách AI có thể hiểu"
+- Cách để AI giúp bạn chiết xuất danh sách tính năng rõ ràng từ ý tưởng mơ hồ
+- Cách viết tài liệu có cấu trúc vừa cho người nghiệm thu, vừa cho AI thực thi
+- Cách thiết lập thực hành kỹ thuật "đồng bộ tài liệu với code"
 
-**核心理念**：在 Vibe Coding 中，文档即指令。写好文档，就是写好给 AI 的 Prompt。
+**Lý niệm cốt lõi**: Trong Vibe Coding, tài liệu chính là lệnh. Viết tài liệu tốt, chính là viết Prompt tốt cho AI.

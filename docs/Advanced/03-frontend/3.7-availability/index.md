@@ -1,87 +1,86 @@
 ---
-title: "3.7 崩了和没数据时怎么办——可用性：错误/空态/加载骨架；Error Boundary"
-typora-root-url: ../../public
+title: "3.7 Sập và không có dữ liệu thì làm sao — Khả dụng: Lỗi/Trạng thái rỗng/Skeleton tải; Error Boundary"
 ---
 
-# 3.7 可用性设计
+# 3.7 Thiết kế khả dụng
 
-### 一句话破题
+### Giải thích một câu
 
-用户不怕等待，怕的是不知道发生了什么。优秀的可用性设计让每种状态都有恰当的反馈。
+User không sợ chờ đợi, mà sợ không biết chuyện gì đang xảy ra. Thiết kế khả dụng tốt cho mỗi trạng thái phản hồi phù hợp.
 
-### 核心价值
+### Giá trị cốt lõi
 
-一个应用会遇到四种非正常状态：加载中、数据为空、请求失败、组件崩溃。处理好这四种状态，用户体验就不会差。
+Một ứng dụng sẽ gặp bốn trạng thái không bình thường: đang tải, dữ liệu rỗng, request thất bại, component bị crash. Xử lý tốt bốn trạng thái này, trải nghiệm người dùng sẽ không tệ.
 
-### 状态全景图
+### Toàn cảnh trạng thái
 
 ```mermaid
 graph TD
-    A["用户操作"] --> B{"状态判断"}
-    B -->|"数据加载中"| C["Loading 状态"]
-    B -->|"数据为空"| D["Empty 状态"]
-    B -->|"请求失败"| E["Error 状态"]
-    B -->|"组件崩溃"| F["Crash 状态"]
-    
+    A["Thao tác user"] --> B{"Kiểm tra trạng thái"}
+    B -->|"Đang tải dữ liệu"| C["Trạng thái Loading"]
+    B -->|"Dữ liệu rỗng"| D["Trạng thái Empty"]
+    B -->|"Request thất bại"| E["Trạng thái Error"]
+    B -->|"Component crash"| F["Trạng thái Crash"]
+
     C --> G["Skeleton / Spinner"]
-    D --> H["空态插画 + 引导"]
-    E --> I["错误提示 + 重试"]
+    D --> H["Hình minh họa rỗng + Hướng dẫn"]
+    E --> I["Thông báo lỗi + Thử lại"]
     F --> J["Error Boundary"]
 ```
 
-### 四种状态对比
+### So sánh bốn trạng thái
 
-| 状态 | 用户感知 | 解决方案 | 本章节 |
+| Trạng thái | Cảm nhận user | Giải pháp | Mục trong chương |
 |-----|---------|---------|-------|
-| Loading | 等待焦虑 | Skeleton 减少感知时间 | 3.7.3 |
-| Empty | 困惑迷茫 | 引导用户下一步操作 | 3.7.2 |
-| Error | 沮丧愤怒 | 提供重试和帮助 | 3.7.4 |
-| Crash | 恐慌无助 | 优雅降级，保护全局 | 3.7.1 |
+| Loading | Lo lắng khi chờ | Skeleton giảm thời gian cảm nhận | 3.7.3 |
+| Empty | Bối rối lạc lối | Hướng dẫn thao tác tiếp theo | 3.7.2 |
+| Error | Thất vọng tức giận | Cung cấp thử lại và trợ giúp | 3.7.4 |
+| Crash | Hoảng loạn bất lực | Giảm thiểu ảnh hưởng, bảo vệ toàn cục | 3.7.1 |
 
-### 本章目标
+### Mục tiêu chương này
 
-1. 学会用 Error Boundary 隔离组件崩溃
-2. 设计有引导性的空态页面
-3. 使用 Skeleton 提升加载体验
-4. 实现用户友好的错误重试机制
+1. Học cách dùng Error Boundary để cách ly crash của component
+2. Thiết kế trang trạng thái rỗng có tính hướng dẫn
+3. Dùng Skeleton để nâng cao trải nghiệm tải
+4. Thực hiện cơ chế thử lại lỗi thân thiện với người dùng
 
-### 设计原则
+### Nguyên tắc thiết kế
 
-**1. 永远告诉用户发生了什么**
+**1. Luôn cho user biết chuyện gì đang xảy ra**
 ```tsx
-// 差：无任何反馈
+// Kém: Không có phản hồi gì
 {loading && null}
 
-// 好：明确的状态反馈
+// Tốt: Phản hồi trạng thái rõ ràng
 {loading && <Skeleton />}
 ```
 
-**2. 提供可操作的下一步**
+**2. Cung cấp bước tiếp theo có thể thao tác**
 ```tsx
-// 差：只显示错误信息
-<p>请求失败</p>
+// Kém: Chỉ hiển thị thông báo lỗi
+<p>Request thất bại</p>
 
-// 好：提供解决方案
-<ErrorState 
-  message="请求失败"
-  action={<Button onClick={retry}>重试</Button>}
+// Tốt: Cung cấp giải pháp
+<ErrorState
+  message="Request thất bại"
+  action={<Button onClick={retry}>Thử lại</Button>}
 />
 ```
 
-**3. 优雅降级而非全面崩溃**
+**3. Giảm thiểu ảnh hưởng chứ không sập toàn bộ**
 ```tsx
-// 差：一个组件出错，整页白屏
+// Kém: Một component lỗi, toàn trang màn trắng
 <App />
 
-// 好：错误被隔离
+// Tốt: Lỗi được cách ly
 <ErrorBoundary fallback={<ErrorFallback />}>
   <RiskyComponent />
 </ErrorBoundary>
 ```
 
-### 状态组件库
+### Thư viện component trạng thái
 
-推荐使用统一的状态组件库管理各种状态：
+Đề xuất dùng thư viện component trạng thái thống nhất để quản lý các trạng thái:
 
 ```tsx
 // components/states/index.ts
@@ -91,9 +90,9 @@ export { ErrorState } from './Error'
 export { ErrorBoundary } from './ErrorBoundary'
 ```
 
-### 本章内容
+### Nội dung chương này
 
-- [3.7.1 错误边界](./3.7.1-error-boundary.md) - 隔离组件崩溃
-- [3.7.2 空态设计](./3.7.2-empty-state.md) - 引导用户操作
-- [3.7.3 加载状态](./3.7.3-loading-state.md) - 减少等待焦虑
-- [3.7.4 错误重试](./3.7.4-retry.md) - 优雅处理失败
+- [3.7.1 Error Boundary](./3.7.1-error-boundary.md) - Cách ly crash của component
+- [3.7.2 Thiết kế trạng thái rỗng](./3.7.2-empty-state.md) - Hướng dẫn thao tác user
+- [3.7.3 Trạng thái tải](./3.7.3-loading-state.md) - Giảm lo lắng khi chờ
+- [3.7.4 Thử lại khi lỗi](./3.7.4-retry.md) - Xử lý thất bại một cách ưu nhã

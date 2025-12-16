@@ -1,77 +1,77 @@
 ---
-title: "4.1 开始之前：整合你的准备工作"
+title: "4.1 Trước khi bắt đầu: Tích hợp công việc chuẩn bị của bạn"
 order: 1
 ---
 
-# 4.1 开始之前：整合你的准备工作
+# 4.1 Trước khi bắt đầu: Tích hợp công việc chuẩn bị của bạn
 
-> **本节目标**：用 15 分钟完成所有准备，然后立刻开始动手
+> **Mục tiêu của mục này**: Dùng 15 phút hoàn thành mọi chuẩn bị, rồi lập tức bắt tay vào làm
 
-## 经过本节学习，你将：
+## Qua mục học này, bạn sẽ:
 
-- 明确要做什么（回顾第二章的思考成果）
-- 确认工具就绪（你的 AI IDE 已准备好）
-- 完成心态准备（准备好接受报错、准备好不完美）
-- 带着信心进入 4.2 节，写出第一个 Prompt
+- Rõ ràng phải làm gì (ôn tập kết quả suy nghĩ từ Chương 2)
+- Xác nhận công cụ sẵn sàng (AI IDE của bạn đã chuẩn bị xong)
+- Hoàn thành chuẩn bị tâm thế (sẵn sàng chấp nhận lỗi, sẵn sàng không hoàn hảo)
+- Mang theo sự tự tin tiến vào mục 4.2, viết Prompt đầu tiên
 
-## 为什么需要这一节
+## Tại sao cần mục này
 
-你可能会想：我已经学了两章，现在就想动手。
+Bạn có thể nghĩ: Tôi đã học hai chương rồi, giờ muốn làm thôi.
 
-这个想法完全正确。
+Suy nghĩ này hoàn toàn đúng.
 
-本节存在的目的，不是让你"再准备准备"，而是帮你**快速确认一切就绪**。
+Mục đích tồn tại của mục này, không phải để bạn "chuẩn bị thêm", mà là giúp bạn **xác nhận nhanh mọi thứ đã sẵn sàng**.
 
-很多人卡在"准备阶段"，不是因为真的没准备好，而是因为不确定自己准备好了没有。这种不确定感会变成拖延的借口。
+Nhiều người bị kẹt ở "giai đoạn chuẩn bị", không phải vì thực sự chưa chuẩn bị xong, mà vì không chắc mình đã chuẩn bị xong chưa. Cảm giác không chắc chắn này sẽ biến thành cớ để trì hoãn.
 
-本节要做的就是：**15 分钟，把所有"我准备好了吗"的疑问变成确定的"是"**。
+Việc mục này phải làm chính là: **15 phút, biến mọi thắc mắc "tôi đã chuẩn bị xong chưa" thành câu trả lời chắc chắn "rồi"**.
 
-## 关于"准备焦虑"
+## Về "lo lắng chuẩn bị"
 
-开始一个新项目时，很多人会陷入这样的循环：
+Khi bắt đầu một dự án mới, nhiều người sẽ rơi vào vòng lặp như thế này:
 
 ```
-"我是不是应该先把工具学得更熟？"
-→ "我的 PRD 是不是还不够完整？"
-→ "要不要先看几个别人的项目？"
-→ "算了，今天先准备，明天再开始..."
+"Tôi có nên học công cụ thuần thục hơn trước không?"
+→ "PRD của tôi có còn chưa đủ hoàn chỉnh không?"
+→ "Hay là xem trước vài dự án của người khác?"
+→ "Thôi, hôm nay chuẩn bị đã, ngày mai mới bắt đầu..."
 ```
 
-这是正常的心理反应，但它会阻止你真正开始。
+Đây là phản ứng tâm lý bình thường, nhưng nó sẽ ngăn bạn thực sự bắt đầu.
 
-**事实是**：你不需要准备到 100% 才能开始。60% 的准备加上立刻行动，比 100% 的准备加上明天再说，效果好得多。
+**Sự thật là**: Bạn không cần chuẩn bị đến 100% mới có thể bắt đầu. 60% chuẩn bị cộng hành động ngay, hiệu quả tốt hơn nhiều so với 100% chuẩn bị cộng ngày mai mới nói.
 
-本节会帮你确认：你已经达到了那个 60%。
+Mục này sẽ giúp bạn xác nhận: bạn đã đạt được cái 60% đó rồi.
 
-## 本节结构
+## Cấu trúc mục này
 
-| 小节 | 主题 | 你将完成 | 预计时间 |
+| Tiểu mục | Chủ đề | Bạn sẽ hoàn thành | Thời gian dự kiến |
 |------|------|---------|---------|
-| [4.1.1](./4.1.1-review-chapter2.md) | 回顾第二章成果 | 明确"我要做什么" | 5 分钟 |
-| [4.1.2](./4.1.2-prepare-ai-ide.md) | 准备你的 AI IDE | 确认"工具能用" | 5 分钟 |
-| [4.1.3](./4.1.3-environment-check.md) | 环境检查 | 排除常见问题 | 3 分钟 |
-| [4.1.4](./4.1.4-checklist.md) | 最终检查清单 | 确认"可以开始了" | 2 分钟 |
+| [4.1.1](./4.1.1-review-chapter2.md) | Ôn tập kết quả Chương 2 | Rõ ràng "tôi phải làm gì" | 5 phút |
+| [4.1.2](./4.1.2-prepare-ai-ide.md) | Chuẩn bị AI IDE của bạn | Xác nhận "công cụ dùng được" | 5 phút |
+| [4.1.3](./4.1.3-environment-check.md) | Kiểm tra môi trường | Loại bỏ vấn đề thường gặp | 3 phút |
+| [4.1.4](./4.1.4-checklist.md) | Danh sách kiểm tra cuối cùng | Xác nhận "có thể bắt đầu rồi" | 2 phút |
 
-**预计总时间：15 分钟**
+**Thời gian dự kiến tổng cộng: 15 phút**
 
-## 两种阅读方式
+## Hai cách đọc
 
-### 方式一：完整阅读（推荐新手）
+### Cách 1: Đọc đầy đủ (Khuyến nghị cho người mới)
 
-按顺序阅读 4.1.1 到 4.1.4，每个小节都会帮你确认一项准备工作。
+Đọc theo thứ tự từ 4.1.1 đến 4.1.4, mỗi tiểu mục sẽ giúp bạn xác nhận một mục công việc chuẩn bị.
 
-### 方式二：快速通道（适合自信的读者）
+### Cách 2: Đường nhanh (Phù hợp cho độc giả tự tin)
 
-如果你满足以下条件，可以直接跳到 [4.1.4 最终检查清单](./4.1.4-checklist.md)：
+Nếu bạn đáp ứng các điều kiện sau, có thể chuyển thẳng đến [4.1.4 Danh sách kiểm tra cuối cùng](./4.1.4-checklist.md):
 
-- 你已经完成了第二章的项目思考（或者决定跟着小李案例做）
-- 你的 AI IDE 已经安装/打开，能正常使用
-- 你有 1-2 小时的专注时间
+- Bạn đã hoàn thành suy nghĩ dự án ở Chương 2 (hoặc quyết định làm theo ví dụ Tiểu Lý)
+- AI IDE của bạn đã cài đặt/mở, có thể sử dụng bình thường
+- Bạn có 1-2 giờ thời gian tập trung
 
-::: tip 核心观点
-准备工作的目标是"开始"，而不是"完美"。15 分钟后，你就要写出第一个 Prompt 了。
+::: tip Quan điểm cốt lõi
+Mục tiêu của công việc chuẩn bị là "bắt đầu", chứ không phải "hoàn hảo". Sau 15 phút, bạn sẽ viết Prompt đầu tiên rồi.
 :::
 
-准备好了吗？让我们开始最后的准备工作。
+Sẵn sàng chưa? Hãy bắt đầu công việc chuẩn bị cuối cùng.
 
-→ [4.1.1 回顾第二章成果](./4.1.1-review-chapter2.md)
+→ [4.1.1 Ôn tập kết quả Chương 2](./4.1.1-review-chapter2.md)

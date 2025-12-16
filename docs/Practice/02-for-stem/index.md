@@ -1,9 +1,9 @@
 ---
-title: "理工科学生项目"
+title: "Dự Án Sinh Viên Khoa Học Kỹ Thuật"
 ---
 
-# 理工科学生项目
+# Dự Án Sinh Viên Khoa Học Kỹ Thuật
 
-适合理工科背景的入门实战项目，专注于算法可视化和数据处理。
+Các dự án thực chiến nhập môn phù hợp với sinh viên có nền tảng khoa học kỹ thuật, tập trung vào trực quan hóa thuật toán và xử lý dữ liệu.
 
-教程开发中
+Hướng dẫn đang được phát triển

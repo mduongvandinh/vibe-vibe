@@ -1,9 +1,9 @@
 ---
-title: "AI Agent 开发"
+title: "Phát Triển AI Agent"
 ---
 
-# AI Agent 开发
+# Phát Triển AI Agent
 
-学习构建 AI Agent 系统，包括 RAG、向量数据库、MCP 集成等。
+Học cách xây dựng các hệ thống AI Agent, bao gồm RAG, cơ sở dữ liệu vector, tích hợp MCP, v.v.
 
-教程开发中
+Hướng dẫn đang được phát triển

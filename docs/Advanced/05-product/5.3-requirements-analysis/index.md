@@ -1,69 +1,68 @@
 ---
-title: "5.3 不会提需求怎么办——让 AI 帮你问对问题"
-typora-root-url: ../../public
+title: "5.3 Không biết cách đưa ra yêu cầu sao — Hãy để AI giúp bạn đặt đúng câu hỏi"
 ---
 
-# 5.3 不会提需求怎么办——让 AI 帮你问对问题
+# 5.3 Không biết cách đưa ra yêu cầu sao — Hãy để AI giúp bạn đặt đúng câu hỏi
 
-### 从模糊想法到清晰需求
+### Từ ý tưởng mơ hồ đến yêu cầu rõ ràng
 
-很多时候，我们有一个大概的想法，但不知道如何把它变成可执行的需求。这时候，AI 可以成为你的"需求分析师"。
+Nhiều lúc, chúng ta có một ý tưởng sơ bộ, nhưng không biết cách chuyển nó thành yêu cầu có thể thực hiện được. Lúc này, AI có thể trở thành "nhà phân tích yêu cầu" của bạn.
 
 ```mermaid
 graph LR
-    A["模糊想法\n我想做个博客"] --> B["AI 提问引导\n给谁用？有什么功能？"]
-    B --> C["需求澄清\n个人博客+评论+SEO"]
-    C --> D["功能列表\n具体要做什么"]
-    D --> E["MVP 定义\n先做什么"]
+    A["Ý tưởng mơ hồ\nTôi muốn làm một blog"] --> B["AI hướng dẫn câu hỏi\nDành cho ai? Có tính năng gì?"]
+    B --> C["Làm rõ yêu cầu\nBlog cá nhân+bình luận+SEO"]
+    C --> D["Danh sách tính năng\nCụ thể cần làm gì"]
+    D --> E["Định nghĩa MVP\nTrước tiên làm gì"]
 ```
 
-### AI 可以帮你做什么
+### AI có thể giúp bạn làm gì
 
-| 需求阶段 | AI 能做的事 |
+| Giai đoạn yêu cầu | AI có thể làm gì |
 |----------|-------------|
-| **需求挖掘** | 提出你没想到的问题 |
-| **头脑风暴** | 提供多种可能的方案 |
-| **用户分析** | 分析目标用户画像 |
-| **功能梳理** | 将想法结构化为功能列表 |
-| **MVP 收敛** | 帮你确定第一版做什么 |
+| **Khai thác yêu cầu** | Đặt ra những câu hỏi bạn chưa nghĩ đến |
+| **Động não** | Cung cấp nhiều giải pháp có thể |
+| **Phân tích người dùng** | Phân tích hình dung người dùng |
+| **Sắp xếp chức năng** | Cấu trúc hóa ý tưởng thành danh sách tính năng |
+| **Thu hẹp MVP** | Giúp bạn xác định phiên bản đầu tiên làm gì |
 
-### 与 AI 协作的典型对话
+### Đối thoại điển hình khi hợp tác với AI
 
 ```
-你：我想做一个博客系统
+Bạn: Tôi muốn làm một hệ thống blog
 
-AI：好的，我来帮你梳理需求。请回答几个问题：
-1. 这个博客是给自己用，还是允许多人注册？
-2. 需要支持评论功能吗？
-3. 对 SEO 有要求吗？（需要被搜索引擎收录）
-4. 需要支持多语言吗？
-5. 文章编辑器你希望用 Markdown 还是富文本？
+AI: Được, tôi sẽ giúp bạn sắp xếp yêu cầu. Vui lòng trả lời một vài câu hỏi:
+1. Blog này là dành cho riêng bạn, hay cho phép nhiều người đăng ký?
+2. Có cần hỗ trợ tính năng bình luận không?
+3. Có yêu cầu SEO không? (cần được công cụ tìm kiếm thu thập)
+4. Có cần hỗ trợ đa ngôn ngữ không?
+5. Trình chỉnh sửa bài viết bạn muốn dùng Markdown hay văn bản phong phú?
 
-你：个人博客，需要评论，要 SEO，中文就行，用 Markdown
+Bạn: Blog cá nhân, cần bình luận, muốn SEO, chỉ tiếng Việt, dùng Markdown
 
-AI：明白了，我帮你整理一下核心功能：
+AI: Rõ rồi, tôi giúp bạn tổng hợp các tính năng cốt lõi:
 
-MVP 功能：
-- 文章 CRUD（创建/阅读/更新/删除）
-- Markdown 编辑器
-- 文章列表和详情页
-- 基础 SEO（meta 标签、sitemap）
+Tính năng MVP:
+- CRUD bài viết (tạo/đọc/cập nhật/xóa)
+- Trình chỉnh sửa Markdown
+- Trang danh sách bài viết và trang chi tiết
+- SEO cơ bản (thẻ meta, sơ đồ trang)
 
-V1.1 可以加：
-- 评论系统
-- 文章分类和标签
+V1.1 có thể thêm:
+- Hệ thống bình luận
+- Danh mục và thẻ bài viết
 
-V1.2 可以加：
-- RSS 订阅
-- 搜索功能
+V1.2 có thể thêm:
+- Đăng ký RSS
+- Tính năng tìm kiếm
 ```
 
-### 本节目标
+### Mục tiêu của phần này
 
-学完本节，你将掌握：
+Sau khi hoàn thành phần này, bạn sẽ nắm vững:
 
-1. **需求拆解**：把模糊的想法变成具体的问题
-2. **头脑风暴**：让 AI 帮你想出更多可能性
-3. **用户分析**：理解目标用户真正需要什么
-4. **功能梳理**：从想法到功能列表的转化
-5. **MVP 定义**：确定第一版的最小范围
+1. **Phân tích yêu cầu**: Chuyển ý tưởng mơ hồ thành các câu hỏi cụ thể
+2. **Động não**: Để AI giúp bạn suy nghĩ ra nhiều khả năng hơn
+3. **Phân tích người dùng**: Hiểu người dùng mục tiêu thực sự cần gì
+4. **Sắp xếp chức năng**: Chuyển đổi từ ý tưởng sang danh sách tính năng
+5. **Định nghĩa MVP**: Xác định phạm vi của phiên bản đầu tiên

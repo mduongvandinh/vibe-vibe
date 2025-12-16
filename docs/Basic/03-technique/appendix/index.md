@@ -1,65 +1,65 @@
 ---
-title: "附录：常用 Prompt 模板库"
+title: "Phụ lục: Thư viện Prompt Template thường dùng"
 ---
 
-# 附录：常用 Prompt 模板库
+# Phụ lục: Thư viện Prompt Template thường dùng
 
-本附录提供一系列可直接复制使用的 Prompt 模板，覆盖项目创建、代码修改、问题解决和文档生成四大场景。
+Phụ lục này cung cấp một loạt các Prompt template có thể sao chép và sử dụng trực tiếp, bao gồm bốn tình huống chính: tạo dự án, sửa đổi code, giải quyết vấn đề và tạo tài liệu.
 
-## 如何使用这份模板库
+## Cách sử dụng thư viện template này
 
-1. **找到你的场景**：根据下方索引表，快速定位适合你的模板
-2. **复制模板**：将模板复制到你的 AI 对话窗口
-3. **替换占位符**：把 `[方括号内容]` 替换成你的实际情况
-4. **根据需要删减**：如果某些字段不适用，可以删除
+1. **Tìm tình huống của bạn**: Dựa vào bảng chỉ mục bên dưới, nhanh chóng định vị template phù hợp với bạn
+2. **Sao chép template**: Sao chép template vào cửa sổ chat AI của bạn
+3. **Thay thế placeholder**: Thay thế `[nội dung trong ngoặc vuông]` bằng tình huống thực tế của bạn
+4. **Xóa bớt nếu cần**: Nếu một số trường không áp dụng, bạn có thể xóa chúng
 
-## 场景化索引：我想做什么 → 用哪个模板
+## Chỉ mục theo tình huống: Tôi muốn làm gì → Dùng template nào
 
-| 你想做什么 | 推荐模板 | 所在章节 |
+| Bạn muốn làm gì | Template đề xuất | Chương mục |
 |-----------|---------|---------|
-| 从零开始做一个网页应用 | 网页应用创建模板 | A.1 |
-| 用 Python 分析一份数据 | 数据分析项目模板 | A.1 |
-| 写一个自动化脚本处理文件 | 自动化脚本模板 | A.1 |
-| 在现有代码上添加新功能 | 功能扩展模板 | A.2 |
-| 优化代码性能或结构 | 代码重构模板 | A.2 |
-| 代码报错了，需要修复 | 运行时错误排查模板 | A.3 |
-| 代码能跑但结果不对 | 逻辑错误分析模板 | A.3 |
-| 不知道该用什么技术/库 | 技术选型咨询模板 | A.3 |
-| 给代码添加注释 | 代码注释生成模板 | A.4 |
-| 写项目说明文档 | README 生成模板 | A.4 |
+| Tạo ứng dụng web từ đầu | Template tạo ứng dụng web | A.1 |
+| Dùng Python phân tích dữ liệu | Template dự án phân tích dữ liệu | A.1 |
+| Viết script tự động xử lý file | Template script tự động hóa | A.1 |
+| Thêm tính năng mới vào code hiện có | Template mở rộng tính năng | A.2 |
+| Tối ưu hiệu suất hoặc cấu trúc code | Template refactor code | A.2 |
+| Code báo lỗi, cần sửa | Template debug lỗi runtime | A.3 |
+| Code chạy được nhưng kết quả sai | Template phân tích lỗi logic | A.3 |
+| Không biết nên dùng công nghệ/thư viện nào | Template tư vấn công nghệ | A.3 |
+| Thêm comment cho code | Template tạo comment code | A.4 |
+| Viết tài liệu giới thiệu dự án | Template tạo README | A.4 |
 
 
-## 模板使用前检查清单
+## Checklist kiểm tra trước khi dùng template
 
-在发送 Prompt 之前，快速检查：
+Trước khi gửi Prompt, hãy kiểm tra nhanh:
 
-- [ ] **背景信息完整吗？** 项目类型、技术栈、当前进度
-- [ ] **任务描述清晰吗？** 具体要做什么，输入输出是什么
-- [ ] **约束条件写了吗？** 必须遵守的限制，不能做什么
-- [ ] **占位符都替换了吗？** 没有遗留 `[方括号]` 内容
-- [ ] **期望格式说明了吗？** 要完整代码还是解释
+- [ ] **Thông tin bối cảnh đầy đủ chưa?** Loại dự án, tech stack, tiến độ hiện tại
+- [ ] **Mô tả nhiệm vụ rõ ràng chưa?** Cụ thể phải làm gì, input output là gì
+- [ ] **Điều kiện ràng buộc đã viết chưa?** Những giới hạn phải tuân thủ, không được làm gì
+- [ ] **Placeholder đã thay hết chưa?** Không còn sót lại nội dung `[ngoặc vuông]`
+- [ ] **Định dạng mong muốn đã nói rõ chưa?** Cần code đầy đủ hay giải thích
 
 
-## 本附录结构
+## Cấu trúc của phụ lục này
 
 ```
-A.1 项目创建类模板 → 从零开始搭建项目
-A.2 代码修改类模板 → 修改、扩展、重构现有代码
-A.3 问题解决类模板 → 排查错误、技术选型、概念解释
-A.4 文档生成类模板 → 注释、README、API 文档
+A.1 Template tạo dự án → Khởi tạo dự án từ đầu
+A.2 Template sửa code → Sửa đổi, mở rộng, refactor code hiện có
+A.3 Template giải quyết vấn đề → Debug lỗi, chọn công nghệ, giải thích khái niệm
+A.4 Template tạo tài liệu → Comment, README, API docs
 ```
 
 
-## 与正文的关系
+## Mối quan hệ với nội dung chính
 
-本附录是第三章各节内容的**实用工具箱**：
+Phụ lục này là **hộp công cụ thực hành** của các chương trong Chương 3:
 
-| 正文章节 | 附录对应 |
+| Chương chính | Phụ lục tương ứng |
 |---------|---------|
-| 3.2 结构化框架 | 附录模板基于 S.C.A.F.F. 框架设计 |
-| 3.3 进阶技巧 | 部分模板融合了 Few-shot、CoT 技巧 |
-| 3.4 PRD 模板 | A.1 项目创建类模板与 PRD 互补 |
-| 3.6 问题处理 | A.3 问题解决类模板提供标准化格式 |
-| 3.7 速查清单 | 附录提供更详尽的完整版模板 |
+| 3.2 Structured Framework | Template trong phụ lục được thiết kế dựa trên S.C.A.F.F. Framework |
+| 3.3 Kỹ thuật nâng cao | Một số template tích hợp kỹ thuật Few-shot, CoT |
+| 3.4 PRD Template | Template tạo dự án A.1 bổ sung cho PRD |
+| 3.6 Xử lý vấn đề | Template giải quyết vấn đề A.3 cung cấp định dạng chuẩn hóa |
+| 3.7 Checklist tham khảo | Phụ lục cung cấp template phiên bản đầy đủ chi tiết hơn |
 
-现在，让我们进入具体的模板库。
+Bây giờ, hãy cùng đi vào thư viện template cụ thể.

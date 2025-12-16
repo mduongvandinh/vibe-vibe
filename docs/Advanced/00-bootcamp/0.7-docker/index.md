@@ -1,44 +1,43 @@
 ---
-title: "0.7 把程序装进集装箱——Docker 核心概念"
-typora-root-url: ../../public
+title: "0.7 Đưa chương trình vào container — Khái niệm cốt lõi Docker"
 ---
 
-# 0.7 把程序装进集装箱——Docker 核心概念
+# 0.7 Đưa chương trình vào container — Khái niệm cốt lõi Docker
 
-## 一句话破题
+## Một câu giải thích
 
-Docker 用“镜像”定义运行环境，用“容器”执行你的程序；再用“环境变量、网络、数据卷与 Compose”把它变成可编排、可复用的工程能力。
+Docker dùng "image" để định nghĩa môi trường chạy, dùng "container" để thực thi chương trình của bạn; sau đó dùng "biến môi trường, mạng, volume dữ liệu và Compose" biến nó thành khả năng kỹ thuật có thể điều phối, có thể tái sử dụng.
 
-## 章节导览
+## Tổng quan các chương
 
-- 镜像与容器：构建、运行与生命周期管理。
-- 环境变量配置：安全注入配置与密钥。
-- 网络与端口：容器间通信与服务暴露。
-- 数据卷与 Compose：持久化与多服务编排。
-- 1Panel：用图形化面板管理 Docker 应用。
+- Image và container: Xây dựng, chạy và quản lý vòng đời.
+- Cấu hình biến môi trường: Tiêm cấu hình và khóa bí mật một cách an toàn.
+- Mạng và port: Giao tiếp giữa các container và expose service.
+- Volume dữ liệu và Compose: Bền vững hóa và điều phối nhiều service.
+- 1Panel: Quản lý ứng dụng Docker bằng bảng điều khiển đồ họa.
 
-## 总览图
+## Sơ đồ tổng quan
 
 ```mermaid
 flowchart LR
-    Img[“镜像”] --> Ctn[“容器”];
-    Ctn --> Env[“环境变量”];
-    Ctn --> Net[“网络/端口”];
-    Ctn --> Vol[“数据卷”];
-    Vol --> Compose[“Compose 编排”];
-    Compose --> OnePanel[“1Panel 管理与运维”];
+    Img["Image"] --> Ctn["Container"];
+    Ctn --> Env["Biến môi trường"];
+    Ctn --> Net["Mạng/Port"];
+    Ctn --> Vol["Volume dữ liệu"];
+    Vol --> Compose["Điều phối Compose"];
+    Compose --> OnePanel["Quản lý và vận hành 1Panel"];
 ```
 
-## AI 协作指南
+## Hướng dẫn cộng tác AI
 
-- 核心意图：让 AI 输出“完整的容器化方案”，而不是零碎命令。
-- 需求定义公式：
-  - “为一个 Node.js 应用生成 Dockerfile 与运行命令，包含端口映射、环境变量与数据卷，并提供 Compose 版本。”
-- 关键术语：`image`, `container`, `ENV`, `-p`, `volume`, `docker-compose`, `1Panel`。
+- Ý định cốt lõi: Để AI đưa ra "phương án container hóa hoàn chỉnh", không phải lệnh rời rạc.
+- Công thức định nghĩa yêu cầu:
+  - "Tạo Dockerfile và lệnh chạy cho ứng dụng Node.js, bao gồm ánh xạ port, biến môi trường và volume dữ liệu, đồng thời cung cấp phiên bản Compose."
+- Thuật ngữ quan trọng: `image`, `container`, `ENV`, `-p`, `volume`, `docker-compose`, `1Panel`.
 
-## Windows PowerShell 常用命令
+## Lệnh Windows PowerShell thường dùng
 
-- 检查 Docker：`Get-Command docker`
-- 查看：`docker ps -a`
-- 日志：`docker logs -f <容器名>`
-- 进入容器：`docker exec -it <容器名> sh`
+- Kiểm tra Docker: `Get-Command docker`
+- Xem: `docker ps -a`
+- Log: `docker logs -f <tên-container>`
+- Vào container: `docker exec -it <tên-container> sh`

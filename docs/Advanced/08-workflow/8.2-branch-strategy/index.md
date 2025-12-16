@@ -1,73 +1,72 @@
 ---
-title: "8.2 为什么不能随便提交代码——分支策略：Feature→Develop→Main；禁止直推 Main"
-typora-root-url: ../../public
+title: "8.2 Tại sao không thể commit code tùy tiện——Chiến lược nhánh: Feature→Develop→Main; Cấm push trực tiếp Main"
 ---
 
-# 8.2 为什么不能随便提交代码——分支策略
+# 8.2 Tại sao không thể commit code tùy tiện——Chiến lược nhánh
 
-直接往 main 分支提交代码，就像在高速公路上随意变道——看似方便，实则危险。
+Commit code trực tiếp vào nhánh main giống như thay đổi làn trên đường cao tốc—dường như tiện lợi nhưng lại rất nguy hiểm.
 
-## 为什么需要分支策略
+## Tại sao cần chiến lược nhánh
 
-没有分支策略的团队常常遇到这些问题：
+Các team không có chiến lược nhánh thường gặp những vấn đề này:
 
-- 未经测试的代码直接上线，导致生产事故
-- 多人同时开发，代码频繁冲突
-- 出了问题不知道是哪次提交引入的
-- 紧急 bug 修复被未完成的功能代码阻塞
+- Code chưa test xong được deploy trực tiếp lên production, gây sự cố
+- Nhiều người phát triển cùng lúc, code xung đột thường xuyên
+- Khi có lỗi, không biết commit nào gây ra
+- Sửa bug khẩn cấp bị chặn bởi code chức năng chưa hoàn thành
 
-**分支策略的本质是隔离风险**——让不同阶段的代码在不同的"车道"上行驶。
+**Bản chất của chiến lược nhánh là cô lập rủi ro**——cho phép code ở các giai đoạn khác nhau chạy trên các "làn" khác nhau.
 
-## 分支策略全景
+## Tổng quan chiến lược nhánh
 
 ```mermaid
 flowchart LR
-    subgraph 开发阶段
+    subgraph Giai đoạn phát triển
         F1[feat/login] --> D[develop]
         F2[feat/profile] --> D
         F3[fix/bug-123] --> D
     end
-    
-    subgraph 发布阶段
+
+    subgraph Giai đoạn release
         D --> R[release/1.0]
         R --> M[main]
     end
-    
-    subgraph 紧急修复
+
+    subgraph Sửa khẩn cấp
         M --> H[hotfix/critical]
         H --> M
         H --> D
     end
 ```
 
-## 两种主流分支模型
+## Hai mô hình nhánh chính
 
-| 模型 | 适用场景 | 复杂度 | 分支数量 |
+| Mô hình | Trường hợp áp dụng | Độ phức tạp | Số lượng nhánh |
 |------|----------|--------|----------|
-| Git Flow | 传统软件、定期发布 | 高 | 多 |
-| GitHub Flow | 持续部署、Web 应用 | 低 | 少 |
+| Git Flow | Phần mềm truyền thống, release định kỳ | Cao | Nhiều |
+| GitHub Flow | Triển khai liên tục, ứng dụng web | Thấp | Ít |
 
-**推荐**：对于 Next.js 全栈项目，**GitHub Flow** 更为合适——简单、快速、适合持续部署。
+**Khuyến nghị**：Với dự án fullstack Next.js, **GitHub Flow** thích hợp hơn——đơn giản, nhanh chóng, phù hợp với triển khai liên tục.
 
-## 本节结构
+## Cấu trúc phần này
 
-1. **Git Flow**：功能/发布/热修复分支的完整工作流
-2. **GitHub Flow**：适合小团队的简化分支模型
-3. **分支保护**：如何强制 PR 和状态检查
-4. **代码审查**：PR 模板和 Review 最佳实践
+1. **Git Flow**：Quy trình làm việc hoàn chỉnh với các nhánh feature/release/hotfix
+2. **GitHub Flow**：Mô hình nhánh đơn giản cho team nhỏ
+3. **Bảo vệ nhánh**：Cách buộc phải dùng PR và kiểm tra trạng thái
+4. **Đánh giá code**：Mẫu PR và các thực tiễn tốt nhất của Code Review
 
-## 核心原则
+## Nguyên tắc cốt lõi
 
-无论选择哪种模型，都应遵循以下原则：
+Dù chọn mô hình nào, cũng nên tuân theo các nguyên tắc sau:
 
-1. **main 分支始终可部署**：main 上的代码随时可以上线
-2. **功能开发在独立分支**：一个功能一个分支，互不干扰
-3. **通过 PR 合并代码**：所有代码必须经过审查才能进入主分支
-4. **小步快跑**：分支生命周期越短越好，避免大规模合并
+1. **Nhánh main luôn có thể deploy**：Code trên main có thể lên production bất kỳ lúc nào
+2. **Phát triển chức năng trên nhánh riêng lẻ**：Một chức năng một nhánh, không can thiệp lẫn nhau
+3. **Hợp nhất code qua PR**：Tất cả code phải qua review mới được vào nhánh chính
+4. **Bước nhỏ, nhanh chóng**：Vòng đời nhánh càng ngắn càng tốt, tránh hợp nhất quy mô lớn
 
-## 验收清单
+## Danh sách kiểm tra
 
-- [ ] 理解分支策略的必要性
-- [ ] 能根据项目特点选择合适的分支模型
-- [ ] 知道如何配置分支保护规则
-- [ ] 掌握 PR 和代码审查的基本流程
+- [ ] Hiểu tầm quan trọng của chiến lược nhánh
+- [ ] Có thể chọn mô hình nhánh phù hợp dựa trên đặc điểm dự án
+- [ ] Biết cách cấu hình quy tắc bảo vệ nhánh
+- [ ] Nắm vững quy trình PR và code review cơ bản

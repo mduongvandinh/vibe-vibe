@@ -1,74 +1,73 @@
 ---
-title: "5.6 方案是用来减风险的——技术方案要点：接口/数据表/边界/风险；单人自评"
-typora-root-url: ../../public
+title: "5.6 Phương án là để giảm rủi ro——Điểm chính của phương án kỹ thuật: Giao diện/Bảng dữ liệu/Ranh giới/Rủi ro; Tự đánh giá cá nhân"
 ---
 
-# 5.6 方案是用来减风险的——技术方案
+# 5.6 Phương án là để giảm rủi ro——Phương án kỹ thuật
 
-### 写技术方案的目的
+### Mục đích viết phương án kỹ thuật
 
-技术方案不是为了"走流程"，而是为了**在写代码之前发现问题**。
+Phương án kỹ thuật không phải để "làm theo quy trình", mà là để **phát hiện vấn đề trước khi viết mã**.
 
 ```mermaid
 graph LR
-    A["PRD\n做什么"] --> B["技术方案\n怎么做"]
-    B --> C["代码实现\n具体做"]
-    B --> D["发现问题\n提前解决"]
+    A["PRD\nLàm gì"] --> B["Phương án kỹ thuật\nLàm như thế nào"]
+    B --> C["Hiện thực hoá mã\nLàm cụ thể"]
+    B --> D["Phát hiện vấn đề\nGiải quyết sớm"]
 ```
 
-### 技术方案该包含什么
+### Phương án kỹ thuật nên bao gồm gì
 
-一份最小化但有效的技术方案：
+Một phương án kỹ thuật tối thiểu nhưng hiệu quả:
 
 ```markdown
-## 技术方案模板
+## Mẫu phương án kỹ thuật
 
-### 1. 接口设计
-- API 路径、方法、参数
-- 请求/响应格式
+### 1. Thiết kế giao diện
+- Đường dẫn API, phương thức, tham số
+- Định dạng yêu cầu/phản hồi
 
-### 2. 数据表设计
-- 表结构、字段定义
-- 表之间的关系
+### 2. Thiết kế bảng dữ liệu
+- Cấu trúc bảng, định nghĩa trường
+- Mối quan hệ giữa các bảng
 
-### 3. 系统边界
-- 哪些是自己实现
-- 哪些依赖外部服务
+### 3. Ranh giới hệ thống
+- Những gì tự mình triển khai
+- Những gì phụ thuộc vào dịch vụ bên ngoài
 
-### 4. 风险评估
-- 可能遇到的技术难点
-- 应对措施
+### 4. Đánh giá rủi ro
+- Những khó khăn kỹ thuật có thể gặp phải
+- Biện pháp ứng phó
 
-### 5. 工作量估算
-- 各模块开发时间
-- 总体时间安排
+### 5. Ước tính khối lượng công việc
+- Thời gian phát triển của mỗi mô-đun
+- Lịch trình thời gian tổng thể
 ```
 
-### 为什么独立开发者也需要技术方案
+### Tại sao các lập trình viên độc lập cũng cần phương án kỹ thuật
 
-| 场景 | 不写方案 | 写方案 |
+| Tình huống | Không viết phương án | Viết phương án |
 |------|----------|--------|
-| 开发中途 | 发现设计有问题，需要重写 | 提前发现，调整方案 |
-| 让 AI 实现 | AI 各自为政，接口不统一 | AI 按方案实现，风格一致 |
-| 评估时间 | 拍脑袋，经常低估 | 有依据，更准确 |
+| Trong quá trình phát triển | Phát hiện vấn đề thiết kế, cần viết lại | Phát hiện sớm, điều chỉnh phương án |
+| Để AI hiện thực | AI hoạt động độc lập, giao diện không thống nhất | AI triển khai theo phương án, phong cách nhất quán |
+| Ước tính thời gian | Đoán mò, thường thiếu | Có cơ sở, chính xác hơn |
 
-### 技术方案 vs 代码注释
+### Phương án kỹ thuật vs Chú thích mã
 
-技术方案是**顶层设计**，回答"为什么这样做"：
-- 为什么用 PostgreSQL 而不是 MongoDB？
-- 为什么用 JWT 而不是 Session？
-- 表结构为什么这样设计？
+Phương án kỹ thuật là **thiết kế cấp cao**, trả lời "tại sao làm như vậy":
+- Tại sao dùng PostgreSQL thay vì MongoDB?
+- Tại sao dùng JWT thay vì Session?
+- Tại sao lại thiết kế cấu trúc bảng như vậy?
 
-代码注释是**实现细节**，回答"这段代码做什么"。
+Chú thích mã là **chi tiết hiện thực**, trả lời "đoạn mã này làm gì".
 
-### 本节目标
+### Mục tiêu của phần này
 
-学完本节，你将掌握：
+Sau khi học xong phần này, bạn sẽ nắm vững:
 
-1. **接口设计**：如何设计清晰的 API
-2. **数据表设计**：如何设计合理的数据结构
-3. **系统边界**：如何划分内外部依赖
-4. **风险评估**：如何识别和缓解技术风险
-5. **单人自评**：如何评估自己能否完成
+1. **Thiết kế giao diện**：Cách thiết kế API rõ ràng
+2. **Thiết kế bảng dữ liệu**：Cách thiết kế cấu trúc dữ liệu hợp lý
+3. **Ranh giới hệ thống**：Cách phân chia sự phụ thuộc ngoài
+4. **Đánh giá rủi ro**：Cách xác định và giảm thiểu rủi ro kỹ thuật
+5. **Tự đánh giá cá nhân**：Cách đánh giá khả năng hoàn thành của mình
 
-**核心原则**：技术方案越早写越好，修改方案的成本远低于修改代码。
+**Nguyên tắc cốt lõi**: Viết phương án kỹ thuật càng sớm càng tốt, chi phí sửa đổi phương án thấp hơn nhiều so với sửa đổi mã.

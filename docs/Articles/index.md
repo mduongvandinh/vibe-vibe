@@ -1,15 +1,15 @@
 ---
-title: "优质文章篇"
+title: "Bài Viết Chất Lượng Cao"
 ---
 
-# 优质文章篇
+# Bài Viết Chất Lượng Cao
 
-精选优质学习资源，帮助你保持对行业前沿的关注。
+Tuyển chọn các nguồn học tập chất lượng cao, giúp bạn luôn cập nhật xu hướng hàng đầu của ngành.
 
-## 内容分类
+## Phân Loại Nội Dung
 
-- [知名公司博客](./01-company-blogs/) —— OpenAI、Anthropic、Vercel 等公司的技术博客
-- [优质播客](./02-podcasts/) —— AI、开发者、创业者相关播客推荐
-- [研究报告](./03-research-reports/) —— AI 发展报告、开发者调查、行业趋势
-- [优质 Newsletter](./04-newsletters/) —— 值得订阅的技术周刊
-- [开发者社区](./05-communities/) —— Discord、Twitter、GitHub 优质资源
+- [Blog Các Công Ty Nổi Tiếng](./01-company-blogs/) —— Blog công nghệ của các công ty như OpenAI, Anthropic, Vercel, v.v.
+- [Podcast Chất Lượng](./02-podcasts/) —— Đề xuất các podcast liên quan đến AI, nhà phát triển, và doanh nhân
+- [Báo Cáo Nghiên Cứu](./03-research-reports/) —— Báo cáo phát triển AI, khảo sát nhà phát triển, xu hướng ngành
+- [Newsletter Chất Lượng](./04-newsletters/) —— Bản tin công nghệ hàng tuần đáng đăng ký
+- [Cộng Đồng Nhà Phát Triển](./05-communities/) —— Nguồn tài nguyên chất lượng trên Discord, Twitter, GitHub

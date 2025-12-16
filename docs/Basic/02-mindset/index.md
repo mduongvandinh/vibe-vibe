@@ -1,77 +1,77 @@
 ---
-title: "第 2 章：心法 —— 像产品经理一样思考"
+title: "Chương 2: Tư duy - Suy nghĩ như một Quản lý Sản phẩm"
 ---
 
-# 第 2 章：心法 —— 像产品经理一样思考
+# Chương 2: Tư duy - Suy nghĩ như một Quản lý Sản phẩm
 
-> **章节导语**
-> 
-> 你即将学到的，不是"如何给AI写更好的提示词"——那是第三章的事。
-> 
-> 这一章要解决的是一个更根本的问题：**在你开口告诉AI"帮我做xxx"之前，你应该想清楚什么？**
-> 
-> 90%的Vibe Coding失败，不是因为AI不够聪明，而是因为你自己都没想清楚要做什么。
-> 
-> 读完这一章，你会获得一套产品经理级别的思维工具。从此以后，无论你想做什么——一个小工具、一个数据分析、一个自动化脚本，还是一个产品原型——你都会知道如何思考。
+> **Giới thiệu chương**
+>
+> Những gì bạn sắp học không phải là "cách viết prompt tốt hơn cho AI" -- đó là nội dung của chương 3.
+>
+> Chương này giải quyết một vấn đề cơ bản hơn: **Trước khi bạn yêu cầu AI "giúp tôi làm xxx", bạn nên suy nghĩ rõ ràng về điều gì?**
+>
+> 90% thất bại của Vibe Coding không phải vì AI không đủ thông minh, mà vì bạn chưa suy nghĩ rõ ràng về những gì bạn muốn làm.
+>
+> Sau khi hoàn thành chương này, bạn sẽ có được một bộ công cụ tư duy cấp độ Quản lý Sản phẩm. Từ đó về sau, bất kể bạn muốn làm gì -- một công cụ nhỏ, một phân tích dữ liệu, một script tự động hóa, hay một mẫu sản phẩm -- bạn sẽ biết cách suy nghĩ.
 
-> **预计阅读时间**：完整阅读约 2 小时 | 快速通关约 30 分钟
-
-
-
-## 经过本章学习，你将掌握
-
-- **七个思维模型**：JTBD、逆向思维、减法思维、故事思维、灵魂三问、场景应用、问题发现
-- **一套开发前检查流程**：在动手之前确保想清楚了
-- **从"有想法"到"准备好开发"的完整思考链条**
+> **Thời gian dự kiến đọc**: Đọc hoàn chỉnh khoảng 2 giờ | Đọc nhanh khoảng 30 phút
 
 
 
-## 本章内容导航
+## Sau khi học chương này, bạn sẽ nắm vững
 
-| 小节 | 解决的问题 |
+- **Bảy mô hình tư duy**: JTBD, Tư duy ngược, Tư duy trừ, Tư duy câu chuyện, Ba câu hỏi linh hồn, Ứng dụng tình huống, Khám phá vấn đề
+- **Một quy trình kiểm tra trước khi phát triển**: Đảm bảo bạn suy nghĩ rõ ràng trước khi bắt đầu
+- **Chuỗi suy nghĩ hoàn chỉnh từ "có ý tưởng" đến "sẵn sàng phát triển"**
+
+
+
+## Hướng dẫn nội dung chương
+
+| Phần | Vấn đề được giải quyết |
 |-----|-----------|
-| [2.1 思维升级](./2.1-thinking-upgrade/) | "我想做一个App"这种想法为什么会失败 |
-| [2.2 逆向思维](./2.2-inversion-thinking/) | 如何提前避坑而不是事后救火 |
-| [2.3 减法思维](./2.3-subtraction-thinking/) | 第一版到底应该做多少功能 |
-| [2.4 故事思维](./2.4-story-thinking/) | 如何真正理解你的用户 |
-| [2.5 灵魂三问](./2.5-soul-questions/) | 开发前的最终自检 |
-| [2.6 场景应用](./2.6-scenario-application/) | 数据分析/脚本/家人工具等场景的特殊要求 |
-| [2.7 问题发现](./2.7-problem-discovery/) | 不知道做什么项目时怎么找灵感 |
-| [2.8 本章总结](./2.8-chapter-summary/) | 七个模型如何串联使用 |
-| [附录](./appendix/) | 模板速查、扩展案例、常见误区、深度资源 |
+| [2.1 Nâng cấp Tư duy](./2.1-thinking-upgrade/) | Tại sao ý tưởng "Tôi muốn làm một ứng dụng" lại thất bại |
+| [2.2 Tư duy Ngược](./2.2-inversion-thinking/) | Cách tránh rủi ro trước thay vì chữa cháy sau |
+| [2.3 Tư duy Trừ](./2.3-subtraction-thinking/) | Phiên bản đầu tiên nên có bao nhiêu tính năng |
+| [2.4 Tư duy Câu chuyện](./2.4-story-thinking/) | Cách thực sự hiểu người dùng của bạn |
+| [2.5 Ba câu hỏi Linh hồn](./2.5-soul-questions/) | Tự kiểm tra cuối cùng trước khi phát triển |
+| [2.6 Ứng dụng Tình huống](./2.6-scenario-application/) | Yêu cầu đặc biệt cho phân tích dữ liệu/script/công cụ gia đình, v.v. |
+| [2.7 Khám phá Vấn đề](./2.7-problem-discovery/) | Cách tìm cảm hứng khi không biết nên làm dự án gì |
+| [2.8 Tóm tắt Chương](./2.8-chapter-summary/) | Cách sử dụng bảy mô hình liên kết với nhau |
+| [Phụ lục](./appendix/) | Mẫu tra cứu nhanh, trường hợp mở rộng, lỗi phổ biến, tài nguyên sâu |
 
 
 
-## 不同场景的阅读建议
+## Gợi ý đọc cho các tình huống khác nhau
 
-**赶时间版（30分钟）**：2.1 → 2.3 → 2.5 → 2.8.2 检查清单
+**Phiên bản vội vã (30 phút)**: 2.1 → 2.3 → 2.5 → 2.8.2 Danh sách kiểm tra
 
-**完整版（2小时）**：按顺序阅读全部章节
+**Phiên bản hoàn chỉnh (2 giờ)**: Đọc tất cả các phần theo thứ tự
 
-**遇到问题再来查**：直接翻到 2.8 末尾的"模型选择速查表"
+**Khi gặp vấn đề, quay lại tra cứu**: Đi trực tiếp đến cuối 2.8, "Bảng tra cứu nhanh lựa chọn mô hình"
 
 
-## 本章适用于你想做的任何事情
+## Chương này áp dụng cho bất kỳ điều gì bạn muốn làm
 
-在开始之前，我想先说清楚一件事：
+Trước khi bắt đầu, tôi muốn nói rõ một điều:
 
-**这一章不只是关于"做产品"或"创业"的。**
+**Chương này không chỉ về "làm sản phẩm" hoặc "khởi nghiệp".**
 
-无论你想用Vibe Coding做什么，这些思维方式都适用：
+Bất kể bạn muốn dùng Vibe Coding để làm gì, những cách suy nghĩ này đều áp dụng:
 
-| 你想做的事情 | 本章对你的帮助 |
+| Những gì bạn muốn làm | Cách chương này giúp bạn |
 |-------------|---------------|
-| **解决个人痛点的小工具** | 帮你想清楚"我到底要解决什么问题" |
-| **数据分析和可视化** | 帮你明确"我要回答什么问题，给谁看" |
-| **自动化脚本** | 帮你识别"哪些重复劳动值得自动化" |
-| **产品原型验证** | 帮你设计"最小可验证版本" |
-| **学习项目练手** | 帮你选择"适合自己水平的项目" |
-| **给家人做个小网页** | 帮你理解"他们真正需要什么" |
+| **Công cụ nhỏ giải quyết khó khăn cá nhân** | Giúp bạn suy nghĩ rõ ràng "Tôi thực sự muốn giải quyết vấn đề gì" |
+| **Phân tích dữ liệu và trực quan hóa** | Giúp bạn xác định "Tôi muốn trả lời câu hỏi gì, cho ai xem" |
+| **Script tự động hóa** | Giúp bạn xác định "Những lao động nào lặp đi lặp lại đáng được tự động hóa" |
+| **Xác minh mẫu sản phẩm** | Giúp bạn thiết kế "Phiên bản có thể kiểm chứng tối thiểu" |
+| **Dự án học tập luyện tập** | Giúp bạn chọn "Dự án phù hợp với trình độ của bạn" |
+| **Tạo một trang web nhỏ cho gia đình** | Giúp bạn hiểu "Họ thực sự cần gì" |
 
-**核心思想只有一个：先想清楚，再动手。**
+**Ý tưởng cốt lõi chỉ có một: Suy nghĩ rõ ràng trước, sau đó hành động.**
 
-这听起来很简单，但大多数人（包括我自己）都会跳过这一步，直接告诉AI"帮我做一个xxx"。
+Điều này nghe có vẻ đơn giản, nhưng hầu hết mọi người (kể cả tôi) đều bỏ qua bước này và trực tiếp yêu cầu AI "giúp tôi làm một xxx".
 
-结果就是：AI做出来的东西，和你想要的总是差那么一点。
+Kết quả là: Những gì AI tạo ra luôn khác với những gì bạn muốn.
 
-不是AI的问题，是你没想清楚。
+Không phải vấn đề của AI, mà bạn không suy nghĩ rõ ràng.

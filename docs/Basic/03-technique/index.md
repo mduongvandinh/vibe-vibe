@@ -1,117 +1,117 @@
 ---
-title: "第 3 章：技法 —— 与 AI 对话的艺术"
+title: "Chương 3: Kỹ thuật — Nghệ thuật đối thoại với AI"
 ---
 
-# 第 3 章：技法 —— 与 AI 对话的艺术
+# Chương 3: Kỹ thuật — Nghệ thuật đối thoại với AI
 
-> **章节定位**：本章是 Vibe Coding 的核心技能章节，从"会说话"到"说对话"，帮助读者掌握与 AI 高效沟通的方法论和实操技巧。
+> **Vị trí chương**：Đây là chương kỹ năng cốt lõi của Vibe Coding, giúp bạn từ "biết nói" đến "nói đúng", nắm vững phương pháp luận và kỹ thuật thực hành giao tiếp hiệu quả với AI.
 
 
-## 从"想清楚"到"说明白"
+## Từ "suy nghĩ rõ ràng" đến "diễn đạt rõ ràng"
 
-在第二章，我们学会了**想清楚**——用产品经理的思维工具（JTBD、逆向思维、减法思维、故事思维、灵魂三问）梳理需求，明确要做什么、为谁做、为什么做。
+Ở chương hai, chúng ta học được **suy nghĩ rõ ràng** — sử dụng các công cụ tư duy của quản lý sản phẩm (JTBD, tư duy ngược, tư duy trừ, tư duy câu chuyện, ba câu hỏi về linh hồn) để sắp xếp yêu cầu, làm rõ cần làm gì, cho ai, vì sao.
 
-本章，我们要学**说明白**——把想清楚的东西，用 AI 能理解的方式表达出来。
+Ở chương này, chúng ta cần học **diễn đạt rõ ràng** — biểu đạt những gì suy nghĩ rõ ràng theo cách AI có thể hiểu.
 
-这两章的关系是：
+Mối quan hệ giữa hai chương này là:
 
-| 章节 | 核心任务 | 比喻 |
+| Chương | Nhiệm vụ cốt lõi | So sánh |
 |------|---------|------|
-| 第二章 心法 | 想清楚做什么 | 写好剧本 |
-| 第三章 技法 | 说明白让 AI 做 | 导演指挥 |
+| Chương hai: Tâm pháp | Suy nghĩ rõ ràng cần làm gì | Viết kịch bản tốt |
+| Chương ba: Kỹ thuật | Diễn đạt rõ ràng để AI thực hiện | Chỉ đạo diễn viên |
 
-**没有第二章的思考，第三章的技巧是空中楼阁；没有第三章的表达，第二章的思考无法落地。**
-
-
-## 为什么这一章如此重要
-
-在 Vibe Coding 的世界里，**你的表达能力就是编程能力**。
-
-传统编程需要学习编程语言的语法，而 Vibe Coding 需要学习"与 AI 对话"的语法。这并不是简单地把需求翻译成自然语言，而是一套完整的沟通方法论——你需要知道：
-
-- 什么时候该说什么（时机与策略）
-- 怎么说 AI 才能听懂（结构与格式）
-- AI 没听懂怎么办（迭代与修正）
-- 如何让 AI 记住你说过的话（上下文管理）
-
-**一个好的提示词，能让 AI 一次给出 90 分的代码；一个差的提示词，可能让你在 20 分的坑里挣扎两小时。**
+**Nếu không có suy nghĩ của chương hai, kỹ thuật ở chương ba sẽ là lâu đài trên không; nếu không có cách diễn đạt của chương ba, suy nghĩ ở chương hai không thể thực hiện được.**
 
 
-## 本章学习目标
+## Tại sao chương này lại quan trọng như vậy
 
-完成本章学习后，你将能够：
+Trong thế giới Vibe Coding, **khả năng diễn đạt của bạn chính là khả năng lập trình**.
 
-- ✅ 理解提示词工程的核心原则，掌握"Context is King"的精髓
-- ✅ 运用结构化框架（S.C.A.F.F.、R.G.C.）编写清晰、有效的提示词
-- ✅ 掌握 Zero-shot、Few-shot、Chain of Thought、Tree of Thoughts 等核心技巧
-- ✅ 将第二章的产品思考（用户画像、旅程地图、灵魂三问）转化为 AI 能执行的 PRD
-- ✅ 学会与 AI 进行多轮迭代对话，逐步逼近理想结果
-- ✅ 识别 AI 幻觉的四种类型（包幻觉、API 幻觉、逻辑幻觉、版本幻觉），掌握验证技巧
-- ✅ 了解主流 AI IDE（Cursor/Windsurf/Claude Code 等）的项目配置方法
+Lập trình truyền thống cần học cú pháp của ngôn ngữ lập trình, còn Vibe Coding cần học cú pháp của "đối thoại với AI". Đây không đơn giản là dịch yêu cầu thành ngôn ngữ tự nhiên, mà là một bộ phương pháp luận giao tiếp hoàn chỉnh — bạn cần biết:
 
+- Khi nào nên nói gì (thời cơ và chiến lược)
+- Cách nói để AI hiểu (cấu trúc và định dạng)
+- Nếu AI không hiểu thì sao (lặp lại và sửa chữa)
+- Cách để AI nhớ những gì bạn đã nói (quản lý ngữ cảnh)
 
-## 本章亮点
-
-本章包含多项实用内容，帮助你少走弯路：
-
-- 📦 **2024-2025 安全警示**：识别 Slopsquatting 攻击——研究表明约 20% 的 AI 推荐包可能不存在，攻击者已利用这一漏洞进行供应链攻击
-- 🛠️ **9 款 AI IDE 配置对照表**：Cursor、Windsurf、Claude Code、GitHub Copilot、Trae 等工具的上下文配置方法一览
-- 📋 **可直接复制的 Prompt 模板**：项目创建、代码修改、问题解决等场景开箱即用
-- ⚖️ **差提示词 vs 好提示词对比**：直观展示表达方式对 AI 输出质量的影响
+**Một lời nhắc tốt có thể giúp AI đưa ra mã 90 điểm ngay lần đầu; một lời nhắc tồi có thể khiến bạn vật lộn trong cái hố 20 điểm trong hai giờ.**
 
 
-## 本章贯穿案例
+## Mục tiêu học tập của chương
 
-本章将延续第二章小李的「待办清单」项目，演示如何：
-- 把第二章的 JTBD 分析和灵魂三问转化为 AI 能执行的 PRD
-- 用结构化框架编写第一个完整 Prompt
-- 通过迭代对话逐步完善功能
+Sau khi hoàn thành chương này, bạn sẽ có khả năng:
 
-同时，还会使用「登录页面」「代码转换」「技术选型」等典型场景演示各种提示技巧。
-
-
-## 本章教学特色
-
-本章大量使用**对比教学法**——展示同一任务的「差提示词」和「好提示词」，让你直观看到表达方式对 AI 输出质量的影响。
-
-例如：
-- ❌ "帮我做一个登录页面"
-- ✅ 包含项目背景、技术栈、功能要求、样式约束的完整 S.C.A.F.F. 框架版本（见 3.2 节）
-
-**为什么这样教**：研究表明，对比学习能更快建立正确的心智模型。看到「差」在哪里，才能理解「好」好在哪里。
+- ✅ Hiểu các nguyên tắc cốt lõi của kỹ thuật lời nhắc, nắm vững tinh hoa của "Context is King"
+- ✅ Áp dụng khung cấu trúc (S.C.A.F.F., R.G.C.) để viết lời nhắc rõ ràng và hiệu quả
+- ✅ Nắm vững các kỹ thuật cốt lõi như Zero-shot, Few-shot, Chain of Thought, Tree of Thoughts
+- ✅ Chuyển đổi suy nghĩ sản phẩm ở chương hai (hình ảnh người dùng, bản đồ hành trình, ba câu hỏi) thành PRD mà AI có thể thực hiện
+- ✅ Học cách tiến hành đối thoại lặp lại nhiều lần với AI, từng bước tiếp cận kết quả lý tưởng
+- ✅ Xác định bốn loại ảo tưởng của AI (ảo tưởng gói, ảo tưởng API, ảo tưởng logic, ảo tưởng phiên bản) và nắm vững kỹ thuật xác minh
+- ✅ Hiểu phương pháp cấu hình dự án của các IDE AI chính (Cursor/Windsurf/Claude Code, v.v.)
 
 
-## 与第二章的衔接
+## Điểm nổi bật của chương
 
-本章与第二章是「思考」与「表达」的关系。下表展示如何把第二章成果转化为第三章技能：
+Chương này chứa nhiều nội dung thực tế giúp bạn tránh đi những con đường vòng:
 
-| 第二章成果 | 第三章应用位置 | 如何转化 |
+- 📦 **Cảnh báo bảo mật 2024-2025**: Xác định các cuộc tấn công Slopsquatting — nghiên cứu cho thấy khoảng 20% các gói được đề xuất bởi AI có thể không tồn tại, những kẻ tấn công đã tận dụng lỗ hổng này để tấn công chuỗi cung ứng
+- 🛠️ **Bảng so sánh cấu hình 9 IDE AI**: Phương pháp cấu hình ngữ cảnh của Cursor, Windsurf, Claude Code, GitHub Copilot, Trae và các công cụ khác
+- 📋 **Mẫu Prompt có thể sao chép trực tiếp**: Sử dụng ngay cho các tình huống tạo dự án, sửa đổi mã, giải quyết vấn đề
+- ⚖️ **So sánh lời nhắc tồi vs lời nhắc tốt**: Thể hiện trực quan cách thức biểu đạt ảnh hưởng đến chất lượng đầu ra của AI
+
+
+## Trường hợp xuyên suốt chương
+
+Chương này sẽ tiếp tục dự án "Danh sách công việc" của Tiểu Lý ở chương hai, để chỉ ra cách:
+- Chuyển đổi phân tích JTBD và ba câu hỏi của chương hai thành PRD mà AI có thể thực hiện
+- Sử dụng khung cấu trúc để viết Prompt hoàn chỉnh đầu tiên
+- Liên tục hoàn thiện các tính năng thông qua đối thoại lặp lại
+
+Đồng thời, cũng sẽ sử dụng các tình huống điển hình như "trang đăng nhập", "chuyển đổi mã", "lựa chọn công nghệ" để chứng minh các kỹ thuật lời nhắc khác nhau.
+
+
+## Đặc thù giảng dạy của chương
+
+Chương này sử dụng phương pháp giảng dạy so sánh — hiển thị "lời nhắc tồi" và "lời nhắc tốt" cho cùng một nhiệm vụ, giúp bạn thấy rõ cách thức biểu đạt ảnh hưởng đến chất lượng đầu ra của AI.
+
+Ví dụ:
+- ❌ "Hãy giúp tôi tạo một trang đăng nhập"
+- ✅ Phiên bản khung S.C.A.F.F. hoàn chỉnh chứa lịch sử dự án, ngôn ngữ công nghệ, yêu cầu chức năng, ràng buộc kiểu dáng (xem phần 3.2)
+
+**Tại sao dạy như thế này**: Nghiên cứu cho thấy học tập so sánh có thể nhanh chóng thiết lập mô hình tư duy chính xác. Chỉ khi thấy "tồi" ở đâu, mới hiểu "tốt" tốt ở đâu.
+
+
+## Kết nối với chương hai
+
+Chương này và chương hai là mối quan hệ giữa "suy nghĩ" và "biểu đạt". Bảng dưới đây cho thấy cách chuyển đổi kết quả chương hai thành kỹ năng chương ba:
+
+| Kết quả chương hai | Vị trí áp dụng chương ba | Cách chuyển đổi |
 |-----------|--------------|---------|
-| 灵魂三问（用户是谁、痛点在哪、为什么选你） | 3.4 PRD 模板 | 直接填入「产品目标」部分 |
-| 减法思维（P0/P1/P2 优先级） | 3.4 分阶段开发 | 用优先级引导 AI 逐步实现 |
-| 用户画像 | 3.2 框架的 Context 部分 | 帮助 AI 理解目标用户 |
-| 用户旅程地图 | 3.4 用户流程 | 简化版填入 PRD |
-| 故事化 Prompt | 3.2 框架选择 | 某些场景下比结构化更有效 |
-| 不做清单 | 3.2 Constraints 约束 | 明确告诉 AI 不要做什么 |
+| Ba câu hỏi về linh hồn (ai là người dùng, điểm yếu ở đâu, tại sao chọn bạn) | Mẫu 3.4 PRD | Điền trực tiếp vào phần "Mục tiêu sản phẩm" |
+| Tư duy trừ (ưu tiên P0/P1/P2) | Phát triển từng giai đoạn 3.4 | Sử dụng ưu tiên để hướng dẫn AI thực hiện từng bước |
+| Hình ảnh người dùng | Phần Context của khung 3.2 | Giúp AI hiểu người dùng mục tiêu |
+| Bản đồ hành trình người dùng | Quy trình người dùng 3.4 | Phiên bản đơn giản điền vào PRD |
+| Lời nhắc được lịch sử hóa | Lựa chọn khung 3.2 | Hiệu quả hơn lạng quạng có cấu trúc trong một số tình huống |
+| Danh sách không làm | Ràng buộc 3.2 Constraints | Nói rõ ràng với AI không được làm gì |
 
 
-## 本章边界
+## Ranh giới chương
 
-本章聚焦**通用方法论**，不绑定任何特定工具。关于 AI IDE 的具体配置：
-- 基础版只介绍核心概念和配置文件的作用
-- 详细的工具配置教程请参考进阶版或各工具官方文档
+Chương này tập trung vào **phương pháp luận chung**, không gắn với bất kỳ công cụ cụ thể nào. Về cấu hình cụ thể của IDE AI:
+- Phiên bản cơ bản chỉ giới thiệu các khái niệm cốt lõi và chức năng của tệp cấu hình
+- Để tìm hướng dẫn cấu hình công cụ chi tiết, vui lòng tham khảo phiên bản nâng cao hoặc tài liệu chính thức của từng công cụ
 
-这样设计的原因：工具会变，方法论不会。掌握了本章的思维方式，你可以迁移到任何 AI 编程工具。
+Lý do thiết kế như vậy: công cụ sẽ thay đổi, phương pháp luận thì không. Sau khi nắm vững cách suy nghĩ ở chương này, bạn có thể chuyển sang bất kỳ công cụ lập trình AI nào.
 
 
-## 本章结构预览
+## Xem trước cấu trúc chương
 
-| 小节 | 核心问题 | 你将获得 |
+| Phần | Câu hỏi cốt lõi | Bạn sẽ nhận được |
 |-----|---------|---------|
-| 3.1 提示词工程基础 | AI 需要知道什么？ | 三层上下文模型 |
-| 3.2 结构化框架 | 怎么说 AI 才懂？ | S.C.A.F.F. 和 R.G.C. 框架 |
-| 3.3 进阶提示技巧 | 什么情况用什么技巧？ | Zero-shot/Few-shot/CoT/ToT 选择指南 |
-| 3.4 编写第一份 PRD | 如何整合第二章思考？ | 可填写的 PRD 模板 |
-| 3.5 迭代对话 | 一次不够怎么办？ | 反馈-修正循环技巧 |
-| 3.6 AI 不听话时 | 输出有问题怎么办？ | 幻觉识别 + 验证清单 |
-| 3.7 总结与演练 | 如何综合应用？ | 完整工作流 + 实战练习 |
+| 3.1 Cơ bản về kỹ thuật lời nhắc | AI cần biết gì? | Mô hình ngữ cảnh ba lớp |
+| 3.2 Khung cấu trúc | Cách nói để AI hiểu? | Khung S.C.A.F.F. và R.G.C. |
+| 3.3 Kỹ thuật lời nhắc nâng cao | Nên dùng kỹ thuật gì trong tình huống nào? | Hướng dẫn lựa chọn Zero-shot/Few-shot/CoT/ToT |
+| 3.4 Viết PRD đầu tiên | Cách tích hợp suy nghĩ chương hai? | Mẫu PRD có thể điền |
+| 3.5 Đối thoại lặp lại | Một lần không đủ thì sao? | Kỹ thuật vòng phản hồi-sửa chữa |
+| 3.6 Khi AI không nghe lời | Đầu ra có vấn đề thì sao? | Nhận diện ảo tưởng + danh sách kiểm tra xác minh |
+| 3.7 Tóm tắt và thực hành | Làm cách nào để áp dụng tổng hợp? | Quy trình làm việc hoàn chỉnh + bài tập thực tế |

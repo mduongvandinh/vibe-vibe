@@ -1,44 +1,43 @@
 ---
-title: "1.1 先让 Hello World 跑起来——工具装配与最小项目验证：Node/VSCode/Cursor/Claude；跑通 Next.js"
-typora-root-url: ../../public
+title: "1.1 Trước tiên hãy chạy Hello World - Lắp ráp công cụ và Xác minh dự án tối thiểu: Node/VSCode/Cursor/Claude; chạy thông Next.js"
 ---
 
-# 1.1 先让 Hello World 跑起来——工具装配与最小项目验证
+# 1.1 Trước tiên hãy chạy Hello World - Lắp ráp công cụ và Xác minh dự án tối thiểu
 
-### 本节目标
+### Mục tiêu bài học
 
-在动手写任何业务代码之前，你需要先拥有一套能用的开发环境。本节的唯一目标是：**让你在本地浏览器里看到一个 Next.js 页面**。
+Trước khi viết bất kỳ code nghiệp vụ nào, bạn cần có một môi trường phát triển sẵn sàng. Mục tiêu duy nhất của bài học này là: **Cho bạn nhìn thấy một trang Next.js trong trình duyệt local**.
 
-这看似简单，却是整个全栈开发的第一个里程碑。一旦你跑通了这个最小闭环，后面所有的功能开发都只是在这个基础上"叠加"。
+Tuy có vẻ đơn giản, nhưng đây là cột mốc đầu tiên của toàn bộ quá trình phát triển fullstack. Một khi bạn chạy thông vòng lặp tối thiểu này, tất cả các tính năng phát triển sau chỉ là "thêm lớp" trên nền tảng này.
 
-### 你需要准备的工具
+### Công cụ bạn cần chuẩn bị
 
-| 工具类型 | 推荐选择 | 作用 |
+| Loại công cụ | Lựa chọn khuyên dùng | Chức năng |
 |----------|----------|------|
-| **代码编辑器** | Cursor / VS Code | 编写和管理代码 |
-| **AI 助手** | Claude / GPT-4 | 辅助编程、答疑解惑 |
-| **运行时环境** | Node.js (LTS) | 运行 JavaScript/TypeScript |
-| **包管理器** | pnpm | 管理项目依赖 |
+| **Code editor** | Cursor / VS Code | Viết và quản lý code |
+| **AI assistant** | Claude / GPT-4 | Hỗ trợ lập trình, giải đáp thắc mắc |
+| **Runtime environment** | Node.js (LTS) | Chạy JavaScript/TypeScript |
+| **Package manager** | pnpm | Quản lý dependencies dự án |
 
-### 学习路径
+### Lộ trình học tập
 
 ```mermaid
 graph LR
-    A["选择编辑器"] --> B["配置 AI 助手"]
-    B --> C["初始化 Next.js"]
-    C --> D["启动开发服务器"]
-    D --> E["看到 Hello World"]
+    A["Chọn editor"] --> B["Cấu hình AI assistant"]
+    B --> C["Khởi tạo Next.js"]
+    C --> D["Khởi động dev server"]
+    D --> E["Nhìn thấy Hello World"]
 ```
 
-### 子章节导航
+### Dẫn đường tiểu mục
 
-- **1.1.1 编辑器选择**：VS Code 与 Cursor 的功能对比，帮你做出选择
-- **1.1.2 AI 助手配置**：让你的 IDE "长出大脑"
-- **1.1.3 Next.js 初始化**：用一条命令生成项目骨架
-- **1.1.4 Hello World 验证**：启动服务器，见证第一个页面
+- **1.1.1 Lựa chọn Editor**: So sánh tính năng VS Code và Cursor, giúp bạn đưa ra lựa chọn
+- **1.1.2 Cấu hình AI Assistant**: Cho IDE của bạn "mọc não"
+- **1.1.3 Khởi tạo Next.js**: Dùng một lệnh để tạo khung dự án
+- **1.1.4 Xác minh Hello World**: Khởi động server, chứng kiến trang đầu tiên
 
-### 预计耗时
+### Thời gian dự kiến
 
-对于完全零基础的同学，完成本节全部内容大约需要 **30-60 分钟**。如果你已经有一定开发经验，可以跳过熟悉的部分，直接进入 1.1.3。
+Đối với các bạn hoàn toàn mới, hoàn thành toàn bộ nội dung bài học này cần khoảng **30-60 phút**. Nếu bạn đã có kinh nghiệm phát triển nhất định, có thể bỏ qua phần đã quen thuộc, trực tiếp vào 1.1.3.
 
-> **提示**：遇到任何报错，先复制错误信息问 AI，这是 Vibe Coding 的基本功。
+> **Gợi ý**: Gặp bất kỳ lỗi nào, hãy copy thông báo lỗi hỏi AI trước, đây là công phu cơ bản của Vibe Coding.

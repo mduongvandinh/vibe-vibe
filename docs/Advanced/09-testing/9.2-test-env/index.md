@@ -1,45 +1,44 @@
 ---
-title: "9.2 在沙盒里跑测试——测试环境与隔离：`.env.test`、迁移、数据清理"
-typora-root-url: ../../public
+title: "9.2 Chạy kiểm thử trong hộp cát — Test Environment và Isolate: `.env.test`, Migration, Data Cleanup"
 ---
 
-# 9.2 在沙盒里跑测试——测试环境与隔离：`.env.test`、迁移、数据清理
+# 9.2 Chạy kiểm thử trong hộp cát — Test Environment và Isolate: `.env.test`, Migration, Data Cleanup
 
-**测试环境的核心原则：与生产完全隔离，每次测试都从干净状态开始。**
+**Nguyên tắc cốt lõi của test environment: Hoàn toàn cách ly với production, mỗi lần chạy test bắt đầu từ trạng thái sạch.**
 
-## 为什么需要独立的测试环境
+## Tại sao cần test environment độc lập
 
 ```mermaid
 graph TB
-    subgraph 错误做法
-        TEST1[测试代码] --> PROD_DB[(生产数据库)]
-        PROD_DB --> DISASTER[数据被污染/删除]
+    subgraph Cách làm sai
+        TEST1[Test code] --> PROD_DB[(Production DB)]
+        PROD_DB --> DISASTER[Dữ liệu bị ô nhiễm/xóa]
     end
-    
-    subgraph 正确做法
-        TEST2[测试代码] --> TEST_DB[(测试数据库)]
-        PROD[生产代码] --> PROD_DB2[(生产数据库)]
+
+    subgraph Cách làm đúng
+        TEST2[Test code] --> TEST_DB[(Test DB)]
+        PROD[Production code] --> PROD_DB2[(Production DB)]
     end
-    
+
     style DISASTER fill:#ff6b6b
     style TEST_DB fill:#6bcb77
 ```
 
-测试环境隔离的必要性：
+Tầm quan trọng của test environment isolation:
 
-| 风险 | 后果 | 解决方案 |
+| Rủi ro | Hậu quả | Giải pháp |
 |------|------|---------|
-| 测试数据写入生产库 | 用户看到测试数据 | 独立数据库 |
-| 测试清理生产数据 | 数据丢失 | 环境变量隔离 |
-| 测试影响生产性能 | 服务变慢 | 独立服务实例 |
-| 并行测试数据冲突 | 测试不稳定 | 事务回滚 |
+| Test data được ghi vào production DB | Users nhìn thấy test data | Database độc lập |
+| Test xóa production data | Mất dữ liệu | Environment variable isolation |
+| Test ảnh hưởng tới performance | Service chậm | Separate service instances |
+| Parallel tests gây xung đột data | Test không ổn định | Transaction rollback |
 
-## 测试环境架构
+## Test Environment Architecture
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                  测试环境架构                         │
-├─────────────────────────────────────────────────────┤
+┌─────────────────────────────────────────────────┐
+│                  Test Environment Architecture                         │
+├─────────────────────────────────────────────────┤
 │                                                     │
 │  ┌──────────┐    ┌──────────┐    ┌──────────┐      │
 │  │ .env.test │    │ test DB  │    │ mock API │      │
@@ -48,32 +47,32 @@ graph TB
 │        └───────────────┼───────────────┘           │
 │                        │                           │
 │                 ┌──────▼──────┐                    │
-│                 │  测试运行器   │                    │
+│                 │  Test Runner  │                    │
 │                 │    Jest     │                    │
 │                 └─────────────┘                    │
 │                                                     │
-└─────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────┘
 ```
 
-## 本节核心内容
+## Nội dung chính của phần này
 
-| 小节 | 主题 | 解决的问题 |
+| Phần | Chủ đề | Vấn đề được giải quyết |
 |------|------|-----------|
-| 9.2.1 | 环境隔离 | 如何配置独立的测试数据库和服务 |
-| 9.2.2 | 环境变量 | 如何管理测试专用配置 |
-| 9.2.3 | 数据库迁移 | 如何初始化测试数据库结构 |
-| 9.2.4 | 数据清理 | 如何确保测试间的状态隔离 |
+| 9.2.1 | Environment Isolation | Cách cấu hình độc lập test DB và services |
+| 9.2.2 | Environment Variables | Cách quản lý test-specific configuration |
+| 9.2.3 | Database Migration | Cách khởi tạo test database structure |
+| 9.2.4 | Data Cleanup | Cách đảm bảo state isolation giữa các tests |
 
-## 快速入门：最小测试环境配置
+## Quick Start: Minimal Test Environment Configuration
 
 ```bash
-# 1. 创建测试环境配置文件
+# 1. Create test environment config file
 touch .env.test
 
-# 2. 配置测试数据库连接
+# 2. Configure test database connection
 echo 'DATABASE_URL="postgresql://user:pass@localhost:5432/myapp_test"' >> .env.test
 
-# 3. 在 package.json 中添加测试脚本
+# 3. Add test scripts vào package.json
 ```
 
 ```json
@@ -86,6 +85,6 @@ echo 'DATABASE_URL="postgresql://user:pass@localhost:5432/myapp_test"' >> .env.t
 }
 ```
 
-## 本节小结
+## Tóm tắt phần này
 
-测试环境隔离是质量保障的基础设施。通过独立的数据库、专用的环境变量、自动化的迁移和清理机制，可以确保每次测试都在可控、可重复的环境中运行。接下来的小节将详细介绍每个环节的具体实现。
+Test environment isolation là nền tảng của quality assurance. Bằng cách sử dụng database độc lập, environment variables chuyên dụng, automated migration và cleanup mechanisms, bạn có thể đảm bảo mỗi lần chạy test đều diễn ra trong một môi trường có thể kiểm soát và có thể lặp lại. Các phần tiếp theo sẽ chi tiết hơn về cách triển khai từng khía cạnh.

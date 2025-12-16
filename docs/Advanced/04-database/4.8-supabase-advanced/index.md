@@ -1,73 +1,72 @@
 ---
-title: "4.8 拓展：Supabase 为何如此强大——存储与认证联动"
-typora-root-url: ../../public
+title: "4.8 Mở rộng: Tại sao Supabase mạnh mẽ đến vậy — Liên kết Storage với Authentication"
 ---
 
-# 4.8 拓展：Supabase 为何如此强大——存储与认证联动
+# 4.8 Mở rộng: Tại sao Supabase mạnh mẽ đến vậy — Liên kết Storage với Authentication
 
-### 认知重构
+### Tái cấu trúc nhận thức
 
-Supabase 不只是"开源 Firebase"——它是基于 PostgreSQL 的全栈后端平台，将数据库、认证、存储、实时订阅完美整合。
+Supabase không chỉ là "Firebase mã nguồn mở" — nó là nền tảng backend fullstack dựa trên PostgreSQL, tích hợp hoàn hảo database, authentication, storage, và realtime subscription.
 
-### Supabase 生态全景
+### Toàn cảnh hệ sinh thái Supabase
 
 ```mermaid
 graph TD
-    A["Supabase"] --> B["PostgreSQL 数据库"]
-    A --> C["Auth 认证"]
-    A --> D["Storage 存储"]
-    A --> E["Realtime 实时"]
+    A["Supabase"] --> B["PostgreSQL Database"]
+    A --> C["Auth Authentication"]
+    A --> D["Storage"]
+    A --> E["Realtime"]
     A --> F["Edge Functions"]
-    
-    B --> G["RLS 行级安全"]
+
+    B --> G["RLS Row Level Security"]
     C --> G
     D --> G
 ```
 
-### 子章节导航
+### Điều hướng các chương con
 
-| 章节 | 主题 | 核心问题 |
+| Chương | Chủ đề | Vấn đề cốt lõi |
 |------|------|----------|
-| 4.8.1 | Storage | 如何安全地存储和访问文件？ |
-| 4.8.2 | Realtime | 如何实时推送数据变更？ |
-| 4.8.3 | Edge Functions | 如何在边缘运行自定义逻辑？ |
+| 4.8.1 | Storage | Làm thế nào lưu trữ và truy cập file một cách an toàn? |
+| 4.8.2 | Realtime | Làm thế nào push thời gian thực khi dữ liệu thay đổi? |
+| 4.8.3 | Edge Functions | Làm thế nào chạy custom logic tại edge? |
 
-### 为什么选择 Supabase？
+### Tại sao chọn Supabase?
 
-| 特性 | Supabase | 传统方案 |
+| Tính năng | Supabase | Phương án truyền thống |
 |------|----------|----------|
-| 数据库 | PostgreSQL（企业级） | 各种选择 |
-| 认证 | 内置 + RLS 联动 | 需要自己实现 |
-| 文件存储 | 内置 + 权限控制 | 需要额外服务 |
-| 实时订阅 | 内置 WebSocket | 需要自己搭建 |
-| 定价 | 免费额度充足 | 成本难控制 |
+| Database | PostgreSQL (cấp doanh nghiệp) | Nhiều lựa chọn |
+| Authentication | Tích hợp sẵn + liên kết RLS | Phải tự triển khai |
+| File Storage | Tích hợp sẵn + kiểm soát quyền | Cần dịch vụ riêng |
+| Realtime Subscription | Tích hợp sẵn WebSocket | Phải tự dựng |
+| Pricing | Gói miễn phí đủ dùng | Chi phí khó kiểm soát |
 
-### 核心优势：RLS 统一权限
+### Ưu thế cốt lõi: RLS thống nhất quyền hạn
 
-Supabase 的杀手锏是 **Row Level Security**（行级安全策略），让数据库、存储、实时订阅共享同一套权限规则：
+Vũ khí tối thượng của Supabase là **Row Level Security** (RLS - Bảo mật cấp hàng), cho phép database, storage, realtime subscription chia sẻ cùng một bộ quy tắc quyền hạn:
 
 ```sql
--- 创建策略：用户只能访问自己的数据
+-- Tạo policy: User chỉ có thể truy cập dữ liệu của chính mình
 CREATE POLICY "Users can view own data"
 ON users
 FOR SELECT
 USING (auth.uid() = id);
 
--- 同样的策略自动应用于：
--- - 数据库查询
--- - 文件存储访问
--- - 实时订阅过滤
+-- Cùng policy này tự động áp dụng cho:
+-- - Truy vấn database
+-- - Truy cập file storage
+-- - Filter realtime subscription
 ```
 
-### 快速上手
+### Bắt đầu nhanh
 
-**安装 SDK**：
+**Cài đặt SDK**:
 
 ```bash
 npm install @supabase/supabase-js
 ```
 
-**初始化客户端**：
+**Khởi tạo client**:
 
 ```typescript
 // lib/supabase.ts
@@ -79,23 +78,23 @@ export const supabase = createClient(
 )
 ```
 
-### 与 Prisma 的关系
+### Mối quan hệ với Prisma
 
 ```mermaid
 graph LR
-    A["Next.js 应用"] --> B["Prisma ORM"]
+    A["Next.js App"] --> B["Prisma ORM"]
     A --> C["Supabase Client"]
     B --> D["Supabase PostgreSQL"]
     C --> D
     C --> E["Storage/Realtime"]
 ```
 
-- **Prisma**：用于复杂的数据库操作
-- **Supabase Client**：用于存储、实时订阅、认证等特性
+- **Prisma**: Dùng cho thao tác database phức tạp
+- **Supabase Client**: Dùng cho storage, realtime subscription, authentication, v.v.
 
-### 本章小结
+### Tóm tắt chương này
 
-- Supabase 提供一站式后端解决方案
-- RLS 是统一权限控制的核心
-- 可以与 Prisma 配合使用
-- 适合快速构建全栈应用
+- Supabase cung cấp giải pháp backend toàn diện một cửa
+- RLS là cốt lõi kiểm soát quyền thống nhất
+- Có thể phối hợp sử dụng với Prisma
+- Thích hợp để xây dựng nhanh ứng dụng fullstack

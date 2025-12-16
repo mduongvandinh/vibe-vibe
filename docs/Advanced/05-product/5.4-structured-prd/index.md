@@ -1,47 +1,46 @@
 ---
-title: "5.4 你写的文档 AI 看得懂吗——AI 可读的 PRD 文档生成：结构化与机器友好"
-typora-root-url: ../../public
+title: "5.4 AI có thể hiểu tài liệu bạn viết không——Tạo tài liệu PRD có thể đọc được bằng AI: Cấu trúc và thân thiện với máy"
 ---
 
-# 5.4 你写的文档 AI 看得懂吗——AI 可读的 PRD
+# 5.4 Tài liệu bạn viết AI có thể hiểu không——PRD có thể đọc được bằng AI
 
-### 为什么文档格式很重要
+### Tại sao định dạng tài liệu lại quan trọng
 
-在 Vibe Coding 中，文档不仅要让人能读懂，更要让 AI 能"理解"。
+Trong Vibe Coding, tài liệu không chỉ cần cho con người đọc được, mà còn cần AI "hiểu" được.
 
 ```mermaid
 graph LR
-    A["模糊的描述"] --> B["AI 猜测你的意图"]
-    B --> C["生成的代码可能偏离"]
-    
-    D["结构化的文档"] --> E["AI 精确理解"]
-    E --> F["生成的代码符合预期"]
+    A["Mô tả mơ hồ"] --> B["AI đoán ý định của bạn"]
+    B --> C["Mã được tạo có thể sai lệch"]
+
+    D["Tài liệu có cấu trúc"] --> E["AI hiểu chính xác"]
+    E --> F["Mã được tạo khớp với kỳ vọng"]
 ```
 
-**好文档 vs 差文档**：
+**Tài liệu tốt vs tài liệu tệ**:
 
-| 差文档 | 好文档 |
+| Tài liệu tệ | Tài liệu tốt |
 |--------|--------|
-| "做一个好看的页面" | "使用 Tailwind，卡片圆角 8px，间距 16px" |
-| "用户登录后跳转" | "登录成功返回 200，跳转到 /dashboard" |
-| "处理错误情况" | "密码错误返回 401，格式错误返回 400" |
+| "Làm một trang đẹp" | "Dùng Tailwind, góc thẻ 8px, khoảng cách 16px" |
+| "Người dùng đăng nhập rồi chuyển hướng" | "Đăng nhập thành công trả về 200, chuyển hướng tới /dashboard" |
+| "Xử lý trường hợp lỗi" | "Sai mật khẩu trả về 401, lỗi định dạng trả về 400" |
 
-### 结构化文档的核心要素
+### Các yếu tố cốt lõi của tài liệu có cấu trúc
 
-一份 AI 友好的 PRD 应该包含：
+Một PRD thân thiện với AI nên chứa:
 
-1. **明确的输入输出**：数据从哪来，到哪去
-2. **具体的约束条件**：技术栈、格式、边界
-3. **清晰的异常处理**：各种错误情况如何响应
-4. **可验证的成功标准**：怎么判断"做对了"
+1. **Đầu vào/Đầu ra rõ ràng**: Dữ liệu từ đâu tới, tới đâu
+2. **Điều kiện ràng buộc cụ thể**: Ngôn ngữ công nghệ, định dạng, ranh giới
+3. **Xử lý ngoại lệ rõ ràng**: Các tình huống lỗi khác nhau sẽ phản hồi như thế nào
+4. **Tiêu chí thành công có thể xác minh**: Cách để biết "làm đúng"
 
-### 本节目标
+### Mục tiêu của phần này
 
-学完本节，你将掌握：
+Sau khi học xong phần này, bạn sẽ nắm được:
 
-1. **结构化设计**：让文档模块清晰、层次分明
-2. **输入输出定义**：明确数据流转和接口契约
-3. **边界条件处理**：预判异常情况的系统响应
-4. **格式优化**：使用 AI 偏爱的 Markdown 格式
+1. **Thiết kế có cấu trúc**: Làm cho tài liệu rõ ràng, phân cấp rõ ràng
+2. **Định nghĩa đầu vào/đầu ra**: Làm rõ dòng chảy dữ liệu và hợp đồng giao diện
+3. **Xử lý điều kiện biên**: Dự đoán trước các tình huống ngoài dự kiến của hệ thống
+4. **Tối ưu hóa định dạng**: Sử dụng định dạng Markdown mà AI ưa thích
 
-**记住**：写文档就是写 Prompt。文档越清晰，AI 理解越准确，生成的代码就越符合预期。
+**Nhớ**: Viết tài liệu là viết Prompt. Tài liệu càng rõ ràng, AI hiểu càng chính xác, mã được tạo ra càng khớp với kỳ vọng.

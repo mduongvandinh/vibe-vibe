@@ -1,54 +1,53 @@
 ---
-title: "7.1 接口是合同不是暗语——HTTP 与 API：方法、JSON、分页与过滤、幂等与重试"
-typora-root-url: ../../public
+title: "7.1 Interface là hợp đồng không phải mật mã——HTTP và API: Phương thức, JSON, Phân trang và Lọc, Idempotency và Retry"
 ---
 
-# 7.1 接口是合同不是暗语——HTTP 与 API
+# 7.1 Interface là hợp đồng không phải mật mã——HTTP và API
 
-## 认知重构
+## Tái Cấu Trúc Nhận Thức
 
-API 接口就像餐厅的菜单：菜名（URL）要清晰、价格（参数）要明确、上菜流程（方法）要规范。如果菜单写得含糊不清，服务员和厨师都会崩溃。
+API interface giống như thực đơn nhà hàng: tên món (URL) phải rõ ràng, giá cả (tham số) phải minh bạch, quy trình phục vụ (phương thức) phải chuẩn mực. Nếu thực đơn viết mơ hồ, cả bồi bàn và bếp đều sụp đổ.
 
 ```
-好的 API：GET /users/123 → 获取 ID 为 123 的用户
-烂的 API：POST /api/getData?type=user&action=get&id=123
+API tốt: GET /users/123 → Lấy user có ID là 123
+API tồi: POST /api/getData?type=user&action=get&id=123
 ```
 
-## HTTP 请求的本质
+## Bản Chất Của HTTP Request
 
 ```mermaid
 sequenceDiagram
-    participant C as 客户端
-    participant S as 服务器
-    
-    C->>S: 请求 (Request)
-    Note over C,S: 方法 + URL + Headers + Body
-    S->>C: 响应 (Response)
-    Note over C,S: 状态码 + Headers + Body
+    participant C as Client
+    participant S as Server
+
+    C->>S: Request
+    Note over C,S: Method + URL + Headers + Body
+    S->>C: Response
+    Note over C,S: Status Code + Headers + Body
 ```
 
-一个完整的 HTTP 请求包含：
+Một HTTP request hoàn chỉnh bao gồm:
 
-| 组成部分 | 说明 | 示例 |
+| Thành phần | Giải thích | Ví dụ |
 |----------|------|------|
-| **方法** | 要做什么操作 | GET, POST, PUT, DELETE |
-| **URL** | 操作什么资源 | /api/users/123 |
-| **Headers** | 附加信息 | Authorization, Content-Type |
-| **Body** | 请求数据 | JSON 格式的数据 |
+| **Method** | Thao tác gì | GET, POST, PUT, DELETE |
+| **URL** | Thao tác resource nào | /api/users/123 |
+| **Headers** | Thông tin bổ sung | Authorization, Content-Type |
+| **Body** | Dữ liệu request | Dữ liệu định dạng JSON |
 
-## 本节内容
+## Nội Dung Phần Này
 
-- **7.1.1 HTTP 方法语义**：GET/POST/PUT/DELETE 的正确用法
-- **7.1.2 JSON 数据格式**：前后端数据交换的通用语言
-- **7.1.3 分页策略**：数据太多时如何分批获取
-- **7.1.4 过滤与排序**：精确获取需要的数据
-- **7.1.5 幂等性保证**：重复请求不会产生副作用
+- **7.1.1 Ngữ nghĩa phương thức HTTP**: Cách dùng đúng GET/POST/PUT/DELETE
+- **7.1.2 Định dạng dữ liệu JSON**: Ngôn ngữ giao tiếp chung của frontend và backend
+- **7.1.3 Chiến lược phân trang**: Làm thế nào lấy dữ liệu theo lô khi dữ liệu quá nhiều
+- **7.1.4 Lọc và sắp xếp**: Lấy chính xác dữ liệu cần thiết
+- **7.1.5 Đảm bảo idempotency**: Request trùng lặp không tạo ra side effect
 
-## 核心原则
+## Nguyên Tắc Cốt Lõi
 
-| 原则 | 说明 |
+| Nguyên tắc | Giải thích |
 |------|------|
-| **语义清晰** | URL 和方法要能表达操作意图 |
-| **格式统一** | 请求和响应使用一致的数据格式 |
-| **可预测** | 相同的请求总是得到相同类型的响应 |
-| **安全重试** | 网络问题时可以安全地重试请求 |
+| **Ngữ nghĩa rõ ràng** | URL và method phải thể hiện ý định thao tác |
+| **Format thống nhất** | Request và response dùng format dữ liệu nhất quán |
+| **Có thể dự đoán** | Request giống nhau luôn nhận được response cùng kiểu |
+| **Retry an toàn** | Khi có vấn đề mạng có thể retry request một cách an toàn |

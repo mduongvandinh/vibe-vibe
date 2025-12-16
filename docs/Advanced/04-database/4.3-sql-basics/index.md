@@ -1,98 +1,97 @@
 ---
-title: "4.3 如何命令数据库干活——SQL 基础操作：表/行/列、主键/外键、索引、事务、JOIN、CRUD"
-typora-root-url: ../../public
+title: "4.3 Làm sao ra lệnh cho cơ sở dữ liệu — Thao tác SQL cơ bản: Bảng/Hàng/Cột, Khóa chính/Khóa ngoại, Index, Transaction, JOIN, CRUD"
 ---
 
-# 4.3 如何命令数据库干活——SQL 基础操作：表/行/列、主键/外键、索引、事务、JOIN、CRUD
+# 4.3 Làm sao ra lệnh cho cơ sở dữ liệu — Thao tác SQL cơ bản: Bảng/Hàng/Cột, Khóa chính/Khóa ngoại, Index, Transaction, JOIN, CRUD
 
-### 认知重构
+### Tái cấu trúc nhận thức
 
-SQL（Structured Query Language）是与数据库对话的语言。虽然 Prisma 帮我们生成了大部分 SQL，但理解 SQL 基础能让你更好地调试问题和优化性能。
+SQL (Structured Query Language) là ngôn ngữ để đối thoại với cơ sở dữ liệu. Mặc dù Prisma đã giúp chúng ta tạo ra phần lớn SQL, nhưng hiểu cơ bản về SQL có thể giúp bạn debug tốt hơn và tối ưu hiệu suất.
 
-### SQL 语句分类
+### Phân loại câu lệnh SQL
 
 ```mermaid
 graph TB
-    SQL["SQL 语句"]
-    
-    SQL --> DDL["DDL 数据定义"]
-    SQL --> DML["DML 数据操作"]
-    SQL --> DCL["DCL 权限控制"]
-    
-    DDL --> D1["CREATE 创建"]
-    DDL --> D2["ALTER 修改"]
-    DDL --> D3["DROP 删除"]
-    
-    DML --> M1["SELECT 查询"]
-    DML --> M2["INSERT 插入"]
-    DML --> M3["UPDATE 更新"]
-    DML --> M4["DELETE 删除"]
+    SQL["Câu lệnh SQL"]
+
+    SQL --> DDL["DDL: Định nghĩa dữ liệu"]
+    SQL --> DML["DML: Thao tác dữ liệu"]
+    SQL --> DCL["DCL: Kiểm soát quyền"]
+
+    DDL --> D1["CREATE: Tạo"]
+    DDL --> D2["ALTER: Sửa"]
+    DDL --> D3["DROP: Xóa"]
+
+    DML --> M1["SELECT: Truy vấn"]
+    DML --> M2["INSERT: Chèn"]
+    DML --> M3["UPDATE: Cập nhật"]
+    DML --> M4["DELETE: Xóa"]
 ```
 
-| 分类 | 说明 | 常用语句 |
+| Phân loại | Giải thích | Câu lệnh thường dùng |
 |------|------|----------|
-| **DDL** | 定义数据库结构 | CREATE, ALTER, DROP |
-| **DML** | 操作数据 | SELECT, INSERT, UPDATE, DELETE |
-| **DCL** | 控制权限 | GRANT, REVOKE |
+| **DDL** | Định nghĩa cấu trúc cơ sở dữ liệu | CREATE, ALTER, DROP |
+| **DML** | Thao tác dữ liệu | SELECT, INSERT, UPDATE, DELETE |
+| **DCL** | Kiểm soát quyền | GRANT, REVOKE |
 
-### 子章节导航
+### Điều hướng chương con
 
-| 章节 | 主题 | 核心问题 |
+| Chương | Chủ đề | Vấn đề cốt lõi |
 |------|------|----------|
-| 4.3.1 | DDL 数据定义 | 如何创建和修改表结构？ |
-| 4.3.2 | DML 数据操作 | 如何增删改查数据？ |
-| 4.3.3 | 约束定义 | 如何保证数据质量？ |
-| 4.3.4 | JOIN 查询 | 如何关联多张表？ |
-| 4.3.5 | 聚合函数 | 如何统计和汇总数据？ |
+| 4.3.1 | DDL: Định nghĩa dữ liệu | Làm sao tạo và sửa cấu trúc bảng? |
+| 4.3.2 | DML: Thao tác dữ liệu | Làm sao thêm/xóa/sửa/tra cứu dữ liệu? |
+| 4.3.3 | Định nghĩa ràng buộc | Làm sao đảm bảo chất lượng dữ liệu? |
+| 4.3.4 | Truy vấn JOIN | Làm sao liên kết nhiều bảng? |
+| 4.3.5 | Hàm tổng hợp | Làm sao thống kê và tổng hợp dữ liệu? |
 
-### SQL vs Prisma 对照
+### Đối chiếu SQL vs Prisma
 
-| 操作 | SQL | Prisma |
+| Thao tác | SQL | Prisma |
 |------|-----|--------|
-| 创建表 | `CREATE TABLE` | `prisma migrate dev` |
-| 插入 | `INSERT INTO` | `prisma.model.create()` |
-| 查询 | `SELECT` | `prisma.model.findMany()` |
-| 更新 | `UPDATE` | `prisma.model.update()` |
-| 删除 | `DELETE` | `prisma.model.delete()` |
-| 关联查询 | `JOIN` | `include: {}` |
+| Tạo bảng | `CREATE TABLE` | `prisma migrate dev` |
+| Chèn | `INSERT INTO` | `prisma.model.create()` |
+| Truy vấn | `SELECT` | `prisma.model.findMany()` |
+| Cập nhật | `UPDATE` | `prisma.model.update()` |
+| Xóa | `DELETE` | `prisma.model.delete()` |
+| Truy vấn quan hệ | `JOIN` | `include: {}` |
 
-### 学习建议
+### Đề xuất học tập
 
-**如果你只用 Prisma**：
-- 快速浏览本节，了解 SQL 基本概念
-- 重点学习 JOIN（4.3.4）和聚合函数（4.3.5）的概念
+**Nếu bạn chỉ dùng Prisma**:
+- Xem nhanh phần này, hiểu khái niệm cơ bản về SQL
+- Tập trung học khái niệm JOIN (4.3.4) và hàm tổng hợp (4.3.5)
 
-**如果你需要写原生 SQL**：
-- 仔细学习每个子章节
-- 练习在 Prisma 中执行原生 SQL
+**Nếu bạn cần viết SQL gốc**:
+- Học kỹ từng chương con
+- Thực hành thực thi SQL gốc trong Prisma
 
-### 在 Prisma 中执行原生 SQL
+### Thực thi SQL gốc trong Prisma
 
 ```typescript
-// 执行原生查询
+// Thực thi truy vấn gốc
 const result = await prisma.$queryRaw`
   SELECT * FROM users WHERE email LIKE '%@gmail.com'
 `
 
-// 执行原生命令（无返回值）
+// Thực thi lệnh gốc (không có giá trị trả về)
 await prisma.$executeRaw`
   UPDATE users SET status = 'ACTIVE' WHERE last_login > NOW() - INTERVAL '30 days'
 `
 ```
 
-### AI 协作指南
+### Hướng dẫn cộng tác với AI
 
-**核心意图**：让 AI 帮你生成或解释 SQL。
+**Ý định cốt lõi**: Để AI giúp bạn tạo hoặc giải thích SQL.
 
-**常用提问模板**：
+**Template đặt câu hỏi thường dùng**:
 ```
-帮我写一个 SQL 查询：
-- 表结构：[表结构]
-- 需求：[查询需求]
-- 数据库：PostgreSQL
+Giúp tôi viết truy vấn SQL:
+- Cấu trúc bảng: [cấu trúc bảng]
+- Yêu cầu: [yêu cầu truy vấn]
+- Cơ sở dữ liệu: PostgreSQL
 ```
 
 ```
-这个 SQL 是什么意思？请用中文解释：
-[SQL 语句]
+Câu lệnh SQL này nghĩa là gì? Hãy giải thích bằng tiếng Việt:
+[Câu lệnh SQL]
 ```

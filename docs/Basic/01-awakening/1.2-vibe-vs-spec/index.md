@@ -1,45 +1,45 @@
 ---
-title: "1.2 核心概念：Vibe Coding 与 Spec Coding 详解"
+title: "1.2 Khái niệm cốt lõi: Giải thích chi tiết Vibe Coding và Spec Coding"
 ---
 
-# 1.2 核心概念：Vibe Coding 与 Spec Coding 详解
+# 1.2 Khái niệm cốt lõi: Giải thích chi tiết Vibe Coding và Spec Coding
 
-在上一节，我们聊了 AI 时代编程世界的巨变，以及从"码农"到"指挥官"的角色转变。
+Ở phần trước, chúng ta đã nói về sự thay đổi lớn của thế giới lập trình thời đại AI, cũng như sự chuyển đổi vai trò từ "người viết code" thành "người chỉ huy".
 
-但你可能还有疑问：
+Nhưng bạn có thể vẫn còn thắc mắc:
 
-> "Vibe Coding 到底是什么？我该怎么用？什么时候用？"
+> "Vibe Coding thực sự là gì? Tôi nên dùng như thế nào? Khi nào thì dùng?"
 
-这一章，我们就来把这些核心概念讲清楚。
+Chương này, chúng ta sẽ làm rõ những khái niệm cốt lõi đó.
 
 
-## 本章你将学到
+## Trong chương này bạn sẽ học được
 
-| 小节 | 内容 | 你会收获 |
+| Phần | Nội dung | Bạn sẽ thu hoạch |
 |------|------|----------|
-| 1.2.1 | 什么是 Vibe Coding | 理解这个 2025 年最火的编程方式到底是什么 |
-| 1.2.2 | 什么是 Spec Coding | 了解另一种 AI 编程风格，知道何时需要"规范驱动" |
-| 1.2.3 | Vibe vs Spec 选择指南 | 学会判断什么时候用什么方式 |
-| 1.2.4 | 其他核心概念 | 掌握 Prompt、Context、Token 等必备术语 |
+| 1.2.1 | Vibe Coding là gì | Hiểu cách lập trình hot nhất năm 2025 thực sự là gì |
+| 1.2.2 | Spec Coding là gì | Tìm hiểu một phong cách lập trình AI khác, biết khi nào cần "quy định dẫn dắt" |
+| 1.2.3 | Hướng dẫn lựa chọn Vibe vs Spec | Học cách phán đoán khi nào dùng cách nào |
+| 1.2.4 | Các khái niệm cốt lõi khác | Nắm vững các thuật ngữ cần thiết như Prompt, Context, Token |
 
 
-## 为什么要分清这两个概念？
+## Tại sao phải phân biệt rõ hai khái niệm này?
 
-很多人一上手就踩坑：
+Nhiều người mới bắt đầu đã gặp bẫy:
 
-- ❌ 想做一个复杂的电商系统，直接 Vibe Coding → 结果改来改去，越改越乱
-- ❌ 只是想做个简单的小工具，却花大量时间写文档 → 效率极低
+- ❌ Muốn làm một hệ thống thương mại điện tử phức tạp, dùng thẳng Vibe Coding → Kết quả sửa mãi không xong, càng sửa càng loạn
+- ❌ Chỉ muốn làm một công cụ nhỏ đơn giản, nhưng lại dành nhiều thời gian viết tài liệu → Hiệu suất cực thấp
 
-**选对方法，事半功倍；选错方法，事倍功半。**
+**Chọn đúng phương pháp, sự việc thành công gấp đôi; chọn sai phương pháp, mất công gấp đôi.**
 
-别担心，看完这一章，你就知道怎么选了。
+Đừng lo, sau khi đọc xong chương này, bạn sẽ biết cách chọn.
 
 
-::: tip 学习建议
-这一章概念较多，建议你：
-1. 先快速浏览，建立整体印象
-2. 遇到不理解的术语，先往后看，很多会在后面解释
-3. 看完后回来再读一遍，会有豁然开朗的感觉
+::: tip Gợi ý học tập
+Chương này có nhiều khái niệm, gợi ý bạn:
+1. Trước tiên đọc lướt nhanh, thiết lập ấn tượng tổng thể
+2. Gặp thuật ngữ không hiểu, cứ tiếp tục đọc, nhiều thứ sẽ được giải thích ở phía sau
+3. Đọc xong rồi quay lại đọc lại một lần, sẽ có cảm giác bừng sáng
 :::
 
-准备好了吗？让我们从 [Vibe Coding 的定义](./1.2.1-what-is-Vibe-Coding.md) 开始！
+Sẵn sàng chưa? Hãy bắt đầu từ [Định nghĩa Vibe Coding](./1.2.1-what-is-Vibe-Coding.md)!

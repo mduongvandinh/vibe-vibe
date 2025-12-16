@@ -1,42 +1,41 @@
 ---
-title: "0.4 搭建你的编程工作室——开发环境配置：Node.js、包管理器与工具链"
-typora-root-url: ../../public
+title: "0.4 Xây dựng Studio lập trình của bạn - Cấu hình môi trường phát triển: Node.js, Trình quản lý gói & Chuỗi công cụ"
 ---
 
-# 0.4 搭建你的编程工作室——开发环境配置：Node.js、包管理器与工具链
+# 0.4 Xây dựng Studio lập trình của bạn - Cấu hình môi trường phát triển: Node.js, Trình quản lý gói & Chuỗi công cụ
 
-## 一句话破题
+## Tóm tắt một câu
 
-稳定的开发环境 = 合适的 Node 版本 + 高效的包管理器 + 严谨的 TypeScript 配置。先跑通最小闭环，再优化性能与团队协作。
+Môi trường phát triển ổn định = Phiên bản Node phù hợp + Trình quản lý gói hiệu quả + Cấu hình TypeScript nghiêm ngặt. Trước tiên chạy thành công vòng lặp tối thiểu, sau đó tối ưu hóa hiệu suất và cộng tác nhóm.
 
-## 章节导览
+## Dẫn nhập chương
 
-- 包管理器选择：性能/磁盘占用/一致性对比，`npm` vs `pnpm` vs `yarn`。
-- Node 版本管理：跨平台 `nvm`/`nvm-windows`，`.nvmrc` 项目级锁定与环境变量配置。
-- TypeScript 配置：`tsconfig.json` 严格模式与路径别名最佳实践。
+- Lựa chọn trình quản lý gói: So sánh hiệu suất/dung lượng ổ đĩa/tính nhất quán, `npm` vs `pnpm` vs `yarn`.
+- Quản lý phiên bản Node: `nvm`/`nvm-windows` đa nền tảng, khóa cấp dự án với `.nvmrc` và cấu hình biến môi trường.
+- Cấu hình TypeScript: Thực hành tốt nhất với chế độ nghiêm ngặt `tsconfig.json` và path alias.
 
-## 总览可视化
+## Tổng quan trực quan
 
 ```mermaid
 flowchart LR
-    Dev[开发者机器] --> PM[包管理器];
-    Dev --> NVM[Node 版本管理];
-    Dev --> TSC[TypeScript 配置];
-    PM --> Lock[锁定依赖/提升性能];
-    NVM --> Node[统一 Node 版本];
-    TSC --> Safety[类型安全/可维护];
+    Dev[Máy tính của Lập trình viên] --> PM[Trình quản lý gói];
+    Dev --> NVM[Quản lý phiên bản Node];
+    Dev --> TSC[Cấu hình TypeScript];
+    PM --> Lock[Khóa dependencies/Cải thiện hiệu suất];
+    NVM --> Node[Thống nhất phiên bản Node];
+    TSC --> Safety[An toàn kiểu/Dễ bảo trì];
 ```
 
-## AI 协作指南
+## Hướng dẫn cộng tác với AI
 
-- 核心意图：让 AI 帮你“搭环境”和“制定规范”，而不是零碎地安装依赖。
-- 需求定义公式：
-  - “在 Windows PowerShell 下，使用 `nvm-windows` 安装并切换到 Node LTS 版本，生成 `.nvmrc` 与 `tsconfig.json` 严格模式配置。”
-  - “对现有项目的包管理器进行迁移到 `pnpm`，并提供缓存与 registry 优化命令。”
-- 关键术语：`nvm-windows`, `.nvmrc`, `NODE_ENV`, `registry`, `tsconfig`, `strict`。
+- Ý định cốt lõi: Để AI giúp bạn "thiết lập môi trường" và "xây dựng quy chuẩn", thay vì cài đặt dependencies rời rạc.
+- Công thức định nghĩa yêu cầu:
+  - "Trên Windows PowerShell, sử dụng `nvm-windows` để cài đặt và chuyển sang phiên bản Node LTS, tạo `.nvmrc` và cấu hình chế độ nghiêm ngặt `tsconfig.json`."
+  - "Thực hiện di chuyển trình quản lý gói của dự án hiện tại sang `pnpm`, và cung cấp các lệnh tối ưu hóa cache và registry."
+- Thuật ngữ quan trọng: `nvm-windows`, `.nvmrc`, `NODE_ENV`, `registry`, `tsconfig`, `strict`.
 
-## 避坑指南
+## Hướng dẫn tránh các vấn đề
 
-- 全局 Node 与项目 Node 不一致导致构建失败；使用 `.nvmrc` 锁定版本并在 CI 中强制检查。
-- 包管理器混用会破坏锁文件；团队统一选择一个，并清理缓存与锁文件后再迁移。
-- TypeScript 未开启严格模式造成隐形错误；务必开启 `strict` 与 `noImplicitAny`。
+- Node toàn cục và Node dự án không nhất quán dẫn đến build thất bại; sử dụng `.nvmrc` để khóa phiên bản và kiểm tra bắt buộc trong CI.
+- Sử dụng lẫn lộn các trình quản lý gói sẽ phá hỏng lock files; nhóm thống nhất chọn một cái, và dọn dẹp cache cùng lock files trước khi di chuyển.
+- TypeScript chưa bật chế độ nghiêm ngặt gây ra lỗi ẩn; nhất định phải bật `strict` và `noImplicitAny`.

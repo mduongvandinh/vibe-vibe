@@ -1,142 +1,141 @@
 ---
-title: "1.3 让全世界看到你的作品——最小上线实战与 Vercel/EdgeOne 部署"
-typora-root-url: ../../public
+title: "1.3 Để cả thế giới nhìn thấy tác phẩm của bạn - Thực chiến MVP Online và Deploy Vercel/EdgeOne"
 ---
 
-# 1.3 让全世界看到你的作品——最小上线实战与 Vercel/EdgeOne 部署
+# 1.3 Để cả thế giới nhìn thấy tác phẩm của bạn - Thực chiến MVP Online và Deploy Vercel/EdgeOne
 
-### 一句话破题
+### Điểm chính một câu
 
-部署是把代码变成产品的最后一步——让你的作品拥有一个全世界都能访问的 URL。
+Deploy là bước cuối biến code thành sản phẩm - cho tác phẩm của bạn có một URL mà cả thế giới đều có thể truy cập.
 
-### 为什么要尽早部署？
+### Tại sao phải deploy sớm?
 
-很多初学者的误区是"等功能做完了再部署"。但在 Vibe Coding 理念下，我们提倡**尽早部署、持续部署**：
+Nhận thức lầm tưởng của nhiều người mới học là "đợi chức năng làm xong mới deploy". Nhưng trong lý niệm Vibe Coding, chúng tôi ủng hộ **deploy sớm, deploy liên tục**:
 
-1. **验证环境**：本地能跑不代表生产环境能跑，越早发现问题越好
-2. **获得反馈**：让用户（哪怕只是你自己）尽早体验，获得真实反馈
-3. **建立信心**：看到自己的作品在线运行，是极大的成就感
-4. **形成闭环**：从需求到上线的完整闭环，才是真正的"全栈"
+1. **Xác minh môi trường**: Chạy được local không có nghĩa chạy được môi trường production, càng sớm phát hiện vấn đề càng tốt
+2. **Nhận feedback**: Để user (dù chỉ là chính bạn) trải nghiệm sớm, nhận được feedback thực
+3. **Xây dựng tự tin**: Nhìn thấy tác phẩm của mình chạy online, là cảm giác thành tựu lớn
+4. **Hình thành vòng khép**: Vòng khép hoàn chỉnh từ yêu cầu đến online, mới thực sự là "fullstack"
 
-### 部署方式选择
+### Lựa chọn cách deploy
 
 ```mermaid
 graph TD
-    A["选择部署方式"] --> B{"主要用户在哪里?"}
-    B -- "海外/全球" --> C["Vercel"]
-    B -- "国内" --> D["EdgeOne/1Panel"]
+    A["Chọn cách deploy"] --> B{"User chính ở đâu?"}
+    B -- "Nước ngoài/Toàn cầu" --> C["Vercel"]
+    B -- "Trong nước" --> D["EdgeOne/1Panel"]
 ```
 
-| 方式 | 适用场景 | 优点 | 缺点 |
+| Cách | Trường hợp áp dụng | Ưu điểm | Nhược điểm |
 |------|----------|------|------|
-| **Vercel** | 海外用户为主 | 零配置、免费、与 Next.js 深度集成 | 国内访问较慢 |
-| **EdgeOne** | 国内用户为主 | 国内 CDN 加速、访问快 | 需要备案（使用国内域名时） |
-| **1Panel** | 自建服务器 | 完全可控、灵活配置 | 需要服务器运维知识 |
+| **Vercel** | User nước ngoài chủ yếu | Zero config, miễn phí, tích hợp sâu Next.js | Truy cập trong nước chậm |
+| **EdgeOne** | User trong nước chủ yếu | CDN gia tốc trong nước, truy cập nhanh | Cần ICP filing (khi dùng tên miền trong nước) |
+| **1Panel** | Tự xây server | Hoàn toàn kiểm soát, cấu hình linh hoạt | Cần kiến thức vận hành server |
 
-### Vercel 部署（推荐新手）
+### Deploy Vercel (Khuyên người mới)
 
-Vercel 是 Next.js 的官方部署平台，对 Next.js 应用有最好的支持。
+Vercel là platform deploy chính thức của Next.js, có hỗ trợ tốt nhất cho ứng dụng Next.js.
 
-#### 部署步骤
+#### Các bước deploy
 
-**步骤 1：将代码推送到 GitHub**
+**Bước 1: Push code lên GitHub**
 
 ```bash
-# 初始化 Git 仓库（如果还没有）
+# Khởi tạo Git repo (nếu chưa có)
 git init
 git add .
 git commit -m "Initial commit"
 
-# 创建 GitHub 仓库后，关联并推送
-git remote add origin https://github.com/你的用户名/你的仓库.git
+# Sau khi tạo repo GitHub, liên kết và push
+git remote add origin https://github.com/tên-user-của-bạn/repo-của-bạn.git
 git push -u origin main
 ```
 
-**步骤 2：连接 Vercel**
+**Bước 2: Kết nối Vercel**
 
-1. 访问 [vercel.com](https://vercel.com) 并登录（可用 GitHub 账号）
-2. 点击 "Add New..." → "Project"
-3. 选择你刚才推送的 GitHub 仓库
-4. Vercel 会自动检测 Next.js 项目，直接点击 "Deploy"
+1. Truy cập [vercel.com](https://vercel.com) và đăng nhập (có thể dùng tài khoản GitHub)
+2. Click "Add New..." → "Project"
+3. Chọn GitHub repo bạn vừa push
+4. Vercel sẽ tự động phát hiện dự án Next.js, click trực tiếp "Deploy"
 
-**步骤 3：等待部署完成**
+**Bước 3: Đợi deploy hoàn thành**
 
-通常 1-2 分钟后，你就会获得一个 `.vercel.app` 域名，可以直接访问你的应用！
+Thông thường sau 1-2 phút, bạn sẽ nhận được một tên miền `.vercel.app`, có thể truy cập trực tiếp ứng dụng của bạn!
 
-#### 环境变量配置
+#### Cấu hình biến môi trường
 
-如果你的应用需要环境变量（如数据库连接字符串）：
+Nếu ứng dụng của bạn cần biến môi trường (như chuỗi kết nối database):
 
-1. 在 Vercel 项目设置中找到 "Environment Variables"
-2. 添加你需要的环境变量
-3. 重新部署
+1. Trong cài đặt dự án Vercel tìm "Environment Variables"
+2. Thêm biến môi trường bạn cần
+3. Deploy lại
 
-### EdgeOne 部署（国内用户）
+### Deploy EdgeOne (User trong nước)
 
-腾讯云 EdgeOne 提供了边缘计算和 CDN 加速能力，特别适合面向国内用户的应用。
+Tencent Cloud EdgeOne cung cấp khả năng edge computing và CDN acceleration, đặc biệt phù hợp ứng dụng hướng đến user trong nước.
 
-#### 核心优势
+#### Ưu thế cốt lõi
 
-- **国内访问快**：利用腾讯云的 CDN 节点
-- **边缘函数**：支持在边缘节点运行代码
-- **安全防护**：内置 DDoS 防护和 WAF
+- **Truy cập trong nước nhanh**: Tận dụng CDN node của Tencent Cloud
+- **Edge Function**: Hỗ trợ chạy code ở edge node
+- **Bảo vệ bảo mật**: Tích hợp sẵn DDoS protection và WAF
 
-#### 部署方式
+#### Cách deploy
 
-EdgeOne 支持多种接入方式，对于 Next.js 应用，推荐：
+EdgeOne hỗ trợ nhiều cách tiếp cận, với ứng dụng Next.js, khuyên dùng:
 
-1. **静态导出 + CDN**：适合纯静态站点
-2. **边缘函数**：适合需要 SSR 的应用
+1. **Static export + CDN**: Phù hợp trang web tĩnh thuần túy
+2. **Edge Function**: Phù hợp ứng dụng cần SSR
 
-具体配置请参考 1.5.6 章节的详细说明。
+Cấu hình cụ thể xem hướng dẫn chi tiết ở tiểu mục 1.5.6.
 
-### 持续部署
+### Deploy liên tục
 
-无论使用哪个平台，都支持**持续部署**：
+Bất kể dùng platform nào, đều hỗ trợ **continuous deployment**:
 
 ```mermaid
 graph LR
-    A["本地开发"] --> B["Git Push"]
-    B --> C["自动触发部署"]
-    C --> D["上线"]
+    A["Phát triển local"] --> B["Git Push"]
+    B --> C["Tự động trigger deploy"]
+    C --> D["Lên production"]
 ```
 
-每次你 `git push` 到 main 分支，部署平台会自动拉取最新代码并重新部署。这意味着：
+Mỗi lần bạn `git push` lên nhánh main, platform deploy sẽ tự động kéo code mới nhất và deploy lại. Điều này có nghĩa:
 
-- 不需要手动部署
-- 代码提交即上线
-- 可以快速迭代
+- Không cần deploy thủ công
+- Commit code tức lên production
+- Có thể iterate nhanh
 
-### 验证部署成功
+### Xác minh deploy thành công
 
-部署完成后，检查：
+Sau khi deploy xong, kiểm tra:
 
-1. **访问首页**：确认页面正常显示
-2. **测试功能**：点击各个链接和按钮
-3. **检查控制台**：打开浏览器开发者工具，确认没有错误
+1. **Truy cập trang chủ**: Xác nhận trang hiển thị bình thường
+2. **Test chức năng**: Click các link và button
+3. **Kiểm tra console**: Mở developer tools của trình duyệt, xác nhận không có lỗi
 
-### 常见问题
+### Vấn đề thường gặp
 
-**Q: 部署后页面白屏？**
+**Q: Sau deploy trang trắng?**
 
-1. 查看 Vercel/EdgeOne 的部署日志
-2. 检查是否有构建错误
-3. 确认环境变量配置正确
+1. Xem deployment log của Vercel/EdgeOne
+2. Kiểm tra có lỗi build không
+3. Xác nhận biến môi trường cấu hình đúng
 
-**Q: 国内访问 Vercel 很慢？**
+**Q: Trong nước truy cập Vercel rất chậm?**
 
-考虑使用 EdgeOne 或配置自定义域名 + CDN。
+Cân nhắc dùng EdgeOne hoặc cấu hình custom domain + CDN.
 
-**Q: 如何绑定自己的域名？**
+**Q: Làm thế nào bind tên miền riêng?**
 
-在部署平台的域名设置中添加自定义域名，然后在域名服务商处添加 DNS 解析记录。
+Trong cài đặt tên miền của platform deploy thêm custom domain, sau đó ở nhà cung cấp tên miền thêm DNS resolve record.
 
-### 里程碑达成
+### Đạt được mốc quan trọng
 
-完成本节后，你的应用已经：
+Sau khi hoàn thành bài này, ứng dụng của bạn đã:
 
-- [x] 有了一个公开可访问的 URL
-- [x] 实现了代码提交即部署
-- [x] 可以分享给任何人
+- [x] Có một URL công khai có thể truy cập
+- [x] Thực hiện được commit code tức deploy
+- [x] Có thể chia sẻ cho bất kỳ ai
 
-**下一步**：学习如何建立高效的 AI 协作工作流，让开发过程更加顺畅。
+**Bước tiếp theo**: Học cách xây dựng quy trình làm việc cộng tác AI hiệu quả, giúp quá trình phát triển mượt mà hơn.

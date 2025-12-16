@@ -1,72 +1,71 @@
 ---
-title: "8 ｜项目规则与协作"
-typora-root-url: ../public
+title: "8 ｜Quy tắc dự án và Cộng tác"
 ---
 
-# 8 ｜项目规则与协作
+# 8 ｜Quy tắc dự án và Cộng tác
 
-代码写得再好，没有版本管理和协作规范，最终也会变成一团乱麻。
+Code viết tốt đến đâu, không có quản lý phiên bản và quy chuẩn cộng tác, cuối cùng cũng sẽ thành một mớ hỗn độn.
 
-## 为什么需要项目规则？
+## Tại sao cần quy tắc dự án?
 
-在个人开发阶段，你可能觉得"我一个人开发，随便写写就行"。但当你遇到以下情况时，就会深刻理解规范的价值：
+Trong giai đoạn phát triển cá nhân, bạn có thể nghĩ rằng "mình phát triển một mình, viết thoải mái cũng được". Nhưng khi bạn gặp các tình huống sau, bạn sẽ hiểu sâu sắc giá trị của quy chuẩn:
 
-- 昨天的代码今天跑不了，却不知道改了什么
-- 多人协作时互相覆盖对方的代码
-- 密钥泄露到 GitHub 公开仓库
-- 不知道某个功能是谁开发的、为什么这么写
+- Code hôm qua hôm nay chạy không được, nhưng không biết đã sửa gì
+- Nhiều người cộng tác ghi đè code của nhau
+- Secret key bị lộ lên GitHub public repository
+- Không biết tính năng nào do ai phát triển, tại sao lại viết như vậy
 
-**项目规则的本质是降低协作成本**——包括与他人协作，也包括与"未来的自己"协作。
+**Bản chất của quy tắc dự án là giảm chi phí cộng tác** — bao gồm cộng tác với người khác, cũng bao gồm cộng tác với "bản thân trong tương lai".
 
-## 本章核心内容
+## Nội dung cốt lõi chương này
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     项目规则与协作                            │
+│                    Quy tắc dự án và Cộng tác                  │
 ├─────────────────────────────────────────────────────────────┤
-│  8.1 Git 基础        │  版本控制的基本操作与回滚机制          │
-│  8.2 分支策略        │  多人协作的分支管理与保护规则          │
-│  8.3 提交规范        │  Conventional Commits 与自动化       │
-│  8.4 Gitignore       │  敏感文件与构建产物的排除策略          │
-│  8.5 工作流程        │  对齐→评审→验收→上线的完整闭环        │
+│  8.1 git cơ bản      │  Thao tác cơ bản kiểm soát phiên bản và cơ chế rollback  │
+│  8.2 Chiến lược nhánh │  Quản lý nhánh cộng tác nhiều người và quy tắc bảo vệ   │
+│  8.3 Quy chuẩn commit │  Conventional Commits và tự động hóa                    │
+│  8.4 Gitignore       │  Chiến lược loại trừ file nhạy cảm và build artifact    │
+│  8.5 Quy trình làm việc │  Vòng lặp đầy đủ: Đối chiếu→Nghiệm thu→Kiểm tra→Lên sóng │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 章节逻辑关系
+## Quan hệ logic các mục
 
 ```mermaid
 flowchart LR
-    A[Git 基础] --> B[分支策略]
-    B --> C[提交规范]
+    A[git cơ bản] --> B[Chiến lược nhánh]
+    B --> C[Quy chuẩn commit]
     C --> D[Gitignore]
-    D --> E[工作流程]
-    
-    A -->|版本控制| F[代码安全]
-    B -->|协作隔离| F
-    C -->|变更追溯| F
-    D -->|敏感保护| F
-    E -->|流程保障| F
+    D --> E[Quy trình làm việc]
+
+    A -->|Kiểm soát phiên bản| F[Bảo mật code]
+    B -->|Cách ly cộng tác| F
+    C -->|Truy vết thay đổi| F
+    D -->|Bảo vệ nhạy cảm| F
+    E -->|Đảm bảo quy trình| F
 ```
 
-## 学习目标
+## Mục tiêu học tập
 
-完成本章后，你将能够：
+Sau khi hoàn thành chương này, bạn sẽ có thể:
 
-| 能力 | 具体表现 |
+| Năng lực | Biểu hiện cụ thể |
 |------|----------|
-| Git 操作 | 熟练使用 add/commit/push/pull，处理冲突和回滚 |
-| 分支管理 | 理解 Git Flow 和 GitHub Flow，配置分支保护 |
-| 提交规范 | 使用 Conventional Commits，配置 commitlint |
-| 安全意识 | 正确配置 .gitignore，避免敏感信息泄露 |
-| 协作流程 | 掌握 PRD 评审、技术评审、验收上线全流程 |
+| Thao tác git | Thành thạo add/commit/push/pull, xử lý conflict và rollback |
+| Quản lý nhánh | Hiểu Git Flow và GitHub Flow, cấu hình bảo vệ nhánh |
+| Quy chuẩn commit | Dùng Conventional Commits, cấu hình commitlint |
+| Ý thức bảo mật | Cấu hình .gitignore đúng, tránh lộ thông tin nhạy cảm |
+| Quy trình cộng tác | Nắm vững toàn quy trình: Nghiệm thu PRD, nghiệm thu kỹ thuật, kiểm tra, lên sóng |
 
-## AI 协作提示
+## Gợi ý cộng tác AI
 
-在项目协作中，AI 可以帮助你：
+Trong cộng tác dự án, AI có thể giúp bạn:
 
-- 生成规范的 commit message
-- 编写 PR 描述和 review 意见
-- 配置 .gitignore 模板
-- 起草 PRD 和技术方案文档
+- Sinh commit message chuẩn
+- Viết mô tả PR và ý kiến review
+- Cấu hình template .gitignore
+- Soạn thảo tài liệu PRD và phương án kỹ thuật
 
-**关键术语**：`git flow`、`conventional commits`、`branch protection`、`code review`、`.gitignore`
+**Từ khóa chính**: `git flow`, `conventional commits`, `branch protection`, `code review`, `.gitignore`

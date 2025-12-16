@@ -1,73 +1,72 @@
 ---
-title: "7 ｜API 设计与开发规范"
-typora-root-url: ../public
+title: "7 ｜Thiết Kế và Quy Chuẩn Phát Triển API"
 ---
 
-# 7 ｜API 设计与开发规范
+# 7 ｜Thiết Kế và Quy Chuẩn Phát Triển API
 
-## 认知重构
+## Tái Cấu Trúc Nhận Thức
 
-API 不是技术细节，而是**前后端之间的合同**。一份好的合同，双方都能看懂、都愿意遵守；一份烂的合同，开发时吵架、上线后背锅。
+API không phải là chi tiết kỹ thuật, mà là **hợp đồng giữa frontend và backend**. Một hợp đồng tốt, cả hai bên đều hiểu và sẵn sàng tuân thủ; một hợp đồng tồi, tranh cãi khi phát triển, đổ lỗi khi lên production.
 
 ```
-传统认知：API 就是写几个接口
-正确认知：API 是系统的对外承诺，需要像法律合同一样严谨
+Nhận thức truyền thống: API chỉ là viết vài endpoint
+Nhận thức đúng: API là cam kết công khai của hệ thống, cần nghiêm túc như hợp đồng pháp lý
 ```
 
-## 本章核心问题
+## Câu Hỏi Cốt Lõi Của Chương
 
 ```mermaid
 flowchart LR
-    subgraph Q["API 设计四问"]
-        A["接口怎么设计?"]
-        B["错误怎么返回?"]
-        C["文档怎么写?"]
-        D["版本怎么管?"]
+    subgraph Q["Bốn Câu Hỏi Về API"]
+        A["Thiết kế interface thế nào?"]
+        B["Trả về lỗi ra sao?"]
+        C["Viết tài liệu như thế nào?"]
+        D["Quản lý phiên bản thế nào?"]
     end
-    
-    A --> S1["7.1 HTTP 与 API"]
-    B --> S2["7.2 错误处理"]
-    C --> S3["7.3 API 文档"]
-    D --> S4["7.4 版本管理"]
+
+    A --> S1["7.1 HTTP và API"]
+    B --> S2["7.2 Xử lý lỗi"]
+    C --> S3["7.3 Tài liệu API"]
+    D --> S4["7.4 Quản lý phiên bản"]
 ```
 
-## 章节导航
+## Điều Hướng Chương
 
-### 7.1 接口是合同不是暗语——HTTP 与 API
+### 7.1 Interface là hợp đồng không phải mật mã——HTTP và API
 
-- HTTP 方法语义：GET/POST/PUT/DELETE 该怎么用
-- JSON 数据格式：序列化与反序列化
-- 分页策略：offset 和 cursor 分页的取舍
-- 过滤与排序：查询参数的设计规范
-- 幂等性保证：重复请求不会搞砸数据
+- Ngữ nghĩa phương thức HTTP: GET/POST/PUT/DELETE nên dùng thế nào
+- Định dạng dữ liệu JSON: Serialization và deserialization
+- Chiến lược phân trang: Cân nhắc giữa offset và cursor pagination
+- Lọc và sắp xếp: Thiết kế query parameter chuẩn mực
+- Đảm bảo tính idempotency: Request trùng lặp không làm hỏng dữ liệu
 
-### 7.2 报错也要说人话——REST 与错误处理
+### 7.2 Báo lỗi cũng phải nói người——REST và Xử lý lỗi
 
-- REST 约束：统一接口/无状态/可缓存
-- 资源设计：URL 路径与资源映射
-- 状态码标准：404/500 到底什么意思
-- 错误响应格式：统一的错误信息结构
-- 追踪 ID：请求链路跟踪与调试
+- Ràng buộc REST: Giao diện thống nhất/stateless/cacheable
+- Thiết kế resource: Mapping URL path và resource
+- Tiêu chuẩn status code: 404/500 nghĩa là gì
+- Format error response: Cấu trúc thông báo lỗi thống nhất
+- Trace ID: Theo dõi và debug request chain
 
-### 7.3 活的文档才有用——API 文档
+### 7.3 Tài liệu sống mới hữu ích——Tài liệu API
 
-- 文档格式选择：Markdown vs OpenAPI
-- Swagger UI：可交互的 API 文档
-- Postman 集合：API 测试与分享
-- 文档同步：代码变更驱动文档更新
+- Lựa chọn format tài liệu: Markdown vs OpenAPI
+- Swagger UI: Tài liệu API có thể tương tác
+- Postman collection: Test và chia sẻ API
+- Đồng bộ tài liệu: Thay đổi code dẫn dắt cập nhật tài liệu
 
-### 7.4 接口升级了旧版怎么办——版本管理
+### 7.4 Interface nâng cấp rồi phiên bản cũ thế nào——Quản lý phiên bản
 
-- 语义化版本：v1/v2 的讲究
-- 版本控制策略：URL 路径 vs 请求头
-- 向前兼容：字段添加与废弃策略
-- 变更日志：API 变更记录与通知
+- Semantic versioning: Sự tinh tế của v1/v2
+- Chiến lược kiểm soát phiên bản: URL path vs request header
+- Forward compatibility: Chiến lược thêm và deprecate field
+- Changelog: Ghi chép và thông báo thay đổi API
 
-## 本章学习目标
+## Mục Tiêu Học Tập Của Chương
 
-| 目标 | 能力 |
+| Mục tiêu | Năng lực |
 |------|------|
-| **设计规范的 API** | 遵循 RESTful 原则设计接口 |
-| **处理错误情况** | 返回清晰、可追踪的错误信息 |
-| **维护 API 文档** | 文档与代码同步更新 |
-| **管理 API 版本** | 平滑升级，不破坏现有客户端 |
+| **Thiết kế API chuẩn mực** | Thiết kế interface tuân thủ nguyên tắc RESTful |
+| **Xử lý tình huống lỗi** | Trả về thông tin lỗi rõ ràng, có thể trace |
+| **Duy trì tài liệu API** | Tài liệu và code đồng bộ cập nhật |
+| **Quản lý phiên bản API** | Nâng cấp mượt mà, không phá vỡ client hiện tại |

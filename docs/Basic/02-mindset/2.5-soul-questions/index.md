@@ -1,75 +1,75 @@
 ---
-title: "2.5 灵魂三问：开发前必须回答的问题"
+title: "2.5 Ba Câu hỏi Linh hồn: Câu hỏi Bắt buộc Trả lời Trước khi Phát triển"
 ---
 
-# 2.5 灵魂三问：开发前必须回答的问题
+# 2.5 Ba Câu hỏi Linh hồn: Câu hỏi Bắt buộc Trả lời Trước khi Phát triển
 
-经过本节学习，你将掌握：
-- 在动手开发前用3分钟完成自检的方法
-- 判断自己是否"准备好开始"的标准
-- 一个可以反复使用的快速决策框架
-
-
-## 什么是灵魂三问
-
-在创业圈和产品圈，有三个问题被反复提及。Y Combinator 的合伙人在面试创业者时会问，红杉资本的投资人在评估项目时会问，优秀的产品经理在立项前也会问自己。
-
-这三个问题是：
-
-1. **用户是谁？**（Who）
-2. **痛点在哪？**（What Problem）
-3. **为什么选你？**（Why You）
-
-之所以叫"灵魂三问"，是因为这三个问题直指本质。回答得清楚，后面的事情就顺；回答得模糊，做出来的东西大概率没人用。
+Sau khi học xong phần này, bạn sẽ nắm được:
+- Phương pháp tự kiểm tra hoàn thành trong 3 phút trước khi động tay phát triển
+- Tiêu chuẩn phán đoán bản thân có "sẵn sàng bắt đầu" hay không
+- Một framework quyết định nhanh có thể dùng đi dùng lại
 
 
-## 与前几节的关系
+## Ba Câu hỏi Linh hồn là gì
 
-你可能会问：前面不是讲了 JTBD、用户画像、减法思维吗？这里为什么还要再讲？
+Trong giới khởi nghiệp và sản phẩm, có ba câu hỏi được nhắc đến lặp đi lặp lại. Đối tác của Y Combinator sẽ hỏi khi phỏng vấn người khởi nghiệp, nhà đầu tư của Sequoia Capital sẽ hỏi khi đánh giá dự án, product manager xuất sắc cũng sẽ tự hỏi mình trước khi lập dự án.
 
-答案是：**灵魂三问是前面所有工具的"浓缩精华"。**
+Ba câu hỏi đó là:
 
-| 前面学过的工具 | 对应的灵魂三问 |
+1. **Người dùng là ai?** (Who)
+2. **Điểm đau ở đâu?** (What Problem)
+3. **Tại sao chọn bạn?** (Why You)
+
+Lý do gọi là "Ba câu hỏi linh hồn", là vì ba câu hỏi này chỉ thẳng bản chất. Trả lời rõ ràng, việc sau đó sẽ thuận; trả lời mơ hồ, thứ làm ra có khả năng cao là không ai dùng.
+
+
+## Mối quan hệ với Các phần Trước
+
+Bạn có thể hỏi: Trước đây đã nói về JTBD, Persona, tư duy trừ rồi? Tại sao ở đây lại nói nữa?
+
+Câu trả lời là: **Ba câu hỏi linh hồn là "tinh túy cô đọng" của tất cả công cụ trước đây.**
+
+| Công cụ Đã học Trước | Ba câu hỏi Linh hồn Tương ứng |
 |--------------|---------------|
-| 三维用户画像（2.4节） | 用户是谁？ |
-| JTBD 任务分析（2.1节） | 痛点在哪？ |
-| 减法思维、差异化（2.3节） | 为什么选你？ |
+| Persona Ba chiều (phần 2.4) | Người dùng là ai? |
+| JTBD Phân tích Tác vụ (phần 2.1) | Điểm đau ở đâu? |
+| Tư duy Trừ, Khác biệt hóa (phần 2.3) | Tại sao chọn bạn? |
 
-如果说前面的工具是"详细版手册"，灵魂三问就是"口袋卡片"。你不需要每次都做完整的用户画像分析，但每次动手前，都应该能用一两句话回答这三个问题。
-
-
-## 什么时候用
-
-**在打开 AI 工具、写第一行 Prompt 之前。**
-
-具体来说：
-
-- 当你有了一个想法，准备开始做的时候
-- 当你已经做了一半，发现方向不对的时候
-- 当你向别人解释"我在做什么"的时候
-
-这三个问题用 3 分钟就能问完，但能省下 3 小时的无效开发。
+Nếu nói công cụ trước đây là "sổ tay chi tiết", ba câu hỏi linh hồn chính là "thẻ bỏ túi". Bạn không cần mỗi lần đều làm phân tích Persona hoàn chỉnh, nhưng mỗi lần trước khi động tay, đều nên có thể dùng một hai câu trả lời ba câu hỏi này.
 
 
-## 回答不出来怎么办
+## Khi nào Dùng
 
-如果你发现自己无法用一句话清晰回答任何一个问题，说明你还没准备好。
+**Trước khi mở công cụ AI, viết dòng Prompt đầu tiên.**
 
-这时候有两个选择：
+Cụ thể là:
 
-1. **回到前面的章节**，用更系统的工具（用户画像、JTBD）深入分析
-2. **先做个最小实验**，通过动手来验证和澄清想法
+- Khi bạn có một ý tưởng, chuẩn bị bắt đầu làm
+- Khi bạn đã làm được một nửa, phát hiện hướng đi không đúng
+- Khi bạn giải thích với người khác "Tôi đang làm gì"
 
-两种方式都可以。重要的是意识到：**模糊的想法做出模糊的产品，清晰的想法才能做出有用的东西。**
+Ba câu hỏi này dùng 3 phút là hỏi xong, nhưng có thể tiết kiệm 3 giờ phát triển vô hiệu.
 
 
-## 本节结构
+## Trả lời Không ra Thì sao
 
-接下来，我们逐一拆解这三个问题：
+Nếu bạn phát hiện bản thân không thể dùng một câu rõ ràng trả lời bất kỳ câu hỏi nào, chứng tỏ bạn chưa sẵn sàng.
 
-- 2.5.2 问题一：用户是谁？
-- 2.5.3 问题二：痛点在哪？
-- 2.5.4 问题三：为什么选你？
-- 2.5.5 灵魂三问自检清单
-- 2.5.6 实战案例：四种场景的灵魂三问
-- 2.5.7 本节核心要点
+Lúc này có hai lựa chọn:
+
+1. **Quay lại phần trước**, dùng công cụ có hệ thống hơn (Persona, JTBD) phân tích sâu
+2. **Làm thử nghiệm nhỏ nhất trước**, thông qua động tay để xác minh và làm rõ ý tưởng
+
+Cả hai cách đều được. Quan trọng là nhận thức: **Ý tưởng mơ hồ làm ra sản phẩm mơ hồ, ý tưởng rõ ràng mới làm ra được thứ hữu ích.**
+
+
+## Cấu trúc Phần này
+
+Tiếp theo, chúng ta sẽ phân tích từng câu hỏi:
+
+- 2.5.2 Câu hỏi một: Người dùng là ai?
+- 2.5.3 Câu hỏi hai: Điểm đau ở đâu?
+- 2.5.4 Câu hỏi ba: Tại sao chọn bạn?
+- 2.5.5 Danh sách Tự kiểm tra Ba câu hỏi Linh hồn
+- 2.5.6 Trường hợp Thực chiến: Ba câu hỏi Linh hồn của Bốn Tình huống
+- 2.5.7 Điểm Cốt lõi của Phần này

@@ -1,31 +1,31 @@
 ---
-title: "5.3 护城河：AI 时代的安全意识"
+title: "5.3 Tường lửa: Ý thức bảo mật trong thời đại AI"
 order: 1
 ---
 
-# 5.3 护城河：AI 时代的安全意识
+# 5.3 Tường lửa: Ý thức bảo mật trong thời đại AI
 
-> **本节目标**：了解 AI 编程中的安全风险，学会保护自己
+> **Mục tiêu của phần này**: Hiểu các rủi ro bảo mật trong lập trình AI, học cách bảo vệ bản thân
 
-## 为什么这一节很重要
+## Tại sao phần này lại quan trọng
 
-在 AI 编程时代，安全风险比以往更加隐蔽，也更加严重。
+Trong thời đại lập trình AI, rủi ro bảo mật ẩn dấu hơn bao giờ hết, cũng nguy hiểm hơn bao giờ hết.
 
-但好消息是：**只要知道规则，就能轻松避免**。
+Nhưng tin tốt là: **chỉ cần biết những quy tắc, bạn có thể dễ dàng tránh tránh được.**
 
-## 章节导航
+## Hướng dẫn chương
 
-| 小节 | 主题 | 预计时间 |
-|------|------|---------|
-| [5.3.0](./5.3.0-scary-numbers.md) | 2025年安全现状：触目惊心的数字 | 3分钟 |
-| [5.3.1](./5.3.1-why-important.md) | 为什么这一节很重要 | 2分钟 |
-| [5.3.2](./5.3.2-never-tell-ai.md) | 绝对禁区：永远不要告诉 AI | 3分钟 |
-| [5.3.3](./5.3.3-code-risks.md) | 代码中的安全隐患 | 3分钟 |
-| [5.3.4](./5.3.4-checklist.md) | 初学者安全检查清单 | 2分钟 |
-| [5.3.5](./5.3.5-slopsquatting.md) | AI 推荐的库安全吗 | 3分钟 |
-| [5.3.6](./5.3.6-always-review.md) | 永远审查代码 | 2分钟 |
-| [5.3.7](./5.3.7-summary.md) | 本节要点总结 | 2分钟 |
+| Phần | Chủ đề | Thời gian dự tính |
+|------|--------|---------|
+| [5.3.0](./5.3.0-scary-numbers.md) | Tình hình bảo mật 2025: Những con số gây shock | 3 phút |
+| [5.3.1](./5.3.1-why-important.md) | Tại sao phần này lại quan trọng | 2 phút |
+| [5.3.2](./5.3.2-never-tell-ai.md) | Vùng cấm tuyệt đối: Không bao giờ nói cho AI biết | 3 phút |
+| [5.3.3](./5.3.3-code-risks.md) | Những lỗ hổng bảo mật trong mã | 3 phút |
+| [5.3.4](./5.3.4-checklist.md) | Danh sách kiểm tra bảo mật cho người mới bắt đầu | 2 phút |
+| [5.3.5](./5.3.5-slopsquatting.md) | Các thư viện được AI đề xuất có an toàn không | 3 phút |
+| [5.3.6](./5.3.6-always-review.md) | Luôn luôn kiểm tra mã | 2 phút |
+| [5.3.7](./5.3.7-summary.md) | Tóm tắt những điểm chính của phần này | 2 phút |
 
-**预计总时间：约 15-20 分钟**
+**Thời gian dự tính tổng cộng: khoảng 15-20 phút**
 
-→ [5.3.0 2025年安全现状：触目惊心的数字](./5.3.0-scary-numbers.md)
+→ [5.3.0 Tình hình bảo mật 2025: Những con số gây shock](./5.3.0-scary-numbers.md)

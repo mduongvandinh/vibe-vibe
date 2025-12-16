@@ -1,62 +1,62 @@
 ---
-title: "3.3 进阶提示技巧"
+title: "3.3 Kỹ thuật prompt nâng cao"
 ---
 
-# 3.3 进阶提示技巧：解锁 AI 的隐藏能力
+# 3.3 Kỹ thuật prompt nâng cao: Mở khóa khả năng ẩn của AI
 
-在 3.2 节，你学会了用结构化框架（S.C.A.F.F.、R.G.C.）组织提示词。框架解决了「怎么组织信息」的问题，但还有一个问题没回答：
+Trong mục 3.2, bạn đã học cách dùng framework có cấu trúc (S.C.A.F.F., R.G.C.) để tổ chức prompt. Framework giải quyết vấn đề "cách tổ chức thông tin", nhưng còn một câu hỏi chưa được trả lời:
 
-> "同样的信息，有没有更聪明的「问法」，让 AI 表现得更好？"
+> "Với cùng thông tin, có cách 'hỏi' thông minh hơn không, để AI thể hiện tốt hơn?"
 
-有的。这就是本节要介绍的**进阶提示技巧**。
+Có. Đó chính là **kỹ thuật prompt nâng cao** mà mục này sẽ giới thiệu.
 
-## 经过本节学习，你将掌握
+## Qua mục này bạn sẽ nắm được
 
-- **Zero-shot**：直接提问，适合 AI 已经「会」的任务
-- **Few-shot**：用示例教会 AI，适合格式化输出
-- **Chain of Thought**：让 AI 分步思考，适合复杂逻辑
-- **Tree of Thoughts**：探索多条路径，适合方案对比
-- **Self-Critique**：让 AI 自我检查，提升输出质量
-- **技巧选择指南**：什么情况用什么技巧
+- **Zero-shot**: Hỏi trực tiếp, phù hợp với task AI đã "biết"
+- **Few-shot**: Dùng ví dụ để dạy AI, phù hợp với output có format
+- **Chain of Thought**: Để AI suy nghĩ từng bước, phù hợp logic phức tạp
+- **Tree of Thoughts**: Khám phá nhiều đường đi, phù hợp so sánh phương án
+- **Self-Critique**: Để AI tự kiểm tra, nâng cao chất lượng output
+- **Hướng dẫn chọn kỹ thuật**: Tình huống nào dùng kỹ thuật gì
 
-## 核心洞见
+## Nhận thức cốt lõi
 
-> "不同的任务，需要不同的思考方式。提示技巧的本质，是引导 AI 用最适合的方式处理你的问题。"
+> "Task khác nhau, cần cách suy nghĩ khác nhau. Bản chất của kỹ thuật prompt, là hướng dẫn AI dùng cách phù hợp nhất để xử lý vấn đề của bạn."
 
-2024 年的研究表明：Chain of Thought（思维链）技巧在**数学和符号推理**任务上效果显著，但在其他类型任务上收益有限。这意味着：**没有万能技巧，只有最合适的技巧**。
+Nghiên cứu năm 2024 cho thấy: Kỹ thuật Chain of Thought (chuỗi suy nghĩ) hiệu quả rõ rệt với task **toán học và suy luận ký hiệu**, nhưng lợi ích hạn chế với các loại task khác. Điều này có nghĩa: **Không có kỹ thuật vạn năng, chỉ có kỹ thuật phù hợp nhất**.
 
-本节的目标不是让你记住所有技巧，而是帮你建立一个「技巧选择直觉」——看到任务，就知道该用什么方式和 AI 对话。
+Mục tiêu của mục này không phải để bạn nhớ tất cả kỹ thuật, mà giúp bạn xây dựng "trực giác chọn kỹ thuật" — nhìn thấy task, biết ngay nên dùng cách nào để đối thoại với AI.
 
-## 本节结构
+## Cấu trúc mục này
 
 ```
-3.3.1 Zero-shot Prompting    → 最基础的提问方式，适合入门
-3.3.2 Few-shot Prompting     → 用示例教会 AI，格式化输出利器
-3.3.3 Chain of Thought       → 分步推理，复杂逻辑的好帮手
-3.3.4 Tree of Thoughts       → 多路径探索，决策场景专用
-3.3.5 Self-Critique          → AI 自查，质量保障最后一道防线
-3.3.6 技巧选择指南            → 快速决策，什么场景用什么技巧
+3.3.1 Zero-shot Prompting    → Cách hỏi cơ bản nhất, phù hợp nhập môn
+3.3.2 Few-shot Prompting     → Dùng ví dụ dạy AI, công cụ tốt cho format output
+3.3.3 Chain of Thought       → Suy luận từng bước, trợ thủ đắc lực cho logic phức tạp
+3.3.4 Tree of Thoughts       → Khám phá nhiều đường, chuyên dụng cho tình huống quyết định
+3.3.5 Self-Critique          → AI tự kiểm tra, tuyến phòng cuối cùng đảm bảo chất lượng
+3.3.6 Hướng dẫn chọn kỹ thuật → Quyết định nhanh, tình huống nào dùng kỹ thuật gì
 ```
 
-## 与前面章节的关系
+## Quan hệ với các mục trước
 
-| 章节 | 解决的问题 | 类比 |
+| Mục | Vấn đề giải quyết | Ví dụ |
 |-----|-----------|------|
-| 3.1 提示词基础 | 该告诉 AI **什么信息** | 准备食材 |
-| 3.2 结构化框架 | 如何**组织**这些信息 | 按菜谱摆放 |
-| 3.3 进阶技巧 | 用什么**方式**让 AI 处理 | 选择烹饪方法 |
+| 3.1 Prompt cơ bản | Nên cho AI **thông tin gì** | Chuẩn bị nguyên liệu |
+| 3.2 Framework cấu trúc | Làm thế nào **tổ chức** các thông tin này | Sắp xếp theo công thức |
+| 3.3 Kỹ thuật nâng cao | Dùng **cách nào** để AI xử lý | Chọn phương pháp nấu nướng |
 
-三者是递进关系：先知道该说什么（3.1），再学会怎么组织（3.2），最后掌握不同的「问法」（3.3）。
+Ba phần này có quan hệ tiến triển: Trước hết biết nên nói gì (3.1), sau đó học cách tổ chức (3.2), cuối cùng nắm vững các "cách hỏi" khác nhau (3.3).
 
-## 延续案例：小李的待办清单
+## Tiếp tục ví dụ: Todo list của Tiểu Lý
 
-本节继续使用第二章小李的待办清单项目作为贯穿案例。你会看到同一个需求，用不同技巧提问，会得到怎样不同的效果。
+Mục này tiếp tục sử dụng dự án todo list của Tiểu Lý ở chương 2 làm ví dụ xuyên suốt. Bạn sẽ thấy cùng một yêu cầu, dùng kỹ thuật hỏi khác nhau, sẽ có hiệu quả ra sao.
 
-## 学习建议
+## Đề xuất học tập
 
-1. **先掌握 Zero-shot 和 Few-shot**：这两个技巧覆盖 80% 的日常场景
-2. **Chain of Thought 按需使用**：遇到复杂逻辑再用
-3. **Tree of Thoughts 了解即可**：技术选型时才需要
-4. **Self-Critique 养成习惯**：重要输出都让 AI 自查一遍
+1. **Nắm vững Zero-shot và Few-shot trước**: Hai kỹ thuật này bao phủ 80% tình huống hàng ngày
+2. **Chain of Thought dùng khi cần**: Gặp logic phức tạp mới dùng
+3. **Tree of Thoughts hiểu là được**: Chỉ cần khi chọn công nghệ
+4. **Self-Critique tạo thành thói quen**: Output quan trọng đều để AI tự kiểm tra một lần
 
-准备好了吗？让我们从最基础的 Zero-shot 开始。
+Sẵn sàng chưa? Hãy bắt đầu từ Zero-shot cơ bản nhất.

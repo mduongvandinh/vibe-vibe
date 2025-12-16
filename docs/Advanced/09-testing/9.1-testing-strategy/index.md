@@ -1,65 +1,64 @@
 ---
-title: "9.1 懒人的测试金字塔——优先测服务层与 API"
-typora-root-url: ../../public
+title: "9.1 Kim Tự Tháp Của Người Lười—Ưu tiên test Service Layer và API"
 ---
 
-# 9.1 懒人的测试金字塔——优先测服务层与 API
+# 9.1 Kim Tự Tháp Của Người Lười—Ưu tiên test Service Layer và API
 
-**测试金字塔的精髓不是"写更多测试"，而是"在正确的层级写测试"。**
+**Tinh hoa của kim tự tháp testing không phải là "viết nhiều test hơn", mà là "viết test ở đúng tầng".**
 
-## 单人开发者的测试困境
+## Khó Khăn Testing của Developer Đơn Lẻ
 
-作为独立开发者，你面临一个现实问题：时间有限，但质量不能妥协。传统的测试金字塔告诉你要写大量单元测试，但现实是：
+Là independent developer, bạn đối mặt với một vấn đề thực tế: thời gian có hạn, nhưng chất lượng không thể thỏa hiệp. Kim tự tháp testing truyền thống bảo bạn phải viết rất nhiều unit test, nhưng thực tế là:
 
-- 业务逻辑快速迭代，单元测试维护成本高
-- UI 频繁变化，E2E 测试脆弱易碎
-- 测试覆盖率数字好看，但 bug 照样上线
+- Logic nghiệp vụ lặp đi lặp lại nhanh chóng, chi phí bảo trì unit test cao
+- UI thay đổi thường xuyên, E2E test dễ vỡ
+- Con số coverage test đẹp mắt, nhưng bug vẫn lên production
 
-## 懒人金字塔：重新分配测试投资
+## Kim Tự Tháp Của Người Lười: Phân Bổ Lại Đầu Tư Testing
 
 ```mermaid
 graph TB
-    subgraph 传统金字塔
-        E2E1[E2E 测试]
-        INT1[集成测试]
-        UNIT1[单元测试 - 大量]
+    subgraph Kim tự tháp truyền thống
+        E2E1[E2E Test]
+        INT1[Integration Test]
+        UNIT1[Unit Test - Số lượng lớn]
     end
-    
-    subgraph 懒人金字塔
-        E2E2[E2E 测试 - 核心流程]
-        API[API 测试 - 重点投入]
-        SVC[服务层测试 - 核心覆盖]
-        UNIT2[单元测试 - 纯函数]
+
+    subgraph Kim tự tháp của người lười
+        E2E2[E2E Test - Luồng cốt lõi]
+        API[API Test - Đầu tư trọng tâm]
+        SVC[Service Layer Test - Bao phủ cốt lõi]
+        UNIT2[Unit Test - Pure function]
     end
-    
-    传统金字塔 -->|优化| 懒人金字塔
+
+    Kim tự tháp truyền thống -->|Tối ưu| Kim tự tháp của người lười
 ```
 
-## 核心策略：聚焦服务层与 API
+## Chiến Lược Cốt Lõi: Tập Trung Service Layer và API
 
-| 测试类型 | 投入比例 | 覆盖目标 | ROI |
+| Loại Test | Tỉ Lệ Đầu Tư | Mục Tiêu Bao Phủ | ROI |
 |---------|---------|---------|-----|
-| 单元测试 | 20% | 纯函数、工具函数 | 中 |
-| 服务层测试 | 40% | 业务逻辑、数据处理 | 高 |
-| API 测试 | 30% | 接口契约、边界条件 | 高 |
-| E2E 测试 | 10% | 核心用户流程 | 中 |
+| Unit Test | 20% | Pure function, utility function | Trung bình |
+| Service Layer Test | 40% | Logic nghiệp vụ, xử lý dữ liệu | Cao |
+| API Test | 30% | Contract interface, điều kiện biên | Cao |
+| E2E Test | 10% | Luồng người dùng cốt lõi | Trung bình |
 
-## 为什么这样分配
+## Tại Sao Phân Bổ Như Vậy
 
-1. **服务层是业务核心**：所有业务规则都在这里，测好服务层就等于测好了核心逻辑
-2. **API 是对外契约**：API 稳定，前端、移动端、第三方都能放心对接
-3. **单元测试聚焦纯函数**：有副作用的代码用集成测试覆盖更实际
-4. **E2E 只保核心流程**：登录、支付、核心业务流程，其他交给手动测试
+1. **Service Layer là cốt lõi nghiệp vụ**: Tất cả business rule đều ở đây, test tốt service layer tức là test tốt logic cốt lõi
+2. **API là contract đối ngoại**: API ổn định, frontend, mobile, third-party đều yên tâm tích hợp
+3. **Unit Test tập trung pure function**: Code có side effect dùng integration test bao phủ thực tế hơn
+4. **E2E chỉ giữ luồng cốt lõi**: Login, payment, luồng nghiệp vụ cốt lõi, phần còn lại giao cho manual test
 
-## 本节导览
+## Tổng Quan Tiểu Chương
 
-| 小节 | 内容 |
+| Tiểu Chương | Nội Dung |
 |------|------|
-| 9.1.1 | 测试分层：理解单元、集成、E2E 的边界 |
-| 9.1.2 | 测试优先级：投入产出比分析 |
-| 9.1.3 | 服务层测试：业务逻辑验证重点 |
-| 9.1.4 | API 测试：接口契约与边界条件 |
+| 9.1.1 | Phân tầng test: Hiểu ranh giới Unit, Integration, E2E |
+| 9.1.2 | Độ ưu tiên test: Phân tích đầu tư/đầu ra |
+| 9.1.3 | Service Layer Test: Trọng tâm xác thực logic nghiệp vụ |
+| 9.1.4 | API Test: Contract interface và điều kiện biên |
 
-## 本节小结
+## Tóm Tắt Tiểu Chương
 
-懒人金字塔的核心不是偷懒，而是**把有限的精力投入到最有价值的地方**。服务层测试保障业务逻辑正确，API 测试保障接口契约稳定，这两者加起来就能覆盖 80% 的常见问题。
+Cốt lõi của kim tự tháp người lười không phải là lười biếng, mà là **đầu tư năng lượng hữu hạn vào nơi có giá trị nhất**. Service layer test đảm bảo logic nghiệp vụ đúng, API test đảm bảo contract interface ổn định, hai thứ này cộng lại đã có thể bao phủ 80% vấn đề thường gặp.

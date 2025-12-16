@@ -1,76 +1,75 @@
 ---
-title: "2.6 全家桶服务好不好用——拓展：Supabase适用与取舍"
-typora-root-url: ../../public
+title: "2.6 Dịch vụ all-in-one có tốt không — Mở rộng: Supabase khi nào nên dùng và khi nào nên tránh"
 ---
 
-# 2.6 全家桶服务好不好用——Supabase 适用与取舍
+# 2.6 Dịch vụ all-in-one có tốt không — Supabase khi nào nên dùng
 
-## 认知重构
+## Tái cấu trúc nhận thức
 
-Supabase 自称"开源的 Firebase 替代品"，提供了数据库、认证、存储、实时订阅等一体化服务。它能让你快速搭建后端，但"全家桶"也意味着一定程度的绑定。
+Supabase tự gọi mình là "giải pháp thay thế Firebase mã nguồn mở", cung cấp các dịch vụ tích hợp như database, authentication, storage, realtime subscription. Nó giúp bạn xây dựng backend nhanh chóng, nhưng "all-in-one" cũng đồng nghĩa với việc phụ thuộc nhất định vào nhà cung cấp.
 
 ```
-传统方式：PostgreSQL + NextAuth + S3 + 自建实时服务
-Supabase：一个平台全搞定（但有迁移成本）
+Cách truyền thống: PostgreSQL + NextAuth + S3 + tự xây dựng dịch vụ realtime
+Supabase: Một nền tảng giải quyết tất cả (nhưng có chi phí migration)
 ```
 
-## Supabase 服务全景
+## Toàn cảnh dịch vụ Supabase
 
 ```mermaid
 flowchart TB
-    subgraph Supabase["Supabase 平台"]
+    subgraph Supabase["Nền tảng Supabase"]
         DB["Database<br/>PostgreSQL"]
-        Auth["Auth<br/>用户认证"]
-        Storage["Storage<br/>文件存储"]
-        Realtime["Realtime<br/>实时订阅"]
-        Edge["Edge Functions<br/>边缘计算"]
+        Auth["Auth<br/>Xác thực người dùng"]
+        Storage["Storage<br/>Lưu trữ file"]
+        Realtime["Realtime<br/>Đăng ký realtime"]
+        Edge["Edge Functions<br/>Edge computing"]
     end
-    
-    App["Next.js 应用"] --> DB
+
+    App["Ứng dụng Next.js"] --> DB
     App --> Auth
     App --> Storage
     App --> Realtime
     App --> Edge
 ```
 
-| 服务 | 功能 | 对标 |
+| Dịch vụ | Chức năng | So sánh với |
 |------|------|------|
-| **Database** | PostgreSQL 数据库 | 自建 PostgreSQL |
-| **Auth** | 用户认证、OAuth | NextAuth.js |
-| **Storage** | 文件存储 | 阿里云 OSS / S3 |
-| **Realtime** | 数据变更订阅 | Socket.io |
-| **Edge Functions** | 边缘函数 | Cloudflare Workers |
+| **Database** | PostgreSQL database | PostgreSQL tự xây dựng |
+| **Auth** | Xác thực người dùng, OAuth | NextAuth.js |
+| **Storage** | Lưu trữ file | Alibaba Cloud OSS / S3 |
+| **Realtime** | Đăng ký thay đổi data | Socket.io |
+| **Edge Functions** | Edge functions | Cloudflare Workers |
 
-## 何时该用 Supabase？
+## Khi nào nên dùng Supabase?
 
 ```mermaid
 flowchart TD
-    Start["是否使用 Supabase?"] --> Q1{"项目阶段?"}
-    Q1 -->|"原型/MVP"| Yes1["✅ 强烈推荐"]
-    Q1 -->|"生产环境"| Q2{"团队规模?"}
-    Q2 -->|"1-3人"| Yes2["✅ 可以考虑"]
-    Q2 -->|"较大团队"| Q3{"是否接受供应商锁定?"}
-    Q3 -->|"接受"| Yes3["✅ 可以使用"]
-    Q3 -->|"不接受"| No["❌ 建议自建"]
+    Start["Có nên dùng Supabase?"] --> Q1{"Giai đoạn dự án?"}
+    Q1 -->|"Prototype/MVP"| Yes1["✅ Rất khuyến khích"]
+    Q1 -->|"Production"| Q2{"Quy mô team?"}
+    Q2 -->|"1-3 người"| Yes2["✅ Có thể cân nhắc"]
+    Q2 -->|"Team lớn hơn"| Q3{"Chấp nhận vendor lock-in?"}
+    Q3 -->|"Chấp nhận"| Yes3["✅ Có thể dùng"]
+    Q3 -->|"Không chấp nhận"| No["❌ Nên tự xây dựng"]
 ```
 
-### ✅ 适合使用 Supabase
+### ✅ Phù hợp dùng Supabase
 
-- **快速原型**：几分钟搭建后端
-- **黑客松项目**：时间紧迫，一站式解决
-- **小团队**：不想运维数据库
-- **实时功能**：聊天、协作等场景
+- **Prototype nhanh**: Xây dựng backend trong vài phút
+- **Dự án hackathon**: Thời gian gấp, giải pháp tất cả trong một
+- **Team nhỏ**: Không muốn vận hành database
+- **Tính năng realtime**: Chat, collaboration và các tình huống tương tự
 
-### ❌ 不太适合
+### ❌ Không phù hợp
 
-- **高度定制化需求**：复杂业务逻辑
-- **严格合规要求**：数据必须自主可控
-- **已有成熟基础设施**：迁移成本高
-- **预算敏感**：用量大时成本可能更高
+- **Nhu cầu tùy chỉnh cao**: Business logic phức tạp
+- **Yêu cầu compliance nghiêm ngặt**: Data phải được kiểm soát hoàn toàn
+- **Đã có hạ tầng ổn định**: Chi phí migration cao
+- **Nhạy cảm về ngân sách**: Chi phí có thể cao hơn khi lượng sử dụng tăng
 
-## 本章导航
+## Điều hướng chương này
 
-- **2.6.1 Supabase 服务概览**：数据库/存储/认证一体化
-- **2.6.2 适用场景**：快速原型 vs 生产环境
-- **2.6.3 成本考量**：免费额度与付费计划
-- **2.6.4 迁移策略**：从 Supabase 到自建服务
+- **2.6.1 Tổng quan dịch vụ Supabase**: Database/Storage/Auth tất cả trong một
+- **2.6.2 Tình huống áp dụng**: Prototype nhanh vs môi trường production
+- **2.6.3 Cân nhắc về chi phí**: Gói miễn phí và gói trả phí
+- **2.6.4 Chiến lược migration**: Từ Supabase sang dịch vụ tự xây dựng

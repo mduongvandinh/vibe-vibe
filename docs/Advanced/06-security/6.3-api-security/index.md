@@ -1,41 +1,40 @@
 ---
-title: "6.3 守好程序的大门——API 安全防护实践"
-typora-root-url: ../../public
+title: "6.3 Bảo vệ cánh cửa chính của chương trình - Thực hành bảo vệ API"
 ---
 
-# 6.3 守好程序的大门——API 安全防护实践
+# 6.3 Bảo vệ cánh cửa chính của chương trình - Thực hành bảo vệ API
 
-## 认知重构
+## Tái cấu trúc nhận thức
 
-API 是你应用与外界交互的窗口。每一个暴露的接口，都是潜在的攻击入口。API 安全不是"加个验证"那么简单，而是需要从认证、授权、输入验证、限流、日志等多个维度构建防护体系。
+API là cửa sổ tương tác của ứng dụng với thế giới bên ngoài. Mỗi giao diện được expose là một điểm vào tiềm ẩn cho tấn công. Bảo vệ API không phải chỉ là "thêm xác thực", mà cần xây dựng hệ thống phòng thủ từ nhiều chiều: authentication, authorization, xác thực đầu vào, rate limiting, logging, v.v.
 
 ```mermaid
 flowchart TD
-    Request["外部请求"] --> WAF["防火墙/WAF"]
-    WAF --> RateLimit["限流"]
-    RateLimit --> Auth["认证"]
-    Auth --> AuthZ["授权"]
-    AuthZ --> Validation["输入验证"]
-    Validation --> Business["业务逻辑"]
-    Business --> Response["响应"]
+    Request["Yêu cầu bên ngoài"] --> WAF["Tường lửa/WAF"]
+    WAF --> RateLimit["Rate limiting"]
+    RateLimit --> Auth["Authentication"]
+    Auth --> AuthZ["Authorization"]
+    AuthZ --> Validation["Xác thực đầu vào"]
+    Validation --> Business["Logic kinh doanh"]
+    Business --> Response["Phản hồi"]
 ```
 
-## 本节内容
+## Nội dung của phần này
 
-| 小节 | 核心问题 | 你将学会 |
+| Tiểu mục | Vấn đề cốt lõi | Bạn sẽ học được |
 |------|----------|----------|
-| 6.3.1 认证方法 | 如何验证请求者身份？ | JWT/Session/API Key 的选择 |
-| 6.3.2 CORS 机制 | 为什么会有跨域问题？ | 预检请求与安全配置 |
-| 6.3.3 XSS 防护 | 如何防止脚本注入？ | 输出编码与 CSP |
-| 6.3.4 CSRF 防护 | 如何防止伪造请求？ | Token 验证与 SameSite |
-| 6.3.5 API 限流 | 如何防止接口被滥用？ | 速率限制与异常检测 |
+| 6.3.1 Phương pháp xác thực | Làm thế nào để xác minh danh tính của người yêu cầu? | Cách chọn JWT/Session/API Key |
+| 6.3.2 Cơ chế CORS | Tại sao lại có vấn đề cross-origin? | Preflight request và cấu hình bảo vệ |
+| 6.3.3 Phòng chống XSS | Làm thế nào để ngăn chặn script injection? | Output encoding và CSP |
+| 6.3.4 Phòng chống CSRF | Làm thế nào để ngăn chặn forged request? | Token verification và SameSite |
+| 6.3.5 Rate limiting API | Làm thế nào để ngăn chặn giao diện bị lạm dụng? | Rate limiting và anomaly detection |
 
-## API 安全层级
+## Các cấp độ bảo vệ API
 
-### 第一层：传输安全
+### Cấp độ 1: Bảo vệ truyền tải
 
 ```typescript
-// 强制 HTTPS
+// Bắt buộc HTTPS
 if (process.env.NODE_ENV === 'production') {
   if (request.headers.get('x-forwarded-proto') !== 'https') {
     return Response.redirect(`https://${request.headers.get('host')}${request.url}`)
@@ -43,7 +42,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 ```
 
-### 第二层：认证与授权
+### Cấp độ 2: Authentication và Authorization
 
 ```typescript
 // middleware.ts
@@ -51,21 +50,21 @@ import { getToken } from 'next-auth/jwt'
 
 export async function middleware(request: NextRequest) {
   const token = await getToken({ req: request })
-  
+
   if (!token) {
-    return Response.json({ error: '未授权' }, { status: 401 })
+    return Response.json({ error: 'Không được phép' }, { status: 401 })
   }
-  
-  // 检查权限
+
+  // Kiểm tra quyền
   if (request.nextUrl.pathname.startsWith('/api/admin')) {
     if (token.role !== 'admin') {
-      return Response.json({ error: '禁止访问' }, { status: 403 })
+      return Response.json({ error: 'Cấm truy cập' }, { status: 403 })
     }
   }
 }
 ```
 
-### 第三层：输入验证
+### Cấp độ 3: Xác thực đầu vào
 
 ```typescript
 import { z } from 'zod'
@@ -78,21 +77,21 @@ const CreatePostSchema = z.object({
 
 export async function POST(request: Request) {
   const body = await request.json()
-  
+
   const result = CreatePostSchema.safeParse(body)
   if (!result.success) {
     return Response.json(
-      { error: '参数错误', details: result.error.issues },
+      { error: 'Tham số không hợp lệ', details: result.error.issues },
       { status: 400 }
     )
   }
-  
-  // 使用验证后的数据
+
+  // Sử dụng dữ liệu đã được xác thực
   const { title, content, tags } = result.data
 }
 ```
 
-### 第四层：限流防护
+### Cấp độ 4: Bảo vệ Rate limiting
 
 ```typescript
 import { Ratelimit } from '@upstash/ratelimit'
@@ -100,23 +99,23 @@ import { Redis } from '@upstash/redis'
 
 const ratelimit = new Ratelimit({
   redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(10, '10 s'), // 10秒10次
+  limiter: Ratelimit.slidingWindow(10, '10 s'), // 10 lần/10 giây
 })
 
 export async function middleware(request: NextRequest) {
   const ip = request.ip ?? '127.0.0.1'
   const { success } = await ratelimit.limit(ip)
-  
+
   if (!success) {
     return Response.json(
-      { error: '请求过于频繁' },
+      { error: 'Yêu cầu quá tần suất' },
       { status: 429 }
     )
   }
 }
 ```
 
-## 安全响应头
+## Security Response Headers
 
 ```typescript
 // next.config.js
@@ -151,20 +150,20 @@ module.exports = {
 }
 ```
 
-## AI 协作提示
+## Gợi ý hợp tác với AI
 
-向 AI 描述 API 安全需求时：
+Khi mô tả yêu cầu bảo vệ API cho AI:
 
-- "实现请求限流，每个 IP 每分钟最多 60 次请求"
-- "对用户输入使用 zod 进行严格验证"
-- "添加 CORS 配置，只允许指定域名访问"
-- "在响应头中添加安全相关的 HTTP 头"
+- "Thực hiện rate limiting, mỗi IP tối đa 60 requests/phút"
+- "Sử dụng zod để xác thực đầu vào của người dùng một cách engg"
+- "Thêm cấu hình CORS, chỉ cho phép các domain được chỉ định truy cập"
+- "Thêm HTTP headers liên quan bảo vệ trong response headers"
 
-::: warning API 安全审查清单
-1. [ ] 所有接口都有认证检查
-2. [ ] 敏感操作有授权验证
-3. [ ] 用户输入经过验证和转义
-4. [ ] 实现了请求限流
-5. [ ] 配置了安全响应头
-6. [ ] 错误信息不泄露敏感信息
+::: warning API Security Checklist
+1. [ ] Tất cả các giao diện đều có kiểm tra authentication
+2. [ ] Các hoạt động nhạy cảm có xác thực authorization
+3. [ ] Đầu vào của người dùng đã được xác thực và escape
+4. [ ] Đã triển khai rate limiting
+5. [ ] Đã cấu hình security response headers
+6. [ ] Error message không rò rỉ thông tin nhạy cảm
 :::

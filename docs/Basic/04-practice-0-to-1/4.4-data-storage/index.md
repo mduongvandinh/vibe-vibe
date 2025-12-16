@@ -1,40 +1,40 @@
 ---
-title: "4.4 第三轮：让数据活起来"
+title: "4.4 Vòng thứ ba: Làm sống dữ liệu"
 order: 1
 ---
 
-# 4.4 第三轮：让数据活起来
+# 4.4 Vòng thứ ba: Làm sống dữ liệu
 
-> **本节目标**：让任务数据保存下来，刷新页面后还在
+> **Mục tiêu phần này**: Lưu trữ dữ liệu nhiệm vụ, vẫn còn sau khi làm mới trang
 
-## 从 4.3 到 4.4：最后一块拼图
+## Từ 4.3 đến 4.4: Mảnh ghép cuối cùng
 
-在 4.3 节，你已经让待办清单具备了完整的交互能力：添加、删除、标记完成。
+Trong phần 4.3, bạn đã làm cho danh sách công việc có đầy đủ khả năng tương tác: thêm, xóa, đánh dấu hoàn thành.
 
-但如果你现在刷新一下页面（按 F5），你会发现——**所有任务都消失了**。
+Nhưng nếu bạn làm mới trang (nhấn F5), bạn sẽ thấy — **tất cả nhiệm vụ đều biến mất**.
 
-这不是 Bug，而是因为目前数据只存在于浏览器的"临时记忆"中。就像在白板上写字，擦掉就没了。
+Đây không phải là Bug, mà là vì hiện tại dữ liệu chỉ tồn tại trong "bộ nhớ tạm thời" của trình duyệt. Giống như viết chữ trên bảng trắng, xóa đi thì mất.
 
-本轮，我们要给待办清单装上"记忆"，让它能记住你的任务。
+Vòng này, chúng ta sẽ gắn "bộ nhớ" cho danh sách công việc, để nó có thể nhớ các nhiệm vụ của bạn.
 
-## 本轮学习收获
+## Kết quả học tập vòng này
 
-经过本轮学习，你将掌握：
+Sau vòng học này, bạn sẽ nắm được:
 
-- 理解为什么网页需要数据存储
-- 使用 localStorage 实现数据持久化
-- 验证数据是否正确保存和读取
-- 完成一个「刷新不丢数据」的完整应用
+- Hiểu tại sao trang web cần lưu trữ dữ liệu
+- Sử dụng localStorage để thực hiện lưu trữ dữ liệu bền vững
+- Xác minh dữ liệu được lưu và đọc đúng cách
+- Hoàn thành một ứng dụng "không mất dữ liệu khi làm mới"
 
-## 章节导航
+## Điều hướng chương
 
-| 小节 | 主题 | 预计时间 |
+| Tiểu mục | Chủ đề | Thời gian dự kiến |
 |------|------|---------|
-| [4.4.1](./4.4.1-why-storage.md) | 为什么需要数据存储 | 3 分钟 |
-| [4.4.2](./4.4.2-localstorage.md) | 使用本地存储（localStorage） | 10 分钟 |
-| [4.4.3](./4.4.3-test-persistence.md) | 测试数据持久化 | 5 分钟 |
-| [4.4.4](./4.4.4-final-verification.md) | 完整功能验证与阶段回顾 | 5 分钟 |
+| [4.4.1](./4.4.1-why-storage.md) | Tại sao cần lưu trữ dữ liệu | 3 phút |
+| [4.4.2](./4.4.2-localstorage.md) | Sử dụng lưu trữ cục bộ (localStorage) | 10 phút |
+| [4.4.3](./4.4.3-test-persistence.md) | Kiểm tra tính bền vững dữ liệu | 5 phút |
+| [4.4.4](./4.4.4-final-verification.md) | Xác minh chức năng hoàn chỉnh và tổng kết giai đoạn | 5 phút |
 
-**预计总时间：约 25 分钟**
+**Tổng thời gian dự kiến: khoảng 25 phút**
 
-→ [4.4.1 为什么需要数据存储](./4.4.1-why-storage.md)
+→ [4.4.1 Tại sao cần lưu trữ dữ liệu](./4.4.1-why-storage.md)

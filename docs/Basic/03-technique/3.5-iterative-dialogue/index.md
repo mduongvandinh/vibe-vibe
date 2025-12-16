@@ -1,81 +1,81 @@
 ---
-title: "3.5 迭代对话的艺术"
+title: "3.5 Nghệ thuật đối thoại lặp"
 ---
 
-# 3.5 迭代对话的艺术：从「一次搞定」到「逐步逼近」
+# 3.5 Nghệ thuật đối thoại lặp: Từ "Hoàn thành một lần" đến "Tiếp cận từng bước"
 
-> **本节目标**：掌握多轮对话技巧，学会在对话中逐步逼近理想结果
+> **Mục tiêu của chương**: Nắm vững kỹ thuật đối thoại nhiều vòng, học cách tiếp cận kết quả lý tưởng từng bước trong cuộc đối thoại
 
-你已经学会了写结构化的提示词（3.2），掌握了进阶技巧（3.3），甚至能写出一份完整的 PRD（3.4）。但当你把这些都交给 AI 后，很可能发现：**第一次输出往往不是你想要的**。
+Bạn đã học cách viết prompt có cấu trúc (3.2), nắm vững các kỹ thuật nâng cao (3.3), thậm chí có thể viết một bản PRD hoàn chỉnh (3.4). Nhưng khi bạn gửi tất cả những thứ này cho AI, bạn có thể sẽ phát hiện: **Kết quả đầu ra lần đầu thường không phải là thứ bạn muốn**.
 
-这不是你的问题，也不是 AI 的问题。这是对话的本质。
+Đây không phải là vấn đề của bạn, cũng không phải là vấn đề của AI. Đây là bản chất của đối thoại.
 
-## 核心洞见
+## Thông điểm cốt lõi
 
-> "追求「一次完美」是幻觉，「逐步逼近」才是正道。"
+> "Theo đuổi 'hoàn hảo một lần' là ảo tưởng, 'tiếp cận từng bước' mới là con đường đúng."
 
-想象你在装修房子。你不会期望油漆工刷完第一遍就完美无瑕。你会看效果、提意见、再调整。AI 对话也是如此——它是一个**协作过程**，不是一次**命令执行**。
+Hãy tưởng tượng bạn đang trang trí nhà. Bạn sẽ không kỳ vọng thợ sơn có thể hoàn thiện hoàn hảo ngay lớp sơn đầu tiên. Bạn sẽ xem kết quả, đưa ra ý kiến, rồi điều chỉnh. Đối thoại với AI cũng tương tự—đó là một **quá trình cộng tác**, không phải **thực thi lệnh** một lần.
 
-## 经过本节学习，你将掌握
+## Sau khi học chương này, bạn sẽ nắm vững
 
-- 理解为什么「一次提问」往往不够
-- 掌握迭代对话的三阶段模型：看方向 → 改问题 → 磨细节
-- 学会用 SBI 框架给 AI 有效反馈
-- 管理长对话的上下文，避免 AI「失忆」
-- 知道何时该开始新对话，以及如何「搬家」
+- Hiểu tại sao "hỏi một lần" thường không đủ
+- Nắm vững mô hình ba giai đoạn của đối thoại lặp: Xem hướng → Sửa vấn đề → Chau chuốt chi tiết
+- Học cách đưa feedback hiệu quả cho AI bằng framework SBI
+- Quản lý context trong đối thoại dài, tránh AI "mất trí nhớ"
+- Biết khi nào nên bắt đầu cuộc đối thoại mới và cách "di chuyển"
 
-## 本节在第三章中的位置
+## Vị trí của chương này trong Chương 3
 
 ```
-3.1 提示词基础      →  知道该告诉 AI 什么信息
+3.1 Prompt cơ bản      →  Biết nên nói với AI thông tin gì
       ↓
-3.2 结构化框架      →  学会如何组织这些信息
+3.2 Framework có cấu trúc  →  Học cách tổ chức những thông tin này
       ↓
-3.3 进阶技巧        →  掌握不同的「问法」
+3.3 Kỹ thuật nâng cao     →  Nắm vững các "cách hỏi" khác nhau
       ↓
-3.4 第一份 PRD      →  整合思考，形成任务书
+3.4 PRD đầu tiên      →  Tổng hợp suy nghĩ, tạo thành bản kế hoạch
       ↓
-3.5 迭代对话（本节） →  在执行中逐步调整，逼近理想结果
+3.5 Đối thoại lặp (chương này) →  Điều chỉnh từng bước trong quá trình thực hiện, tiếp cận kết quả lý tưởng
       ↓
-3.6 Debug 策略      →  当 AI 出错时如何修正
+3.6 Chiến lược Debug   →  Cách sửa lỗi khi AI mắc lỗi
 ```
 
-如果说 3.1-3.4 是教你「怎么开好头」，本节就是教你「怎么跑完全程」。
+Nếu 3.1-3.4 dạy bạn "cách khởi đầu tốt", thì chương này dạy bạn "cách hoàn thành toàn bộ quá trình".
 
-## 本节结构
+## Cấu trúc của chương
 
-| 小节 | 核心内容 | 你会获得 |
+| Tiểu mục | Nội dung cốt lõi | Bạn sẽ có được |
 |-----|---------|---------|
-| 3.5.1 | 为什么一次提问往往不够 | 正确预期：迭代是常态，不是失败 |
-| 3.5.2 | 迭代对话的基本模式 | 三阶段模型 + 完整对话示例 |
-| 3.5.3 | 有效反馈的艺术 | SBI 框架 + 反馈句式库 |
-| 3.5.4 | 上下文管理 | 避免 AI「失忆」的四个技巧 |
-| 3.5.5 | 知道何时开始新对话 | 「搬家」时机判断 + 启动模板 |
+| 3.5.1 | Tại sao hỏi một lần thường không đủ | Kỳ vọng đúng: Iteration là bình thường, không phải thất bại |
+| 3.5.2 | Mô hình cơ bản của đối thoại lặp | Mô hình ba giai đoạn + Ví dụ đối thoại hoàn chỉnh |
+| 3.5.3 | Nghệ thuật feedback hiệu quả | Framework SBI + Thư viện mẫu câu feedback |
+| 3.5.4 | Quản lý context | Bốn kỹ thuật tránh AI "mất trí nhớ" |
+| 3.5.5 | Biết khi nào bắt đầu cuộc đối thoại mới | Đánh giá thời điểm "di chuyển" + Template khởi động |
 
-## 延续案例：小李的待办清单
+## Ví dụ liên tục: Danh sách việc cần làm của Tiểu Lý
 
-本节继续使用小李的待办清单项目。你会看到一个完整的迭代过程：
+Chương này tiếp tục sử dụng dự án danh sách việc cần làm của Tiểu Lý. Bạn sẽ thấy một quá trình iteration hoàn chỉnh:
 
 ```
-初始需求："帮我实现添加任务的功能"
+Yêu cầu ban đầu: "Giúp tôi thực hiện chức năng thêm nhiệm vụ"
     ↓
-第一轮：AI 给出基础实现（方向对，但细节差）
+Vòng 1: AI đưa ra implementation cơ bản (hướng đúng, nhưng chi tiết còn thiếu)
     ↓
-反馈："输入框太小，而且没有验证空输入"
+Feedback: "Input box quá nhỏ, và không có validation input rỗng"
     ↓
-第二轮：AI 修正，加入验证（功能对，但结构不满意）
+Vòng 2: AI sửa lỗi, thêm validation (chức năng đúng, nhưng cấu trúc không hài lòng)
     ↓
-反馈："验证逻辑放在了组件里，我希望抽成独立函数"
+Feedback: "Logic validation nằm trong component, tôi muốn tách thành hàm riêng"
     ↓
-第三轮：最终版本（结构清晰，可维护）
+Vòng 3: Phiên bản cuối cùng (cấu trúc rõ ràng, có thể bảo trì)
 ```
 
-三轮对话，从「能用」到「好用」。这就是迭代的力量。
+Ba vòng đối thoại, từ "có thể dùng" đến "dùng tốt". Đây là sức mạnh của iteration.
 
-## 学习建议
+## Gợi ý học tập
 
-1. **调整预期**：第一轮输出不完美是正常的，不要沮丧
-2. **边学边练**：每个小节都有可复制的模板，建议实际使用
-3. **记录经验**：把有效的反馈句式收集起来，形成自己的「武器库」
+1. **Điều chỉnh kỳ vọng**: Kết quả đầu ra vòng đầu không hoàn hảo là bình thường, đừng chán nản
+2. **Học và thực hành song song**: Mỗi tiểu mục đều có template có thể sao chép, đề xuất sử dụng thực tế
+3. **Ghi chép kinh nghiệm**: Thu thập các mẫu câu feedback hiệu quả, tạo thành "kho vũ khí" của riêng bạn
 
-准备好了吗？让我们从「为什么一次提问往往不够」开始。
+Sẵn sàng chưa? Hãy bắt đầu từ "Tại sao hỏi một lần thường không đủ".

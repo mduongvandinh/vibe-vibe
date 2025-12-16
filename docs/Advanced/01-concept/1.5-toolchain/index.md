@@ -1,94 +1,93 @@
 ---
-title: "1.5 全副武装你的开发环境——工具链与环境：IDE/Git/Node.js/数据库/部署平台"
-typora-root-url: ../../public
+title: "1.5 Trang bị đầy đủ môi trường phát triển — Toolchain và Môi trường: IDE/Git/Node.js/Database/Nền tảng deploy"
 ---
 
-# 1.5 全副武装你的开发环境——工具链与环境：IDE/Git/Node.js/数据库/部署平台
+# 1.5 Trang bị đầy đủ môi trường phát triển — Toolchain và Môi trường: IDE/Git/Node.js/Database/Nền tảng deploy
 
-### 一句话破题
+### Một câu giải thích
 
-开发环境是你的"工作台"——工具选对了、配置好了，开发效率能提升数倍。
+Môi trường phát triển là "bàn làm việc" của bạn — chọn đúng công cụ, cấu hình tốt, hiệu quả phát triển có thể tăng gấp nhiều lần.
 
-### 工具链全景图
+### Toàn cảnh toolchain
 
 ```mermaid
 graph TB
-    subgraph IDE["代码编辑"]
+    subgraph IDE["Soạn thảo code"]
         I1["VS Code / Cursor"]
     end
-    
-    subgraph Version["版本控制"]
+
+    subgraph Version["Quản lý phiên bản"]
         V1["Git + GitHub"]
     end
-    
-    subgraph Runtime["运行环境"]
+
+    subgraph Runtime["Môi trường chạy"]
         R1["Node.js + pnpm"]
     end
-    
-    subgraph DB["数据存储"]
+
+    subgraph DB["Lưu trữ dữ liệu"]
         D1["PostgreSQL / SQLite"]
     end
-    
-    subgraph Deploy["部署平台"]
+
+    subgraph Deploy["Nền tảng deploy"]
         P1["Vercel / EdgeOne / 1Panel"]
     end
-    
+
     IDE --> Version --> Runtime --> DB --> Deploy
 ```
 
-### 本节覆盖内容
+### Nội dung phần này bao gồm
 
-| 章节 | 主题 | 核心内容 |
+| Chương | Chủ đề | Nội dung cốt lõi |
 |------|------|----------|
-| 1.5.1 | IDE 配置 | VS Code 插件推荐与配置 |
-| 1.5.2 | Git 工作流 | 分支策略与协作规范 |
-| 1.5.3 | 数据库选择 | PostgreSQL vs MySQL vs SQLite |
-| 1.5.4 | 部署平台 | 容器化与云服务选择 |
-| 1.5.5 | Vercel | Next.js 最佳部署平台 |
-| 1.5.6 | 腾讯云 EO | 国内访问优化方案 |
+| 1.5.1 | Cấu hình IDE | Gợi ý và cấu hình plugin VS Code |
+| 1.5.2 | Luồng công việc Git | Chiến lược nhánh và quy ước cộng tác |
+| 1.5.3 | Lựa chọn database | PostgreSQL vs MySQL vs SQLite |
+| 1.5.4 | Nền tảng deploy | Container hóa và lựa chọn dịch vụ cloud |
+| 1.5.5 | Vercel | Nền tảng deploy tốt nhất cho Next.js |
+| 1.5.6 | Tencent Cloud EO | Phương án tối ưu truy cập trong nước |
 
-### 推荐技术栈
+### Tech stack đề xuất
 
-本课程统一使用以下技术栈，确保学习过程中的一致性：
+Khóa học này sử dụng thống nhất tech stack sau để đảm bảo tính nhất quán trong quá trình học:
 
-| 类别 | 推荐工具 | 备选方案 |
+| Danh mục | Công cụ đề xuất | Phương án thay thế |
 |------|----------|----------|
-| **编辑器** | Cursor | VS Code |
-| **版本控制** | Git + GitHub | GitLab |
-| **运行时** | Node.js 20 LTS | Node.js 18 LTS |
-| **包管理器** | pnpm | npm / yarn |
-| **数据库** | PostgreSQL | SQLite（开发环境） |
+| **Editor** | Cursor | VS Code |
+| **Quản lý phiên bản** | Git + GitHub | GitLab |
+| **Runtime** | Node.js 20 LTS | Node.js 18 LTS |
+| **Quản lý gói** | pnpm | npm / yarn |
+| **Database** | PostgreSQL | SQLite (môi trường dev) |
 | **ORM** | Prisma | - |
-| **部署** | Vercel | EdgeOne / 1Panel |
+| **Deploy** | Vercel | EdgeOne / 1Panel |
 
-### 为什么选择这些工具？
+### Tại sao chọn những công cụ này?
 
-1. **Cursor**：AI 原生 IDE，与课程的 Vibe Coding 理念高度契合
-2. **pnpm**：更快的安装速度，更节省磁盘空间
-3. **PostgreSQL**：功能强大，与 Prisma 配合良好
-4. **Vercel**：与 Next.js 深度集成，零配置部署
+1. **Cursor**: IDE nguyên bản AI, khớp cao với lý niệm Vibe Coding của khóa học
+2. **pnpm**: Tốc độ cài đặt nhanh hơn, tiết kiệm không gian đĩa hơn
+3. **PostgreSQL**: Chức năng mạnh mẽ, kết hợp tốt với Prisma
+4. **Vercel**: Tích hợp sâu với Next.js, deploy zero config
 
-### 环境检查清单
+### Checklist kiểm tra môi trường
 
-在开始后续学习之前，确认你的环境满足：
+Trước khi bắt đầu học các phần tiếp theo, xác nhận môi trường của bạn đáp ứng:
 
 ```bash
-# 检查 Node.js 版本
-node -v  # 应该 >= 18.17
+# Kiểm tra phiên bản Node.js
+node -v  # Nên >= 18.17
 
-# 检查 pnpm
-pnpm -v  # 应该已安装
+# Kiểm tra pnpm
+pnpm -v  # Nên đã cài đặt
 
-# 检查 Git
-git --version  # 应该已安装
+# Kiểm tra Git
+git --version  # Nên đã cài đặt
 
-# 检查编辑器
-# Cursor 或 VS Code 已安装并配置好 AI 助手
+# Kiểm tra editor
+# Cursor hoặc VS Code đã cài đặt và cấu hình trợ lý AI
 ```
 
-### 接下来的学习路径
+### Lộ trình học tập tiếp theo
 
-如果你是完全新手，建议按顺序学习每个子章节。如果你已经有开发经验，可以跳过熟悉的部分，重点关注：
+Nếu bạn là người hoàn toàn mới, đề xuất học theo thứ tự từng chương con. Nếu bạn đã có kinh nghiệm phát triển, có thể bỏ qua phần đã quen, tập trung chú ý:
 
-- **1.5.2 Git 工作流**：团队协作的基础
-- **1.5.5 Vercel**：快速部署你的 Next.js 应用
+- **1.5.2 Luồng công việc Git**: Nền tảng cộng tác nhóm
+- **1.5.5 Vercel**: Deploy nhanh ứng dụng Next.js của bạn

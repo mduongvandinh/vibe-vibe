@@ -1,9 +1,9 @@
 ---
-title: "全栈项目实战"
+title: "Dự Án Thực Chiến Fullstack"
 ---
 
-# 全栈项目实战
+# Dự Án Thực Chiến Fullstack
 
-从零到一构建完整的全栈应用，包括 SaaS、地图应用、移动应用等。
+Xây dựng từ số không các ứng dụng fullstack hoàn chỉnh, bao gồm SaaS, ứng dụng bản đồ, ứng dụng di động, v.v.
 
-教程开发中
+Hướng dẫn đang được phát triển

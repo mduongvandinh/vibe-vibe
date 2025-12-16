@@ -1,46 +1,45 @@
 ---
-title: "9.3 给你的代码上保险——单元测试/集成测试：Jest + Test DB；seed 前置"
-typora-root-url: ../../public
+title: "9.3 Bảo hiểm cho mã của bạn——Unit Tests/Integration Tests: Jest + Test DB; seed trước"
 ---
 
-# 9.3 给你的代码上保险——单元测试/集成测试：Jest + Test DB；seed 前置
+# 9.3 Bảo hiểm cho mã của bạn——Unit Tests/Integration Tests: Jest + Test DB; seed trước
 
-**自动化测试是你代码的保险单——每次改动都能自动验证是否破坏了已有功能。**
+**Automated testing là bảo hiểm cho mã của bạn——mỗi lần thay đổi đều tự động xác minh liệu bạn đã phá vỡ chức năng hiện có hay không.**
 
-## 为什么需要自动化测试
+## Tại sao cần automated testing
 
 ```mermaid
 graph LR
-    subgraph 没有测试
-        A1[修改代码] --> B1[手动测试]
-        B1 --> C1[遗漏边界情况]
-        C1 --> D1[上线后发现 bug]
+    subgraph "Không có test"
+        A1[Thay đổi mã] --> B1[Test thủ công]
+        B1 --> C1[Bỏ sót trường hợp biên]
+        C1 --> D1[Phát hiện bug sau khi deploy]
     end
-    
-    subgraph 有测试
-        A2[修改代码] --> B2[运行测试]
-        B2 --> C2{测试通过?}
-        C2 -->|是| D2[安全上线]
-        C2 -->|否| E2[立即发现问题]
+
+    subgraph "Có test"
+        A2[Thay đổi mã] --> B2[Chạy test]
+        B2 --> C2{Test đạt?}
+        C2 -->|Có| D2[Deploy an toàn]
+        C2 -->|Không| E2[Phát hiện vấn đề ngay]
     end
 ```
 
-## 本节技术栈
+## Tech stack của phần này
 
-| 工具 | 用途 | 选择理由 |
-|------|------|---------|
-| Jest | 测试框架 | 零配置、快照测试、Mock 支持 |
-| ts-jest | TypeScript 支持 | 直接运行 TS 测试 |
-| @testing-library | React 测试 | 面向用户行为的测试 |
-| supertest | API 测试 | 简洁的 HTTP 断言 |
+| Công cụ | Mục đích | Lý do lựa chọn |
+|---------|---------|----------------|
+| Jest | Framework test | Zero config, snapshot testing, Mock support |
+| ts-jest | TypeScript support | Chạy trực tiếp TS test |
+| @testing-library | React testing | Test theo hành vi người dùng |
+| supertest | API testing | Assertion HTTP đơn giản |
 
-## 快速开始配置
+## Cấu hình bắt đầu nhanh
 
 ```bash
-# 安装依赖
+# Cài đặt dependencies
 npm install -D jest ts-jest @types/jest
 
-# 初始化配置
+# Khởi tạo cấu hình
 npx ts-jest config:init
 ```
 
@@ -62,16 +61,16 @@ const config: Config = {
 export default config;
 ```
 
-## 本节核心内容
+## Nội dung cốt lõi của phần này
 
-| 小节 | 主题 | 解决的问题 |
-|------|------|-----------|
-| 9.3.1 | Jest 配置 | 如何配置测试框架和断言库 |
-| 9.3.2 | 测试数据库 | 内存数据库 vs 真实数据库的选择 |
-| 9.3.3 | Seed 数据 | 如何准备测试用例所需的数据 |
-| 9.3.4 | Mock 策略 | 如何模拟外部依赖 |
+| Tiểu mục | Chủ đề | Vấn đề giải quyết |
+|---------|--------|-----------------|
+| 9.3.1 | Jest configuration | Cách cấu hình framework test và assertion library |
+| 9.3.2 | Test database | Lựa chọn giữa in-memory database vs real database |
+| 9.3.3 | Seed data | Cách chuẩn bị dữ liệu cần thiết cho test cases |
+| 9.3.4 | Mock strategy | Cách mock external dependencies |
 
-## 测试文件组织
+## Tổ chức test files
 
 ```
 project/
@@ -92,6 +91,6 @@ project/
 └── jest.setup.ts
 ```
 
-## 本节小结
+## Tóm tắt phần này
 
-自动化测试是现代软件开发的基础设施。通过 Jest 和测试数据库的配合，可以实现从单元测试到集成测试的完整覆盖。关键是选择合适的工具、组织好测试代码、准备好测试数据。接下来的小节将详细介绍每个环节的具体实现。
+Automated testing là cơ sở hạ tầng của phát triển phần mềm hiện đại. Thông qua Jest và test database, bạn có thể triển khai coverage hoàn chỉnh từ unit test đến integration test. Chìa khóa là lựa chọn công cụ phù hợp, tổ chức mã test tốt, chuẩn bị dữ liệu test. Những tiểu mục tiếp theo sẽ giải thích chi tiết cách triển khai từng khía cạnh.

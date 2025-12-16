@@ -1,96 +1,96 @@
 ---
-title: "4.3 第二轮：实现核心功能"
+title: "4.3 Vòng thứ hai: Thực hiện chức năng cốt lõi"
 order: 1
 ---
 
-# 4.3 第二轮：实现核心功能
+# 4.3 Vòng thứ hai: Thực hiện chức năng cốt lõi
 
-> **本轮目标**：让页面能响应用户操作——点击按钮真的有反应
+> **Mục tiêu vòng này**: Làm cho trang có thể phản hồi thao tác người dùng — nhấn nút thực sự có phản ứng
 
-在上一轮（4.2），你已经做出了一个"好看的空壳"：有标题、有输入框、有按钮、有列表区域。但如果你现在点击"添加"按钮，什么都不会发生。
+Ở vòng trước (4.2), bạn đã làm được một "vỏ đẹp": có tiêu đề, có ô nhập, có nút bấm, có khu vực danh sách. Nhưng nếu bạn bây giờ nhấp nút "Thêm", sẽ không có gì xảy ra.
 
-这就像造了一辆漂亮的汽车，但还没装发动机。
+Giống như đã tạo một chiếc ô tô đẹp, nhưng chưa lắp động cơ.
 
-**本轮，我们要给它装上"发动机"**——让每个按钮都能真正工作。
+**Vòng này, chúng ta sẽ lắp "động cơ" cho nó** — làm cho mỗi nút đều có thể hoạt động thực sự.
 
-## 从"静态"到"动态"
+## Từ "tĩnh" sang "động"
 
-在 4.2 节，我们用 HTML 和 CSS 搭建了页面。现在需要加入 JavaScript，让页面能"响应"用户的操作。
+Ở phần 4.2, chúng ta đã dùng HTML và CSS xây dựng trang. Bây giờ cần thêm JavaScript, làm cho trang có thể "phản hồi" thao tác của người dùng.
 
-| 概念 | 类比 | 在待办清单中的体现 |
+| Khái niệm | Phép loại suy | Thể hiện trong danh sách công việc |
 |------|------|-------------------|
-| HTML | 房子的骨架 | 输入框、按钮、列表的结构 |
-| CSS | 房子的装修 | 颜色、字体、布局 |
-| JavaScript | 房子的电路和开关 | 点击按钮后的响应逻辑 |
+| HTML | Khung xương của ngôi nhà | Cấu trúc ô nhập, nút bấm, danh sách |
+| CSS | Trang trí của ngôi nhà | Màu sắc, font chữ, bố cục |
+| JavaScript | Mạch điện và công tắc của ngôi nhà | Logic phản hồi sau khi nhấp nút |
 
-你不需要"学会" JavaScript。你只需要告诉 AI 你想要什么效果，AI 会帮你写代码。
+Bạn không cần "học" JavaScript. Bạn chỉ cần nói với AI bạn muốn hiệu ứng gì, AI sẽ giúp bạn viết code.
 
-## 本轮要实现的三个功能
+## Ba chức năng cần thực hiện vòng này
 
-还记得第二章定义的 P0 功能吗？本轮我们要实现最核心的三个：
+Còn nhớ chức năng P0 đã định nghĩa ở chương hai không? Vòng này chúng ta sẽ thực hiện ba chức năng cốt lõi nhất:
 
-| 功能 | 用户操作 | 预期结果 |
+| Chức năng | Thao tác người dùng | Kết quả dự kiến |
 |------|---------|---------|
-| 添加任务 | 输入内容，点击"添加"按钮 | 新任务出现在列表中 |
-| 删除任务 | 点击任务旁边的"删除"按钮 | 该任务从列表中消失 |
-| 标记完成 | 点击任务的"完成"按钮 | 任务显示为已完成状态（加删除线） |
+| Thêm nhiệm vụ | Nhập nội dung, nhấp nút "Thêm" | Nhiệm vụ mới xuất hiện trong danh sách |
+| Xóa nhiệm vụ | Nhấp nút "Xóa" bên cạnh nhiệm vụ | Nhiệm vụ đó biến mất khỏi danh sách |
+| Đánh dấu hoàn thành | Nhấp nút "Hoàn thành" của nhiệm vụ | Nhiệm vụ hiển thị trạng thái đã hoàn thành (thêm gạch ngang) |
 
-这三个功能覆盖了"增、删、改"操作，是几乎所有应用的基础模式。
+Ba chức năng này bao gồm thao tác "thêm, xóa, sửa", là mô hình cơ bản của hầu hết các ứng dụng.
 
-## 事件处理：让页面"听懂"你的操作
+## Xử lý sự kiện: Làm cho trang "hiểu" thao tác của bạn
 
-在开始之前，先理解一个核心概念：**事件处理**。
+Trước khi bắt đầu, hãy hiểu một khái niệm cốt lõi: **xử lý sự kiện**.
 
-想象你在餐厅点餐：
+Hãy tưởng tượng bạn đang gọi món ở nhà hàng:
 
-1. 你按下呼叫服务员的按钮（**触发事件**）
-2. 服务员听到铃声（**监听事件**）
-3. 服务员走过来为你服务（**执行响应**）
+1. Bạn nhấn nút gọi phục vụ (**kích hoạt sự kiện**)
+2. Phục vụ nghe thấy chuông (**lắng nghe sự kiện**)
+3. Phục vụ đi đến phục vụ bạn (**thực thi phản hồi**)
 
-JavaScript 的事件处理也是这个逻辑：
-
-```
-用户点击按钮 → 程序监听到点击 → 执行相应的代码
-```
-
-你不需要自己写这些代码。只需要告诉 AI："当用户点击添加按钮时，把输入的内容加到列表里"，AI 就会帮你实现。
-
-## 本轮的工作流程
+Xử lý sự kiện JavaScript cũng là logic này:
 
 ```
-4.3.1 添加任务 → 让"添加"按钮能用
-       ↓
-4.3.2 删除任务 → 让"删除"按钮能用
-       ↓
-4.3.3 标记完成 → 让"完成"按钮能用
-       ↓
-4.3.4 迭代优化 → 调整不满意的地方
-       ↓
-4.3.5 阶段检查 → 确认所有功能正常
+Người dùng nhấp nút → Chương trình lắng nghe được click → Thực thi code tương ứng
 ```
 
-每完成一个功能，都要测试确认可以正常使用，再进入下一个。
+Bạn không cần tự viết những đoạn code này. Chỉ cần nói với AI: "Khi người dùng nhấp nút thêm, thêm nội dung đã nhập vào danh sách", AI sẽ giúp bạn thực hiện.
 
-## 章节导航
+## Quy trình làm việc vòng này
 
-| 小节 | 主题 | 预计时间 |
+```
+4.3.1 Thêm nhiệm vụ → Làm nút "Thêm" hoạt động
+       ↓
+4.3.2 Xóa nhiệm vụ → Làm nút "Xóa" hoạt động
+       ↓
+4.3.3 Đánh dấu hoàn thành → Làm nút "Hoàn thành" hoạt động
+       ↓
+4.3.4 Tối ưu lặp → Điều chỉnh chỗ không hài lòng
+       ↓
+4.3.5 Kiểm tra giai đoạn → Xác nhận tất cả chức năng bình thường
+```
+
+Mỗi khi hoàn thành một chức năng, đều phải test xác nhận có thể dùng bình thường, rồi mới chuyển sang chức năng tiếp theo.
+
+## Điều hướng chương
+
+| Phần nhỏ | Chủ đề | Thời gian dự kiến |
 |------|------|---------|
-| [4.3.1](./4.3.1-add-task.md) | 功能一：添加任务 | 10 分钟 |
-| [4.3.2](./4.3.2-delete-task.md) | 功能二：删除任务 | 8 分钟 |
-| [4.3.3](./4.3.3-complete-task.md) | 功能三：标记完成 | 8 分钟 |
-| [4.3.4](./4.3.4-iterate.md) | 迭代优化的艺术 | 7 分钟 |
-| [4.3.5](./4.3.5-checkpoint.md) | 阶段性成果检查 | 2 分钟 |
+| [4.3.1](./4.3.1-add-task.md) | Chức năng một: Thêm nhiệm vụ | 10 phút |
+| [4.3.2](./4.3.2-delete-task.md) | Chức năng hai: Xóa nhiệm vụ | 8 phút |
+| [4.3.3](./4.3.3-complete-task.md) | Chức năng ba: Đánh dấu hoàn thành | 8 phút |
+| [4.3.4](./4.3.4-iterate.md) | Nghệ thuật tối ưu lặp | 7 phút |
+| [4.3.5](./4.3.5-checkpoint.md) | Kiểm tra thành quả giai đoạn | 2 phút |
 
-**预计总时间：约 35 分钟**
+**Tổng thời gian dự kiến: khoảng 35 phút**
 
-::: tip 💡 温馨提示
-如果某个功能实现后不太对，不要着急。4.3.4 节会专门讲如何追问和调整。先跟着做，遇到问题记下来。
+::: tip 💡 Lời nhắc nhẹ
+Nếu chức năng nào đó thực hiện xong không đúng lắm, đừng vội lo. Phần 4.3.4 sẽ chuyên nói về cách hỏi lại và điều chỉnh. Cứ làm theo trước, gặp vấn đề ghi chép lại.
 :::
 
-## 准备好了吗？
+## Sẵn sàng chưa?
 
-确保你已经完成 4.2 节，有一个能正常显示的静态页面。
+Hãy chắc chắn bạn đã hoàn thành phần 4.2, có một trang tĩnh hiển thị bình thường.
 
-让我们开始给它"装发动机"！
+Hãy bắt đầu "lắp động cơ" cho nó!
 
-→ [4.3.1 功能一：添加任务](./4.3.1-add-task.md)
+→ [4.3.1 Chức năng một: Thêm nhiệm vụ](./4.3.1-add-task.md)

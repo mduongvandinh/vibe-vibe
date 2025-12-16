@@ -1,79 +1,78 @@
 ---
-title: "7.2 报错也要说人话——REST 最小原则与错误返回：错误码/错误体/追踪 ID"
-typora-root-url: ../../public
+title: "7.2 Lỗi cũng phải nói một cách mà người ta hiểu——REST nguyên tắc tối thiểu và xử lý lỗi: mã lỗi/thân lỗi/ID theo dõi"
 ---
 
-# 7.2 REST 与错误处理
+# 7.2 REST và xử lý lỗi
 
-## 核心问题
+## Vấn đề cốt lõi
 
-| 问题 | 本节解答 |
+| Vấn đề | Phần này giải đáp |
 |------|----------|
-| REST 是什么？ | 一套 API 设计约束，让接口更统一可预测 |
-| URL 怎么设计？ | 资源导向，名词复数，层级清晰 |
-| 状态码怎么用？ | 2xx 成功、4xx 客户端错误、5xx 服务端错误 |
-| 错误信息怎么返回？ | 统一结构，包含错误码、消息、详情 |
-| 怎么追踪请求？ | 每个请求分配唯一 Trace ID |
+| REST là gì? | Một bộ ràng buộc thiết kế API, giúp giao diện thống nhất và dự đoán được |
+| URL nên thiết kế như thế nào? | Hướng tới tài nguyên, danh từ số nhiều, cấp bậc rõ ràng |
+| Trạng thái thế nào? | 2xx thành công, 4xx lỗi của khách hàng, 5xx lỗi của máy chủ |
+| Thông báo lỗi nên trả về như thế nào? | Cấu trúc thống nhất, bao gồm mã lỗi, tin nhắn, chi tiết |
+| Làm cách nào để theo dõi yêu cầu? | Gán một Trace ID duy nhất cho mỗi yêu cầu |
 
-## REST 设计流程
+## Quy trình thiết kế REST
 
 ```mermaid
 flowchart LR
-    Resource["定义资源"] --> URL["设计 URL"]
-    URL --> Method["选择 HTTP 方法"]
-    Method --> Status["确定状态码"]
-    Status --> Error["规范错误格式"]
-    Error --> Trace["添加追踪 ID"]
+    Resource["Xác định tài nguyên"] --> URL["Thiết kế URL"]
+    URL --> Method["Chọn phương thức HTTP"]
+    Method --> Status["Xác định trạng thái"]
+    Status --> Error["Tiêu chuẩn hóa định dạng lỗi"]
+    Error --> Trace["Thêm Trace ID"]
 ```
 
-## 本节内容
+## Nội dung phần này
 
-| 小节 | 主题 | 核心知识点 |
+| Tiểu phần | Chủ đề | Điểm kiến thức cốt lõi |
 |------|------|------------|
-| 7.2.1 | REST 约束 | 统一接口、无状态、可缓存 |
-| 7.2.2 | 资源设计 | URL 路径、资源映射、命名规范 |
-| 7.2.3 | 状态码标准 | HTTP 状态码使用规范 |
-| 7.2.4 | 错误响应格式 | 统一的错误信息结构 |
-| 7.2.5 | 追踪 ID | 请求链路跟踪与调试 |
+| 7.2.1 | Ràng buộc REST | Giao diện thống nhất, không trạng thái, có thể lưu vào bộ nhớ đệm |
+| 7.2.2 | Thiết kế tài nguyên | Đường dẫn URL, ánh xạ tài nguyên, quy chuẩn đặt tên |
+| 7.2.3 | Tiêu chuẩn trạng thái | Quy chuẩn sử dụng mã trạng thái HTTP |
+| 7.2.4 | Định dạng phản hồi lỗi | Cấu trúc thông báo lỗi thống nhất |
+| 7.2.5 | ID theo dõi | Theo dõi và gỡ lỗi chuỗi yêu cầu |
 
-## 快速示例
+## Ví dụ nhanh
 
-### REST API 设计
+### Thiết kế REST API
 
 ```typescript
-// 资源: 用户 (users)
-GET    /api/users         // 获取用户列表
-GET    /api/users/:id     // 获取单个用户
-POST   /api/users         // 创建用户
-PUT    /api/users/:id     // 更新用户
-DELETE /api/users/:id     // 删除用户
+// Tài nguyên: người dùng (users)
+GET    /api/users         // Lấy danh sách người dùng
+GET    /api/users/:id     // Lấy một người dùng
+POST   /api/users         // Tạo người dùng
+PUT    /api/users/:id     // Cập nhật người dùng
+DELETE /api/users/:id     // Xóa người dùng
 
-// 嵌套资源: 用户的文章
-GET    /api/users/:id/posts      // 获取用户的文章
-POST   /api/users/:id/posts      // 为用户创建文章
+// Tài nguyên lồng nhau: bài viết của người dùng
+GET    /api/users/:id/posts      // Lấy bài viết của người dùng
+POST   /api/users/:id/posts      // Tạo bài viết cho người dùng
 ```
 
-### 统一错误格式
+### Định dạng lỗi thống nhất
 
 ```json
 {
   "error": {
     "code": "VALIDATION_ERROR",
-    "message": "请求参数验证失败",
+    "message": "Xác thực tham số yêu cầu thất bại",
     "details": [
-      { "field": "email", "message": "邮箱格式不正确" }
+      { "field": "email", "message": "Định dạng email không chính xác" }
     ],
     "traceId": "abc-123-xyz"
   }
 }
 ```
 
-## 学习目标
+## Mục tiêu học tập
 
-完成本节后，你将能够：
+Sau khi hoàn thành phần này, bạn sẽ có khả năng:
 
-1. 理解 REST 架构约束及其意义
-2. 设计符合 RESTful 规范的 API URL
-3. 正确使用 HTTP 状态码
-4. 实现统一的错误响应格式
-5. 使用 Trace ID 追踪请求链路
+1. Hiểu ràng buộc kiến trúc REST và ý nghĩa của nó
+2. Thiết kế URL API phù hợp với tiêu chuẩn RESTful
+3. Sử dụng đúng mã trạng thái HTTP
+4. Triển khai định dạng phản hồi lỗi thống nhất
+5. Sử dụng Trace ID để theo dõi chuỗi yêu cầu

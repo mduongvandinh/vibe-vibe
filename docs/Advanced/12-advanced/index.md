@@ -1,10 +1,9 @@
 ---
-title: "12 ｜高级专题与优化"
-typora-root-url: ../public
+title: "12 | Các chủ đề nâng cao và tối ưu hóa"
 ---
 
-# 12 ｜高级专题与优化
+# 12 | Các chủ đề nâng cao và tối ưu hóa
 
-当你走到这一章，说明你已经具备了构建完整全栈应用的能力。接下来的内容，将带你从"能用"迈向"好用"——深入 JavaScript 运行时的底层机制，掌握 SEO 与性能优化的核心技巧，并探索 AI 集成、实时通信、大文件处理等高级场景。
+Khi bạn đến chương này, điều đó có nghĩa là bạn đã sở hữu khả năng xây dựng các ứng dụng full-stack hoàn chỉnh. Nội dung tiếp theo sẽ dẫn bạn từ "có thể dùng" đến "dễ dùng" — đi sâu vào cơ chế bottom-level của JavaScript runtime, nắm vững các kỹ thuật cốt lõi của SEO và tối ưu hóa hiệu suất, đồng thời khám phá các kịch bản nâng cao như tích hợp AI, truyền thông real-time, và xử lý tệp lớn.
 
-本章的每一节都是独立的专题，你可以根据项目需求按需学习。但如果你想成为一名真正的"全栈工程师"，而非"全栈搬运工"，这些内容值得逐一深入。
+Mỗi phần trong chương này là một chủ đề độc lập, bạn có thể học theo nhu cầu dự án. Nhưng nếu bạn muốn trở thành một "full-stack engineer" thực sự, chứ không phải "full-stack porter", những nội dung này đáng để học sâu từng cái một.

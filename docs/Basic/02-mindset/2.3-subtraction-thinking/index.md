@@ -1,74 +1,74 @@
 ---
-title: "2.3 减法思维：MVP不是「最小功能」，而是「最小可验证价值」"
+title: "2.3 Tư duy Trừ: MVP không phải 'Chức năng Tối thiểu', mà là 'Giá trị Tối thiểu Có thể Xác minh'"
 ---
 
-# 2.3 减法思维：MVP不是「最小功能」，而是「最小可验证价值」
+# 2.3 Tư duy Trừ: MVP không phải "Chức năng Tối thiểu", mà là "Giá trị Tối thiểu Có thể Xác minh"
 
-在上一节，我们学会了用「逆向思维」提前识别可能的失败原因。
+Ở phần trước, chúng ta đã học cách dùng "Tư duy Ngược" để nhận diện sớm các nguyên nhân thất bại có thể có.
 
-现在你已经知道什么会让项目失败，下一个问题是：**如何在有限的时间和精力下，做出真正有价值的东西？**
+Bây giờ bạn đã biết cái gì sẽ làm dự án thất bại, câu hỏi tiếp theo là: **Làm thế nào trong thời gian và sức lực có hạn, làm ra thứ thực sự có giá trị?**
 
-答案是：学会做减法。
-
-
-## 经过本节学习，你将掌握
-
-- 理解 MVP 的真正含义，避免「功能堆砌」的陷阱
-- 学会用三个问题把 20 个功能砍到 3 个核心功能
-- 掌握「不做清单」这个被低估的决策工具
-- 获得可直接使用的 AI 辅助砍功能 Prompt 模板
+Câu trả lời là: Học cách làm phép trừ.
 
 
-## 本节核心洞见
+## Sau khi học Phần này, bạn sẽ nắm vững
 
-> "完美不是无以复加，而是无可删减。"
-> —— Antoine de Saint-Exupéry，《小王子》作者、飞行员
-
-这句话道出了一个反直觉的真相：
-
-- 真正的高手不是能加更多功能的人，而是能识别什么不该做的人
-- 做减法比做加法难得多，因为它需要你直面「这个功能可能没人用」的残酷现实
-- 但正是这种残酷的诚实，才能帮你做出真正有价值的东西
+- Hiểu ý nghĩa thực sự của MVP, tránh cái bẫy "chồng chất chức năng"
+- Học cách dùng ba câu hỏi để chặt từ 20 chức năng xuống 3 chức năng cốt lõi
+- Nắm vững "Danh sách Không làm" - công cụ quyết định bị đánh giá thấp này
+- Có được mẫu Prompt hỗ trợ AI chặt chức năng có thể dùng trực tiếp
 
 
-## 这不只是「做产品」的事
+## Hiểu biết Cốt lõi của Phần này
 
-和前面几节一样，减法思维适用于你想用 AI 做的任何事情：
+> "Hoàn hảo không phải là không thể thêm gì, mà là không thể bớt gì."
+> —— Antoine de Saint-Exupéry, Tác giả "Hoàng tử Bé", phi công
 
-| 你想做的事情 | 减法思维帮你解决的问题 |
+Câu nói này bộc lộ một sự thật trái với trực giác:
+
+- Cao thủ thực sự không phải là người có thể thêm nhiều chức năng hơn, mà là người có thể nhận diện ra điều gì không nên làm
+- Làm phép trừ khó hơn phép cộng rất nhiều, vì nó cần bạn đối mặt với sự thật tàn khốc "chức năng này có thể không ai dùng"
+- Nhưng chính sự trung thực tàn khốc này, mới giúp bạn làm ra thứ thực sự có giá trị
+
+
+## Đây không chỉ là chuyện "làm sản phẩm"
+
+Giống như các phần trước, tư duy trừ áp dụng cho bất kỳ việc gì bạn muốn dùng AI làm:
+
+| Việc bạn muốn làm | Vấn đề tư duy trừ giúp bạn giải quyết |
 |-------------|---------------------|
-| 做一个小工具 | 从 20 个功能中找到真正必须的 3 个 |
-| 数据分析报告 | 从 50 个图表中挑出能回答业务问题的 5 个 |
-| 自动化脚本 | 从「万能工具」收敛到「解决一个痛点」 |
-| 给家人做网页 | 从「完美设计」收敛到「他们会用」 |
+| Làm một công cụ nhỏ | Từ 20 chức năng tìm ra 3 cái thực sự phải có |
+| Báo cáo phân tích dữ liệu | Từ 50 biểu đồ chọn ra 5 cái có thể trả lời vấn đề kinh doanh |
+| Script tự động hóa | Từ "công cụ vạn năng" thu hẹp thành "giải quyết một điểm đau" |
+| Làm trang web cho gia đình | Từ "thiết kế hoàn hảo" thu hẹp thành "họ sẽ dùng" |
 
-无论你的目标是什么，减法思维都能帮你聚焦在真正重要的事情上。
-
-
-## 为什么这对 Vibe Coding 特别重要
-
-使用 AI 编程有一个特点：**AI 可以帮你快速实现任何功能——包括你其实不需要的功能**。
-
-这是一把双刃剑：
-
-- 好处是，实现功能的成本大大降低了
-- 坏处是，你更容易陷入「反正做起来也不难，那就都加上吧」的陷阱
-
-根据 Y Combinator 的数据，创业公司失败的首要原因是「没有市场需求」——换句话说，做了一堆没人要的功能。
-
-在 AI 让「做功能」变得越来越容易的时代，「想清楚该做什么功能」反而变得更加重要。
+Bất kể mục tiêu của bạn là gì, tư duy trừ đều giúp bạn tập trung vào việc thực sự quan trọng.
 
 
-## 本节结构
+## Tại sao điều này đặc biệt quan trọng với Vibe Coding
 
-接下来，我们将通过以下内容，帮你掌握这个思维工具：
+Lập trình bằng AI có một đặc điểm: **AI có thể giúp bạn nhanh chóng thực hiện bất kỳ chức năng nào - bao gồm cả chức năng bạn thực ra không cần**.
 
-1. **重新定义 MVP**：理解 MVP 到底是什么，走出「最小功能」的误区
-2. **真实案例对比**：看看失败项目和成功项目的区别
-3. **MVP 的真正含义**：拆解 Minimum、Viable、Product 三个关键词
-4. **如何砍功能**：用三个问题和 P0/P1/P2 框架做决策
-5. **「不做清单」的魔力**：学会用「不做」来定义「做」
-6. **实战练习**：为你自己的项目做一次减法
-7. **核心要点**：带走可以立即应用的原则
+Đây là con dao hai lưỡi:
 
-准备好了吗？让我们从一个常见的错误开始。
+- Lợi ích là, chi phí thực hiện chức năng giảm đáng kể
+- Hại là, bạn dễ rơi vào cái bẫy "Làm cũng không khó, vậy thêm hết vào đi"
+
+Theo dữ liệu của Y Combinator, nguyên nhân hàng đầu khiến startup thất bại là "không có nhu cầu thị trường" - nói cách khác, làm một đống chức năng không ai muốn.
+
+Trong thời đại AI khiến "làm chức năng" ngày càng dễ, "nghĩ rõ nên làm chức năng gì" lại trở nên quan trọng hơn.
+
+
+## Cấu trúc Phần này
+
+Tiếp theo, chúng ta sẽ thông qua nội dung sau để giúp bạn nắm vững công cụ tư duy này:
+
+1. **Định nghĩa lại MVP**: Hiểu MVP thực sự là gì, thoát khỏi lầm tưởng "chức năng tối thiểu"
+2. **So sánh Trường hợp Thực tế**: Xem sự khác biệt giữa dự án thất bại và thành công
+3. **Ý nghĩa Thực sự của MVP**: Phân tích ba từ khóa Minimum, Viable, Product
+4. **Cách Chặt Chức năng**: Dùng ba câu hỏi và khung P0/P1/P2 để quyết định
+5. **Phép màu của "Danh sách Không làm"**: Học cách dùng "không làm" để định nghĩa "làm"
+6. **Bài tập Thực chiến**: Làm một lần phép trừ cho dự án của chính bạn
+7. **Điểm Cốt lõi**: Mang đi các nguyên tắc có thể áp dụng ngay
+
+Bạn đã sẵn sàng chưa? Hãy bắt đầu từ một sai lầm phổ biến.

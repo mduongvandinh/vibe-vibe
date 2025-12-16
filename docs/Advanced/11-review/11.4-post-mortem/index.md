@@ -1,80 +1,79 @@
 ---
-title: "11.4 事后诸葛亮怎么当——复盘模板：问题分析与闭环改进流程"
-typora-root-url: ../../public
+title: "11.4 Làm thế nào để trở thành chiến lược gia hậu kiếp — Mẫu post-mortem: Phân tích vấn đề và quy trình cải thiện toàn diện"
 ---
 
-# 11.4 复盘模板：问题分析与闭环改进
+# 11.4 Mẫu post-mortem: Phân tích vấn đề và cải thiện toàn diện
 
-## 认知重构
+## Tái cấu trúc nhận thức
 
-复盘不是追责大会，而是**从错误中学习的机会**。好的复盘能让团队越来越强，坏的复盘只会让人互相甩锅。
+Post-mortem không phải là cuộc họp trách nhiệm, mà là **cơ hội học hỏi từ những sai lầm**. Post-mortem tốt giúp team ngày càng mạnh mẽ, post-mortem tồi chỉ khiến mọi người đổ lỗi cho nhau.
 
 ```mermaid
 flowchart LR
     subgraph 复盘流程
-        A["发现问题"] --> B["定位根因"]
-        B --> C["制定方案"]
-        C --> D["落实改进"]
-        D --> E["验证效果"]
+        A["Phát hiện vấn đề"] --> B["Định vị nguyên nhân"]
+        B --> C["Xây dựng phương án"]
+        C --> D["Triển khai cải thiện"]
+        D --> E["Xác minh hiệu quả"]
     end
 ```
 
-## 本节内容
+## Nội dung bài này
 
-| 小节 | 核心问题 | 你将学会 |
+| Phần | Câu hỏi cốt lõi | Bạn sẽ học được |
 |------|----------|----------|
-| 11.4.1 问题识别 | 出了什么问题？ | 故障现象与影响范围 |
-| 11.4.2 根因分析 | 为什么会出问题？ | 5-Why 分析法 |
-| 11.4.3 修复方案 | 怎么解决？ | 临时方案与根本方案 |
-| 11.4.4 预防措施 | 如何避免再次发生？ | 流程改进与监控加强 |
+| 11.4.1 Xác định vấn đề | Đã xảy ra vấn đề gì? | Hiện tượng sự cố và phạm vi tác động |
+| 11.4.2 Phân tích nguyên nhân | Tại sao lại xảy ra vấn đề? | Phương pháp 5-Why |
+| 11.4.3 Phương án khắc phục | Làm sao để giải quyết? | Phương án tạm thời và phương án căn bản |
+| 11.4.4 Biện pháp phòng ngừa | Làm sao để tránh xảy ra lần nữa? | Cải thiện quy trình và tăng cường giám sát |
 
-## 复盘会议原则
+## Nguyên tắc post-mortem
 
-1. **对事不对人**：讨论系统和流程，不追究个人责任
-2. **假设每个人都是善意的**：当时的决策基于当时的信息
-3. **聚焦改进**：目标是让系统更强，而不是找替罪羊
-4. **公开透明**：复盘报告全员可见，促进知识共享
+1. **Đối sự không đối người**: Thảo luận về hệ thống và quy trình, không truy cứu trách nhiệm cá nhân
+2. **Giả định mọi người đều có ý tốt**: Quyết định khi đó dựa trên thông tin khi đó
+3. **Tập trung vào cải thiện**: Mục tiêu là làm cho hệ thống mạnh hơn, không phải tìm tội phạt dâu
+4. **Công khai và minh bạch**: Báo cáo post-mortem mọi người có thể xem được, thúc đẩy chia sẻ kiến thức
 
-## 复盘报告模板
+## Mẫu báo cáo post-mortem
 
 ```markdown
-# [事件名称] 复盘报告
+# Báo cáo post-mortem [Tên sự kiện]
 
-## 事件概述
-- 发生时间：
-- 持续时长：
-- 影响范围：
-- 严重程度：P0/P1/P2/P3
+## Tổng quan sự kiện
+- Thời gian xảy ra:
+- Thời gian kéo dài:
+- Phạm vi tác động:
+- Mức độ nghiêm trọng: P0/P1/P2/P3
 
-## 时间线
-| 时间 | 事件 | 操作人 |
+## Dòng thời gian
+| Thời gian | Sự kiện | Người thực hiện |
 |------|------|--------|
-| 10:00 | 用户反馈无法登录 | - |
-| 10:05 | 确认问题存在 | 张三 |
-| 10:15 | 定位到数据库连接问题 | 李四 |
-| 10:30 | 重启数据库，服务恢复 | 李四 |
+| 10:00 | Người dùng phản hồi không thể đăng nhập | - |
+| 10:05 | Xác nhận vấn đề tồn tại | Trần Văn A |
+| 10:15 | Định vị vấn đề kết nối database | Lý Tứ |
+| 10:30 | Khởi động lại database, dịch vụ phục hồi | Lý Tứ |
 
-## 根因分析
-（使用 5-Why 分析法）
+## Phân tích nguyên nhân
+(Sử dụng phương pháp 5-Why)
 
-## 改进措施
-| 措施 | 负责人 | 完成时间 | 状态 |
+## Biện pháp cải thiện
+| Biện pháp | Người phụ trách | Hoàn thành lúc | Trạng thái |
 |------|--------|----------|------|
-| 添加数据库连接池监控 | 张三 | 2024-01-20 | 待开始 |
+| Thêm giám sát connection pool database | Trần Văn A | 2024-01-20 | Chưa bắt đầu |
 
-## 经验教训
+## Bài học rút ra
 1. ...
 2. ...
 ```
 
-## AI 协作提示
+## AI Collaboration Hints
 
-在复盘时，可以这样与 AI 协作：
+Trong quá trình post-mortem, bạn có thể cộng tác với AI như thế này:
 
-- "帮我用 5-Why 分析法分析这个问题的根因"
-- "根据这个时间线，帮我整理成复盘报告"
-- "这个问题有哪些可能的预防措施"
+- "Giúp tôi phân tích nguyên nhân gốc rễ của vấn đề này bằng phương pháp 5-Why"
+- "Dựa trên dòng thời gian này, giúp tôi sắp xếp thành báo cáo post-mortem"
+- "Vấn đề này có những biện pháp phòng ngừa nào có thể"
 
-::: tip 复盘的价值
-每一次故障都是一次学习机会。不复盘的团队会反复踩同样的坑，善于复盘的团队会越来越强。
+::: tip Giá trị của post-mortem
+Mỗi lần sự cố là một cơ hội học hỏi. Team không post-mortem sẽ mắc phải những cùng một lỗi nhiều lần, team giỏi post-mortem sẽ ngày càng mạnh mẽ.
 :::

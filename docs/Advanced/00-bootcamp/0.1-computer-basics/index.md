@@ -1,8 +1,7 @@
 ---
-title: "0.1 计算机基础知识"
-typora-root-url: ../public
+title: "0.1 Kiến thức cơ bản về máy tính"
 ---
 
-# 0.1 计算机基础知识
+# 0.1 Kiến thức cơ bản về máy tính
 
-在开始编程之前，了解一些计算机基础知识至关重要。本章将介绍文件系统、进程与端口以及权限等核心概念，为后续的学习打下坚实的基础。
+Trước khi bắt đầu lập trình, việc hiểu một số kiến thức cơ bản về máy tính là vô cùng quan trọng. Chương này sẽ giới thiệu các khái niệm cốt lõi như hệ thống tệp tin, tiến trình và cổng, cũng như quyền hạn, đặt nền tảng vững chắc cho việc học sau này.

@@ -1,24 +1,23 @@
 ---
-title: "0.3 前端基础：构建用户眼中的世界"
-typora-root-url: ../public
+title: "0.3 Cơ Bản Frontend: Xây Dựng Thế Giới Trong Mắt Người Dùng"
 ---
 
-# 0.3 前端基础：构建用户眼中的世界
+# 0.3 Cơ Bản Frontend: Xây Dựng Thế Giới Trong Mắt Người Dùng
 
-欢迎来到前端开发的核心地带。
+Chào mừng đến với vùng lõi của phát triển frontend.
 
-如果说后端是餐厅的厨房，负责处理食材、烹饪佳肴，那么前端就是餐厅的大堂——它是顾客（用户）直接体验、感受和交互的地方。前端开发的目标，就是创造出美观、易用、响应迅速的用户界面。
+Nếu backend là nhà bếp của nhà hàng, chịu trách nhiệm xử lý nguyên liệu, nấu nướng món ăn, thì frontend chính là sảnh của nhà hàng—nơi khách hàng (người dùng) trực tiếp trải nghiệm, cảm nhận và tương tác. Mục tiêu của phát triển frontend là tạo ra giao diện người dùng đẹp mắt, dễ sử dụng và phản hồi nhanh.
 
-对于 Vibe Coder 而言，前端不仅仅是“画页面”，更是将产品逻辑、数据和用户体验融为一体的艺术。在 AI 的加持下，我们可以更快地将想法转化为可交互的原型，并将其打磨成精致的产品。
+Đối với Vibe Coder, frontend không chỉ là "vẽ trang", mà còn là nghệ thuật kết hợp logic sản phẩm, dữ liệu và trải nghiệm người dùng thành một. Với sự trợ giúp của AI, chúng ta có thể nhanh chóng chuyển ý tưởng thành prototype có thể tương tác, và trau chuốt thành sản phẩm tinh tế.
 
-在本章中，你将掌握前端开发的三驾马车：
+Trong chương này, bạn sẽ nắm vững ba trụ cột của phát triển frontend:
 
-*   **HTML (超文本标记语言)**：网页的“骨架”，负责定义页面的结构和内容。
-*   **CSS (层叠样式表)**：网页的“外貌”，负责设计页面的样式、布局和美感。
-*   **JavaScript (JS)**：网页的“灵魂”，负责实现页面的交互逻辑和动态功能。
+*   **HTML (HyperText Markup Language - Ngôn ngữ đánh dấu siêu văn bản)**: "Bộ khung" của trang web, chịu trách nhiệm định nghĩa cấu trúc và nội dung của trang.
+*   **CSS (Cascading Style Sheets - Bảng kiểu dáng tầng)**: "Diện mạo" của trang web, chịu trách nhiệm thiết kế kiểu dáng, bố cục và thẩm mỹ của trang.
+*   **JavaScript (JS)**: "Linh hồn" của trang web, chịu trách nhiệm thực hiện logic tương tác và chức năng động của trang.
 
-同时，我们还会探讨一个至关重要的工程思想：
+Đồng thời, chúng ta còn khám phá một tư tưởng kỹ nghệ cực kỳ quan trọng:
 
-*   **关注点分离**：如何让结构、样式和行为各司其职，使代码更清晰、更易于维护。
+*   **Tách biệt mối quan tâm (Separation of Concerns)**: Làm thế nào để cấu trúc, kiểu dáng và hành vi mỗi phần làm việc riêng, giúp code rõ ràng hơn, dễ bảo trì hơn.
 
-准备好，让我们一起开始构建用户能看到、能触摸、能感受到的数字世界。
+Hãy sẵn sàng, cùng nhau bắt đầu xây dựng thế giới số mà người dùng có thể nhìn thấy, chạm vào và cảm nhận.

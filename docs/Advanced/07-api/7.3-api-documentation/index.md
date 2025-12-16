@@ -1,117 +1,116 @@
 ---
-title: "7.3 活的文档才有用——内部 API 文档：Markdown/Swagger/Postman；同库同 PR 更新"
-typora-root-url: ../../public
+title: "7.3 Tài liệu sống mới hữu ích——Tài liệu API nội bộ: Markdown/Swagger/Postman; cập nhật cùng kho lưu trữ cùng PR"
 ---
 
-# 7.3 API 文档
+# 7.3 Tài liệu API
 
-## 核心问题
+## Vấn đề cốt lõi
 
-| 问题 | 本节解答 |
+| Vấn đề | Phần này trả lời |
 |------|----------|
-| 文档用什么格式？ | Markdown 简单直接，OpenAPI 可交互 |
-| 怎么让文档可以点着试？ | 使用 Swagger UI |
-| 怎么测试 API？ | 使用 Postman 集合 |
-| 代码改了文档怎么同步？ | 代码注释自动生成文档 |
+| Tài liệu nên dùng định dạng nào? | Markdown đơn giản trực tiếp, OpenAPI có tính tương tác |
+| Làm cách nào để tài liệu có thể nhấn vào để thử? | Sử dụng Swagger UI |
+| Làm cách nào để test API? | Sử dụng Postman collection |
+| Làm cách nào để đồng bộ tài liệu khi code thay đổi? | Tự động tạo tài liệu từ chú thích code |
 
-## 文档类型对比
+## So sánh loại tài liệu
 
 ```mermaid
 flowchart LR
-    subgraph 静态["静态文档"]
+    subgraph 静态["Tài liệu tĩnh"]
         MD["Markdown"]
     end
-    
-    subgraph 交互["交互文档"]
+
+    subgraph 交互["Tài liệu tương tác"]
         OpenAPI["OpenAPI/Swagger"]
         Postman["Postman"]
     end
-    
-    MD -->|"简单易写"| 人读
-    OpenAPI -->|"可测试"| 机器读
-    Postman -->|"可分享"| 团队协作
+
+    MD -->|"Dễ viết"| 人读
+    OpenAPI -->|"Có thể test"| 机器读
+    Postman -->|"Có thể chia sẻ"| 团队协作
 ```
 
-| 格式 | 优势 | 适用场景 |
+| Định dạng | Ưu điểm | Trường hợp sử dụng |
 |------|------|----------|
-| **Markdown** | 简单、版本控制友好 | 内部文档、快速记录 |
-| **OpenAPI** | 标准化、可生成 UI | 正式 API、对外接口 |
-| **Postman** | 可测试、可分享 | 接口调试、团队协作 |
+| **Markdown** | Đơn giản, thân thiện với kiểm soát phiên bản | Tài liệu nội bộ, ghi chép nhanh |
+| **OpenAPI** | Chuẩn hóa, có thể tạo UI | API chính thức, interface công khai |
+| **Postman** | Có thể test, có thể chia sẻ | Debug interface, cộng tác nhóm |
 
-## 本节内容
+## Nội dung phần này
 
-| 小节 | 主题 | 核心知识点 |
+| Tiểu mục | Chủ đề | Điểm kiến thức cốt lõi |
 |------|------|------------|
-| 7.3.1 | 文档格式选择 | Markdown vs OpenAPI |
-| 7.3.2 | Swagger UI | 交互式 API 文档 |
-| 7.3.3 | Postman 集合 | API 测试与分享 |
-| 7.3.4 | 文档同步 | 代码变更驱动文档更新 |
+| 7.3.1 | Chọn định dạng tài liệu | Markdown vs OpenAPI |
+| 7.3.2 | Swagger UI | Tài liệu API tương tác |
+| 7.3.3 | Postman collection | Test và chia sẻ API |
+| 7.3.4 | Đồng bộ tài liệu | Cập nhật tài liệu khi thay đổi code |
 
-## 好文档的标准
+## Tiêu chuẩn tài liệu tốt
 
-### 必备内容
+### Nội dung bắt buộc
 
 ```markdown
 ## POST /api/users
 
-创建新用户
+Tạo người dùng mới
 
-### 请求
+### Yêu cầu
 
 **Headers:**
-- `Authorization: Bearer <token>` (必需)
+- `Authorization: Bearer <token>` (bắt buộc)
 
 **Body:**
-| 字段 | 类型 | 必需 | 说明 |
+| Trường | Loại | Bắt buộc | Mô tả |
 |------|------|------|------|
-| email | string | 是 | 用户邮箱 |
-| password | string | 是 | 密码，至少 8 位 |
-| name | string | 否 | 显示名称 |
+| email | string | Có | Email người dùng |
+| password | string | Có | Mật khẩu, tối thiểu 8 ký tự |
+| name | string | Không | Tên hiển thị |
 
-### 响应
+### Phản hồi
 
-**成功 (201):**
+**Thành công (201):**
 ```json
 {
   "data": {
     "id": "user_123",
     "email": "user@example.com",
-    "name": "张三"
+    "name": "Nguyễn Văn A"
   }
 }
 ```
 
-**错误 (400):**
+**Lỗi (400):**
 ```json
 {
   "error": {
     "code": "VALIDATION_ERROR",
-    "message": "邮箱格式不正确"
+    "message": "Định dạng email không hợp lệ"
   }
 }
 ```
 ```
 
-### 文档清单
+### Checklist tài liệu
 
-| 项目 | 必需 | 说明 |
+| Mục | Bắt buộc | Mô tả |
 |------|------|------|
-| 接口地址 | ✅ | 完整 URL 路径 |
-| HTTP 方法 | ✅ | GET/POST/PUT/DELETE |
-| 功能描述 | ✅ | 一句话说明作用 |
-| 请求参数 | ✅ | 参数名、类型、是否必需 |
-| 请求示例 | ✅ | 实际的请求 JSON |
-| 响应示例 | ✅ | 成功和错误响应 |
-| 状态码 | ✅ | 可能返回的状态码 |
-| 认证方式 | ✅ | 需要什么认证 |
-| 错误码 | 推荐 | 业务错误码列表 |
+| Địa chỉ endpoint | ✅ | Đường dẫn URL đầy đủ |
+| HTTP method | ✅ | GET/POST/PUT/DELETE |
+| Mô tả chức năng | ✅ | Một dòng mô tả chức năng |
+| Parameter yêu cầu | ✅ | Tên, loại, có bắt buộc không |
+| Ví dụ yêu cầu | ✅ | JSON yêu cầu thực tế |
+| Ví dụ phản hồi | ✅ | Phản hồi thành công và lỗi |
+| Status code | ✅ | Các status code có thể trả về |
+| Cách xác thực | ✅ | Cần xác thực gì |
+| Mã lỗi | Khuyến nghị | Danh sách mã lỗi kinh doanh |
 
-## 学习目标
+## Mục tiêu học tập
 
-完成本节后，你将能够：
+Sau khi hoàn thành phần này, bạn sẽ có khả năng:
 
-1. 选择合适的文档格式
-2. 编写清晰的 API 文档
-3. 使用 Swagger UI 创建交互文档
-4. 使用 Postman 测试和分享 API
-5. 实现文档与代码同步更新
+1. Chọn định dạng tài liệu phù hợp
+2. Viết tài liệu API rõ ràng
+3. Sử dụng Swagger UI tạo tài liệu tương tác
+4. Sử dụng Postman test và chia sẻ API
+5. Triển khai đồng bộ tài liệu với code

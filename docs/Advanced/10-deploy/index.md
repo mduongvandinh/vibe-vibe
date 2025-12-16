@@ -1,58 +1,57 @@
 ---
-title: "10 ｜部署与运维"
-typora-root-url: ../public
+title: "10 ｜Triển khai và Vận hành"
 ---
 
-# 10 ｜部署与运维
+# 10 ｜Triển khai và Vận hành
 
-代码写完只是万里长征第一步，让用户真正用上才是终点。
+Code viết xong chỉ là bước đầu tiên của vạn dặm trường chinh, để user thực sự dùng được mới là đích đến.
 
-## 本章导读
+## Tổng quan chương này
 
-部署不是把代码丢到服务器就完事。它是一个系统工程，涉及**基础设施选择**、**容器化编排**、**流量管理**和**运行监控**四大环节。本章将带你从零开始，用现代化的工具链完成一次完整的生产部署。
+Triển khai không phải là ném code lên server là xong. Đó là một công trình hệ thống, liên quan đến bốn khâu lớn: **lựa chọn cơ sở hạ tầng**, **điều phối container hóa**, **quản lý traffic** và **giám sát runtime**. Chương này sẽ đưa bạn từ con số 0, dùng toolchain hiện đại hoàn thành một lần triển khai production hoàn chỉnh.
 
 ```mermaid
 flowchart LR
-    A[本地开发] --> B[容器化打包]
-    B --> C[服务器部署]
-    C --> D[反向代理]
-    D --> E[监控告警]
-    E --> F[持续运维]
+    A[Phát triển local] --> B[Đóng gói container]
+    B --> C[Triển khai server]
+    C --> D[Reverse proxy]
+    D --> E[Giám sát cảnh báo]
+    E --> F[Vận hành liên tục]
 ```
 
-## 核心理念
+## Lý niệm cốt lõi
 
-| 原则 | 说明 |
+| Nguyên tắc | Giải thích |
 |------|------|
-| **基础设施即代码** | 所有配置都应版本化，可复现 |
-| **不可变部署** | 容器镜像一旦构建，不再修改 |
-| **可观测性优先** | 日志、指标、追踪缺一不可 |
-| **故障预案先行** | 上线前就要想好挂了怎么办 |
+| **Cơ sở hạ tầng tức là code** | Mọi cấu hình đều nên có phiên bản, có thể tái hiện |
+| **Triển khai bất biến** | Container image một khi build xong, không sửa nữa |
+| **Ưu tiên khả năng quan sát** | Log, metric, trace thiếu một không được |
+| **Phương án sự cố đi trước** | Trước khi lên sóng phải nghĩ xem sập thì xử lý thế nào |
 
-## 本章目录
+## Mục lục chương này
 
-- **10.1 上线前必须知道的事** — 云服务、域名、备案，这些前置工作不能跳过
-- **10.2 点点鼠标就上线** — 用 1Panel 可视化完成从零到上线
-- **10.3 一键启动所有服务** — Docker Compose 多服务编排实战
-- **10.4 网站的交通指挥官** — Nginx 反向代理与负载均衡配置
-- **10.5 网站生病了怎么办** — 监控、日志与告警体系搭建
+- **10.1 Điều phải biết trước khi lên sóng** — Dịch vụ cloud, tên miền, đăng ký, những công việc tiền đề này không thể bỏ qua
+- **10.2 Click chuột là lên sóng** — Dùng 1Panel trực quan hoàn thành từ 0 đến lên sóng
+- **10.3 Một phím khởi động tất cả service** — Thực chiến điều phối nhiều service với Docker Compose
+- **10.4 Cảnh sát giao thông của website** — Cấu hình reverse proxy và load balancing với Nginx
+- **10.5 Website bị bệnh thì làm sao** — Xây dựng hệ thống giám sát, log và cảnh báo
 
-## 技术栈
+## Tech stack
 
-本章涉及的核心工具：
+Công cụ cốt lõi liên quan trong chương này:
 
-| 工具 | 用途 |
+| Công cụ | Công dụng |
 |------|------|
-| Docker | 容器化运行时 |
-| Docker Compose | 多容器编排 |
-| 1Panel | 可视化服务器管理面板 |
-| Nginx | 反向代理与负载均衡 |
-| PostgreSQL | 生产数据库 |
+| Docker | Runtime container hóa |
+| Docker Compose | Điều phối nhiều container |
+| 1Panel | Panel quản lý server trực quan |
+| Nginx | Reverse proxy và load balancing |
+| PostgreSQL | Database production |
 
-## 学完本章你将能够
+## Sau khi học xong chương này bạn sẽ có thể
 
-1. 独立完成一个 Next.js + NestJS 应用的生产部署
-2. 使用 Docker Compose 编排多服务应用
-3. 配置 Nginx 反向代理和 HTTPS 证书
-4. 搭建基础的监控和日志系统
-5. 处理常见的部署问题和故障
+1. Hoàn thành triển khai production một ứng dụng Next.js + NestJS độc lập
+2. Dùng Docker Compose điều phối ứng dụng nhiều service
+3. Cấu hình reverse proxy Nginx và chứng chỉ HTTPS
+4. Xây dựng hệ thống giám sát và log cơ bản
+5. Xử lý các vấn đề triển khai thường gặp và sự cố

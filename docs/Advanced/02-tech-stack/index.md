@@ -1,57 +1,56 @@
 ---
-title: "2 ｜技术选型与架构蓝图"
-typora-root-url: ../public
+title: "2 ｜Lựa chọn công nghệ và kiến trúc tổng quan"
 ---
 
-# 2 ｜技术选型与架构蓝图
+# 2 ｜Lựa chọn công nghệ và kiến trúc tổng quan
 
-> **技术选型的本质不是选"最好的"，而是选"最适合的"。**
+> **Bản chất của việc lựa chọn công nghệ không phải là chọn "tốt nhất", mà là chọn "phù hợp nhất".**
 
-在 Vibe Coding 时代，技术栈的选择变得尤为关键——不仅要满足业务需求，更要让 AI 能够高效地帮你写代码。一套 AI 擅长、社区活跃、文档完善的技术栈，能让你的开发效率提升数倍。
+Trong thời đại Vibe Coding, việc lựa chọn công nghệ trở nên đặc biệt quan trọng—không chỉ đáp ứng nhu cầu kinh doanh, mà còn phải giúp AI có thể viết code hiệu quả cho bạn. Một bộ công nghệ mà AI thành thạo, cộng đồng sôi động, tài liệu hoàn thiện, có thể nâng cao hiệu suất phát triển của bạn lên gấp nhiều lần.
 
-## 本章你将学到
+## Những gì bạn sẽ học được trong chương này
 
 ```mermaid
 mindmap
-  root((技术选型))
-    技术栈全景
-      版本管理策略
-      依赖锁定
-    架构选型
+  root((Lựa chọn công nghệ))
+    Tổng quan công nghệ
+      Chiến lược quản lý phiên bản
+      Khóa phụ thuộc
+    Lựa chọn kiến trúc
       Next.js App Router
-      RSC 服务器组件
+      RSC Server Components
       Server Actions
-    渲染策略
+    Chiến lược render
       CSR/SSR/SSG/ISR
-      混合渲染
-    核心特性
-      并行路由
-      缓存机制
-    分层架构
-      表现层/接口层
-      业务层/数据层
+      Render kết hợp
+    Tính năng cốt lõi
+      Parallel Routes
+      Cơ chế cache
+    Kiến trúc phân lớp
+      Presentation/Interface
+      Business/Data
     Supabase
-      适用场景
-      成本考量
+      Trường hợp sử dụng
+      Cân nhắc chi phí
 ```
 
-## 核心技术栈一览
+## Tổng quan công nghệ cốt lõi
 
-| 层级 | 技术选型 | 核心价值 |
+| Tầng | Công nghệ | Giá trị cốt lõi |
 |------|----------|----------|
-| **框架** | Next.js 16+ (App Router) | 全栈能力、极致性能 |
-| **语言** | TypeScript | 类型安全、AI 友好 |
-| **数据库** | PostgreSQL + Prisma | 类型安全 ORM、强大生态 |
-| **样式** | Tailwind CSS + shadcn/ui | 原子化 CSS、开箱即用组件 |
-| **部署** | Vercel / Docker + 1Panel | 零配置部署 / 自主可控 |
-| **后端即服务** | Supabase (可选) | 数据库+认证+存储一体化 |
+| **Framework** | Next.js 16+ (App Router) | Khả năng fullstack, hiệu suất tối ưu |
+| **Ngôn ngữ** | TypeScript | Type-safe, thân thiện với AI |
+| **Database** | PostgreSQL + Prisma | ORM type-safe, hệ sinh thái mạnh mẽ |
+| **Styling** | Tailwind CSS + shadcn/ui | Atomic CSS, component sẵn dùng |
+| **Triển khai** | Vercel / Docker + 1Panel | Deploy không cấu hình / Tự chủ kiểm soát |
+| **Backend-as-a-Service** | Supabase (tùy chọn) | Database+Auth+Storage tích hợp |
 
-## 章节导航
+## Điều hướng chương
 
-- **2.0** 技术栈全景与版本管理策略
-- **2.1** Next.js + TS + Prisma 架构全景
-- **2.2** 渲染策略：CSR/SSR/SSG/ISR
-- **2.3** Next.js 核心特性深入
-- **2.4** 前后端协作与 API 契约
-- **2.5** 架构分层详解
-- **2.6** Supabase 适用与取舍
+- **2.0** Tổng quan công nghệ và chiến lược quản lý phiên bản
+- **2.1** Kiến trúc tổng quan Next.js + TS + Prisma
+- **2.2** Chiến lược render: CSR/SSR/SSG/ISR
+- **2.3** Đào sâu tính năng cốt lõi Next.js
+- **2.4** Phối hợp frontend-backend và API Contract
+- **2.5** Giải thích chi tiết kiến trúc phân lớp
+- **2.6** Sử dụng và cân nhắc Supabase

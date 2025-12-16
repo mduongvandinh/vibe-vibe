@@ -1,119 +1,119 @@
 ---
-title: '第 5 章：精进 —— 从「能用」到「好用」'
+title: 'Chương 5: Tinh tiến — Từ "có thể dùng" đến "dễ dùng"'
 order: 1
 ---
 
-# 第 5 章：精进 —— 从"能用"到"好用"的关键一步
+# Chương 5: Tinh tiến — Bước then chốt từ "có thể dùng" đến "dễ dùng"
 
-> **章节定位**：本章是基础版的收尾章节，帮助你把第四章的作品从"只能在自己电脑上用"变成"可以分享给朋友、持续改进、长期使用"的状态。
+> **Định vị chương**: Chương này là chương kết thúc phiên bản cơ bản, giúp bạn biến tác phẩm chương bốn từ "chỉ dùng được trên máy tính của mình" thành trạng thái "có thể chia sẻ với bạn bè, liên tục cải tiến, sử dụng lâu dài".
 
-## 一个形象的比喻
+## Một phép so sánh hình ảnh
 
-如果把做项目比作盖房子：
+Nếu so sánh làm dự án như xây nhà:
 
-| 章节 | 比喻 | 你做了什么 |
+| Chương | So sánh | Bạn đã làm gì |
 |------|------|-----------|
-| 第一章 觉醒 | 了解建筑行业 | 知道什么是 Vibe Coding |
-| 第二章 心法 | 设计图纸 | 想清楚要盖什么房子 |
-| 第三章 技法 | 学会指挥工人 | 掌握与 AI 沟通的方法 |
-| 第四章 实战 | **盖好房子** | 做出了待办清单 |
-| **第五章 精进** | **装修、验收、入住** | 让房子真正能住人 |
+| Chương một Thức tỉnh | Hiểu ngành xây dựng | Biết Vibe Coding là gì |
+| Chương hai Tâm pháp | Thiết kế bản vẽ | Nghĩ rõ muốn xây nhà gì |
+| Chương ba Kỹ pháp | Học cách chỉ huy công nhân | Nắm phương pháp giao tiếp với AI |
+| Chương bốn Thực chiến | **Xây xong nhà** | Làm xong danh sách công việc |
+| **Chương năm Tinh tiến** | **Trang trí, nghiệm thu, nhập trú** | Làm cho nhà thực sự ở được |
 
-第四章，你已经把"房子"盖好了。但一个刚盖好的毛坯房，还需要：
-- 装上门锁（版本管理，防止被破坏）
-- 通水通电（部署上线，让别人能访问）
-- 安装防盗系统（安全意识，保护隐私）
-- 添置家具（持续迭代，越来越好用）
-- 了解房子的承重限制（认识边界）
+Chương bốn, bạn đã "xây" xong "nhà" rồi. Nhưng một ngôi nhà mới xây xong dở, còn cần:
+- Lắp ổ khóa cửa (quản lý phiên bản, phòng bị phá hoại)
+- Thông nước thông điện (deploy lên mạng, để người khác truy cập được)
+- Lắp hệ thống chống trộm (ý thức bảo mật, bảo vệ riêng tư)
+- Sắm đồ đạc (liên tục lặp, càng dùng càng dễ)
+- Hiểu giới hạn chịu lực của nhà (nhận biết ranh giới)
 
-**本章就是帮你完成这些"入住前"的关键步骤。**
+**Chương này chính là giúp bạn hoàn thành những bước then chốt "trước khi nhập trú" này.**
 
-## 你已经走了多远
+## Bạn đã đi được bao xa
 
-走到这一章，意味着你已经完成了 Vibe Coding 基础版 80% 的内容：
+Đến chương này, nghĩa là bạn đã hoàn thành 80% nội dung phiên bản cơ bản Vibe Coding:
 
-| 已完成 | 你获得了什么 |
+| Đã hoàn thành | Bạn thu được gì |
 |-------|-------------|
-| 第一章 觉醒 | 理解了什么是 Vibe Coding |
-| 第二章 心法 | 学会了产品思维 |
-| 第三章 技法 | 掌握了与 AI 对话的艺术 |
-| 第四章 实战 | 亲手做出了第一个待办清单 |
+| Chương một Thức tỉnh | Hiểu Vibe Coding là gì |
+| Chương hai Tâm pháp | Học được tư duy sản phẩm |
+| Chương ba Kỹ pháp | Nắm nghệ thuật đối thoại với AI |
+| Chương bốn Thực chiến | Tự tay làm ra danh sách công việc đầu tiên |
 
-**但现在有一个问题**：你的待办清单只存在于你自己的电脑上。
+**Nhưng bây giờ có một vấn đề**: Danh sách công việc của bạn chỉ tồn tại trên máy tính của chính bạn.
 
-## 为什么代码写完还不够
+## Tại sao viết xong code vẫn chưa đủ
 
-你可能会想："我做完了不就行了吗？为什么还要学这些？"
+Bạn có thể nghĩ: "Làm xong là được rồi phải không? Tại sao còn phải học những thứ này?"
 
-让数据来回答这个问题：
+Hãy để dữ liệu trả lời câu hỏi này:
 
-| 场景 | 数据/事实 | 后果 |
+| Tình huống | Dữ liệu/Sự thật | Hậu quả |
 |------|----------|------|
-| 不做版本管理 | 改崩代码是 100% 会发生的事 | 2 小时的成果可能瞬间归零 |
-| 不做部署 | 作品只能在你电脑上看到 | 无法分享，无法获得反馈 |
-| 不懂安全 | 2024 年 GitHub 发现 3900 万泄露密钥 | 可能被盗刷、账户被盗 |
+| Không quản lý phiên bản | Sửa code đến hỏng là chuyện 100% sẽ xảy ra | Thành quả 2 giờ có thể về không trong nháy mắt |
+| Không deploy | Tác phẩm chỉ nhìn được trên máy tính bạn | Không thể chia sẻ, không lấy được phản hồi |
+| Không hiểu bảo mật | Năm 2024 GitHub phát hiện 39 triệu khóa bị rò rỉ | Có thể bị đánh cắp tiền, tài khoản bị chiếm |
 
-**这些问题，每一个都可能让你的努力白费。** 好消息是，解决它们并不难——本章会教你最简单的方法。
+**Mỗi vấn đề này đều có thể làm nỗ lực của bạn công cốc.** Tin tốt là, giải quyết chúng không khó — chương này sẽ dạy bạn phương pháp đơn giản nhất.
 
-## 与第四章的衔接
+## Nối tiếp với chương bốn
 
-本章将继续使用你在第四章做的「待办清单」作为实操对象：
+Chương này sẽ tiếp tục dùng "danh sách công việc" bạn làm ở chương bốn làm đối tượng thực hành:
 
-| 本章内容 | 对待办清单做什么 |
+| Nội dung chương này | Làm gì với danh sách công việc |
 |---------|-----------------|
-| 5.1 版本管理 | 给待办清单的代码装上"时光机" |
-| 5.2 部署上线 | 让待办清单获得一个真正的网址 |
-| 5.4 持续迭代 | 给待办清单添加新功能（如分类、优先级） |
+| 5.1 Quản lý phiên bản | Lắp "cỗ máy thời gian" cho code danh sách công việc |
+| 5.2 Deploy lên mạng | Cho danh sách công việc một địa chỉ web thực sự |
+| 5.4 Liên tục lặp | Thêm chức năng mới cho danh sách công việc (như phân loại, độ ưu tiên) |
 
-**你在第四章做的东西，本章会让它变得更完整、更专业。**
+**Thứ bạn làm ở chương bốn, chương này sẽ làm cho nó hoàn chỉnh hơn, chuyên nghiệp hơn.**
 
-## 本章亮点
+## Điểm nổi bật chương này
 
-本章包含多项实用内容：
+Chương này bao gồm nhiều nội dung thực dụng:
 
-- **2025 年最新安全数据**：来自 GitHub、Veracode、GitGuardian 的真实报告，建立正确的安全意识
-- **大陆用户友好的部署方案**：优先介绍 Zeabur（国内可访问），再介绍 Vercel
-- **零门槛到进阶的版本管理**：从 AI IDE 自带历史 → 手动备份 → GitHub Desktop，三级方案任选
-- **进阶版预告与学习路径**：明确基础版的边界，为下一步学习指明方向
+- **Dữ liệu bảo mật mới nhất năm 2025**: Từ báo cáo thực tế của GitHub, Veracode, GitGuardian, xây dựng ý thức bảo mật đúng đắn
+- **Phương án deploy thân thiện người dùng đại lục**: Ưu tiên giới thiệu Zeabur (trong nước truy cập được), rồi giới thiệu Vercel
+- **Quản lý phiên bản từ không ngưỡng đến tiến bộ**: Từ lịch sử có sẵn AI IDE → Sao lưu thủ công → GitHub Desktop, ba phương án tùy chọn
+- **Dự báo phiên bản nâng cao và lộ trình học tập**: Làm rõ ranh giới phiên bản cơ bản, chỉ rõ hướng cho bước học tiếp theo
 
-## 本章学习目标
+## Mục tiêu học tập chương này
 
-完成本章学习后，你将能够：
+Hoàn thành học chương này, bạn sẽ có thể:
 
-- ✅ 使用版本管理工具，让你能"后悔"和"回退"
-- ✅ 把你的网页部署到互联网上，获得一个真正的网址
-- ✅ 理解 AI 编程中的安全风险，避免踩坑
-- ✅ 学会如何持续迭代和改进你的项目
-- ✅ 清晰认识 Vibe Coding 的边界
-- ✅ 为进入进阶版学习做好准备
+- ✅ Sử dụng công cụ quản lý phiên bản, để bạn có thể "hối hận" và "quay lại"
+- ✅ Deploy webpage của bạn lên internet, lấy được một địa chỉ web thực sự
+- ✅ Hiểu rủi ro bảo mật trong lập trình AI, tránh gặp vấn đề
+- ✅ Học cách liên tục lặp và cải tiến dự án của bạn
+- ✅ Nhận rõ ranh giới của Vibe Coding
+- ✅ Chuẩn bị tốt để vào học phiên bản nâng cao
 
-## 本章结构预览
+## Xem trước cấu trúc chương
 
 ```
-5.1 后悔药 → 代码改崩了怎么办
-5.2 见世面 → 把网页发到互联网上
-5.3 护城河 → AI 时代的安全意识
-5.4 再进化 → 项目的持续迭代与优化
-5.5 知边界 → Vibe Coding 的能与不能
-5.6 启程前 → 本章总结与进阶预告
+5.1 Viên thuốc hối hận → Code sửa hỏng phải làm sao
+5.2 Ra đời → Đưa webpage lên internet
+5.3 Hào thành hộ → Ý thức bảo mật thời đại AI
+5.4 Tiếp tục tiến hóa → Lặp và tối ưu liên tục dự án
+5.5 Biết ranh giới → Cái Vibe Coding có thể và không thể
+5.6 Trước khi khởi hành → Tổng kết chương và dự báo nâng cao
 ```
 
-## 预计时间
+## Thời gian dự kiến
 
-| 章节 | 预计时间 | 难度 | 是否必读 |
+| Chương | Thời gian dự kiến | Độ khó | Có bắt buộc đọc không |
 |------|---------|------|---------|
-| 5.1 后悔药 | 20 分钟 | ⭐ | ✅ 强烈推荐 |
-| 5.2 见世面 | 25 分钟 | ⭐⭐ | ✅ 强烈推荐 |
-| 5.3 护城河 | 15 分钟 | ⭐ | ✅ 必读 |
-| 5.4 再进化 | 20 分钟 | ⭐⭐ | 选读 |
-| 5.5 知边界 | 15 分钟 | ⭐ | ✅ 推荐 |
-| 5.6 启程前 | 15 分钟 | ⭐ | ✅ 必读 |
-| **总计** | **约 1.5-2 小时** | |
+| 5.1 Viên thuốc hối hận | 20 phút | ⭐ | ✅ Rất khuyến khích |
+| 5.2 Ra đời | 25 phút | ⭐⭐ | ✅ Rất khuyến khích |
+| 5.3 Hào thành hộ | 15 phút | ⭐ | ✅ Bắt buộc đọc |
+| 5.4 Tiếp tục tiến hóa | 20 phút | ⭐⭐ | Tùy chọn đọc |
+| 5.5 Biết ranh giới | 15 phút | ⭐ | ✅ Khuyến khích |
+| 5.6 Trước khi khởi hành | 15 phút | ⭐ | ✅ Bắt buộc đọc |
+| **Tổng cộng** | **Khoảng 1.5-2 giờ** | |
 
-::: tip 提示
-本章是基础版的"收官章节"。完成后，你将拥有一个**可上线、可分享、有版本管理、懂安全防护**的完整作品。
+::: tip Mẹo
+Chương này là "chương kết thúc" phiên bản cơ bản. Hoàn thành sau, bạn sẽ sở hữu một tác phẩm hoàn chỉnh **có thể lên mạng, có thể chia sẻ, có quản lý phiên bản, biết phòng vệ bảo mật**.
 
-这不再是一个"练习项目"，而是你作为创造者的第一个真正作品。
+Đây không còn là một "dự án luyện tập", mà là tác phẩm thực sự đầu tiên của bạn với tư cách người sáng tạo.
 :::
 
-→ [5.1 后悔药：代码改崩了怎么办](./5.1-version-control/)
+→ [5.1 Viên thuốc hối hận: Code sửa hỏng phải làm sao](./5.1-version-control/)

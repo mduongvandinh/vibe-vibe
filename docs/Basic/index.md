@@ -1,47 +1,47 @@
 ---
-title: "基础篇"
+title: "Phần Cơ Bản"
 ---
 
-# 基础篇
+# Phần Cơ Bản
 
-::: warning 🚧 预览版本说明
-本教程正在持续优化中。我们正在丰富更多内容、打磨细节，力求为学习者带来更优质的内容和更好的学习体验。敬请期待后续更新！
+::: warning 🚧 Thông báo phiên bản xem trước
+Hướng dẫn này đang được tối ưu hóa liên tục. Chúng tôi đang bổ sung thêm nhiều nội dung, chau chuốt từng chi tiết, cố gắng mang đến cho người học nội dung chất lượng và trải nghiệm học tập tốt hơn. Mong chờ các cập nhật tiếp theo!
 :::
 
 
-## 关于本教程
+## Về hướng dẫn này
 
-**Vibe Coding 基础教程** 是为零编程基础的学习者设计的入门指南。无论你是文科生、设计师、产品经理，还是任何对创造软件产品感兴趣的人，这里都是你的起点。
+**Hướng dẫn cơ bản Vibe Coding** là hướng dẫn nhập môn được thiết kế cho người học zero nền tảng lập trình. Dù bạn là sinh viên nhân văn, designer, product manager, hay bất cứ ai quan tâm đến việc sáng tạo sản phẩm phần mềm, đây đều là điểm khởi đầu của bạn.
 
-通过本教程，你将学会：
+Thông qua hướng dẫn này, bạn sẽ học được:
 
-- **理解 Vibe Coding 的本质** —— 从"写代码"到"指挥 AI 写代码"
-- **掌握 MVP 思维** —— 用最小成本验证你的想法
-- **学会与 AI 高效协作** —— 成为 AI 的指挥官而非打字员
-- **完成你的第一个项目** —— 从 0 到 1 实战演练
+- **Hiểu bản chất Vibe Coding** —— Từ "viết code" đến "chỉ huy AI viết code"
+- **Nắm vững tư duy MVP** —— Dùng chi phí nhỏ nhất để kiểm chứng ý tưởng của bạn
+- **Học cách cộng tác hiệu quả với AI** —— Trở thành chỉ huy viên của AI chứ không phải người đánh máy
+- **Hoàn thành dự án đầu tiên** —— Thực chiến diễn tập từ 0 đến 1
 
 
-## 章节概览
+## Tổng quan các chương
 
-| 章节 | 主题 | 核心内容 |
+| Chương | Chủ đề | Nội dung cốt lõi |
 |------|------|----------|
-| 0 | 序章 | 写给不同的你、学习检查清单、学习成果预告 |
-| 1 | 觉醒 | 从码农到指挥官、Vibe 与传统开发对比、破除迷思、工具选择、Hello World |
-| 2 | 心法 | 不要加功能、MVP 思维、灵魂拷问、实战案例 |
-| 3 | 技术 | 提示词工程、用户旅程、第一份 PRD、优先级排序 |
-| 4 | 从 0 到 1 实战 | 环境搭建、静态页面、逻辑交互、数据存储、调试指南 |
-| 5 | 进阶技能 | 版本控制、部署上线、安全意识、AI 局限性 |
-| 6 | 学习路径 | 文科生路径、理工生路径、职场人路径、资源推荐、持续学习 |
+| 0 | Mở đầu | Viết cho những bạn khác nhau, checklist học tập, dự báo thành quả học tập |
+| 1 | Thức tỉnh | Từ thợ code đến chỉ huy viên, so sánh Vibe với phát triển truyền thống, phá bỏ mê tín, lựa chọn công cụ, Hello World |
+| 2 | Tâm pháp | Đừng thêm tính năng, tư duy MVP, tra khảo linh hồn, case study thực chiến |
+| 3 | Kỹ thuật | Kỹ thuật prompt, user journey, PRD đầu tiên, sắp xếp ưu tiên |
+| 4 | Thực chiến từ 0 đến 1 | Setup môi trường, trang tĩnh, tương tác logic, lưu trữ dữ liệu, hướng dẫn debug |
+| 5 | Kỹ năng nâng cao | Quản lý phiên bản, deploy lên mạng, ý thức bảo mật, giới hạn AI |
+| 6 | Lộ trình học tập | Lộ trình sinh viên nhân văn, sinh viên lý công, người đi làm, đề xuất tài nguyên, học tập liên tục |
 
 
-## 学习建议
+## Gợi ý học tập
 
-::: tip 💡 给新手的建议
-1. **按顺序学习** —— 每个章节都建立在前一章的基础上
-2. **动手实践** —— 光看不练假把式，一定要跟着做
-3. **善用 AI** —— 遇到问题就问 AI，它是你最好的学习伙伴
-4. **保持耐心** —— 学习曲线是真实存在的，但你一定能跨过去
+::: tip 💡 Gợi ý cho người mới
+1. **Học theo thứ tự** —— Mỗi chương đều xây dựng dựa trên nền tảng chương trước
+2. **Thực hành bằng tay** —— Chỉ nhìn không luyện là giả bộ, nhất định phải làm theo
+3. **Dùng AI thông minh** —— Gặp vấn đề hãy hỏi AI, nó là đồng học tốt nhất của bạn
+4. **Giữ kiên nhẫn** —— Đường cong học tập là có thật, nhưng bạn nhất định vượt qua được
 :::
 
 
-准备好了吗？让我们从[序章](/Basic/00-preface/)开始！
+Sẵn sàng chưa? Hãy bắt đầu từ [Mở đầu](/Basic/00-preface/)!

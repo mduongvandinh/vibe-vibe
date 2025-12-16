@@ -1,9 +1,9 @@
 ---
-title: "文科生/商科生项目"
+title: "Dự Án Sinh Viên Khoa Học Xã Hội/Thương Mại"
 ---
 
-# 文科生/商科生项目
+# Dự Án Sinh Viên Khoa Học Xã Hội/Thương Mại
 
-适合文科、商科背景的入门实战项目，专注于内容创作和数据展示。
+Các dự án thực chiến nhập môn phù hợp với sinh viên có nền tảng khoa học xã hội và thương mại, tập trung vào sáng tạo nội dung và trực quan hóa dữ liệu.
 
-教程开发中
+Hướng dẫn đang được phát triển

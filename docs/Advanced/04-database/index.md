@@ -1,58 +1,57 @@
 ---
-title: "4 ｜数据库与数据生命周期"
-typora-root-url: ../public
+title: "4 ｜Cơ sở dữ liệu và Vòng đời dữ liệu"
 ---
 
-# 4 ｜数据库与数据生命周期
+# 4 ｜Cơ sở dữ liệu và Vòng đời dữ liệu
 
-### 认知重构
+### Tái cấu trúc nhận thức
 
-数据库不是"存数据的地方"，而是应用的**记忆中枢**。它决定了你的应用能"记住"什么、"想起"什么、以及如何保证"记忆"的准确性。
+Cơ sở dữ liệu không phải là "nơi lưu trữ dữ liệu", mà là **trung tâm bộ nhớ** của ứng dụng. Nó quyết định ứng dụng của bạn có thể "ghi nhớ" gì, "nhớ lại" gì, và làm thế nào để đảm bảo "trí nhớ" chính xác.
 
-### 本章学习目标
+### Mục tiêu học tập chương này
 
-完成本章后，你将能够：
+Sau khi hoàn thành chương này, bạn sẽ có thể:
 
-- 理解数据建模的核心概念，设计合理的数据结构
-- 掌握关系型数据库的基本原理和操作
-- 熟练使用 Prisma ORM 进行数据库开发
-- 处理数据迁移、种子数据和数据同步问题
-- 了解 Supabase 的高级特性
+- Hiểu các khái niệm cốt lõi của mô hình hóa dữ liệu, thiết kế cấu trúc dữ liệu hợp lý
+- Nắm vững các nguyên lý cơ bản và thao tác của cơ sở dữ liệu quan hệ
+- Sử dụng thành thạo Prisma ORM để phát triển cơ sở dữ liệu
+- Xử lý các vấn đề về di chuyển dữ liệu, dữ liệu seed và đồng bộ hóa dữ liệu
+- Hiểu các tính năng nâng cao của Supabase
 
-### 章节导航
+### Điều hướng chương
 
 ```mermaid
 graph LR
-    A["4.1 数据建模"] --> B["4.2 数据库基础"]
-    B --> C["4.3 SQL 操作"]
-    C --> D["4.4 Prisma 实战"]
-    D --> E["4.5 数据迁移"]
-    E --> F["4.6 种子数据"]
-    F --> G["4.7 数据同步"]
+    A["4.1 Mô hình hóa dữ liệu"] --> B["4.2 Cơ sở dữ liệu cơ bản"]
+    B --> C["4.3 Thao tác SQL"]
+    C --> D["4.4 Thực hành Prisma"]
+    D --> E["4.5 Di chuyển dữ liệu"]
+    E --> F["4.6 Dữ liệu seed"]
+    F --> G["4.7 Đồng bộ hóa dữ liệu"]
     G --> H["4.8 Supabase"]
 ```
 
-| 章节 | 主题 | 核心内容 |
+| Chương | Chủ đề | Nội dung cốt lõi |
 |------|------|----------|
-| 4.1 | 数据建模 | ER 图、实体关系、范式理论 |
-| 4.2 | 数据库基础 | CRUD、索引、事务、并发控制 |
-| 4.3 | SQL 基础 | DDL、DML、约束、JOIN、聚合 |
-| 4.4 | Prisma 实战 | Schema、迁移、查询、事务 |
-| 4.5 | 数据迁移 | 环境同步、回滚、数据处理 |
-| 4.6 | 种子数据 | 幂等造数、测试数据、脱敏 |
-| 4.7 | 数据同步 | 幂等性、冲突处理、一致性 |
-| 4.8 | Supabase | 存储桶、实时订阅、边缘函数 |
+| 4.1 | Mô hình hóa dữ liệu | Sơ đồ ER, quan hệ thực thể, lý thuyết chuẩn hóa |
+| 4.2 | Cơ sở dữ liệu cơ bản | CRUD, chỉ mục, giao dịch, kiểm soát đồng thời |
+| 4.3 | SQL cơ bản | DDL, DML, ràng buộc, JOIN, tổng hợp |
+| 4.4 | Thực hành Prisma | Schema, migration, truy vấn, giao dịch |
+| 4.5 | Di chuyển dữ liệu | Đồng bộ môi trường, rollback, xử lý dữ liệu |
+| 4.6 | Dữ liệu seed | Tạo dữ liệu idempotent, dữ liệu test, làm sạch dữ liệu nhạy cảm |
+| 4.7 | Đồng bộ hóa dữ liệu | Tính idempotent, xử lý xung đột, tính nhất quán |
+| 4.8 | Supabase | Storage bucket, đăng ký realtime, edge functions |
 
-### 技术栈说明
+### Giải thích về Tech Stack
 
-本章使用的技术栈：
+Tech stack được sử dụng trong chương này:
 
-- **ORM**：Prisma（类型安全的数据库访问）
-- **数据库**：PostgreSQL（生产环境）/ SQLite（开发环境）
-- **BaaS**：Supabase（可选的全栈解决方案）
+- **ORM**: Prisma (truy cập cơ sở dữ liệu an toàn về kiểu)
+- **Cơ sở dữ liệu**: PostgreSQL (môi trường production) / SQLite (môi trường development)
+- **BaaS**: Supabase (giải pháp fullstack tùy chọn)
 
-### 学习路径建议
+### Đề xuất lộ trình học tập
 
-- **零基础**：按顺序学习 4.1 → 4.2 → 4.3 → 4.4
-- **有 SQL 基础**：可跳过 4.2、4.3，重点学习 4.4 Prisma
-- **使用 Supabase**：完成基础后，重点学习 4.8
+- **Không có nền tảng**: Học theo thứ tự 4.1 → 4.2 → 4.3 → 4.4
+- **Có nền tảng SQL**: Có thể bỏ qua 4.2, 4.3, tập trung học 4.4 Prisma
+- **Sử dụng Supabase**: Sau khi hoàn thành phần cơ bản, tập trung học 4.8

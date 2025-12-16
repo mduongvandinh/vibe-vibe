@@ -1,88 +1,88 @@
 ---
-title: "2.4 故事思维：把用户当作故事的主角"
+title: "2.4 Tư duy Câu chuyện: Coi Người dùng như Nhân vật Chính"
 ---
 
-# 2.4 故事思维：把用户当作故事的主角
+# 2.4 Tư duy Câu chuyện: Coi Người dùng như Nhân vật Chính
 
-在前面的章节中，我们学会了用「任务视角」思考需求，用「逆向思维」识别风险，用「减法思维」聚焦核心。
+Trong các phần trước, chúng ta đã học cách dùng "góc nhìn tác vụ" suy nghĩ về nhu cầu, dùng "tư duy ngược" nhận biết rủi ro, dùng "tư duy trừ" tập trung vào cốt lõi.
 
-现在，我们要学习一个让这些工具更有力量的方法：**把用户当作故事的主角**。
-
-
-## 经过本节学习，你将掌握
-
-- 理解为什么「讲故事」比「列功能」更有效
-- 学会用「三维构建法」创建立体的用户画像
-- 掌握「用户旅程地图」这个可视化工具
-- 获得可直接复制的「故事化 Prompt」模板
+Bây giờ, chúng ta sẽ học một phương pháp làm cho các công cụ này mạnh mẽ hơn: **Coi người dùng như nhân vật chính của câu chuyện**.
 
 
-## 本节核心洞见
+## Sau khi học xong phần này, bạn sẽ nắm được
 
-> "如果你想让人们记住什么，就把它变成一个故事。"
-> —— Tim Brown，IDEO 设计公司 CEO
-
-斯坦福大学的研究表明：当信息以故事形式呈现时，人们的记忆留存率是纯数据的 22 倍。
-
-这意味着什么？
-
-- 当你对 AI 说「做一个待办清单」，AI 只能猜测你想要什么
-- 当你讲述「我是一个每天处理 10 件事的职场人，总怕遗漏重要事项」，AI 能精准理解你的需求
-
-**故事不是修辞技巧，而是最高效的沟通方式。**
+- Hiểu tại sao "kể chuyện" hiệu quả hơn "liệt kê chức năng"
+- Học cách dùng "phương pháp xây dựng ba chiều" tạo ra Persona người dùng lập thể
+- Nắm vững công cụ trực quan hóa "User Journey Map"
+- Có được mẫu "Prompt câu chuyện hóa" có thể sao chép trực tiếp
 
 
-## 故事思维与其他工具的关系
+## Hiểu biết Cốt lõi của Phần này
 
-你可能会问：故事思维和前面学的工具有什么区别？
+> "Nếu bạn muốn người ta nhớ điều gì, hãy biến nó thành một câu chuyện."
+> —— Tim Brown, CEO công ty thiết kế IDEO
+
+Nghiên cứu của Đại học Stanford cho thấy: Khi thông tin được trình bày dưới dạng câu chuyện, tỷ lệ lưu giữ trong trí nhớ của mọi người cao gấp 22 lần so với dữ liệu thuần túy.
+
+Điều này có nghĩa là gì?
+
+- Khi bạn bảo AI "Làm một danh sách việc cần làm", AI chỉ có thể đoán bạn muốn gì
+- Khi bạn kể "Tôi là một người đi làm mỗi ngày xử lý 10 việc, luôn sợ bỏ sót việc quan trọng", AI có thể hiểu chính xác nhu cầu của bạn
+
+**Câu chuyện không phải kỹ thuật tu từ, mà là phương thức giao tiếp hiệu quả nhất.**
+
+
+## Mối quan hệ giữa Tư duy Câu chuyện và Các công cụ Khác
+
+Bạn có thể hỏi: Tư duy câu chuyện khác gì với các công cụ đã học trước đây?
 
 ```mermaid
 graph LR
-    A[任务思维 JTBD] --> D[完整需求]
-    B[逆向思维] --> D
-    C[减法思维] --> D
-    E[故事思维] --> A
+    A[Tư duy Tác vụ JTBD] --> D[Nhu cầu Hoàn chỉnh]
+    B[Tư duy Ngược] --> D
+    C[Tư duy Trừ] --> D
+    E[Tư duy Câu chuyện] --> A
     E --> B
     E --> C
-    
+
     style E fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
-简单说：
+Nói đơn giản:
 
-| 思维工具 | 回答的核心问题 |
+| Công cụ Tư duy | Câu hỏi Cốt lõi Trả lời |
 |---------|--------------|
-| 任务思维 | 用户要完成什么任务？ |
-| 逆向思维 | 什么会导致失败？ |
-| 减法思维 | 什么功能可以不做？ |
-| **故事思维** | **用户是谁？他经历了什么？** |
+| Tư duy Tác vụ | Người dùng muốn hoàn thành tác vụ gì? |
+| Tư duy Ngược | Cái gì sẽ dẫn đến thất bại? |
+| Tư duy Trừ | Chức năng nào có thể không làm? |
+| **Tư duy Câu chuyện** | **Người dùng là ai? Họ đã trải qua điều gì?** |
 
-故事思维是其他工具的「底座」。当你真正理解用户是谁、经历了什么，任务、风险、优先级都会变得更清晰。
+Tư duy câu chuyện là "nền tảng" của các công cụ khác. Khi bạn thực sự hiểu người dùng là ai, đã trải qua những gì, thì tác vụ, rủi ro, ưu tiên đều sẽ trở nên rõ ràng hơn.
 
 
-## 这不只是「做产品」的事
+## Đây Không chỉ là Chuyện "Làm Sản phẩm"
 
-和前面的章节一样，故事思维适用于你想用 AI 做的任何事情：
+Giống như các phần trước, tư duy câu chuyện áp dụng cho bất kỳ việc gì bạn muốn làm với AI:
 
-| 你想做的事情 | 故事思维帮你解决的问题 |
+| Việc Bạn muốn Làm | Vấn đề Tư duy Câu chuyện Giúp Giải quyết |
 |-------------|---------------------|
-| 做一个小工具 | 让你从「我想要什么功能」转向「我的用户经历了什么」 |
-| 数据分析报告 | 帮你理解「老板看这份报告时在想什么」 |
-| 自动化脚本 | 让你看清「这个重复劳动背后的完整场景」 |
-| 给家人做工具 | 帮你站在「60 岁父母的视角」思考问题 |
+| Làm một công cụ nhỏ | Giúp bạn chuyển từ "Tôi muốn chức năng gì" sang "Người dùng của tôi đã trải qua điều gì" |
+| Báo cáo phân tích dữ liệu | Giúp bạn hiểu "Sếp đang nghĩ gì khi xem báo cáo này" |
+| Script tự động hóa | Giúp bạn nhìn rõ "Toàn cảnh phía sau công việc lặp lại này" |
+| Làm công cụ cho gia đình | Giúp bạn đứng ở "góc nhìn của bố mẹ 60 tuổi" suy nghĩ vấn đề |
 
-无论你的目标是什么，故事思维都能帮你更深入地理解「为谁而做」。
+Dù mục tiêu của bạn là gì, tư duy câu chuyện đều có thể giúp bạn hiểu sâu hơn "làm cho ai".
 
 
-## 本节结构
+## Cấu trúc Phần này
 
-接下来，我们将通过以下内容，帮你掌握故事思维：
+Tiếp theo, chúng ta sẽ thông qua các nội dung sau đây giúp bạn nắm vững tư duy câu chuyện:
 
-1. **产品即故事**：理解故事的基本结构，学会用故事视角描述需求
-2. **三维用户画像**：超越「年龄职业」，构建有血有肉的用户形象
-3. **用户旅程地图**：把故事可视化，找到最重要的痛点
-4. **故事化 Prompt**：用故事思维写出更精准的 AI 指令
-5. **实战练习**：为你自己的项目应用故事思维
-6. **核心要点**：带走可以立即应用的原则
+1. **Sản phẩm tức là Câu chuyện**: Hiểu cấu trúc cơ bản của câu chuyện, học cách dùng góc nhìn câu chuyện mô tả nhu cầu
+2. **Persona Ba chiều**: Vượt qua "tuổi tác nghề nghiệp", xây dựng hình ảnh người dùng có xương có thịt
+3. **User Journey Map**: Trực quan hóa câu chuyện, tìm ra điểm đau quan trọng nhất
+4. **Prompt Câu chuyện hóa**: Dùng tư duy câu chuyện viết lệnh AI chính xác hơn
+5. **Bài tập Thực chiến**: Áp dụng tư duy câu chuyện cho dự án của chính bạn
+6. **Điểm Cốt lõi**: Mang đi các nguyên tắc có thể áp dụng ngay lập tức
 
-准备好了吗？让我们从「什么是好故事」开始。
+Sẵn sàng chưa? Hãy bắt đầu từ "Câu chuyện tốt là gì".

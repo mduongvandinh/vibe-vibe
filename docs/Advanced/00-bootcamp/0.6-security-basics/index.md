@@ -1,46 +1,45 @@
 ---
-title: "0.6 别让你的网站裸奔——开发安全底线"
-typora-root-url: ../../public
+title: "0.6 Đừng để website của bạn lộ hàng—Đáy bảo mật phát triển"
 ---
 
-# 0.6 别让你的网站裸奔——开发安全底线
+# 0.6 Đừng để website của bạn lộ hàng—Đáy bảo mật phát triển
 
-## 一句话破题
+## Một câu tóm tắt
 
-安全不是堆功能，而是建立底线：**最小权限、最小暴露、面向失败、日志脱敏与定期审计**。先守底线，再谈高级能力。
+Bảo mật không phải chồng chất tính năng, mà là thiết lập đáy: **quyền tối thiểu, phơi bày tối thiểu, hướng đến thất bại, che giấu log và kiểm toán định kỳ**. Giữ vững đáy trước, nói năng lực cao cấp sau.
 
-## 章节导览
+## Chỉ dẫn chương
 
-- 安全设计原则：像保安一样思考，建立最小化与防御性策略。
-- 环境变量与密钥管理：把秘密放在正确的地方，并制定轮换机制。
+- Nguyên tắc thiết kế bảo mật: Suy nghĩ như bảo vệ, thiết lập chiến lược tối thiểu hóa và phòng thủ.
+- Biến môi trường và quản lý khóa: Đặt bí mật vào đúng chỗ, và thiết lập cơ chế xoay vòng.
 
-## 总览可视化
+## Tổng quan trực quan
 
 ```mermaid
 flowchart LR
-    subgraph sgsec ["安全底线"]
-        LP["最小权限"] --> ME["最小暴露"];
-        ME --> FF["面向失败"];
-        FF --> Mask["日志脱敏"];
-        Mask --> Audit["安全审计"];
+    subgraph sgsec ["Đáy bảo mật"]
+        LP["Quyền tối thiểu"] --> ME["Phơi bày tối thiểu"];
+        ME --> FF["Hướng đến thất bại"];
+        FF --> Mask["Che giấu log"];
+        Mask --> Audit["Kiểm toán bảo mật"];
     end
 ```
 
-## AI 协作指南
+## Hướng dẫn cộng tác với AI
 
-- 核心意图：让 AI 帮你“按原则设计方案”，而非零碎修补。
-- 需求定义公式：
-  - “为后台管理系统设计最小权限模型、接口暴露策略与日志脱敏方案，输出验收清单。”
-- 关键术语：`最小权限`, `最小暴露`, `异常处理`, `日志脱敏`, `安全审计`。
+- Ý định cốt lõi: Để AI giúp bạn "thiết kế phương án theo nguyên tắc", chứ không phải vá vụn vặt.
+- Công thức định nghĩa yêu cầu:
+  - "Thiết kế mô hình quyền tối thiểu cho hệ thống quản lý backend, chiến lược phơi bày interface và phương án che giấu log, output checklist nghiệm thu."
+- Thuật ngữ quan trọng: `quyền tối thiểu`, `phơi bày tối thiểu`, `xử lý exception`, `che giấu log`, `kiểm toán bảo mật`.
 
-## Windows PowerShell 常用操作
+## Thao tác thường dùng Windows PowerShell
 
-- 查看环境变量：`Get-ChildItem Env:`
-- 设置会话变量：`$env:API_KEY = '***'`
-- 持久化变量：`setx API_KEY '***'`
+- Xem biến môi trường: `Get-ChildItem Env:`
+- Thiết lập biến phiên: `$env:API_KEY = '***'`
+- Biến lâu dài: `setx API_KEY '***'`
 
-## 避坑指南
+## Hướng dẫn tránh lỗi
 
-- 把密钥硬编码进代码或日志是高危行为；使用环境变量与密钥管理服务。
-- 接口不要过度返回数据；遵循“所需即所返”。
-- 异常时默认拒绝而非默认放行；记录但不暴露内部细节。
+- Hard-code khóa vào code hoặc log là hành vi nguy hiểm cao; dùng biến môi trường và dịch vụ quản lý khóa.
+- Interface không trả về dữ liệu quá mức; tuân thủ "cần gì trả nấy".
+- Exception mặc định từ chối chứ không phải mặc định cho phép; ghi lại nhưng không lộ chi tiết nội bộ.

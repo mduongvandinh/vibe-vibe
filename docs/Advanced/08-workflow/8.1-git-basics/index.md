@@ -1,67 +1,66 @@
 ---
-title: "8.1 你的时光机和安全网——Git 基本流程：提交 → 分支 → 合并 →PR→ 回滚；`.gitignore` 的必要性"
-typora-root-url: ../../public
+title: "8.1 Máy quay thời gian và mạng an toàn của bạn——Quy trình Git cơ bản: Commit → Branch → Merge → PR → Rollback; Tầm quan trọng của `.gitignore`"
 ---
 
-# 8.1 你的时光机和安全网——Git 基本流程
+# 8.1 Máy quay thời gian và mạng an toàn của bạn——Quy trình Git cơ bản
 
-Git 是代码的时光机——让你随时回到过去，也是安全网——让你大胆尝试而不怕失败。
+Git là máy quay thời gian của code——cho phép bạn quay về quá khứ bất cứ lúc nào, cũng là mạng an toàn——để bạn thử nghiệm táo bạo mà không sợ thất bại.
 
-## 核心价值
+## Giá trị cốt lõi
 
-Git 解决的不是"如何写代码"，而是"如何安全地管理代码变化"：
+Git không giải quyết vấn đề "làm thế nào để viết code", mà là "làm thế nào để quản lý thay đổi code một cách an toàn":
 
-- **版本追溯**：每次提交都是一个快照，可以随时回退
-- **并行开发**：通过分支，多人可以同时开发不同功能
-- **变更审查**：通过 PR，代码上线前必须经过审核
-- **冲突解决**：当多人修改同一文件时，提供合并机制
+- **Truy vết phiên bản**: Mỗi commit là một snapshot, có thể rollback bất cứ lúc nào
+- **Phát triển song song**: Thông qua branch, nhiều người có thể phát triển các tính năng khác nhau đồng thời
+- **Đánh giá thay đổi**: Thông qua PR, code phải được review trước khi lên production
+- **Giải quyết xung đột**: Khi nhiều người chỉnh sửa cùng một file, cung cấp cơ chế merge
 
-## Git 工作流全景
+## Toàn cảnh quy trình Git
 
 ```mermaid
 flowchart LR
-    subgraph 本地
-        A[工作区] -->|git add| B[暂存区]
-        B -->|git commit| C[本地仓库]
+    subgraph Cục bộ
+        A[Working Directory] -->|git add| B[Staging Area]
+        B -->|git commit| C[Local Repository]
     end
-    
-    subgraph 远程
-        D[远程仓库]
+
+    subgraph Remote
+        D[Remote Repository]
     end
-    
+
     C -->|git push| D
     D -->|git pull| A
-    
-    C -->|git branch| E[新分支]
+
+    C -->|git branch| E[Branch mới]
     E -->|git merge| C
 ```
 
-## 核心命令速查
+## Bảng tra cứu nhanh lệnh cốt lõi
 
-| 场景 | 命令 | 说明 |
+| Tình huống | Lệnh | Giải thích |
 |------|------|------|
-| 保存修改 | `git add .` | 将所有变更加入暂存区 |
-| 提交快照 | `git commit -m "msg"` | 创建一个版本快照 |
-| 推送远程 | `git push` | 将本地提交推送到远程 |
-| 拉取更新 | `git pull` | 获取远程最新代码 |
-| 创建分支 | `git checkout -b feat/xx` | 创建并切换到新分支 |
-| 合并分支 | `git merge feat/xx` | 将指定分支合并到当前分支 |
-| 版本回退 | `git reset --hard HEAD~1` | 回退到上一个版本 |
+| Lưu thay đổi | `git add .` | Thêm tất cả thay đổi vào staging area |
+| Tạo snapshot | `git commit -m "msg"` | Tạo một version snapshot |
+| Đẩy lên remote | `git push` | Đẩy commit cục bộ lên remote |
+| Kéo cập nhật | `git pull` | Lấy code mới nhất từ remote |
+| Tạo branch | `git checkout -b feat/xx` | Tạo và chuyển sang branch mới |
+| Merge branch | `git merge feat/xx` | Merge branch chỉ định vào branch hiện tại |
+| Rollback phiên bản | `git reset --hard HEAD~1` | Rollback về phiên bản trước |
 
-## 本节结构
+## Cấu trúc của mục này
 
-本节将从实际操作出发，带你掌握 Git 的核心技能：
+Mục này sẽ xuất phát từ thao tác thực tế, giúp bạn nắm vững kỹ năng cốt lõi của Git:
 
-1. **基础命令**：add/commit/push/pull 的日常使用
-2. **分支操作**：创建、切换、合并、删除分支
-3. **冲突解决**：当代码"打架"时如何处理
-4. **版本回滚**：reset 和 revert 的区别与使用
-5. **gitignore**：哪些文件不应该被版本控制
+1. **Lệnh cơ bản**: Sử dụng add/commit/push/pull hàng ngày
+2. **Thao tác branch**: Tạo, chuyển, merge, xóa branch
+3. **Giải quyết xung đột**: Cách xử lý khi code "đánh nhau"
+4. **Rollback phiên bản**: Sự khác biệt và cách sử dụng reset và revert
+5. **gitignore**: File nào không nên được quản lý phiên bản
 
-## 验收清单
+## Checklist nghiệm thu
 
-- [ ] 能独立完成 clone → 修改 → commit → push 流程
-- [ ] 能创建分支、切换分支、合并分支
-- [ ] 能处理简单的合并冲突
-- [ ] 理解 reset 和 revert 的区别
-- [ ] 能正确配置 .gitignore 文件
+- [ ] Có thể hoàn thành độc lập quy trình clone → sửa → commit → push
+- [ ] Có thể tạo branch, chuyển branch, merge branch
+- [ ] Có thể xử lý xung đột merge đơn giản
+- [ ] Hiểu sự khác biệt giữa reset và revert
+- [ ] Có thể cấu hình đúng file .gitignore

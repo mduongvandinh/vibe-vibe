@@ -1,98 +1,97 @@
 ---
-title: "6 ｜认证与安全"
-typora-root-url: ../public
+title: "6 | Xác thực và Bảo mật"
 ---
 
-# 6 ｜认证与安全（Web 安全高级）
+# 6 | Xác thực và Bảo mật (Bảo mật Web Nâng cao)
 
-## 为什么安全是你绕不开的必修课
+## Tại sao bảo mật là môn học bắt buộc bạn không thể bỏ qua
 
-在 Vibe Coding 时代，AI 能帮你快速生成登录注册、表单提交、API 接口等代码。但 AI 不会主动替你思考安全问题——它可能漏掉 CSRF 防护、忘记对输入进行验证、或者把敏感信息暴露在客户端。
+Trong thời đại Vibe Coding, AI có thể giúp bạn nhanh chóng tạo ra mã đăng nhập, đăng ký, gửi form, API, v.v. Nhưng AI sẽ không chủ động suy nghĩ về vấn đề bảo mật cho bạn—nó có thể bỏ sót bảo vệ CSRF, quên xác thực đầu vào, hoặc để lộ thông tin nhạy cảm ở phía client.
 
-**安全不是"锦上添花"，而是"底线要求"。** 一个没有安全意识的产品，上线后可能面临：
+**Bảo mật không phải là "điểm cộng", mà là "yêu cầu tối thiểu".** Một sản phẩm thiếu ý thức bảo mật, sau khi ra mắt có thể đối mặt với:
 
-- 用户数据泄露 → 法律风险
-- 账号被盗 → 用户流失
-- 接口被滥用 → 服务崩溃
-- 支付漏洞 → 直接经济损失
+- Rò rỉ dữ liệu người dùng → Rủi ro pháp lý
+- Tài khoản bị đánh cắp → Mất người dùng
+- Lạm dụng API → Sập dịch vụ
+- Lỗ hổng thanh toán → Tổn thất kinh tế trực tiếp
 
-## 本章的学习路径
+## Lộ trình học tập của chương này
 
 ```mermaid
 flowchart TD
-    subgraph Quick["快速落地"]
-        A1["6.1 NextAuth 快速上手"]
-        A2["Google/GitHub 登录实战"]
+    subgraph Quick["Triển khai nhanh"]
+        A1["6.1 Bắt đầu nhanh với NextAuth"]
+        A2["Thực hành đăng nhập Google/GitHub"]
     end
-    
-    subgraph Core["核心原理"]
-        B1["6.2 认证与授权安全"]
+
+    subgraph Core["Nguyên lý cốt lõi"]
+        B1["6.2 Bảo mật Xác thực và Ủy quyền"]
         B2["JWT/Session/Cookie"]
     end
-    
-    subgraph API["接口安全"]
-        C1["6.3 API 安全防护"]
-        C2["CORS/XSS/CSRF/限流"]
+
+    subgraph API["Bảo mật API"]
+        C1["6.3 Bảo vệ API"]
+        C2["CORS/XSS/CSRF/Giới hạn tần suất"]
     end
-    
-    subgraph Threats["威胁认知"]
-        D1["6.4 Web 安全威胁"]
-        D2["攻击原理与防御"]
+
+    subgraph Threats["Nhận thức mối đe dọa"]
+        D1["6.4 Mối đe dọa Bảo mật Web"]
+        D2["Nguyên lý tấn công và phòng thủ"]
     end
-    
-    subgraph China["国内生态"]
-        E1["6.5 第三方登录"]
-        E2["微信/QQ/钉钉接入"]
+
+    subgraph China["Hệ sinh thái trong nước"]
+        E1["6.5 Đăng nhập bên thứ ba"]
+        E2["Tích hợp WeChat/QQ/DingTalk"]
     end
-    
+
     Quick --> Core --> API --> Threats --> China
 ```
 
-## 章节概览
+## Tổng quan các chương
 
-| 章节 | 核心问题 | 你将学会 |
+| Chương | Câu hỏi cốt lõi | Bạn sẽ học được |
 |------|----------|----------|
-| **6.1 NextAuth 快速上手** | 如何快速实现登录功能？ | 10 分钟搭建 Google/GitHub 登录 |
-| **6.2 认证与授权安全** | JWT 和 Session 怎么选？ | 理解各种认证方案的安全边界 |
-| **6.3 API 安全防护** | 接口如何防止被滥用？ | CORS 配置、限流、输入验证 |
-| **6.4 Web 安全威胁** | 黑客怎么攻击网站？ | XSS/CSRF/注入的原理与防御 |
-| **6.5 第三方登录集成** | 如何接入国内登录？ | 微信/QQ/钉钉 OAuth 实战 |
+| **6.1 Bắt đầu nhanh với NextAuth** | Làm thế nào để nhanh chóng triển khai chức năng đăng nhập? | Thiết lập đăng nhập Google/GitHub trong 10 phút |
+| **6.2 Bảo mật Xác thực và Ủy quyền** | JWT và Session chọn cái nào? | Hiểu ranh giới bảo mật của các phương án xác thực |
+| **6.3 Bảo vệ API** | Làm thế nào để ngăn API bị lạm dụng? | Cấu hình CORS, giới hạn tần suất, xác thực đầu vào |
+| **6.4 Mối đe dọa Bảo mật Web** | Hacker tấn công website như thế nào? | Nguyên lý và phòng thủ XSS/CSRF/Injection |
+| **6.5 Tích hợp đăng nhập bên thứ ba** | Làm thế nào tích hợp đăng nhập trong nước? | Thực hành OAuth WeChat/QQ/DingTalk |
 
-## 安全思维的核心原则
+## Nguyên tắc cốt lõi của tư duy bảo mật
 
-在深入技术细节之前，先建立正确的安全思维：
+Trước khi đi sâu vào chi tiết kỹ thuật, hãy thiết lập tư duy bảo mật đúng đắn:
 
-### 1. 永远不信任客户端
+### 1. Không bao giờ tin tưởng client
 
-来自浏览器的任何数据都可能被篡改。所有验证必须在服务端再做一次。
+Bất kỳ dữ liệu nào từ trình duyệt đều có thể bị giả mạo. Tất cả xác thực phải được thực hiện lại ở phía server.
 
-### 2. 最小权限原则
+### 2. Nguyên tắc quyền tối thiểu
 
-用户只能访问他需要的资源，代码只能拥有它需要的权限。
+Người dùng chỉ có thể truy cập tài nguyên họ cần, code chỉ có quyền nó cần.
 
-### 3. 纵深防御
+### 3. Phòng thủ theo chiều sâu
 
-不要依赖单一防护手段。认证、授权、输入验证、加密——每一层都要设防。
+Đừng dựa vào một biện pháp phòng thủ duy nhất. Xác thực, ủy quyền, xác thực đầu vào, mã hóa—mỗi tầng đều cần thiết lập phòng thủ.
 
-### 4. 安全是持续过程
+### 4. Bảo mật là quá trình liên tục
 
-安全不是一次性配置。定期更新依赖、审计代码、监控异常行为。
+Bảo mật không phải là cấu hình một lần. Cập nhật dependencies thường xuyên, kiểm tra code, theo dõi hành vi bất thường.
 
-## AI 协作提示
+## Gợi ý hợp tác với AI
 
-在让 AI 生成安全相关代码时，可以使用以下关键词提示：
+Khi yêu cầu AI tạo mã liên quan đến bảo mật, bạn có thể sử dụng các từ khóa sau:
 
-- "请添加 CSRF 防护"
-- "对用户输入进行验证和转义"
-- "使用 HttpOnly 和 Secure 标志设置 Cookie"
-- "实现请求限流防止滥用"
-- "确保敏感信息不会暴露在客户端"
+- "Vui lòng thêm bảo vệ CSRF"
+- "Xác thực và escape đầu vào người dùng"
+- "Sử dụng cờ HttpOnly và Secure khi thiết lập Cookie"
+- "Triển khai giới hạn request để ngăn lạm dụng"
+- "Đảm bảo thông tin nhạy cảm không bị lộ ở phía client"
 
-::: warning 安全代码审查清单
-无论 AI 生成什么代码，务必检查：
-1. 敏感信息是否暴露在前端？
-2. 用户输入是否经过验证？
-3. 数据库查询是否有注入风险？
-4. Cookie 是否设置了安全属性？
-5. API 是否有访问控制？
+::: warning Danh sách kiểm tra đánh giá mã bảo mật
+Bất kể AI tạo mã gì, nhất định phải kiểm tra:
+1. Thông tin nhạy cảm có bị lộ ở frontend không?
+2. Đầu vào người dùng đã được xác thực chưa?
+3. Truy vấn database có rủi ro injection không?
+4. Cookie đã thiết lập thuộc tính bảo mật chưa?
+5. API có kiểm soát truy cập không?
 :::

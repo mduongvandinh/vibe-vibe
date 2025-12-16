@@ -1,77 +1,76 @@
 ---
-title: "5.2 为什么说先写文档再编码——PRD 基础"
-typora-root-url: ../../public
+title: "5.2 Tại sao phải viết tài liệu trước mã hóa — PRD Cơ bản"
 ---
 
-# 5.2 为什么说先写文档再编码——PRD 基础
+# 5.2 Tại sao phải viết tài liệu trước mã hóa — PRD Cơ bản
 
-### 先写文档的价值
+### Giá trị của việc viết tài liệu trước tiên
 
-在 Vibe Coding 中，文档不是"交差用的形式主义"，而是**你与 AI 沟通的核心界面**。
+Trong Vibe Coding, tài liệu không phải là "chủ nghĩa hình thức để qua loa", mà là **giao diện cốt lõi để giao tiếp với AI**.
 
 ```mermaid
 graph LR
-    A["模糊的想法"] --> B["结构化文档"]
-    B --> C["AI 理解需求"]
-    C --> D["生成代码"]
-    D --> E["对照文档验收"]
+    A["Ý tưởng mơ hồ"] --> B["Tài liệu có cấu trúc"]
+    B --> C["AI hiểu yêu cầu"]
+    C --> D["Tạo mã"]
+    D --> E["Đối chiếu với tài liệu để xác nhận"]
 ```
 
-**先写文档的好处**：
+**Lợi ích của việc viết tài liệu trước tiên**:
 
-1. **强迫你想清楚**：写不出来说明还没想明白
-2. **减少沟通成本**：AI 一次就能理解，不用反复解释
-3. **便于验收**：有了文档才知道"做对了没有"
-4. **方便迭代**：下次修改时，知道当初为什么这样设计
+1. **Buộc bạn suy nghĩ rõ ràng**: Không viết được có nghĩa chưa hiểu rõ
+2. **Giảm chi phí giao tiếp**: AI hiểu ngay lần đầu, không cần giải thích lặp lại
+3. **Dễ dàng xác nhận**: Có tài liệu mới biết "có thực hiện đúng không"
+4. **Thuận tiện lặp lại**: Lần sau sửa đổi, bạn sẽ biết tại sao lại thiết kế như vậy
 
-### PRD 文档的基本组成
+### Các thành phần cơ bản của tài liệu PRD
 
-一份合格的 PRD 应该包含以下元信息：
+Một tài liệu PRD hợp lệ nên chứa các thông tin meta sau:
 
-| 元素 | 作用 | 示例 |
+| Phần tử | Chức năng | Ví dụ |
 |------|------|------|
-| **文档状态** | 标识文档当前阶段 | 草稿 / 评审中 / 已发布 |
-| **更新记录** | 追踪变更历史 | v1.1: 增加了搜索功能 |
-| **相关文档** | 关联上下游资料 | 技术方案、API 文档 |
-| **术语表** | 统一概念定义 | "用户"指已注册账号 |
+| **Trạng thái tài liệu** | Xác định giai đoạn hiện tại của tài liệu | Bản nháp / Đang xem xét / Đã xuất bản |
+| **Lịch sử cập nhật** | Theo dõi lịch sử thay đổi | v1.1: Thêm chức năng tìm kiếm |
+| **Tài liệu liên quan** | Liên kết tài liệu nguồn và đích | Phương án kỹ thuật, tài liệu API |
+| **Bảng thuật ngữ** | Thống nhất định nghĩa khái niệm | "Người dùng" là tài khoản đã đăng ký |
 
-### 文档模板示例
+### Mẫu tài liệu ví dụ
 
 ```markdown
-# [功能名称] PRD
+# [Tên tính năng] PRD
 
-## 文档信息
-- **状态**: 草稿
-- **版本**: v0.1
-- **作者**: [你的名字]
-- **最后更新**: 2024-01-15
+## Thông tin tài liệu
+- **Trạng thái**: Bản nháp
+- **Phiên bản**: v0.1
+- **Tác giả**: [Tên của bạn]
+- **Cập nhật cuối cùng**: 2024-01-15
 
-## 更新记录
-| 版本 | 日期 | 变更内容 | 作者 |
+## Lịch sử cập nhật
+| Phiên bản | Ngày tháng | Nội dung thay đổi | Tác giả |
 |------|------|----------|------|
-| v0.1 | 2024-01-15 | 初稿 | xxx |
+| v0.1 | 2024-01-15 | Bản nháp ban đầu | xxx |
 
-## 相关文档
-- [技术方案](./tech-spec.md)
-- [API 文档](./api.md)
+## Tài liệu liên quan
+- [Phương án kỹ thuật](./tech-spec.md)
+- [Tài liệu API](./api.md)
 
-## 术语表
-| 术语 | 定义 |
+## Bảng thuật ngữ
+| Thuật ngữ | Định nghĩa |
 |------|------|
-| 用户 | 已完成注册的账号 |
-| 访客 | 未登录的浏览者 |
+| Người dùng | Tài khoản đã hoàn thành đăng ký |
+| Khách truy cập | Người duyệt chưa đăng nhập |
 
-## 正文
-[功能描述、需求说明...]
+## Nội dung chính
+[Mô tả tính năng, giải thích yêu cầu...]
 ```
 
-### 本节目标
+### Mục tiêu của phần này
 
-学完本节，你将掌握：
+Sau khi hoàn thành phần này, bạn sẽ nắm vững:
 
-1. **文档状态管理**：知道一份文档处于什么阶段
-2. **版本记录规范**：让每次修改都有迹可循
-3. **文档索引方法**：快速找到相关资料
-4. **术语表维护**：避免沟通中的概念混乱
+1. **Quản lý trạng thái tài liệu**: Biết tài liệu đang ở giai đoạn nào
+2. **Chuẩn mực ghi lịch sử cập nhật**: Mỗi lần sửa đổi đều có thể truy vết được
+3. **Phương pháp lập chỉ mục tài liệu**: Tìm kiếm nhanh các tài liệu liên quan
+4. **Duy trì bảng thuật ngữ**: Tránh sự nhầm lẫn khái niệm trong giao tiếp
 
-**记住**：写文档不是为了交差，而是为了让 AI 更好地理解你的需求。一份好的文档，就是一份好的 Prompt。
+**Hãy nhớ**: Viết tài liệu không phải để qua loa, mà để giúp AI hiểu rõ hơn yêu cầu của bạn. Một tài liệu tốt chính là một Prompt tốt.

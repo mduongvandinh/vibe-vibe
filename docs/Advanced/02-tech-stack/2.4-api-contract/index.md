@@ -1,91 +1,90 @@
 ---
-title: "2.4 前后端如何高效协作——接口契约/API Route；请求/响应、幂等、流式返回"
-typora-root-url: ../../public
+title: "2.4 Frontend-backend cộng tác hiệu quả như thế nào — API Contract/API Route; Request/Response, Idempotent, Streaming response"
 ---
 
-# 2.4 前后端如何高效协作——接口契约
+# 2.4 Frontend-backend cộng tác hiệu quả như thế nào — API Contract
 
-## 认知重构
+## Tái cấu trúc nhận thức
 
-在传统开发模式中，前端等后端、后端等需求，彼此阻塞是常态。而在 Vibe Coding 时代，**契约先行**的理念让前后端可以并行开发，AI 也能基于契约生成更准确的代码。
+Trong mô hình phát triển truyền thống, frontend đợi backend, backend đợi yêu cầu, chặn lẫn nhau là chuyện thường. Còn trong thời đại Vibe Coding, lý niệm **contract first** để frontend-backend có thể phát triển song song, AI cũng có thể tạo code chính xác hơn dựa trên contract.
 
 ```
-传统模式：需求 → 后端开发 → 前端对接 → 联调（串行）
-契约先行：需求 → 定义契约 → 前后端并行开发 → 联调（并行）
+Mô hình truyền thống: Yêu cầu → Backend phát triển → Frontend đối tiếp → Liên điều (nối tiếp)
+Contract first: Yêu cầu → Định nghĩa contract → Frontend-backend phát triển song song → Liên điều (song song)
 ```
 
-## 本章知识图谱
+## Sơ đồ tri thức chương này
 
 ```mermaid
 mindmap
-  root((前后端协作))
-    契约先行
-      接口定义
-      类型共享
-      版本管理
-    Mock 数据
-      MSW 模拟
-      Faker 生成
-      场景切换
-    并行开发
-      前端独立
-      后端专注
-      类型安全
-    联调测试
-      契约验证
-      问题定位
-      错误处理
+  root((Cộng tác frontend-backend))
+    Contract first
+      Định nghĩa interface
+      Chia sẻ type
+      Quản lý version
+    Mock data
+      MSW mock
+      Faker generate
+      Chuyển đổi kịch bản
+    Phát triển song song
+      Frontend độc lập
+      Backend tập trung
+      Type safe
+    Liên điều test
+      Xác minh contract
+      Định vị vấn đề
+      Xử lý lỗi
 ```
 
-## 核心概念速览
+## Tra cứu nhanh khái niệm cốt lõi
 
-| 概念 | 作用 | 工具 |
+| Khái niệm | Tác dụng | Công cụ |
 |------|------|------|
-| **API 契约** | 定义请求/响应格式 | TypeScript 类型、Zod Schema |
-| **Mock 数据** | 模拟后端响应 | MSW、Faker.js |
-| **并行开发** | 前后端同时进行 | 共享类型定义 |
-| **联调测试** | 验证契约一致性 | Postman、测试用例 |
+| **API Contract** | Định nghĩa format request/response | TypeScript types, Zod Schema |
+| **Mock data** | Mô phỏng response backend | MSW, Faker.js |
+| **Phát triển song song** | Frontend-backend cùng tiến hành | Định nghĩa type chung |
+| **Liên điều test** | Xác minh tính nhất quán contract | Postman, Test cases |
 
-## 为什么需要 API 契约？
+## Tại sao cần API Contract?
 
 ```mermaid
 flowchart LR
-    subgraph Without["没有契约"]
-        F1["前端猜测格式"] --> E1["联调时发现不对"]
-        E1 --> F2["前端重写"]
-        F2 --> E2["再次联调"]
+    subgraph Without["Không có contract"]
+        F1["Frontend đoán format"] --> E1["Liên điều phát hiện sai"]
+        E1 --> F2["Frontend viết lại"]
+        F2 --> E2["Liên điều lại"]
     end
-    
-    subgraph With["有契约"]
-        C["共同定义契约"] --> P1["前端基于契约开发"]
-        C --> P2["后端基于契约开发"]
-        P1 --> T["联调验证"]
+
+    subgraph With["Có contract"]
+        C["Cùng định nghĩa contract"] --> P1["Frontend phát triển theo contract"]
+        C --> P2["Backend phát triển theo contract"]
+        P1 --> T["Xác minh liên điều"]
         P2 --> T
     end
 ```
 
-### 契约的三大价值
+### Ba giá trị lớn của contract
 
-1. **消除沟通歧义**：接口格式白纸黑字，没有"我以为"
-2. **支持并行开发**：前端用 Mock，后端用测试，互不阻塞
-3. **AI 协作更精准**：AI 基于类型定义生成代码，准确率大幅提升
+1. **Loại bỏ sự mơ hồ trong giao tiếp**: Format interface rõ ràng, không có "tôi tưởng"
+2. **Hỗ trợ phát triển song song**: Frontend dùng Mock, backend dùng test, không chặn nhau
+3. **AI cộng tác chính xác hơn**: AI tạo code dựa trên định nghĩa type, độ chính xác tăng đáng kể
 
-## API Route 在 Next.js 中的位置
+## Vị trí của API Route trong Next.js
 
 ```mermaid
 flowchart TB
-    subgraph App["Next.js 应用"]
-        Pages["页面组件"]
+    subgraph App["Ứng dụng Next.js"]
+        Pages["Page components"]
         SA["Server Actions"]
         API["API Routes"]
     end
-    
-    subgraph External["外部"]
-        Third["第三方服务"]
+
+    subgraph External["Bên ngoài"]
+        Third["Dịch vụ bên thứ ba"]
         Webhook["Webhook"]
-        Mobile["移动端"]
+        Mobile["Mobile"]
     end
-    
+
     Pages --> SA
     Pages --> API
     Third --> API
@@ -93,16 +92,16 @@ flowchart TB
     Mobile --> API
 ```
 
-| 场景 | 推荐方案 |
+| Tình huống | Phương án đề xuất |
 |------|----------|
-| 内部数据变更 | Server Actions |
-| 对外暴露接口 | API Routes |
-| 第三方回调 | API Routes |
-| 移动端调用 | API Routes |
+| Mutation data nội bộ | Server Actions |
+| Expose API ra ngoài | API Routes |
+| Callback bên thứ ba | API Routes |
+| Gọi từ mobile | API Routes |
 
-## 本章导航
+## Điều hướng chương này
 
-- **2.4.1 契约先行**：先定义接口，再写代码
-- **2.4.2 Mock 数据**：让前端不依赖后端
-- **2.4.3 并行开发**：前后端同时进行
-- **2.4.4 联调测试**：确保契约一致性
+- **2.4.1 Contract first**: Định nghĩa interface trước, viết code sau
+- **2.4.2 Mock data**: Để frontend không phụ thuộc backend
+- **2.4.3 Phát triển song song**: Frontend-backend cùng tiến hành
+- **2.4.4 Liên điều test**: Đảm bảo tính nhất quán contract

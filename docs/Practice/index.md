@@ -1,24 +1,24 @@
 ---
-title: "实践篇"
+title: "Phần Thực Hành"
 ---
 
-# 实践篇
+# Phần Thực Hành
 
-通过实战项目，将理论知识转化为实际能力。
+Thông qua các dự án thực chiến, chuyển hóa kiến thức lý thuyết thành khả năng thực tế.
 
-## 基础板块
+## Các Mô-đun Cơ Bản
 
-按不同受众提供针对性的入门项目：
+Cung cấp các dự án nhập môn có tính nhắm mục tiêu theo từng đối tượng khác nhau:
 
-- [文科生/商科生项目](./01-for-liberal-arts/) —— 内容创作、数据展示类项目
-- [理工科学生项目](./02-for-stem/) —— 算法可视化、数据处理类项目
-- [职场人士项目](./03-for-professionals/) —— 工作流自动化、效率提升类项目
+- [Dự Án Sinh Viên Khoa Học Xã Hội/Thương Mại](./01-for-liberal-arts/) —— Dự án sáng tạo nội dung, trực quan hóa dữ liệu
+- [Dự Án Sinh Viên Khoa Học Kỹ Thuật](./02-for-stem/) —— Dự án trực quan hóa thuật toán, xử lý dữ liệu
+- [Dự Án Người Đi Làm](./03-for-professionals/) —— Dự án tự động hóa quy trình, nâng cao hiệu suất
 
-## 进阶板块
+## Các Mô-đun Nâng Cao
 
-基于 Sean's Stories "You Can Build Anything" 系列，深入学习全栈开发：
+Dựa trên chuỗi bài "You Can Build Anything" của Sean's Stories, học sâu về phát triển fullstack:
 
-- [核心技能](./10-core-skills/) —— 上线应用、数据库、后端部署、用户认证
-- [AI Agent 开发](./11-ai-agents/) —— RAG、向量数据库、MCP 集成
-- [全栈项目实战](./12-fullstack-projects/) —— SaaS、地图应用、移动应用
-- [工具与效率](./13-tools-integration/) —— n8n、GitHub 工作流、React/TS 进阶
+- [Kỹ Năng Cốt Lõi](./10-core-skills/) —— Triển khai ứng dụng, database, backend deployment, xác thực người dùng
+- [Phát Triển AI Agent](./11-ai-agents/) —— RAG, cơ sở dữ liệu vector, tích hợp MCP
+- [Dự Án Thực Chiến Fullstack](./12-fullstack-projects/) —— SaaS, ứng dụng bản đồ, ứng dụng di động
+- [Công Cụ & Hiệu Suất](./13-tools-integration/) —— n8n, GitHub workflow, React/TypeScript nâng cao

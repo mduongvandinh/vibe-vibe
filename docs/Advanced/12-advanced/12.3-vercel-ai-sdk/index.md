@@ -1,48 +1,47 @@
 ---
-title: "12.3 AI 应用的最后一公里——Vercel AI SDK 与流式响应：Streaming UI 实战"
-typora-root-url: ../../public
+title: "12.3 100 mét cuối cùng của ứng dụng AI — Vercel AI SDK và phản hồi streaming: Thực hành Streaming UI"
 ---
 
-# 12.3 AI 应用的最后一公里——Vercel AI SDK 与流式响应：Streaming UI 实战
+# 12.3 100 mét cuối cùng của ứng dụng AI — Vercel AI SDK và phản hồi streaming: Thực hành Streaming UI
 
-### 一句话破题
+### Một dòng để phá đề
 
-Vercel AI SDK 是构建 AI 驱动应用的"瑞士军刀"，它让你用几行代码就能实现类似 ChatGPT 的流式对话体验。
+Vercel AI SDK là "dao quân đa năng" để xây dựng ứng dụng AI, nó cho phép bạn thực hiện trải nghiệm đối thoại streaming tương tự ChatGPT với chỉ vài dòng mã.
 
-### 核心价值
+### Giá trị cốt lõi
 
-在 AI 应用中，用户体验的关键往往不在于模型有多强，而在于**响应有多快**。Vercel AI SDK 解决的核心问题是：
+Trong các ứng dụng AI, chìa khóa của trải nghiệm người dùng thường không phụ thuộc vào sức mạnh của mô hình, mà vào **tốc độ phản hồi**. Vercel AI SDK giải quyết vấn đề cốt lõi là:
 
-1. **流式输出**：让 AI 的回答像打字机一样逐字显示，而不是等待几秒后一次性出现
-2. **统一接口**：一套代码适配 OpenAI、Anthropic、Google 等多家模型提供商
-3. **React 集成**：提供 `useChat`、`useCompletion` 等开箱即用的 Hooks
-4. **边缘部署**：与 Vercel Edge Functions 深度集成，降低延迟
+1. **Đầu ra streaming**: Giúp câu trả lời của AI hiển thị từng ký tự như một máy đánh chữ, thay vì chờ vài giây rồi xuất hiện cùng lúc
+2. **Giao diện thống nhất**: Một bộ mã duy nhất hoạt động với nhiều nhà cung cấp mô hình như OpenAI, Anthropic, Google, v.v.
+3. **Tích hợp React**: Cung cấp các Hooks sẵn sàng sử dụng như `useChat`, `useCompletion`
+4. **Triển khai edge**: Tích hợp sâu với Vercel Edge Functions, giảm độ trễ
 
-### 本章导览
+### Hướng dẫn chương này
 
 ```mermaid
 graph LR
-    A["流式响应原理"] --> B["SDK 安装配置"]
+    A["Nguyên lý phản hồi streaming"] --> B["Cài đặt và cấu hình SDK"]
     B --> C["useChat/useCompletion"]
-    C --> D["加载状态与错误处理"]
-    D --> E["RAG 与多模态"]
-    
+    C --> D["Trạng thái tải và xử lý lỗi"]
+    D --> E["RAG và đa phương thức"]
+
     style A fill:#e3f2fd
     style E fill:#c8e6c9
 ```
 
-1. **流式响应原理**：理解为什么 Streaming UI 对 AI 应用至关重要
-2. **SDK 安装配置**：快速集成 Vercel AI SDK 到你的 Next.js 项目
-3. **useChat/useCompletion**：实现对话式 AI 和文本生成功能
-4. **加载状态与错误处理**：打造优雅的用户体验
-5. **RAG 与多模态**：检索增强生成与图文混合场景
+1. **Nguyên lý phản hồi streaming**: Hiểu tại sao Streaming UI lại quan trọng đối với ứng dụng AI
+2. **Cài đặt và cấu hình SDK**: Tích hợp nhanh Vercel AI SDK vào dự án Next.js của bạn
+3. **useChat/useCompletion**: Thực hiện chức năng AI đối thoại và tạo văn bản
+4. **Trạng thái tải và xử lý lỗi**: Tạo trải nghiệm người dùng tinh tế
+5. **RAG và đa phương thức**: Tạo Retrieval-Augmented Generation và kịch bản hỗn hợp hình ảnh-văn bản
 
-### 为什么 Vibe Coder 要学这个？
+### Tại sao Vibe Coder cần học điều này?
 
-AI 能力正在成为现代应用的"标配"。掌握 Vercel AI SDK，你就能：
+Khả năng AI đang trở thành "tiêu chuẩn" của các ứng dụng hiện đại. Nắm vững Vercel AI SDK, bạn có thể:
 
-- 快速为任何产品添加 AI 功能
-- 理解主流 AI 应用的技术架构
-- 构建属于自己的 AI 工具或产品
+- Nhanh chóng thêm chức năng AI vào bất kỳ sản phẩm nào
+- Hiểu kiến trúc kỹ thuật của các ứng dụng AI chính
+- Xây dựng các công cụ hoặc sản phẩm AI riêng của bạn
 
-> **关键洞察**：AI SDK 封装了大量复杂性，但你仍需理解其工作原理，才能在遇到问题时正确调试，或根据需求进行定制。
+> **Cái nhìn sâu sắc chính**: AI SDK đóng gói rất nhiều độ phức tạp, nhưng bạn vẫn cần hiểu cách nó hoạt động để có thể gỡ lỗi chính xác khi gặp sự cố hoặc tùy chỉnh theo nhu cầu.

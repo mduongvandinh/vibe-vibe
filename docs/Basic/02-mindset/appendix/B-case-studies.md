@@ -1,385 +1,385 @@
 ---
-title: "B. 扩展案例库"
+title: "B. Thư viện case study mở rộng"
 ---
 
-# B. 扩展案例库
+# B. Thư viện case study mở rộng
 
-本附录提供 6 个真实案例，展示如何在不同场景下应用第二章的思维模型。每个案例都包含：问题背景、思维模型应用过程、关键决策、最终结果。
+Phụ lục này cung cấp 6 case study thực tế, trình bày cách áp dụng các mô hình tư duy của Chương 2 trong các tình huống khác nhau. Mỗi case study đều bao gồm: bối cảnh vấn đề, quá trình áp dụng mô hình tư duy, quyết định quan trọng, kết quả cuối cùng.
 
 
-## 案例索引
+## Mục lục case study
 
-| 场景 | 案例 | 核心思维模型 |
+| Tình huống | Case study | Mô hình tư duy cốt lõi |
 |-----|------|-------------|
-| 产品验证 | Dropbox：用视频代替产品 | 减法思维 |
-| 产品验证 | Airbnb：从气垫床到独角兽 | JTBD 思维 |
-| 数据分析 | 电商渠道 ROI 分析 | 灵魂三问 |
-| 数据分析 | 销售周报自动化 | 逆向思维 |
-| 个人工具 | 吃药提醒给父母 | 故事思维 |
-| 自动化 | Excel 多表汇总 | 问题发现 |
+| Xác minh sản phẩm | Dropbox: Dùng video thay vì sản phẩm | Tư duy trừ |
+| Xác minh sản phẩm | Airbnb: Từ đệm hơi đến kỳ lân | Tư duy JTBD |
+| Phân tích dữ liệu | Phân tích ROI kênh thương mại điện tử | Ba câu hỏi linh hồn |
+| Phân tích dữ liệu | Tự động hóa báo cáo bán hàng tuần | Tư duy ngược |
+| Công cụ cá nhân | Nhắc nhở uống thuốc cho bố mẹ | Tư duy câu chuyện |
+| Tự động hóa | Tổng hợp nhiều bảng Excel | Phát hiện vấn đề |
 
 
-## 案例 1：Dropbox —— 用视频代替产品
+## Case study 1: Dropbox - Dùng video thay vì sản phẩm
 
-**场景类型**：产品验证  
-**核心思维模型**：减法思维
+**Loại tình huống**: Xác minh sản phẩm
+**Mô hình tư duy cốt lõi**: Tư duy trừ
 
-### 背景
+### Bối cảnh
 
-2007 年，Drew Houston 有一个想法：做一个能在多台电脑之间自动同步文件的工具。
+Năm 2007, Drew Houston có một ý tưởng: làm một công cụ có thể tự động đồng bộ file giữa nhiều máy tính.
 
-但他面临一个难题：这个产品需要开发复杂的后端系统、处理各种边界情况，开发周期可能需要一年以上。如果花一年时间做出来，结果没人用怎么办？
+Nhưng anh gặp một khó khăn: sản phẩm này cần phát triển hệ thống backend phức tạp, xử lý nhiều trường hợp biên, chu kỳ phát triển có thể mất hơn một năm. Nếu mất một năm làm ra mà không ai dùng thì sao?
 
-### 思维模型应用：减法思维
+### Áp dụng mô hình tư duy: Tư duy trừ
 
-Houston 问自己一个关键问题：**我真正要验证的假设是什么？**
+Houston tự hỏi một câu hỏi then chốt: **Tôi thực sự cần xác minh giả định gì?**
 
-| 常见做法 | Houston 的做法 |
+| Cách làm thông thường | Cách làm của Houston |
 |---------|---------------|
-| 先做一个能用的产品 | 先验证「有没有人需要这个」 |
-| 功能越完善越好 | 只需要让人「理解并想要」 |
-| 产品说话 | 视频说话 |
+| Làm sản phẩm dùng được trước | Xác minh trước "có ai cần không" |
+| Tính năng càng hoàn thiện càng tốt | Chỉ cần làm cho người ta "hiểu và muốn" |
+| Sản phẩm nói lên tất cả | Video nói lên tất cả |
 
-他的核心假设是：**有足够多的人遇到「多设备文件同步」这个痛点，并且愿意为解决方案付费/注册。**
+Giả định cốt lõi của anh là: **Có đủ nhiều người gặp vấn đề "đồng bộ file đa thiết bị", và sẵn sàng trả phí/đăng ký giải pháp.**
 
-验证这个假设，并不需要一个完整的产品。一个能让人理解「这是什么、能解决什么问题」的视频就够了。
+Để xác minh giả định này, không cần một sản phẩm hoàn chỉnh. Một video giúp người ta hiểu "đây là gì, giải quyết vấn đề gì" là đủ.
 
-### 关键决策
+### Quyết định quan trọng
 
-Houston 做了一个 3 分钟的演示视频，展示 Dropbox 的使用场景：
-- 在一台电脑上修改文件
-- 打开另一台电脑，文件自动同步了
-- 不需要 U 盘、不需要发邮件给自己
+Houston làm một video demo 3 phút, trình bày tình huống sử dụng Dropbox:
+- Sửa file trên một máy tính
+- Mở máy tính khác, file tự động đồng bộ
+- Không cần USB, không cần gửi email cho chính mình
 
-视频发布在 Hacker News 上，配合一个注册等待列表页面。
+Video được đăng trên Hacker News, kèm trang đăng ký danh sách chờ.
 
-### 结果
+### Kết quả
 
-- 一夜之间，等待列表从 5,000 人增长到 75,000 人
-- Houston 得到了明确的验证：这个问题值得解决，有大量人愿意使用
-- 基于这个验证结果，他开始认真开发产品
+- Chỉ sau một đêm, danh sách chờ tăng từ 5.000 người lên 75.000 người
+- Houston nhận được xác minh rõ ràng: vấn đề này đáng giải quyết, có lượng lớn người sẵn sàng sử dụng
+- Dựa trên kết quả xác minh này, anh bắt đầu phát triển sản phẩm nghiêm túc
 
-### 启示
+### Gợi ý
 
-**减法思维的核心不是「少做功能」，而是「想清楚要验证什么」。**
+**Cốt lõi của tư duy trừ không phải "làm ít tính năng", mà là "nghĩ rõ cần xác minh gì".**
 
-Dropbox 的 MVP 不是一个「功能很少的产品」，而是一个「能验证核心假设的最小方案」。在这个案例中，验证假设的最小方案是一个视频，不是产品。
+MVP của Dropbox không phải "sản phẩm có ít tính năng", mà là "phương án tối thiểu có thể xác minh giả định cốt lõi". Trong case này, phương án tối thiểu để xác minh giả định là video, không phải sản phẩm.
 
 
-## 案例 2：Airbnb —— 从气垫床到独角兽
+## Case study 2: Airbnb - Từ đệm hơi đến kỳ lân
 
-**场景类型**：产品验证  
-**核心思维模型**：JTBD 思维
+**Loại tình huống**: Xác minh sản phẩm
+**Mô hình tư duy cốt lõi**: Tư duy JTBD
 
-### 背景
+### Bối cảnh
 
-2007 年，Brian Chesky 和 Joe Gebbia 付不起旧金山的房租。当时城里正在举办一个设计大会，酒店全部订满。他们想到一个主意：在客厅放几个气垫床，提供早餐，出租给参会者。
+Năm 2007, Brian Chesky và Joe Gebbia không trả được tiền thuê nhà ở San Francisco. Lúc đó thành phố đang tổ chức hội nghị thiết kế, khách sạn đều kín phòng. Họ nghĩ ra ý tưởng: đặt vài đệm hơi trong phòng khách, cung cấp bữa sáng, cho thuê cho người tham dự hội nghị.
 
-这就是 Airbnb 的起源——AirBed & Breakfast（气垫床和早餐）。
+Đây là nguồn gốc của Airbnb - AirBed & Breakfast (Đệm hơi và Bữa sáng).
 
-### 思维模型应用：JTBD 思维
+### Áp dụng mô hình tư duy: Tư duy JTBD
 
-最初，他们以为自己在解决的问题是「便宜住宿」。
+Ban đầu, họ nghĩ vấn đề mình giải quyết là "chỗ ở giá rẻ".
 
-但通过和第一批房客交流，他们发现了更深层的任务：
+Nhưng qua trao đổi với những khách đầu tiên, họ phát hiện nhiệm vụ sâu xa hơn:
 
-| 表面需求 | 深层任务（JTBD） |
+| Nhu cầu bề mặt | Nhiệm vụ sâu xa (JTBD) |
 |---------|----------------|
-| 我需要便宜的住宿 | 我想像当地人一样体验这个城市 |
-| 我需要一张床 | 我想要比酒店更有人情味的住宿体验 |
-| 我想省钱 | 我想把钱花在体验上，而不是标准化的酒店房间 |
+| Tôi cần chỗ ở giá rẻ | Tôi muốn trải nghiệm thành phố này như người địa phương |
+| Tôi cần một cái giường | Tôi muốn trải nghiệm lưu trú có tính người hơn khách sạn |
+| Tôi muốn tiết kiệm tiền | Tôi muốn dành tiền cho trải nghiệm, không phải phòng khách sạn tiêu chuẩn |
 
-用 JTBD 模板描述：
+Dùng template JTBD mô tả:
 
-> 当 旅行者 在 去一个新城市参加活动 时，  
-> 想要 像当地人一样住在这个城市，  
-> 以便于 获得独特的、有人情味的旅行体验。
+> Khi khách du lịch đến một thành phố mới tham dự sự kiện,
+> muốn sống ở thành phố này như người địa phương,
+> để có thể có trải nghiệm du lịch độc đáo, có tính người.
 
-### 关键决策
+### Quyết định quan trọng
 
-基于这个洞察，Airbnb 的定位从「便宜住宿」转变为「像当地人一样生活」。
+Dựa trên hiểu biết này, định vị của Airbnb chuyển từ "chỗ ở giá rẻ" thành "sống như người địa phương".
 
-这影响了后续的产品设计：
-- 鼓励房东提供当地生活建议
-- 展示房源的独特个性，而非标准化配置
-- 强调「体验」而非「住宿」
+Điều này ảnh hưởng thiết kế sản phẩm sau đó:
+- Khuyến khích chủ nhà cung cấp gợi ý cuộc sống địa phương
+- Trưng bày cá tính độc đáo của căn hộ, không phải cấu hình tiêu chuẩn
+- Nhấn mạnh "trải nghiệm" hơn "chỗ ở"
 
-### 结果
+### Kết quả
 
-Airbnb 成为估值超过 1000 亿美元的公司。他们的成功不是因为提供了更便宜的住宿，而是因为理解了用户真正要完成的任务。
+Airbnb trở thành công ty trị giá hơn 100 tỷ USD. Thành công của họ không phải vì cung cấp chỗ ở rẻ hơn, mà vì hiểu nhiệm vụ người dùng thực sự muốn hoàn thành.
 
-### 启示
+### Gợi ý
 
-**JTBD 思维帮你看到功能背后的任务。**
+**Tư duy JTBD giúp bạn nhìn thấy nhiệm vụ đằng sau tính năng.**
 
-如果 Airbnb 只停留在「便宜住宿」这个表面需求，他们可能会陷入和廉价酒店的价格战。正是因为理解了「像当地人一样生活」这个深层任务，他们开辟了一个全新的市场。
+Nếu Airbnb chỉ dừng lại ở nhu cầu bề mặt "chỗ ở giá rẻ", họ có thể rơi vào cuộc chiến giá với khách sạn bình dân. Chính vì hiểu nhiệm vụ sâu xa "sống như người địa phương", họ mở ra một thị trường hoàn toàn mới.
 
 
-## 案例 3：电商渠道 ROI 分析
+## Case study 3: Phân tích ROI kênh thương mại điện tử
 
-**场景类型**：数据分析  
-**核心思维模型**：灵魂三问
+**Loại tình huống**: Phân tích dữ liệu
+**Mô hình tư duy cốt lõi**: Ba câu hỏi linh hồn
 
-### 背景
+### Bối cảnh
 
-小王是一家电商公司的运营。老板让他「分析一下各渠道的投放效果」。
+Tiểu Vương là nhân viên vận hành của một công ty thương mại điện tử. Sếp yêu cầu anh "phân tích hiệu quả đầu tư các kênh".
 
-他打开 Excel，面对一堆数据，不知道从何下手：
-- 要分析哪些指标？
-- 要做什么图表？
-- 报告应该多长？
+Anh mở Excel, đối mặt với đống dữ liệu, không biết bắt đầu từ đâu:
+- Phân tích chỉ số nào?
+- Làm biểu đồ gì?
+- Báo cáo nên dài bao nhiêu?
 
-### 思维模型应用：灵魂三问
+### Áp dụng mô hình tư duy: Ba câu hỏi linh hồn
 
-小王决定先用「灵魂三问」理清思路：
+Tiểu Vương quyết định dùng "Ba câu hỏi linh hồn" lý rõ tư duy trước:
 
-**问题 1：用户是谁？**
+**Câu hỏi 1: Người dùng là ai?**
 
-这份报告的「用户」是老板。老板关心的是「钱花得值不值」，不是「数据有多详细」。
+"Người dùng" của báo cáo này là sếp. Sếp quan tâm "tiền có đáng chi không", không phải "dữ liệu chi tiết thế nào".
 
-**问题 2：痛点在哪？**
+**Câu hỏi 2: Điểm đau ở đâu?**
 
-老板的痛点是：每个月在 5 个渠道投了 50 万广告费，但不知道哪个渠道效果最好，下个月预算该怎么分配。
+Điểm đau của sếp là: mỗi tháng chi 500 nghìn quảng cáo trên 5 kênh, nhưng không biết kênh nào hiệu quả nhất, ngân sách tháng sau nên phân bổ thế nào.
 
-**问题 3：为什么选我？**
+**Câu hỏi 3: Tại sao chọn tôi?**
 
-老板选择让小王做这个分析，是因为小王能接触到各渠道的数据。老板需要的是「能支持决策的结论」，而不是「展示数据的报告」。
+Sếp chọn Tiểu Vương làm phân tích này vì Tiểu Vương có thể tiếp cận dữ liệu các kênh. Sếp cần "kết luận hỗ trợ quyết định", không phải "báo cáo trưng bày dữ liệu".
 
-### 关键决策
+### Quyết định quan trọng
 
-基于灵魂三问，小王明确了分析方向：
+Dựa trên Ba câu hỏi linh hồn, Tiểu Vương làm rõ hướng phân tích:
 
-| 之前的想法 | 调整后的方向 |
+| Ý tưởng trước đây | Hướng sau điều chỉnh |
 |-----------|-------------|
-| 分析所有能分析的指标 | 只分析 ROI 相关指标 |
-| 做各种漂亮的图表 | 只做能回答「哪个渠道效果最好」的图 |
-| 报告越详细越好 | 一页 PPT 说清楚结论 |
+| Phân tích tất cả chỉ số có thể phân tích | Chỉ phân tích chỉ số liên quan ROI |
+| Làm các biểu đồ đẹp mắt | Chỉ làm biểu đồ trả lời "kênh nào hiệu quả nhất" |
+| Báo cáo càng chi tiết càng tốt | Một trang PPT nói rõ kết luận |
 
-他的核心交付变成了：
+Deliverable cốt lõi của anh trở thành:
 
-> 「基于 Q3 数据，渠道 A 的 ROI 是 3.2，渠道 C 是 1.1。建议下季度将渠道 C 的预算转移 30% 到渠道 A。」
+> "Dựa trên dữ liệu Q3, ROI kênh A là 3.2, kênh C là 1.1. Đề xuất quý sau chuyển 30% ngân sách kênh C sang kênh A."
 
-### 结果
+### Kết quả
 
-老板看完报告，5 分钟内做出了预算调整决策。老板评价：「终于有人能告诉我该怎么做了，而不是扔给我一堆数据。」
+Sếp xem báo cáo xong, trong 5 phút đưa ra quyết định điều chỉnh ngân sách. Đánh giá của sếp: "Cuối cùng cũng có người nói cho tôi nên làm gì, thay vì ném cho tôi đống dữ liệu."
 
-### 启示
+### Gợi ý
 
-**数据分析的价值不在于「分析了多少」，而在于「回答了什么问题」。**
+**Giá trị phân tích dữ liệu không nằm ở "phân tích bao nhiêu", mà ở "trả lời câu hỏi gì".**
 
-在做数据分析前，先问自己灵魂三问：
-- 这份报告给谁看？
-- 他需要回答什么问题？
-- 他看完后应该能做什么决策？
+Trước khi làm phân tích dữ liệu, tự hỏi Ba câu hỏi linh hồn:
+- Báo cáo này cho ai xem?
+- Họ cần trả lời câu hỏi gì?
+- Sau khi xem xong họ nên có thể đưa ra quyết định gì?
 
 
-## 案例 4：销售周报自动化
+## Case study 4: Tự động hóa báo cáo bán hàng tuần
 
-**场景类型**：数据分析/自动化  
-**核心思维模型**：逆向思维
+**Loại tình huống**: Phân tích dữ liệu/Tự động hóa
+**Mô hình tư duy cốt lõi**: Tư duy ngược
 
-### 背景
+### Bối cảnh
 
-小张每周五要从 5 个部门的 Excel 文件中汇总数据，生成一份销售周报。这个过程需要 2 小时，而且经常出错。
+Tiểu Trương mỗi thứ Sáu phải tổng hợp dữ liệu từ 5 file Excel của các bộ phận, tạo báo cáo bán hàng tuần. Quá trình này mất 2 giờ, và thường xuyên sai sót.
 
-他决定用 Vibe Coding 做一个自动化工具。
+Anh quyết định dùng Vibe Coding làm công cụ tự động hóa.
 
-### 思维模型应用：逆向思维
+### Áp dụng mô hình tư duy: Tư duy ngược
 
-在动手之前，小张做了一个 Pre-mortem 分析：
+Trước khi bắt tay vào làm, Tiểu Trương làm phân tích Pre-mortem:
 
-> 假设 1 个月后，这个自动化工具失败了，可能是什么原因？
+> Giả sử 1 tháng sau, công cụ tự động hóa này thất bại, có thể vì lý do gì?
 
-| 失败原因 | 可能性 | 预防措施 |
+| Nguyên nhân thất bại | Khả năng | Biện pháp phòng tránh |
 |---------|-------|---------|
-| 部门改了 Excel 格式，脚本跑不了 | 高 | 加入格式检测，发现异常时报警而非静默失败 |
-| 汇总后的数据和手动汇总不一致 | 中 | 前几周自动化和手动并行，对比验证 |
-| 忘了新增的部门没有加入脚本 | 中 | 用文件夹扫描代替硬编码文件名 |
-| 脚本报错了不知道怎么修 | 中 | 让 AI 写详细的错误提示和日志 |
+| Bộ phận đổi format Excel, script chạy không được | Cao | Thêm kiểm tra format, phát hiện bất thường thì báo động thay vì thất bại âm thầm |
+| Dữ liệu tổng hợp không khớp với tổng hợp thủ công | Trung | Vài tuần đầu tự động hóa và thủ công song song, đối chiếu xác minh |
+| Quên bộ phận mới thêm vào chưa đưa vào script | Trung | Dùng quét thư mục thay vì hardcode tên file |
+| Script báo lỗi không biết sửa thế nào | Trung | Yêu cầu AI viết thông báo lỗi chi tiết và log |
 
-### 关键决策
+### Quyết định quan trọng
 
-基于 Pre-mortem 分析，小张在给 AI 的 Prompt 中加入了这些要求：
+Dựa trên phân tích Pre-mortem, Tiểu Trương thêm các yêu cầu này vào Prompt cho AI:
 
 ```
-请帮我写一个 Python 脚本，自动汇总多个 Excel 文件。
+Hãy giúp tôi viết script Python tự động tổng hợp nhiều file Excel.
 
-特别要求：
-1. 自动扫描指定文件夹下的所有 .xlsx 文件
-2. 检测每个文件的格式是否符合预期，不符合时明确报错
-3. 汇总完成后，输出一份校验摘要（总行数、各部门数据条数）
-4. 每一步操作都写日志，方便排查问题
+Yêu cầu đặc biệt:
+1. Tự động quét tất cả file .xlsx trong thư mục chỉ định
+2. Kiểm tra format mỗi file có đúng kỳ vọng không, không đúng thì báo lỗi rõ ràng
+3. Sau khi tổng hợp xong, xuất bản tóm tắt kiểm tra (tổng số dòng, số dữ liệu mỗi bộ phận)
+4. Mỗi bước thao tác đều ghi log, thuận tiện tra cứu vấn đề
 ```
 
-### 结果
+### Kết quả
 
-第一周，脚本在汇总财务部数据时报错——因为财务部的表头多了一列。因为有格式检测和明确的错误提示，小张 5 分钟就定位并修复了问题。
+Tuần đầu tiên, script báo lỗi khi tổng hợp dữ liệu bộ phận tài chính - vì bảng của bộ phận tài chính thêm một cột. Nhờ có kiểm tra format và thông báo lỗi rõ ràng, Tiểu Trương 5 phút đã định vị và sửa vấn đề.
 
-如果没有 Pre-mortem 分析，这个问题可能会导致汇总数据错误，直到老板发现才被追查。
+Nếu không có phân tích Pre-mortem, vấn đề này có thể dẫn đến dữ liệu tổng hợp sai, đến khi sếp phát hiện mới truy ra.
 
-### 启示
+### Gợi ý
 
-**逆向思维不是悲观主义，而是「提前踩坑」。**
+**Tư duy ngược không phải chủ nghĩa bi quan, mà là "đạp hố trước".**
 
-对于自动化脚本来说，最危险的不是「跑不起来」，而是「跑起来了但结果不对」。Pre-mortem 帮你提前想到这些风险，并在设计时就加入防护措施。
+Với script tự động hóa, nguy hiểm nhất không phải "chạy không được", mà là "chạy được nhưng kết quả sai". Pre-mortem giúp bạn nghĩ trước những rủi ro này, và thêm biện pháp bảo vệ từ khi thiết kế.
 
 
-## 案例 5：吃药提醒给父母
+## Case study 5: Nhắc nhở uống thuốc cho bố mẹ
 
-**场景类型**：个人工具/给家人做  
-**核心思维模型**：故事思维
+**Loại tình huống**: Công cụ cá nhân/Làm cho gia đình
+**Mô hình tư duy cốt lõi**: Tư duy câu chuyện
 
-### 背景
+### Bối cảnh
 
-小李的父母都 60 多岁了，需要每天定时吃降压药。但他们经常忘记，或者吃完了忘记自己吃没吃过。
+Bố mẹ Tiểu Lý đều hơn 60 tuổi, cần uống thuốc hạ huyết áp đúng giờ hàng ngày. Nhưng họ thường quên, hoặc uống xong quên mình đã uống chưa.
 
-小李想用 Vibe Coding 做一个吃药提醒工具。
+Tiểu Lý muốn dùng Vibe Coding làm công cụ nhắc nhở uống thuốc.
 
-### 思维模型应用：故事思维
+### Áp dụng mô hình tư duy: Tư duy câu chuyện
 
-小李没有直接开始设计功能，而是先用「三维画像」理解父母：
+Tiểu Lý không trực tiếp bắt đầu thiết kế tính năng, mà dùng "chân dung ba chiều" hiểu bố mẹ trước:
 
-| 维度 | 内容 |
+| Chiều | Nội dung |
 |-----|------|
-| 表面属性 | 60+ 岁，视力不太好，不太会用智能手机 |
-| 行为习惯 | 早上起床后先看电视，手机主要用来接电话和微信 |
-| 深层动机 | 不想给子女添麻烦，但又怕忘记吃药影响健康 |
+| Thuộc tính bề mặt | Hơn 60 tuổi, thị lực không tốt lắm, không rành dùng smartphone |
+| Thói quen hành vi | Sáng dậy xem tivi trước, điện thoại chủ yếu dùng để nhận điện thoại và WeChat |
+| Động cơ sâu xa | Không muốn làm phiền con cái, nhưng sợ quên uống thuốc ảnh hưởng sức khỏe |
 
-然后，他用「用户旅程」想象父母使用这个工具的场景：
+Sau đó, anh dùng "hành trình người dùng" tưởng tượng tình huống bố mẹ sử dụng công cụ này:
 
 ```
-早上 7:00
-├── 场景：爸妈刚起床，在客厅
-├── 触发：手机响了/震动了
-├── 行动：看手机，看到吃药提醒
-├── 障碍：字太小看不清？不知道点哪里确认？
-└── 期望感受：「哦，该吃药了」，点一下就完成
+Sáng 7:00
+├── Tình huống: Bố mẹ vừa dậy, đang ở phòng khách
+├── Kích hoạt: Điện thoại kêu/rung
+├── Hành động: Xem điện thoại, thấy nhắc nhở uống thuốc
+├── Trở ngại: Chữ quá nhỏ nhìn không rõ? Không biết bấm đâu để xác nhận?
+└── Cảm giác kỳ vọng: "Ồ, đến giờ uống thuốc rồi", bấm một cái là xong
 ```
 
-### 关键决策
+### Quyết định quan trọng
 
-基于故事思维的分析，小李确定了设计原则：
+Dựa trên phân tích tư duy câu chuyện, Tiểu Lý xác định nguyên tắc thiết kế:
 
-| 常见做法 | 小李的做法 |
+| Cách làm thông thường | Cách làm của Tiểu Lý |
 |---------|-----------|
-| 多种提醒方式可选 | 只用最简单的方式：大字 + 震动 |
-| 记录吃药历史 | 只问「吃了吗」，点「吃了」就完成 |
-| 可以设置多种药物 | 先只支持一种药，降低复杂度 |
-| 精美的 UI 设计 | 大按钮、大字体、高对比度 |
+| Nhiều cách nhắc nhở tùy chọn | Chỉ dùng cách đơn giản nhất: Chữ lớn + rung |
+| Ghi lại lịch sử uống thuốc | Chỉ hỏi "Đã uống chưa", bấm "Đã uống" là xong |
+| Có thể cài đặt nhiều loại thuốc | Trước tiên chỉ hỗ trợ một loại thuốc, giảm độ phức tạp |
+| UI thiết kế đẹp mắt | Nút lớn, chữ lớn, độ tương phản cao |
 
-给 AI 的 Prompt：
+Prompt cho AI:
 
 ```
-我要给 60 多岁的父母做一个吃药提醒网页。
+Tôi muốn làm trang web nhắc nhở uống thuốc cho bố mẹ hơn 60 tuổi.
 
-用户特点：
-- 视力不太好，需要大字体（至少 24px）
-- 不太会用手机，交互要极简
-- 不需要记录历史，只需要提醒和确认
+Đặc điểm người dùng:
+- Thị lực không tốt, cần chữ lớn (ít nhất 24px)
+- Không rành dùng điện thoại, tương tác phải cực đơn giản
+- Không cần ghi lại lịch sử, chỉ cần nhắc nhở và xác nhận
 
-功能要求：
-- 显示当前时间和「该吃药了」提示
-- 一个巨大的「我吃了」按钮
-- 点击后显示「好的，明天同一时间再提醒你」
-- 页面可以设为手机浏览器主页
+Yêu cầu tính năng:
+- Hiển thị thời gian hiện tại và lời nhắc "Đến giờ uống thuốc rồi"
+- Một nút "Tôi đã uống" cực lớn
+- Sau khi bấm hiển thị "Được rồi, ngày mai cùng giờ sẽ nhắc bạn"
+- Trang có thể đặt làm trang chủ trình duyệt điện thoại
 ```
 
-### 结果
+### Kết quả
 
-父母真的开始用这个工具了。妈妈说：「这个比你之前教我用的那些 App 简单多了，我一看就懂。」
+Bố mẹ thực sự bắt đầu dùng công cụ này. Mẹ nói: "Cái này đơn giản hơn mấy App con dạy mẹ dùng trước nhiều, mẹ nhìn là hiểu."
 
-### 启示
+### Gợi ý
 
-**给别人做工具时，「故事思维」帮你站在对方角度思考。**
+**Khi làm công cụ cho người khác, "Tư duy câu chuyện" giúp bạn tư duy từ góc độ đối phương.**
 
-如果小李直接问父母「你想要什么功能」，他们可能说不清楚。但通过想象他们的一天、他们使用手机的场景、他们可能遇到的障碍，小李设计出了真正适合他们的工具。
+Nếu Tiểu Lý trực tiếp hỏi bố mẹ "muốn tính năng gì", họ có thể nói không rõ. Nhưng qua tưởng tượng một ngày của họ, tình huống họ dùng điện thoại, trở ngại có thể gặp, Tiểu Lý thiết kế ra công cụ thực sự phù hợp với họ.
 
 
-## 案例 6：Excel 多表汇总
+## Case study 6: Tổng hợp nhiều bảng Excel
 
-**场景类型**：自动化  
-**核心思维模型**：问题发现
+**Loại tình huống**: Tự động hóa
+**Mô hình tư duy cốt lõi**: Phát hiện vấn đề
 
-### 背景
+### Bối cảnh
 
-小陈是公司的人事专员。每个月初，她需要从各部门收集考勤表，汇总成一份公司考勤总表。
+Tiểu Trần là nhân viên hành chính nhân sự công ty. Mỗi đầu tháng, cô cần thu thập bảng chấm công từ các bộ phận, tổng hợp thành bảng chấm công tổng công ty.
 
-这件事她做了两年，每次都觉得烦，但从没想过可以自动化。
+Việc này cô làm được hai năm, mỗi lần đều cảm thấy phiền, nhưng chưa bao giờ nghĩ có thể tự động hóa.
 
-### 思维模型应用：问题发现
+### Áp dụng mô hình tư duy: Phát hiện vấn đề
 
-某天，小陈开始记「烦恼日记」。一周后，她回顾记录：
+Một ngày, Tiểu Trần bắt đầu ghi "nhật ký phiền não". Một tuần sau, cô xem lại ghi chép:
 
 ```markdown
-## 烦恼日记汇总
+## Tổng hợp nhật ký phiền não
 
-| 日期 | 烦恼 | 频率 | 痛苦程度 |
+| Ngày | Phiền não | Tần suất | Mức độ đau khổ |
 |-----|------|-----|---------|
-| 周一 | 考勤汇总做了3小时 | 每月1次 | 9分 |
-| 周二 | 有部门的表格格式又不对 | 每月1次 | 7分 |
-| 周四 | 汇总完发现数据对不上，重新做 | 每月常有 | 10分 |
+| Thứ Hai | Tổng hợp chấm công mất 3 giờ | Mỗi tháng 1 lần | 9 điểm |
+| Thứ Ba | Có bộ phận format bảng lại không đúng | Mỗi tháng 1 lần | 7 điểm |
+| Thứ Năm | Tổng hợp xong phát hiện dữ liệu không khớp, làm lại | Mỗi tháng thường có | 10 điểm |
 ```
 
-她用「问题筛选评分表」分析这个问题：
+Cô dùng "Bảng chấm điểm lọc vấn đề" phân tích vấn đề này:
 
-| 维度 | 分数 | 理由 |
+| Chiều | Điểm | Lý do |
 |-----|------|------|
-| 重复性 | 4 | 每月一次，固定发生 |
-| 规则性 | 5 | 规则很清晰：从指定列提取数据，合并到一张表 |
-| 可验证 | 5 | 自己用就能验证，对比手动结果 |
-| 不敏感 | 4 | 是内部数据，但不涉及薪资等核心敏感信息 |
-| 容错高 | 4 | 汇总后会人工复核，错了能发现 |
-| **总分** | **22** | 非常适合自动化 |
+| Tính lặp lại | 4 | Mỗi tháng một lần, xảy ra cố định |
+| Tính quy tắc | 5 | Quy tắc rất rõ ràng: từ cột chỉ định trích xuất dữ liệu, gộp vào một bảng |
+| Có thể xác minh | 5 | Tự mình dùng có thể xác minh, đối chiếu kết quả thủ công |
+| Không nhạy cảm | 4 | Là dữ liệu nội bộ, nhưng không liên quan lương và thông tin nhạy cảm cốt lõi khác |
+| Dung sai cao | 4 | Sau khi tổng hợp sẽ kiểm tra thủ công, sai có thể phát hiện |
+| **Tổng điểm** | **22** | Rất phù hợp tự động hóa |
 
-### 关键决策
+### Quyết định quan trọng
 
-小陈决定用 Vibe Coding 解决这个问题。她用「自动化脚本需求模板」整理需求：
+Tiểu Trần quyết định dùng Vibe Coding giải quyết vấn đề này. Cô dùng "Template nhu cầu script tự động hóa" tổng hợp nhu cầu:
 
 ```markdown
-**我的重复性任务**：每月汇总各部门考勤表
+**Công việc lặp lại của tôi**: Mỗi tháng tổng hợp bảng chấm công các bộ phận
 
-**目前我怎么做的**：
-1. 打开各部门发来的 Excel 文件（20分钟找齐文件）
-2. 复制每个文件的 B-F 列数据（60分钟）
-3. 粘贴到汇总表，检查格式（40分钟）
-4. 核对总人数是否一致（20分钟）
+**Hiện tại tôi làm như thế nào**:
+1. Mở file Excel các bộ phận gửi đến (20 phút tìm đủ file)
+2. Copy dữ liệu cột B-F mỗi file (60 phút)
+3. Paste vào bảng tổng hợp, kiểm tra format (40 phút)
+4. Đối chiếu tổng số người có khớp không (20 phút)
 
-**我希望自动化的部分**：步骤 2 和步骤 3
+**Phần tôi muốn tự động hóa**: Bước 2 và Bước 3
 
-**输入**：一个文件夹，里面是各部门的 .xlsx 文件
+**Input**: Một thư mục, bên trong là file .xlsx của các bộ phận
 
-**输出**：一个汇总后的 .xlsx 文件
+**Output**: Một file .xlsx đã tổng hợp
 
-**可能出错的情况**：
-- 有部门的表格列顺序不对
-- 有部门的表格多了或少了几列
-- 文件名格式不统一
+**Tình huống có thể lỗi**:
+- Có bộ phận thứ tự cột trong bảng không đúng
+- Có bộ phận bảng thêm hoặc thiếu vài cột
+- Format tên file không thống nhất
 ```
 
-### 结果
+### Kết quả
 
-她用 AI 生成了一个 Python 脚本，现在每月的考勤汇总从 3 小时缩短到 10 分钟（主要是等脚本跑完和人工复核）。
+Cô dùng AI tạo script Python, giờ tổng hợp chấm công hàng tháng từ 3 giờ rút xuống 10 phút (chủ yếu là chờ script chạy xong và kiểm tra thủ công).
 
-更重要的是，因为脚本会检测格式异常，她再也不用担心「汇总完才发现数据对不上」了。
+Quan trọng hơn, vì script sẽ kiểm tra bất thường format, cô không còn lo lắng "tổng hợp xong mới phát hiện dữ liệu không khớp" nữa.
 
-### 启示
+### Gợi ý
 
-**很多值得自动化的问题，我们每天都在「忍着」。**
+**Nhiều vấn đề đáng tự động hóa, chúng ta đang "chịu đựng" hàng ngày.**
 
-烦恼日记的价值不在于记录本身，而在于让你「看见」那些习以为常的痛点。当你把它们写下来、打分、排序，你就会发现：原来我每个月都在一件事上浪费 3 小时，而这件事完全可以交给 AI。
+Giá trị của nhật ký phiền não không nằm ở bản thân việc ghi chép, mà ở việc giúp bạn "nhìn thấy" những điểm đau quen thuộc. Khi bạn viết chúng ra, chấm điểm, xếp hạng, bạn sẽ phát hiện: hoá ra mỗi tháng tôi đang lãng phí 3 giờ cho một việc, mà việc này hoàn toàn có thể giao cho AI.
 
 
-## 案例总结
+## Tổng kết case study
 
-| 案例 | 核心启示 |
+| Case study | Gợi ý cốt lõi |
 |-----|---------|
-| Dropbox | 验证假设的最小方案，可能不是产品本身 |
-| Airbnb | 看到功能背后的任务，才能找到真正的市场 |
-| 电商 ROI 分析 | 数据分析的价值在于支持决策，不在于展示数据 |
-| 销售周报自动化 | 提前想失败原因，在设计时就加入防护 |
-| 吃药提醒 | 给别人做工具，要站在对方角度想象使用场景 |
-| Excel 汇总 | 烦恼日记帮你发现值得自动化的问题 |
+| Dropbox | Phương án tối thiểu xác minh giả định, có thể không phải bản thân sản phẩm |
+| Airbnb | Nhìn thấy nhiệm vụ đằng sau tính năng, mới tìm được thị trường thực sự |
+| Phân tích ROI thương mại điện tử | Giá trị phân tích dữ liệu nằm ở hỗ trợ quyết định, không phải trưng bày dữ liệu |
+| Tự động hóa báo cáo bán hàng tuần | Nghĩ trước nguyên nhân thất bại, thêm bảo vệ từ khi thiết kế |
+| Nhắc nhở uống thuốc | Làm công cụ cho người khác, phải đứng từ góc độ đối phương tưởng tượng tình huống sử dụng |
+| Tổng hợp Excel | Nhật ký phiền não giúp phát hiện vấn đề đáng tự động hóa |
 
-这些案例的共同点是：**在动手之前，先用思维模型想清楚问题。**
+Điểm chung của các case study này là: **Trước khi bắt tay vào làm, dùng mô hình tư duy nghĩ rõ vấn đề trước.**
 
-这就是第二章「心法」的核心价值——它不会帮你写代码，但会帮你少走弯路。
+Đây là giá trị cốt lõi của Chương 2 "Phần Tư duy" - nó không giúp bạn viết code, nhưng giúp bạn ít đi vòng.

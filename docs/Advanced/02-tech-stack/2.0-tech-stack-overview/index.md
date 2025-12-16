@@ -1,54 +1,53 @@
 ---
-title: "2.0 选对工具，事半功倍——技术栈全景：统一的技术选型指南与版本管理策略"
-typora-root-url: ../../public
+title: "2.0 Chọn đúng công cụ, công việc nhẹ nhàng gấp đôi—Tổng quan công nghệ: Hướng dẫn lựa chọn công nghệ thống nhất và chiến lược quản lý phiên bản"
 ---
 
-# 2.0 选对工具，事半功倍——技术栈全景
+# 2.0 Chọn đúng công cụ, công việc nhẹ nhàng gấp đôi—Tổng quan công nghệ
 
-## 为什么技术选型如此重要？
+## Tại sao lựa chọn công nghệ lại quan trọng đến vậy?
 
-在 Vibe Coding 时代，技术选型的核心标准发生了根本性转变：
+Trong thời đại Vibe Coding, tiêu chuẩn cốt lõi của việc lựa chọn công nghệ đã có sự chuyển đổi căn bản:
 
-**传统开发**：选择你最熟悉的技术栈。
+**Phát triển truyền thống**: Chọn công nghệ bạn quen thuộc nhất.
 
-**Vibe Coding**：选择 AI 最擅长的技术栈。
+**Vibe Coding**: Chọn công nghệ mà AI thành thạo nhất.
 
-AI 模型的训练数据决定了它对某些技术栈的理解更深入、代码生成质量更高。选择一个 AI 友好的技术栈，意味着：
+Dữ liệu huấn luyện của các mô hình AI quyết định việc nó hiểu sâu hơn về một số công nghệ nhất định, chất lượng tạo code cao hơn. Chọn một công nghệ thân thiện với AI có nghĩa là:
 
-- AI 生成的代码更符合最佳实践
-- 遇到问题时 AI 能给出更准确的解决方案
-- 社区资源丰富，AI 的"知识库"更完善
+- Code được AI tạo ra phù hợp hơn với best practices
+- Khi gặp vấn đề, AI có thể đưa ra giải pháp chính xác hơn
+- Tài nguyên cộng đồng phong phú, "kho tri thức" của AI hoàn thiện hơn
 
-## 本课程技术栈全景
+## Tổng quan công nghệ trong khóa học này
 
 ```mermaid
 flowchart TB
-    subgraph Frontend["前端层"]
+    subgraph Frontend["Tầng Frontend"]
         Next["Next.js 16+<br/>App Router"]
         React["React 18+"]
         TS["TypeScript 5+"]
         Tailwind["Tailwind CSS"]
         Shadcn["shadcn/ui"]
     end
-    
-    subgraph Backend["后端层"]
+
+    subgraph Backend["Tầng Backend"]
         API["API Routes<br/>Server Actions"]
         Prisma["Prisma ORM"]
         Auth["NextAuth.js"]
     end
-    
-    subgraph Data["数据层"]
+
+    subgraph Data["Tầng Dữ liệu"]
         PG["PostgreSQL"]
-        Supabase["Supabase<br/>(可选)"]
-        OSS["对象存储<br/>腾讯云 COS"]
+        Supabase["Supabase<br/>(tùy chọn)"]
+        OSS["Object Storage<br/>Tencent Cloud COS"]
     end
-    
-    subgraph Infra["基础设施"]
+
+    subgraph Infra["Hạ tầng"]
         Docker["Docker"]
         Panel["1Panel"]
         Vercel["Vercel"]
     end
-    
+
     Next --> React
     Next --> TS
     Next --> Tailwind
@@ -63,17 +62,17 @@ flowchart TB
     Docker --> Panel
 ```
 
-## 版本锁定策略
+## Chiến lược khóa phiên bản
 
-### 为什么要锁定版本？
+### Tại sao phải khóa phiên bản?
 
-在团队协作和 AI 辅助开发中，版本不一致是最常见的"玄学问题"来源。明确锁定版本能够：
+Trong phối hợp nhóm và phát triển hỗ trợ AI, sự không nhất quán về phiên bản là nguồn gốc phổ biến nhất của "vấn đề huyền bí". Khóa phiên bản rõ ràng có thể:
 
-1. **保证可复现性**：今天能跑的代码，明天也一定能跑
-2. **减少 AI 困惑**：AI 知道你用的是哪个版本的 API
-3. **降低协作成本**：团队成员环境一致
+1. **Đảm bảo tái tạo được**: Code chạy được hôm nay, ngày mai chắc chắn vẫn chạy được
+2. **Giảm sự nhầm lẫn của AI**: AI biết bạn đang dùng API phiên bản nào
+3. **Giảm chi phí phối hợp**: Môi trường các thành viên trong nhóm nhất quán
 
-### 核心依赖版本
+### Phiên bản phụ thuộc cốt lõi
 
 ```json
 {
@@ -94,72 +93,72 @@ flowchart TB
 }
 ```
 
-### 版本号语义：SemVer
+### Ngữ nghĩa số phiên bản: SemVer
 
-理解语义化版本号（Semantic Versioning）是管理依赖的基础：
+Hiểu về phiên bản ngữ nghĩa (Semantic Versioning) là nền tảng của việc quản lý phụ thuộc:
 
 ```
-主版本.次版本.修订版本
-  ^        ^        ^
-  |        |        +-- 修复 Bug，向后兼容
-  |        +----------- 新功能，向后兼容
-  +-------------------- 破坏性更新，可能不兼容
+Major.Minor.Patch
+  ^     ^     ^
+  |     |     +-- Sửa Bug, tương thích ngược
+  |     +-------- Tính năng mới, tương thích ngược
+  +-------------- Cập nhật phá vỡ, có thể không tương thích
 ```
 
-**package.json 中的版本范围**：
+**Phạm vi phiên bản trong package.json**:
 
-| 符号 | 含义 | 示例 |
+| Ký hiệu | Ý nghĩa | Ví dụ |
 |------|------|------|
-| `^1.2.3` | 允许次版本和修订版本更新 | 匹配 `1.x.x` |
-| `~1.2.3` | 只允许修订版本更新 | 匹配 `1.2.x` |
-| `1.2.3` | 精确锁定 | 只匹配 `1.2.3` |
+| `^1.2.3` | Cho phép cập nhật minor và patch | Khớp `1.x.x` |
+| `~1.2.3` | Chỉ cho phép cập nhật patch | Khớp `1.2.x` |
+| `1.2.3` | Khóa chính xác | Chỉ khớp `1.2.3` |
 
-::: tip 最佳实践
-对于核心框架（Next.js、React），建议使用 `^` 锁定主版本；对于可能有兼容性问题的库，使用 `~` 或精确版本。
+::: tip Thực hành tốt nhất
+Đối với các framework cốt lõi (Next.js, React), nên sử dụng `^` để khóa major version; đối với các thư viện có thể có vấn đề tương thích, sử dụng `~` hoặc phiên bản chính xác.
 :::
 
-## 为什么选择这套技术栈？
+## Tại sao chọn bộ công nghệ này?
 
-### Next.js：全栈框架的最优解
+### Next.js: Giải pháp tối ưu cho fullstack framework
 
-| 特性 | 价值 |
+| Tính năng | Giá trị |
 |------|------|
-| App Router | 基于文件系统的路由，直观易懂 |
-| RSC | 服务器组件，减少客户端 JS 体积 |
-| Server Actions | 直接在组件中调用服务端逻辑 |
-| 内置优化 | 图片、字体、脚本自动优化 |
+| App Router | Routing dựa trên file system, trực quan dễ hiểu |
+| RSC | Server Components, giảm kích thước JS phía client |
+| Server Actions | Gọi trực tiếp logic server trong component |
+| Tối ưu tích hợp | Tự động tối ưu hóa hình ảnh, font, script |
 
-### TypeScript：AI 的最佳搭档
+### TypeScript: Đối tác tốt nhất của AI
 
-TypeScript 不仅是类型安全的保障，更是与 AI 协作的桥梁：
+TypeScript không chỉ là bảo đảm type-safe, mà còn là cầu nối hợp tác với AI:
 
-- **类型即文档**：AI 通过类型定义理解你的意图
-- **自动补全**：类型系统让 AI 生成更精准的代码
-- **重构安全**：类型检查让 AI 的大规模修改更可靠
+- **Type chính là tài liệu**: AI hiểu ý định của bạn qua định nghĩa type
+- **Tự động hoàn thành**: Hệ thống type giúp AI tạo code chính xác hơn
+- **Refactor an toàn**: Type checking giúp những sửa đổi quy mô lớn của AI đáng tin cậy hơn
 
-### Prisma：类型安全的数据库操作
+### Prisma: Thao tác database type-safe
 
 ```typescript
-// Prisma 自动生成的类型，让 AI 知道你的数据结构
+// Type tự động tạo bởi Prisma, giúp AI biết cấu trúc dữ liệu của bạn
 const user = await prisma.user.findUnique({
   where: { id: userId },
-  include: { posts: true }  // AI 知道这会返回带 posts 的 User
+  include: { posts: true }  // AI biết điều này sẽ trả về User có posts
 })
 ```
 
-## AI 协作指南
+## Hướng dẫn phối hợp với AI
 
-当你需要让 AI 帮你做技术选型决策时，可以这样提问：
+Khi bạn cần AI giúp đưa ra quyết định lựa chọn công nghệ, bạn có thể hỏi như sau:
 
-> **核心意图**：让 AI 理解你的项目约束，给出技术建议
+> **Ý định cốt lõi**: Giúp AI hiểu ràng buộc dự án của bạn, đưa ra gợi ý công nghệ
 
-**关键术语**：`Next.js App Router`、`TypeScript`、`Prisma`、`Server Components`、`Server Actions`
+**Thuật ngữ chính**: `Next.js App Router`, `TypeScript`, `Prisma`, `Server Components`, `Server Actions`
 
-**交互策略**：
-1. 先描述项目的核心需求和规模
-2. 说明你的部署环境限制
-3. 让 AI 基于本课程技术栈给出具体配置建议
+**Chiến lược tương tác**:
+1. Trước tiên mô tả nhu cầu cốt lõi và quy mô của dự án
+2. Nêu rõ giới hạn môi trường triển khai của bạn
+3. Yêu cầu AI đưa ra gợi ý cấu hình cụ thể dựa trên công nghệ của khóa học này
 
-::: warning 避坑提示
-不要让 AI 随意推荐技术栈。明确告诉它："基于 Next.js 16 App Router + TypeScript + Prisma 技术栈"，避免 AI 推荐过时或不兼容的方案。
+::: warning Lời khuyên tránh sai lầm
+Đừng để AI tự ý gợi ý công nghệ. Hãy nói rõ với nó: "Dựa trên công nghệ Next.js 16 App Router + TypeScript + Prisma", tránh AI gợi ý các phương án lỗi thời hoặc không tương thích.
 :::

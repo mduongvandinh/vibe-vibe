@@ -1,74 +1,73 @@
 ---
-title: "7.4 接口升级了，旧版怎么办——API 版本管理与兼容性：向前兼容的设计原则"
-typora-root-url: ../../public
+title: "7.4 API được nâng cấp rồi, phiên bản cũ thế nào——Quản lý phiên bản API và tương thích: Nguyên tắc thiết kế tương thích về phía trước"
 ---
 
-# 7.4 API 版本管理
+# 7.4 Quản lý phiên bản API
 
-## 核心问题
+## Vấn đề cốt lõi
 
-| 问题 | 本节解答 |
+| Vấn đề | Phần này giải đáp |
 |------|----------|
-| 版本号怎么定？ | 使用语义化版本：主版本.次版本.修订版本 |
-| 版本号放哪里？ | URL 路径简单直观，Header 更灵活 |
-| 新版本发布了，旧版本怎么办？ | 保持向后兼容，渐进式废弃 |
-| 怎么通知用户？ | 维护 Changelog，发送变更通知 |
+| Phiên bản được định nghĩa như thế nào? | Sử dụng semantic versioning: phiên bản chính.phiên bản phụ.phiên bản vá |
+| Đặt phiên bản ở đâu? | URL path đơn giản trực quan, Header linh hoạt hơn |
+| Phiên bản mới được phát hành rồi, phiên bản cũ thế nào? | Duy trì backward compatibility, loại bỏ dần |
+| Thông báo cho người dùng như thế nào? | Duy trì Changelog, gửi thông báo thay đổi |
 
-## 版本管理流程
+## Quy trình quản lý phiên bản
 
 ```mermaid
 flowchart LR
-    Design["设计新版本"] --> Compat["检查兼容性"]
-    Compat --> Version["确定版本号"]
-    Version --> Impl["实现新版本"]
-    Impl --> Doc["更新文档"]
-    Doc --> Notify["通知用户"]
-    Notify --> Deprecate["废弃旧版本"]
+    Design["Thiết kế phiên bản mới"] --> Compat["Kiểm tra tương thích"]
+    Compat --> Version["Xác định phiên bản"]
+    Version --> Impl["Triển khai phiên bản mới"]
+    Impl --> Doc["Cập nhật tài liệu"]
+    Doc --> Notify["Thông báo cho người dùng"]
+    Notify --> Deprecate["Loại bỏ phiên bản cũ"]
 ```
 
-## 本节内容
+## Nội dung phần này
 
-| 小节 | 主题 | 核心知识点 |
+| Tiểu mục | Chủ đề | Kiến thức cốt lõi |
 |------|------|------------|
-| 7.4.1 | 语义化版本 | 主版本/次版本/修订版本 |
-| 7.4.2 | 版本控制策略 | URL 路径 vs 请求头 |
-| 7.4.3 | 向后兼容 | 字段添加与废弃策略 |
-| 7.4.4 | 变更日志 | API 变更记录与通知 |
+| 7.4.1 | Semantic versioning | Phiên bản chính/phụ/vá |
+| 7.4.2 | Chiến lược kiểm soát phiên bản | URL path vs request header |
+| 7.4.3 | Backward compatibility | Chiến lược thêm và loại bỏ trường |
+| 7.4.4 | Changelog | Ghi chép và thông báo thay đổi API |
 
-## 快速示例
+## Ví dụ nhanh
 
-### URL 版本
+### Phiên bản URL
 
 ```
 GET /api/v1/users
 GET /api/v2/users
 ```
 
-### Header 版本
+### Phiên bản Header
 
 ```
 GET /api/users
 Accept: application/vnd.myapp.v2+json
 ```
 
-### 向后兼容
+### Backward compatibility
 
 ```typescript
-// 新增字段，不破坏旧客户端
+// Thêm trường mới, không làm hỏng client cũ
 interface User {
   id: string
   name: string
   email: string
-  avatar?: string  // 新增，可选
+  avatar?: string  // Mới, tùy chọn
 }
 ```
 
-## 学习目标
+## Mục tiêu học tập
 
-完成本节后，你将能够：
+Sau khi hoàn thành phần này, bạn sẽ có khả năng:
 
-1. 正确使用语义化版本号
-2. 选择合适的版本控制策略
-3. 设计向后兼容的 API
-4. 管理 API 变更和废弃流程
-5. 维护清晰的变更日志
+1. Sử dụng đúng semantic versioning
+2. Chọn chiến lược kiểm soát phiên bản phù hợp
+3. Thiết kế API backward compatible
+4. Quản lý quy trình thay đổi và loại bỏ API
+5. Duy trì changelog rõ ràng

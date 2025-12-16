@@ -1,52 +1,51 @@
 ---
-title: "12.6 如何友好地爬取数据——爬虫：速率/robots/反爬概要"
-typora-root-url: ../../public
+title: "12.6 Làm thế nào để thu thập dữ liệu một cách thân thiện——Web Scraping: Tốc độ/robots/Chống Scraping Tổng quan"
 ---
 
-# 12.6 如何友好地爬取数据——爬虫：速率/robots/反爬概要
+# 12.6 Làm thế nào để thu thập dữ liệu một cách thân thiện——Web Scraping: Tốc độ/robots/Chống Scraping Tổng quan
 
-### 一句话破题
+### Một câu giải quyết vấn đề
 
-网络爬虫是把双刃剑——用得好是数据采集利器，用不好可能触犯法律或被封禁。本章教你做一个"有礼貌"的爬虫。
+Web scraper là một con dao hai lưỡi——nếu sử dụng tốt là công cụ thu thập dữ liệu mạnh mẽ, nếu sử dụng sai có thể vi phạm luật pháp hoặc bị chặn. Chương này sẽ dạy bạn cách trở thành một "scraper lịch sự".
 
-### 核心价值
+### Giá trị cốt lõi
 
-爬虫技术在以下场景很有价值：
+Kỹ thuật scraping rất có giá trị trong các tình huống sau:
 
-- **数据分析**：采集公开数据进行市场分析
-- **竞品监控**：跟踪竞争对手的产品信息
-- **聚合服务**：整合多个来源的数据
-- **AI 训练**：收集训练数据
+- **Phân tích dữ liệu**: Thu thập dữ liệu công khai để phân tích thị trường
+- **Theo dõi đối thủ cạnh tranh**: Theo dõi thông tin sản phẩm của các đối thủ
+- **Dịch vụ tập hợp**: Tích hợp dữ liệu từ nhiều nguồn
+- **Huấn luyện AI**: Thu thập dữ liệu huấn luyện
 
-但爬虫也可能带来问题：
-- 给目标网站带来压力
-- 违反服务条款
-- 侵犯版权或隐私
-- 触犯法律法规
+Nhưng scraping cũng có thể gây ra các vấn đề:
+- Tạo áp lực cho trang web đích
+- Vi phạm điều khoản dịch vụ
+- Vi phạm bản quyền hoặc quyền riêng tư
+- Vi phạm luật pháp và quy định
 
-### 本章导览
+### Hướng dẫn chương
 
 ```mermaid
 graph LR
-    A["爬虫伦理"] --> B["速率控制"]
-    B --> C["反爬机制"]
-    C --> D["合规实践"]
-    
+    A["Đạo đức Scraping"] --> B["Kiểm soát Tốc độ"]
+    B --> C["Cơ chế Chống Scraping"]
+    C --> D["Thực hành Tuân thủ"]
+
     style A fill:#e3f2fd
     style D fill:#c8e6c9
 ```
 
-1. **爬虫伦理**：理解 robots.txt 和网站条款
-2. **速率控制**：控制请求频率，不给目标网站添负担
-3. **反爬机制**：了解常见的反爬技术
-4. **合规实践**：优先使用 API，遵守数据使用规范
+1. **Đạo đức Scraping**: Hiểu robots.txt và điều khoản trang web
+2. **Kiểm soát Tốc độ**: Kiểm soát tần suất yêu cầu, không tạo gánh nặng cho trang web đích
+3. **Cơ chế Chống Scraping**: Hiểu các kỹ thuật chống scraping phổ biến
+4. **Thực hành Tuân thủ**: Ưu tiên sử dụng API, tuân thủ các tiêu chuẩn sử dụng dữ liệu
 
-### 为什么 Vibe Coder 要学这个？
+### Tại sao Vibe Coder phải học điều này?
 
-理解爬虫技术能帮你：
+Hiểu kỹ thuật scraping có thể giúp bạn:
 
-- 高效获取公开数据用于分析
-- 理解如何保护自己的网站不被滥用
-- 在法律和道德框架内工作
+- Lấy dữ liệu công khai một cách hiệu quả để phân tích
+- Hiểu cách bảo vệ trang web của bạn không bị lạm dụng
+- Làm việc trong khuôn khổ pháp lý và đạo đức
 
-> **关键洞察**：优秀的开发者首先会寻找官方 API，只有在没有 API 的情况下才考虑爬虫，并且始终遵守 robots.txt 和服务条款。
+> **Thông tin chi tiết**: Các nhà phát triển xuất sắc sẽ trước tiên tìm kiếm API chính thức, chỉ xem xét scraping khi không có API, và luôn tuân thủ robots.txt và điều khoản dịch vụ.

@@ -1,185 +1,184 @@
 ---
-title: "3.3 能不能让 AI 看懂设计稿——Figma 集成实战与 AI 协作"
-typora-root-url: ../../public
+title: "3.3 Có thể cho AI hiểu design——Tích hợp Figma thực chiến và cộng tác AI"
 ---
 
-# 3.3 能不能让 AI 看懂设计稿——Figma 集成实战与 AI 协作
+# 3.3 Có thể cho AI hiểu design——Tích hợp Figma thực chiến và cộng tác AI
 
-### 一句话破题
+### Tóm tắt một câu
 
-将设计稿截图或链接提供给 AI，配合清晰的结构描述，让 AI 生成接近设计稿的代码。
+Cung cấp screenshot hoặc link design cho AI, kết hợp mô tả cấu trúc rõ ràng, để AI generate code gần với design.
 
-### 核心价值
+### Giá trị cốt lõi
 
-传统的设计到开发流程需要开发者逐像素还原设计稿，耗时且容易出错。在 Vibe Coding 体系下，AI 可以"看懂"设计稿并生成基础代码，你的任务是**验收和微调**。
+Quy trình truyền thống từ design đến code cần developer restore từng pixel, tốn thời gian và dễ sai sót. Trong hệ thống Vibe Coding, AI có thể "hiểu" design và generate code cơ bản, nhiệm vụ của bạn là **nghiệm thu và tinh chỉnh**.
 
-### 设计稿到代码的工作流
+### Workflow từ design đến code
 
 ```mermaid
 graph LR
-    A["设计稿"] --> B["截图/导出"]
-    B --> C["结构化描述"]
-    C --> D["AI 生成代码"]
-    D --> E["Review 验收"]
-    E --> F["微调完善"]
+    A["Design"] --> B["Screenshot/Export"]
+    B --> C["Mô tả cấu trúc"]
+    C --> D["AI generate code"]
+    D --> E["Review nghiệm thu"]
+    E --> F["Tinh chỉnh hoàn thiện"]
 ```
 
-### 准备工作：从 Figma 获取信息
+### Chuẩn bị: Lấy thông tin từ Figma
 
-**方式一：截图法（推荐新手）**
+**Cách 1: Screenshot (khuyến nghị người mới)**
 
-1. 在 Figma 中选中目标组件或页面
-2. 截取清晰的截图
-3. 将截图粘贴到 AI 对话中
+1. Trong Figma chọn component hoặc page mục tiêu
+2. Chụp screenshot rõ ràng
+3. Paste screenshot vào chat AI
 
-**方式二：Dev Mode 导出**
+**Cách 2: Dev Mode export**
 
-Figma 的 Dev Mode 可以导出：
-- CSS 属性（颜色、间距、字体）
-- 组件结构
-- 资源文件
+Figma Dev Mode có thể export:
+- CSS properties (màu sắc, spacing, font)
+- Cấu trúc component
+- Asset files
 
-**方式三：Figma 插件**
+**Cách 3: Figma plugins**
 
-一些插件可以直接生成代码：
-- **Anima**：导出 React/Vue 代码
-- **Locofy**：AI 驱动的代码生成
-- **Builder.io**：可视化到代码
+Một số plugins có thể generate code trực tiếp:
+- **Anima**: Export React/Vue code
+- **Locofy**: AI-driven code generation
+- **Builder.io**: Visual to code
 
-### AI 协作：结构化描述设计稿
+### Cộng tác AI: Mô tả design có cấu trúc
 
-仅仅给 AI 一张图是不够的。你需要用**结构化语言**描述设计意图：
+Chỉ đưa ảnh cho AI là chưa đủ. Bạn cần dùng **ngôn ngữ có cấu trúc** để mô tả ý đồ design:
 
-**有效的 Prompt 模板：**
+**Template Prompt hiệu quả:**
 
 ```
-请根据这张设计稿生成 React + Tailwind 代码：
+Vui lòng generate React + Tailwind code theo design này:
 
-**页面/组件名称**：用户资料卡片
+**Tên page/component**: User profile card
 
-**整体布局**：
-- 卡片容器，圆角阴影
-- 左侧：用户头像（圆形，64px）
-- 右侧：用户信息（姓名、职位、简介）
+**Layout tổng thể**:
+- Card container, bo góc có shadow
+- Bên trái: Avatar user (tròn, 64px)
+- Bên phải: Thông tin user (tên, chức vụ, bio)
 
-**交互要求**：
-- 鼠标悬停时卡片轻微上浮
-- 点击卡片跳转到用户详情页
+**Yêu cầu tương tác**:
+- Khi hover card nhẹ nhàng nổi lên
+- Click card chuyển đến trang chi tiết user
 
-**样式细节**：
-- 背景色：白色
-- 阴影：轻微
-- 间距：内边距 16px
+**Chi tiết style**:
+- Background: trắng
+- Shadow: nhẹ
+- Spacing: padding 16px
 
-**技术要求**：
-- 使用 Tailwind CSS
-- 组件接收 user 对象作为 Props
+**Yêu cầu kỹ thuật**:
+- Sử dụng Tailwind CSS
+- Component nhận user object làm Props
 ```
 
-### 关键技巧：分层描述
+### Kỹ thuật quan trọng: Mô tả phân tầng
 
-将设计稿分解为多个层次：
+Phân tích design thành nhiều tầng:
 
-| 层次 | 描述内容 | 示例 |
+| Tầng | Nội dung mô tả | Ví dụ |
 |------|----------|------|
-| **布局层** | 整体结构、容器、网格 | "两栏布局，左侧固定 240px" |
-| **组件层** | 独立的 UI 单元 | "卡片、按钮、输入框" |
-| **样式层** | 颜色、字体、间距 | "主色调 #3B82F6，圆角 8px" |
-| **交互层** | 悬停、点击、动画 | "hover 时放大 1.05 倍" |
+| **Tầng layout** | Cấu trúc tổng thể, container, grid | "Two-column layout, left fixed 240px" |
+| **Tầng component** | UI unit độc lập | "Card, button, input box" |
+| **Tầng style** | Màu sắc, font, spacing | "Primary color #3B82F6, border radius 8px" |
+| **Tầng tương tác** | Hover, click, animation | "Hover scale 1.05x" |
 
-### 常见场景实战
+### Thực chiến tình huống thường gặp
 
-**场景一：还原导航栏**
-
-```
-设计稿：[粘贴截图]
-
-请生成顶部导航栏代码：
-- 左侧：Logo 图片
-- 中间：导航链接（首页、产品、关于）
-- 右侧：登录/注册按钮
-- 移动端：汉堡菜单
-- 使用 Next.js Link 组件
-- 当前页面链接高亮
-```
-
-**场景二：还原表单**
+**Tình huống 1: Restore navigation bar**
 
 ```
-设计稿：[粘贴截图]
+Design: [Paste screenshot]
 
-请生成登录表单：
-- 邮箱输入框（带图标）
-- 密码输入框（带显示/隐藏切换）
-- 记住我复选框
-- 登录按钮（主色调）
-- 忘记密码链接
-- 使用 shadcn/ui 组件
-- 添加表单验证提示
+Vui lòng generate code top navigation bar:
+- Bên trái: Logo image
+- Giữa: Navigation links (Home, Products, About)
+- Bên phải: Login/Register buttons
+- Mobile: Hamburger menu
+- Sử dụng Next.js Link component
+- Highlight link trang hiện tại
 ```
 
-### 验收清单
+**Tình huống 2: Restore form**
 
-AI 生成代码后，按以下清单验收：
+```
+Design: [Paste screenshot]
 
-- [ ] **布局正确**：元素位置、间距与设计稿一致
-- [ ] **响应式**：在不同屏幕尺寸下正常显示
-- [ ] **交互完整**：悬停、点击等状态正确
-- [ ] **无障碍**：有 alt 文本、正确的语义标签
-- [ ] **代码质量**：无重复代码、Props 类型正确
+Vui lòng generate login form:
+- Email input box (có icon)
+- Password input box (có toggle show/hide)
+- Remember me checkbox
+- Login button (primary color)
+- Forgot password link
+- Sử dụng shadcn/ui components
+- Thêm form validation hints
+```
 
-### 常见问题与解决
+### Checklist nghiệm thu
 
-**问题：AI 生成的布局偏差较大**
+Sau khi AI generate code, nghiệm thu theo checklist sau:
 
-解决：
-1. 提供更详细的布局描述（使用 Flexbox/Grid 术语）
-2. 分步生成：先布局，再填充内容
-3. 指定具体的像素值或比例
+- [ ] **Layout chính xác**: Vị trí element, spacing khớp design
+- [ ] **Responsive**: Hiển thị bình thường ở các kích thước màn hình khác nhau
+- [ ] **Tương tác đầy đủ**: Hover, click và các state khác đúng
+- [ ] **Accessibility**: Có alt text, semantic tags đúng
+- [ ] **Chất lượng code**: Không trùng code, Props types đúng
 
-**问题：颜色不准确**
+### Vấn đề thường gặp và giải pháp
 
-解决：
-1. 从 Figma 复制精确的颜色值
-2. 在 Prompt 中明确指定：`背景色 #F3F4F6`
-3. 建立设计令牌（Design Tokens）
+**Vấn đề: AI generate layout sai lệch lớn**
 
-**问题：组件风格不统一**
+Giải pháp:
+1. Cung cấp mô tả layout chi tiết hơn (dùng thuật ngữ Flexbox/Grid)
+2. Generate từng bước: layout trước, rồi mới fill content
+3. Chỉ định giá trị pixel hoặc tỷ lệ cụ thể
 
-解决：
-1. 先建立基础组件库（Button、Input 等）
-2. 在 Prompt 中引用已有组件
-3. 使用 shadcn/ui 保持一致性
+**Vấn đề: Màu sắc không chính xác**
 
-### AI 协作指南
+Giải pháp:
+1. Copy chính xác color values từ Figma
+2. Chỉ định rõ trong Prompt: `background color #F3F4F6`
+3. Xây dựng Design Tokens
 
-**核心意图**：让 AI 理解设计稿并生成可用代码。
+**Vấn đề: Component style không thống nhất**
 
-**需求定义公式**：
-- 视觉描述：[截图] + 布局说明
-- 交互描述：用户操作 + 系统响应
-- 技术约束：使用的框架/组件库
+Giải pháp:
+1. Trước tiên xây dựng component library cơ bản (Button, Input etc)
+2. Tham chiếu component đã có trong Prompt
+3. Dùng shadcn/ui để giữ tính nhất quán
 
-**关键术语**：`Flexbox`、`Grid`、`Tailwind`、`响应式`、`设计令牌`
+### Hướng dẫn cộng tác AI
 
-**交互策略**：
-1. 先给 AI 看整体设计，让它理解上下文
-2. 分组件逐个生成，而非一次性生成整页
-3. 生成后立即在浏览器中验证
-4. 发现偏差时，给 AI 具体的修改指令
+**Ý định cốt lõi**: Để AI hiểu design và generate code khả dụng.
 
-### 工具推荐
+**Công thức định nghĩa yêu cầu**:
+- Mô tả visual: [Screenshot] + layout explanation
+- Mô tả tương tác: User operation + system response
+- Ràng buộc kỹ thuật: Framework/component library sử dụng
 
-| 工具 | 用途 | 特点 |
+**Thuật ngữ chính**: `Flexbox`, `Grid`, `Tailwind`, `Responsive`, `Design tokens`
+
+**Chiến lược tương tác**:
+1. Trước tiên cho AI xem overall design, để nó hiểu context
+2. Generate từng component, không generate toàn bộ page một lúc
+3. Sau khi generate ngay lập tức verify trong browser
+4. Khi phát hiện sai lệch, đưa ra chỉ thị sửa cụ thể cho AI
+
+### Công cụ khuyến nghị
+
+| Công cụ | Mục đích | Đặc điểm |
 |------|------|------|
-| **v0.dev** | 自然语言生成 UI | Vercel 出品，生成 shadcn 组件 |
-| **Claude** | 识图 + 代码生成 | 多模态，可直接看图 |
-| **Cursor** | IDE 内设计还原 | 可粘贴图片到对话 |
+| **v0.dev** | Natural language generate UI | Vercel product, generate shadcn components |
+| **Claude** | Image recognition + code generation | Multimodal, có thể nhìn ảnh trực tiếp |
+| **Cursor** | Design restoration trong IDE | Có thể paste ảnh vào chat |
 
-### 最佳实践总结
+### Tổng kết best practices
 
-1. **建立设计系统**：统一颜色、字体、间距，减少每次描述的成本
-2. **组件优先**：先生成可复用组件，再组合成页面
-3. **增量开发**：不要一次性生成整个页面，分块进行
-4. **及时验收**：每生成一个组件就验证，避免错误累积
-5. **保留原稿**：将设计稿截图保存在项目中，方便后续对照
+1. **Xây dựng design system**: Thống nhất color, font, spacing, giảm chi phí mô tả mỗi lần
+2. **Component ưu tiên**: Trước tiên generate reusable components, sau đó compose thành page
+3. **Incremental development**: Không generate toàn bộ page một lúc, chia thành từng khối
+4. **Nghiệm thu kịp thời**: Mỗi lần generate component đều verify, tránh lỗi tích lũy
+5. **Giữ lại design gốc**: Lưu screenshot design trong project, thuận tiện cho việc đối chiếu sau này

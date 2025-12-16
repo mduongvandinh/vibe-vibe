@@ -1,114 +1,113 @@
 ---
-title: "4.4 告别手写 SQL——Prisma 实战应用"
-typora-root-url: ../../public
+title: "4.4 Tạm biệt SQL thủ công——Prisma thực chiến ứng dụng"
 ---
 
-# 4.4 告别手写 SQL——Prisma 实战应用
+# 4.4 Tạm biệt SQL thủ công——Prisma thực chiến ứng dụng
 
-### 认知重构
+### Chuyển đổi nhận thức
 
-Prisma 是现代 TypeScript 项目的首选 ORM——它用类型安全的 API 取代了手写 SQL，让数据库操作变得简单、安全、可维护。
+Prisma là ORM ưu tiên hàng đầu cho dự án TypeScript hiện đại——nó thay thế SQL thủ công bằng type-safe API, khiến thao tác database trở nên đơn giản, an toàn và dễ maintain.
 
-### 为什么选择 Prisma？
+### Tại sao chọn Prisma?
 
-| 特性 | Prisma | 传统 ORM | 原生 SQL |
+| Tính năng | Prisma | ORM truyền thống | Raw SQL |
 |------|--------|----------|----------|
-| **类型安全** | 完全类型安全 | 部分支持 | 无 |
-| **学习成本** | 低 | 中 | 高 |
-| **迁移管理** | 内置 | 需配置 | 手动 |
-| **查询性能** | 优秀 | 一般 | 最佳 |
-| **开发体验** | 极佳 | 一般 | 差 |
+| **Type safety** | Hoàn toàn type-safe | Hỗ trợ một phần | Không |
+| **Chi phí học** | Thấp | Trung bình | Cao |
+| **Quản lý migration** | Tích hợp sẵn | Cần cấu hình | Thủ công |
+| **Hiệu năng query** | Xuất sắc | Bình thường | Tốt nhất |
+| **Developer experience** | Tuyệt vời | Bình thường | Kém |
 
-### Prisma 工作流程
+### Workflow của Prisma
 
 ```mermaid
 graph LR
-    A["定义 Schema"] --> B["生成迁移"]
-    B --> C["生成 Client"]
-    C --> D["类型安全查询"]
-    
+    A["Định nghĩa Schema"] --> B["Tạo migration"]
+    B --> C["Generate Client"]
+    C --> D["Type-safe queries"]
+
     A1["schema.prisma"] --> A
     B1["migration.sql"] --> B
     C1["@prisma/client"] --> C
 ```
 
-### 子章节导航
+### Điều hướng chương con
 
-| 章节 | 主题 | 核心问题 |
+| Chương | Chủ đề | Câu hỏi cốt lõi |
 |------|------|----------|
-| 4.4.1 | 安装配置 | 如何初始化 Prisma 项目？ |
-| 4.4.2 | Schema 结构 | schema.prisma 文件怎么写？ |
-| 4.4.3 | 模型定义 | 如何定义表和关系？ |
-| 4.4.4 | 数据库连接 | 如何配置数据库连接？ |
-| 4.4.5 | 迁移管理 | 如何管理数据库变更？ |
-| 4.4.6 | 种子数据 | 如何初始化测试数据？ |
-| 4.4.7 | 建模实践 | 真实项目如何设计模型？ |
-| 4.4.8 | 查询优化 | 如何优化 Prisma 查询？ |
-| 4.4.9 | 事务处理 | 如何保证数据一致性？ |
+| 4.4.1 | Cài đặt cấu hình | Làm sao khởi tạo dự án Prisma? |
+| 4.4.2 | Cấu trúc Schema | File schema.prisma viết như thế nào? |
+| 4.4.3 | Định nghĩa model | Làm sao định nghĩa bảng và quan hệ? |
+| 4.4.4 | Kết nối database | Làm sao cấu hình kết nối database? |
+| 4.4.5 | Quản lý migration | Làm sao quản lý thay đổi database? |
+| 4.4.6 | Seed data | Làm sao khởi tạo test data? |
+| 4.4.7 | Thực hành modeling | Dự án thực tế thiết kế model như thế nào? |
+| 4.4.8 | Tối ưu query | Làm sao tối ưu Prisma query? |
+| 4.4.9 | Xử lý transaction | Làm sao đảm bảo tính nhất quán dữ liệu? |
 
-### Prisma 核心概念
+### Khái niệm cốt lõi Prisma
 
 ```mermaid
 graph TB
-    subgraph "Prisma 组件"
-        Schema["Prisma Schema<br/>定义数据模型"]
-        Migrate["Prisma Migrate<br/>管理数据库变更"]
-        Client["Prisma Client<br/>类型安全查询"]
-        Studio["Prisma Studio<br/>可视化管理"]
+    subgraph "Các thành phần Prisma"
+        Schema["Prisma Schema<br/>Định nghĩa data model"]
+        Migrate["Prisma Migrate<br/>Quản lý thay đổi database"]
+        Client["Prisma Client<br/>Type-safe query"]
+        Studio["Prisma Studio<br/>Quản lý trực quan"]
     end
-    
+
     Schema --> Migrate
     Schema --> Client
     Client --> Studio
 ```
 
-### 快速体验
+### Trải nghiệm nhanh
 
 ```bash
-# 1. 安装
+# 1. Cài đặt
 npm install prisma @prisma/client
 
-# 2. 初始化
+# 2. Khởi tạo
 npx prisma init
 
-# 3. 定义模型（schema.prisma）
-# 4. 生成迁移
+# 3. Định nghĩa model (schema.prisma)
+# 4. Tạo migration
 npx prisma migrate dev --name init
 
-# 5. 使用
+# 5. Sử dụng
 ```
 
 ```typescript
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-// 完全类型安全的查询
+// Query hoàn toàn type-safe
 const users = await prisma.user.findMany({
   where: { status: 'ACTIVE' },
   include: { posts: true }
 })
 ```
 
-### AI 协作指南
+### Hướng dẫn cộng tác AI
 
-**核心意图**：让 AI 帮你生成 Prisma Schema 或查询代码。
+**Ý định cốt lõi**: Để AI giúp generate Prisma Schema hoặc query code.
 
-**常用提问模板**：
+**Template câu hỏi thường dùng**:
 ```
-帮我写一个 Prisma Schema：
-- 需求：[业务需求描述]
-- 表：[需要的表]
-- 关系：[表之间的关系]
-```
-
-```
-帮我写 Prisma 查询：
-- 模型：[相关模型]
-- 需求：[查询需求]
-- 条件：[过滤条件]
+Giúp tôi viết Prisma Schema:
+- Yêu cầu: [mô tả business requirement]
+- Bảng: [các bảng cần thiết]
+- Quan hệ: [quan hệ giữa các bảng]
 ```
 
-### 学习路径建议
+```
+Giúp tôi viết Prisma query:
+- Model: [model liên quan]
+- Yêu cầu: [yêu cầu query]
+- Điều kiện: [điều kiện filter]
+```
 
-**新手**：4.4.1 → 4.4.2 → 4.4.3 → 4.4.5 → 4.4.6
-**进阶**：4.4.4 → 4.4.7 → 4.4.8 → 4.4.9
+### Đề xuất lộ trình học
+
+**Người mới**: 4.4.1 → 4.4.2 → 4.4.3 → 4.4.5 → 4.4.6
+**Nâng cao**: 4.4.4 → 4.4.7 → 4.4.8 → 4.4.9

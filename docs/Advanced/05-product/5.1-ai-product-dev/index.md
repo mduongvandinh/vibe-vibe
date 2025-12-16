@@ -1,46 +1,45 @@
 ---
-title: "5.1 先把想做的说明白——AI 时代产品开发理念：从传统开发到 AI 协助全流程"
-typora-root-url: ../../public
+title: "5.1 Nói rõ điều muốn làm trước — Lý niệm phát triển sản phẩm thời đại AI: Từ phát triển truyền thống đến toàn quy trình có sự hỗ trợ của AI"
 ---
 
-# 5.1 先把想做的说明白——AI 时代产品开发理念
+# 5.1 Nói rõ điều muốn làm trước — Lý niệm phát triển sản phẩm thời đại AI
 
-在传统开发中，"想法"到"产品"的路径是：**想法 → 需求文档 → 设计稿 → 代码 → 测试 → 上线**。每一步都需要专业人员，每一步都可能出现理解偏差。
+Trong phát triển truyền thống, con đường từ "ý tưởng" đến "sản phẩm" là: **Ý tưởng → Tài liệu yêu cầu → Bản thiết kế → Code → Kiểm thử → Triển khai**. Mỗi bước đều cần nhân sự chuyên môn, mỗi bước đều có thể xuất hiện sai lệch trong hiểu biết.
 
-在 AI 时代，这条路径被大幅压缩：**想法 → 结构化描述 → AI 生成代码 → 人工验收 → 迭代优化**。
+Trong thời đại AI, con đường này được nén lại rất nhiều: **Ý tưởng → Mô tả có cấu trúc → AI sinh code → Người nghiệm thu → Tối ưu lặp lại**.
 
 ```mermaid
 graph LR
-    subgraph Traditional["传统开发流程"]
-        T1["产品经理\n写 PRD"] --> T2["设计师\n画原型"]
-        T2 --> T3["开发\n写代码"]
-        T3 --> T4["测试\n找 Bug"]
-        T4 --> T5["运维\n部署"]
+    subgraph Traditional["Quy trình phát triển truyền thống"]
+        T1["Product Manager\nViết PRD"] --> T2["Designer\nVẽ nguyên mẫu"]
+        T2 --> T3["Dev\nViết code"]
+        T3 --> T4["Tester\nTìm Bug"]
+        T4 --> T5["Ops\nTriển khai"]
     end
-    
-    subgraph AI["AI 辅助开发流程"]
-        A1["你\n定义需求"] --> A2["AI\n生成代码"]
-        A2 --> A3["你\n验收审查"]
-        A3 --> A4["AI\n迭代优化"]
+
+    subgraph AI["Quy trình phát triển có hỗ trợ AI"]
+        A1["Bạn\nĐịnh nghĩa yêu cầu"] --> A2["AI\nSinh code"]
+        A2 --> A3["Bạn\nNghiệm thu review"]
+        A3 --> A4["AI\nTối ưu lặp lại"]
         A4 --> A3
     end
 ```
 
-### 核心转变：从"执行者"到"决策者"
+### Chuyển đổi cốt lõi: Từ "người thực thi" đến "người ra quyết định"
 
-| 角色 | 传统模式 | AI 时代 |
+| Vai trò | Mô hình truyền thống | Thời đại AI |
 |------|----------|---------|
-| **你的职责** | 写代码、调 Bug | 定义需求、验收结果 |
-| **核心能力** | 编程技能 | 问题定义、沟通表达 |
-| **时间分配** | 80% 编码、20% 思考 | 30% 描述、70% 验收与迭代 |
+| **Trách nhiệm của bạn** | Viết code, sửa Bug | Định nghĩa yêu cầu, nghiệm thu kết quả |
+| **Năng lực cốt lõi** | Kỹ năng lập trình | Định nghĩa vấn đề, giao tiếp diễn đạt |
+| **Phân bổ thời gian** | 80% code, 20% suy nghĩ | 30% mô tả, 70% nghiệm thu và lặp lại |
 
-### 本节目标
+### Mục tiêu của phần này
 
-学完本节，你将掌握：
+Sau khi học xong phần này, bạn sẽ nắm được:
 
-1. **AI Native 思维**：理解 AI 应用与传统应用的本质区别
-2. **全流程协作**：学会在"理解需求 → 功能设计 → 代码生成 → 验收迭代"各环节与 AI 高效配合
-3. **Prompt 工程基础**：掌握与 AI 有效沟通的核心原则
-4. **质量把控**：学会审查 AI 产出、识别错误、提供反馈
+1. **Tư duy AI Native**: Hiểu sự khác biệt bản chất giữa ứng dụng AI và ứng dụng truyền thống
+2. **Cộng tác toàn quy trình**: Học cách cộng tác hiệu quả với AI ở các giai đoạn "hiểu yêu cầu → thiết kế chức năng → sinh code → nghiệm thu lặp lại"
+3. **Cơ bản về Prompt engineering**: Nắm các nguyên tắc cốt lõi để giao tiếp hiệu quả với AI
+4. **Kiểm soát chất lượng**: Học cách review đầu ra của AI, nhận diện lỗi, đưa ra phản hồi
 
-**记住**：AI 是你的高效执行者，但你才是产品的主人。你需要清晰地知道"要做什么"、"为什么做"、"做成什么样"，AI 才能帮你把想法变成现实。
+**Ghi nhớ**: AI là người thực thi hiệu quả của bạn, nhưng bạn mới là chủ nhân của sản phẩm. Bạn cần biết rõ "muốn làm gì", "tại sao làm", "làm thành như thế nào", AI mới có thể giúp bạn biến ý tưởng thành hiện thực.

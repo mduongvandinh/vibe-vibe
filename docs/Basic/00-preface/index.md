@@ -1,36 +1,36 @@
 ---
-title: "写在最前面"
+title: "Lời mở đầu"
 ---
 
-# 写在最前面
+# Lời mở đầu
 
-你好，欢迎翻开这份教程。
+Xin chào, chào mừng bạn mở hướng dẫn này.
 
-在开始之前，我想先回答一个你可能正在问自己的问题：
+Trước khi bắt đầu, tôi muốn trả lời một câu hỏi mà có thể bạn đang tự hỏi:
 
-> "我真的能学会编程吗？"
+> "Tôi có thực sự có thể học lập trình không?"
 
-如果你从未写过一行代码，这个疑虑很正常。但 2025 年，编程的门槛已经被 AI 彻底改变了。
+Nếu bạn chưa bao giờ viết một dòng code, thắc mắc này rất bình thường. Nhưng năm 2025, rào cản của lập trình đã được AI thay đổi hoàn toàn.
 
-过去，想做一个网页、一个小工具，你需要学会一门编程语言，记住各种语法规则，花几个月甚至几年时间打基础。现在，你只需要用自然语言描述你想要什么，AI 就能帮你把代码写出来。
+Trước đây, muốn làm một trang web, một công cụ nhỏ, bạn cần học một ngôn ngữ lập trình, nhớ các quy tắc cú pháp, dành vài tháng thậm chí vài năm để đặt nền móng. Bây giờ, bạn chỉ cần dùng ngôn ngữ tự nhiên mô tả điều bạn muốn, AI sẽ giúp bạn viết code ra.
 
-这不是科幻，这是正在发生的现实。
+Đây không phải khoa học viễn tưởng, đây là hiện thực đang diễn ra.
 
-## 这份教程教什么
+## Hướng dẫn này dạy gì
 
-- 如何**清楚地表达**你的想法，让 AI 理解你要什么
-- 如何**像产品经理一样思考**，把模糊的念头变成可执行的方案
-- 如何从零开始，**用 AI 解决实际问题**
+- Làm thế nào để **diễn đạt rõ ràng** ý tưởng của bạn, để AI hiểu bạn muốn gì
+- Làm thế nào để **suy nghĩ như một product manager**, biến ý tưởng mơ hồ thành phương án có thể thực thi
+- Làm thế nào để từ con số không, **dùng AI giải quyết vấn đề thực tế**
 
-## 学完你将能够
+## Sau khi học xong bạn sẽ có thể
 
-- 做出一个解决自己痛点的**小工具或产品原型**
-- 用自然语言完成**数据分析和可视化**
-- 编写提高效率的**自动化脚本**
-- 或者任何你能想到的东西
+- Làm ra một **công cụ nhỏ hoặc nguyên mẫu sản phẩm** giải quyết nỗi đau của chính bạn
+- Dùng ngôn ngữ tự nhiên hoàn thành **phân tích dữ liệu và trực quan hóa**
+- Viết **script tự động hóa** để nâng cao hiệu suất
+- Hoặc bất cứ thứ gì bạn có thể nghĩ ra
 
-不是"理论上可以"，是**真的做出来**。
+Không phải "về lý thuyết có thể", mà là **thực sự làm ra được**.
 
 ---
 
-[下一步：找到你的位置 →](./0.1-start-here.md)
+[Bước tiếp theo: Tìm đúng vị trí của bạn →](./0.1-start-here.md)

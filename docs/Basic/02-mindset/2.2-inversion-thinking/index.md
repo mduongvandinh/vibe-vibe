@@ -1,67 +1,67 @@
 ---
-title: "2.2 逆向思维：先想清楚什么会让项目失败"
+title: "2.2 Tư duy Ngược: Nghĩ rõ trước cái gì sẽ làm Dự án Thất bại"
 ---
 
-# 2.2 逆向思维：先想清楚什么会让项目失败
+# 2.2 Tư duy Ngược: Nghĩ rõ trước cái gì sẽ làm Dự án Thất bại
 
-在上一节，我们学会了用"任务视角"来思考需求——先问"用户要完成什么任务"，再考虑"需要什么功能"。
+Ở phần trước, chúng ta đã học cách dùng "góc nhìn tác vụ" để suy nghĩ về nhu cầu - trước hết hỏi "người dùng cần hoàn thành tác vụ gì", rồi mới xem xét "cần chức năng gì".
 
-这一节，我们要学习另一个同样重要的思维工具：**逆向思维**。
-
-
-## 经过本节学习，你将掌握
-
-- 理解逆向思维的核心原理，以及它为何对 Vibe Coding 特别有效
-- 学会使用"预演失败"技术，在动手之前识别潜在风险
-- 获得一份"避坑清单"模板，可以直接应用到你的项目中
-- 掌握一个让 AI 帮你做风险分析的 Prompt 模板
+Phần này, chúng ta sẽ học một công cụ tư duy quan trọng không kém: **Tư duy Ngược**.
 
 
-## 本节核心洞见
+## Sau khi học Phần này, bạn sẽ nắm vững
 
-> "告诉我我会死在哪里，这样我就永远不会去那里。"
-> —— Charlie Munger，伯克希尔·哈撒韦副董事长
-
-这句话听起来像玩笑，却是 Munger 几十年投资生涯的核心智慧。
-
-与其绞尽脑汁思考"如何成功"，不如先想清楚"什么会导致失败"，然后避开那些坑。
-
-这个方法有一个正式的名字：**逆向思维**。
+- Hiểu nguyên lý cốt lõi của tư duy ngược, và tại sao nó đặc biệt hiệu quả cho Vibe Coding
+- Học cách sử dụng kỹ thuật "Pre-mortem (Dự diễn thất bại)", nhận diện rủi ro tiềm ẩn trước khi bắt tay vào
+- Có được mẫu "Danh sách Tránh bẫy", có thể áp dụng trực tiếp vào dự án của bạn
+- Nắm vững một mẫu Prompt để AI giúp bạn phân tích rủi ro
 
 
-## 这不只是"做产品"的事
+## Hiểu biết Cốt lõi của Phần này
 
-和上一节一样，逆向思维适用于你想用 AI 做的任何事情：
+> "Nói cho tôi biết tôi sẽ chết ở đâu, để tôi không bao giờ đến đó."
+> —— Charlie Munger, Phó Chủ tịch Berkshire Hathaway
 
-| 你想做的事情 | 逆向思维帮你思考的问题 |
+Câu nói này nghe như đùa, nhưng lại là trí tuệ cốt lõi trong sự nghiệp đầu tư hàng chục năm của Munger.
+
+Thay vì vắt óc suy nghĩ "làm thế nào để thành công", hãy nghĩ rõ trước "cái gì sẽ dẫn đến thất bại", rồi tránh xa những cái bẫy đó.
+
+Phương pháp này có một cái tên chính thức: **Tư duy Ngược**.
+
+
+## Đây không chỉ là chuyện "làm sản phẩm"
+
+Giống như phần trước, tư duy ngược áp dụng cho bất kỳ việc gì bạn muốn dùng AI làm:
+
+| Việc bạn muốn làm | Vấn đề tư duy ngược giúp bạn suy nghĩ |
 |-------------|---------------------|
-| 做一个小工具 | 什么会让这个工具没人用？ |
-| 数据分析报告 | 什么会让分析结果毫无价值？ |
-| 自动化脚本 | 什么情况会让脚本出错或失控？ |
-| 给家人做网页 | 什么会让他们根本用不起来？ |
+| Làm một công cụ nhỏ | Cái gì sẽ làm công cụ này không ai dùng? |
+| Báo cáo phân tích dữ liệu | Cái gì sẽ làm kết quả phân tích trở nên vô giá trị? |
+| Script tự động hóa | Hoàn cảnh nào sẽ làm script lỗi hoặc mất kiểm soát? |
+| Làm trang web cho gia đình | Cái gì sẽ làm họ hoàn toàn không dùng được? |
 
-无论你的目标是什么，逆向思维都能帮你提前看到盲点。
-
-
-## 为什么这对 Vibe Coding 特别重要
-
-使用 AI 编程有一个特点：**AI 会帮你做任何你要求的事——包括错误的事**。
-
-如果你的需求方向本身就有问题，AI 只会帮你更快地走向失败。
-
-研究表明，在项目开始前使用逆向思维技术，可以将风险识别能力提高 **30%**（根据认知心理学家 Gary Klein 的研究）。
-
-提前预见失败，比事后补救便宜一百倍。
+Bất kể mục tiêu của bạn là gì, tư duy ngược đều có thể giúp bạn nhìn trước điểm mù.
 
 
-## 本节结构
+## Tại sao điều này đặc biệt quan trọng với Vibe Coding
 
-接下来，我们将通过以下内容，帮你掌握这个思维工具：
+Lập trình bằng AI có một đặc điểm: **AI sẽ giúp bạn làm bất cứ thứ gì bạn yêu cầu - bao gồm cả việc sai lầm**.
 
-1. **逆向思维的智慧**：理解这个方法的起源和原理
-2. **预演失败技术**：学习一个可以立即使用的风险分析方法
-3. **常见失败原因**：了解 Vibe Coding 项目最容易踩的坑
-4. **实战练习**：用模板为你自己的项目做一次"预演失败"
-5. **核心要点**：带走可以立即应用的原则和检查清单
+Nếu hướng nhu cầu của bạn vốn đã có vấn đề, AI chỉ giúp bạn nhanh chóng tiến đến thất bại hơn.
 
-准备好了吗？让我们从一个数学家的故事开始。
+Nghiên cứu cho thấy, sử dụng kỹ thuật tư duy ngược trước khi bắt đầu dự án, có thể nâng cao khả năng nhận diện rủi ro **30%** (theo nghiên cứu của nhà tâm lý học nhận thức Gary Klein).
+
+Nhìn trước thất bại, rẻ hơn vá víu sau này gấp trăm lần.
+
+
+## Cấu trúc Phần này
+
+Tiếp theo, chúng ta sẽ thông qua nội dung sau để giúp bạn nắm vững công cụ tư duy này:
+
+1. **Trí tuệ của Tư duy Ngược**: Hiểu nguồn gốc và nguyên lý của phương pháp này
+2. **Kỹ thuật Pre-mortem**: Học một phương pháp phân tích rủi ro có thể sử dụng ngay lập tức
+3. **Nguyên nhân Thất bại Phổ biến**: Hiểu các cái bẫy dễ gặp nhất trong dự án Vibe Coding
+4. **Bài tập Thực chiến**: Dùng mẫu để làm một lần "dự diễn thất bại" cho dự án của chính bạn
+5. **Điểm Cốt lõi**: Mang đi các nguyên tắc và danh sách kiểm tra có thể áp dụng ngay
+
+Bạn đã sẵn sàng chưa? Hãy bắt đầu từ câu chuyện của một nhà toán học.

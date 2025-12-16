@@ -1,48 +1,48 @@
 ---
-title: "12.2 如何让谷歌/百度搜到你——SEO：SSR/Meta/站点地图/结构化数据"
-typora-root-url: ../../public
+title: "12.2 Cách để Google/Baidu tìm thấy bạn——SEO：SSR/Meta/Sitemap/Structured Data"
 ---
 
-# 12.2 如何让谷歌/百度搜到你——SEO：SSR/Meta/站点地图/结构化数据
+# 12.2 Cách để Google/Baidu tìm thấy bạn——SEO：SSR/Meta/Sitemap/Structured Data
 
-### 一句话破题
+### Giải quyết vấn đề một câu
 
-SEO 是让搜索引擎"读懂"你的网站、并愿意把它推荐给用户的技术。对于想要获得自然流量的产品来说，这是一项必修课。
+SEO là công nghệ giúp công cụ tìm kiếm "hiểu" trang web của bạn và sẵn sàng giới thiệu nó cho người dùng. Đối với các sản phẩm muốn nhận lưu lượng tự nhiên, đây là một bài học bắt buộc.
 
-### 核心价值
+### Giá trị cốt lõi
 
-在流量越来越贵的今天，SEO 是少数"免费"的流量来源之一。做好 SEO 意味着：
+Trong thời đại lưu lượng càng lúc càng đắt đỏ, SEO là một trong số ít các "miễn phí" nguồn lưu lượng. Làm tốt SEO có nghĩa là：
 
-1. **自然曝光**：用户主动搜索时找到你，转化意向更强
-2. **长期收益**：一次优化，持续获客
-3. **品牌可信度**：排名靠前的网站更容易获得用户信任
-4. **降低获客成本**：相比付费广告，SEO 的边际成本趋近于零
+1. **Tiếp xúc tự nhiên**：Người dùng chủ động tìm kiếm tìm thấy bạn, ý định chuyển đổi mạnh hơn
+2. **Lợi ích lâu dài**：Một lần tối ưu hóa, tiếp tục thu hút khách hàng
+3. **Độ tin cậy thương hiệu**：Trang web xếp hạng cao hơn dễ dàng nhận được sự tin tưởng của người dùng
+4. **Giảm chi phí thu hút**：So với quảng cáo trả tiền, chi phí cận biên của SEO tiến tới bằng không
 
-### 本章导览
+### Hướng dẫn chương
 
 ```mermaid
 graph LR
-    A["爬虫如何工作"] --> B["SSR 的 SEO 优势"]
-    B --> C["Meta 标签优化"]
-    C --> D["站点地图"]
-    D --> E["结构化数据"]
-    
+    A["Cách thức hoạt động của Crawler"] --> B["Lợi thế SEO của SSR"]
+    B --> C["Tối ưu hóa thẻ Meta"]
+    C --> D["Sitemap"]
+    D --> E["Dữ liệu có cấu trúc"]
+
     style A fill:#e1f5fe
     style E fill:#c8e6c9
 ```
 
-1. **搜索引擎爬虫**：理解爬虫的工作原理和"看页面"的方式
-2. **SSR 与 SEO**：为什么服务端渲染对 SEO 至关重要
-3. **Meta 标签**：网页的"身份证"——title、description、keywords
-4. **站点地图**：给爬虫画一张网站的"导游图"
-5. **结构化数据**：用 Schema.org 帮爬虫"深度理解"你的内容
+1. **Crawler công cụ tìm kiếm**：Hiểu cách hoạt động của crawler và "xem trang"
+2. **SSR và SEO**：Tại sao Server-Side Rendering lại quan trọng đối với SEO
+3. **Thẻ Meta**："Chứng minh thư" của trang web——title, description, keywords
+4. **Sitemap**：Vẽ một "bản đồ hướng dẫn" trang web cho crawler
+5. **Dữ liệu có cấu trúc**：Sử dụng Schema.org giúp crawler "hiểu sâu" nội dung của bạn
 
-### 为什么 Vibe Coder 需要关注 SEO？
+### Tại sao Vibe Coder cần chú ý đến SEO？
 
-AI 可以帮你生成技术上正确的代码，但 SEO 是一门需要**理解搜索引擎和用户意图**的学问。你需要：
+AI có thể giúp bạn tạo ra mã chính xác về mặt kỹ thuật, nhưng SEO là một lĩnh vực cần **hiểu công cụ tìm kiếm và ý định người dùng**. Bạn cần：
 
-- 知道哪些内容应该被索引，哪些不应该
-- 理解不同渲染策略对 SEO 的影响
-- 能够审查 AI 生成的 Meta 标签是否恰当
+- Biết nội dung nào nên được lập chỉ mục, nội dung nào không
+- Hiểu ảnh hưởng của các chiến lược hiển thị khác nhau đối với SEO
+- Có thể kiểm tra xem thẻ Meta do AI tạo có phù hợp không
 
-> **核心审查点**：AI 生成的页面是否对搜索引擎友好？首屏内容是服务端渲染还是客户端渲染？Meta 信息是否准确反映页面内容？
+> **Điểm kiểm tra cốt lõi**：Trang được AI tạo ra có thân thiện với công cụ tìm kiếm không？Nội dung trên cùng cạnh được hiển thị ở phía máy chủ hay phía khách hàng？Thông tin Meta có chính xác phản ánh nội dung trang web không？
+

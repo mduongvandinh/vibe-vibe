@@ -1,79 +1,78 @@
 ---
-title: "3.8 别让少数人用不了你的产品——可访问性/UX 原则/设计令牌/颜色与对比度/i18n"
-typora-root-url: ../../public
+title: "3.8 Đừng để thiểu số dùng không được sản phẩm của bạn——Accessibility/UX principles/Design tokens/Color contrast/i18n"
 ---
 
-# 3.8 可访问性与国际化
+# 3.8 Accessibility và Internationalization
 
-### 一句话破题
+### Tóm tắt một câu
 
-可访问性不是可选项，而是让更多人能使用你产品的基本要求。国际化让你的产品走向世界。
+Accessibility không phải tùy chọn, mà là yêu cầu cơ bản để nhiều người hơn có thể dùng sản phẩm của bạn. Internationalization giúp sản phẩm của bạn đến với thế giới.
 
-### 核心价值
+### Giá trị cốt lõi
 
-15% 的人口有某种形式的残障，还有更多人处于临时不便状态（比如抱着孩子只能单手操作）。可访问性设计让产品对所有人都友好。国际化让产品能触达全球用户。
+15% dân số có một dạng khuyết tật nào đó, và còn nhiều người hơn nữa đang trong tình trạng bất tiện tạm thời (ví dụ bế con chỉ có thể dùng một tay). Thiết kế accessibility giúp sản phẩm thân thiện với mọi người. Internationalization giúp sản phẩm chạm tới user toàn cầu.
 
-### 本章全景
+### Toàn cảnh chương này
 
 ```mermaid
 graph TD
-    A["用户体验"] --> B["可访问性"]
-    A --> C["国际化"]
-    
-    B --> D["WCAG 标准"]
-    B --> E["设计令牌"]
-    B --> F["颜色对比度"]
-    
-    C --> G["i18n 框架"]
-    C --> H["l10n 本地化"]
+    A["Trải nghiệm người dùng"] --> B["Accessibility"]
+    A --> C["Internationalization"]
+
+    B --> D["WCAG standard"]
+    B --> E["Design tokens"]
+    B --> F["Color contrast"]
+
+    C --> G["i18n framework"]
+    C --> H["l10n localization"]
 ```
 
-### 可访问性 vs 国际化
+### Accessibility vs Internationalization
 
-| 概念 | 目标 | 关注点 |
+| Khái niệm | Mục tiêu | Điểm quan tâm |
 |-----|------|-------|
-| 可访问性 (a11y) | 让残障用户能使用 | 视觉/听觉/运动/认知障碍 |
-| 国际化 (i18n) | 让产品支持多语言 | 翻译/日期/货币格式 |
-| 本地化 (l10n) | 让产品适应当地文化 | 习惯/法规/文化差异 |
+| Accessibility (a11y) | Cho user khuyết tật có thể dùng | Khiếm thị/khiếm thính/khó vận động/nhận thức |
+| Internationalization (i18n) | Hỗ trợ đa ngôn ngữ | Dịch thuật/ngày tháng/định dạng tiền tệ |
+| Localization (l10n) | Thích nghi văn hóa địa phương | Thói quen/pháp lý/văn hóa khác biệt |
 
-### 为什么要关注
+### Tại sao cần quan tâm
 
-**商业价值**：
-- 全球 10 亿+ 残障人士是潜在用户
-- 多语言支持打开国际市场
-- 许多地区有法律合规要求
+**Giá trị kinh doanh**:
+- 1 tỷ+ người khuyết tật toàn cầu là user tiềm năng
+- Hỗ trợ đa ngôn ngữ mở thị trường quốc tế
+- Nhiều khu vực có yêu cầu pháp lý compliance
 
-**技术价值**：
-- 语义化 HTML 对 SEO 有益
-- 设计令牌提升开发效率
-- i18n 架构让代码更模块化
+**Giá trị kỹ thuật**:
+- Semantic HTML có lợi cho SEO
+- Design tokens nâng cao hiệu suất phát triển
+- Kiến trúc i18n giúp code modular hơn
 
-### 本章目标
+### Mục tiêu chương này
 
-1. 了解 WCAG 2.1 核心要求
-2. 建立设计令牌系统
-3. 确保颜色对比度达标
-4. 实现多语言支持
-5. 掌握本地化最佳实践
+1. Hiểu yêu cầu cốt lõi WCAG 2.1
+2. Xây dựng hệ thống design tokens
+3. Đảm bảo color contrast đạt chuẩn
+4. Implement hỗ trợ đa ngôn ngữ
+5. Nắm vững localization best practices
 
-### 快速自检
+### Tự kiểm tra nhanh
 
 ```bash
-# 键盘可访问性测试
-# 打开你的网站，拔掉鼠标，只用键盘操作
+# Keyboard accessibility test
+# Mở website của bạn, rút chuột ra, chỉ dùng keyboard
 
-# 屏幕阅读器测试
-# macOS: 开启 VoiceOver (Cmd+F5)
-# Windows: 使用 NVDA (免费)
+# Screen reader test
+# macOS: Bật VoiceOver (Cmd+F5)
+# Windows: Dùng NVDA (miễn phí)
 
-# 颜色对比度检查
-# Chrome DevTools > Elements > 选择元素 > Accessibility
+# Color contrast check
+# Chrome DevTools > Elements > chọn element > Accessibility
 ```
 
-### 本章内容
+### Nội dung chương này
 
-- [3.8.1 WCAG 标准](./3.8.1-wcag.md) - 可访问性基础要求
-- [3.8.2 设计令牌](./3.8.2-design-tokens.md) - 系统化管理设计
-- [3.8.3 颜色对比度](./3.8.3-contrast.md) - 视觉障碍友好设计
-- [3.8.4 国际化 i18n](./3.8.4-i18n.md) - 多语言支持
-- [3.8.5 本地化 l10n](./3.8.5-l10n.md) - 文化适配
+- [3.8.1 WCAG standard](./3.8.1-wcag.md) - Yêu cầu cơ bản về accessibility
+- [3.8.2 Design tokens](./3.8.2-design-tokens.md) - Quản lý design hệ thống
+- [3.8.3 Color contrast](./3.8.3-contrast.md) - Thiết kế thân thiện khiếm thị
+- [3.8.4 Internationalization i18n](./3.8.4-i18n.md) - Hỗ trợ đa ngôn ngữ
+- [3.8.5 Localization l10n](./3.8.5-l10n.md) - Thích nghi văn hóa

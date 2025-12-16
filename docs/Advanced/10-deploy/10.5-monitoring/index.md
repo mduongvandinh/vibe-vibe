@@ -1,63 +1,62 @@
 ---
-title: "10.5 网站生病了怎么办——监控与日志：可观测性体系"
-typora-root-url: ../../public
+title: "10.5 Website bị bệnh thì làm sao — Giám sát và log: Hệ thống observability"
 ---
 
-# 10.5 网站生病了怎么办——监控与日志：可观测性体系
+# 10.5 Website bị bệnh thì làm sao — Giám sát và log: Hệ thống observability
 
-用户告诉你网站挂了？那你已经晚了。
+Người dùng báo cho bạn biết website down? Vậy là bạn đã chậm rồi.
 
-## 可观测性三支柱
+## Ba trụ cột observability
 
 ```mermaid
 flowchart TB
-    subgraph 可观测性
-        A[Metrics 指标] --> D[系统健康]
-        B[Logs 日志] --> D
-        C[Traces 链路] --> D
+    subgraph Observability
+        A[Metrics - Chỉ số] --> D[Sức khỏe hệ thống]
+        B[Logs - Nhật ký] --> D
+        C[Traces - Liên kết] --> D
     end
 ```
 
-| 支柱 | 说明 | 回答的问题 |
-|------|------|------------|
-| Metrics | 数字化指标 | 发生了什么？多严重？ |
-| Logs | 事件记录 | 为什么发生？ |
-| Traces | 请求链路 | 在哪里发生？ |
+| Trụ cột | Giải thích | Câu hỏi được trả lời |
+|------|------|--------------|
+| Metrics | Chỉ số số hóa | Chuyện gì xảy ra? Nghiêm trọng đến mức nào? |
+| Logs | Ghi lại sự kiện | Tại sao lại xảy ra? |
+| Traces | Liên kết request | Xảy ra ở đâu? |
 
-## 为什么需要监控
+## Tại sao cần giám sát
 
-| 场景 | 没有监控 | 有监控 |
+| Kịch bản | Không có giám sát | Có giám sát |
 |------|----------|--------|
-| 网站挂了 | 用户投诉才知道 | 自动告警，快速响应 |
-| 性能下降 | 凭感觉猜测 | 数据定位瓶颈 |
-| 错误追踪 | 翻日志找半天 | 一键定位问题 |
-| 容量规划 | 拍脑袋扩容 | 基于数据决策 |
+| Website down | Người dùng phàn nàn mới biết | Cảnh báo tự động, phản ứng nhanh |
+| Hiệu năng giảm | Đoán mò cảm tính | Dữ liệu định vị điểm nghẽn |
+| Theo dõi lỗi | Lục log tìm nửa ngày | Một click định vị vấn đề |
+| Lập kế hoạch dung lượng | Đập đầu vào tường mở rộng | Ra quyết định dựa trên dữ liệu |
 
-## 监控体系架构
+## Kiến trúc hệ thống giám sát
 
 ```mermaid
 flowchart LR
-    subgraph 应用层
+    subgraph Tầng ứng dụng
         A[Next.js]
         B[NestJS]
     end
-    
-    subgraph 采集层
-        C[健康检查]
-        D[日志收集]
-        E[指标上报]
+
+    subgraph Tầng thu thập
+        C[Kiểm tra sức khỏe]
+        D[Thu thập log]
+        E[Báo cáo chỉ số]
     end
-    
-    subgraph 存储层
-        F[日志存储]
-        G[指标存储]
+
+    subgraph Tầng lưu trữ
+        F[Lưu trữ log]
+        G[Lưu trữ chỉ số]
     end
-    
-    subgraph 展示层
-        H[仪表盘]
-        I[告警]
+
+    subgraph Tầng hiển thị
+        H[Dashboard]
+        I[Cảnh báo]
     end
-    
+
     A --> C & D & E
     B --> C & D & E
     C --> G
@@ -68,28 +67,28 @@ flowchart LR
     H --> I
 ```
 
-## 本节目录
+## Mục lục chương này
 
-- **10.5.1 网站还活着吗** — 健康检查与基础指标
-- **10.5.2 日志太多了怎么办** — 结构化日志与管理
-- **10.5.3 一出错就通知我** — 错误追踪与告警
-- **10.5.4 性能瓶颈在哪** — 性能分析与优化
+- **10.5.1 Website còn sống không** — Kiểm tra sức khỏe và chỉ số cơ bản
+- **10.5.2 Log quá nhiều thì làm sao** — Log có cấu trúc và quản lý
+- **10.5.3 Có lỗi thì thông báo ngay** — Theo dõi lỗi và cảnh báo
+- **10.5.4 Điểm nghẽn hiệu năng ở đâu** — Phân tích và tối ưu hiệu năng
 
-## 适合独立开发者的方案
+## Giải pháp phù hợp cho independent developer
 
-不需要复杂的 ELK Stack，简单方案也够用：
+Không cần ELK Stack phức tạp, giải pháp đơn giản cũng đủ dùng:
 
-| 工具 | 用途 | 费用 |
+| Công cụ | Công dụng | Chi phí |
 |------|------|------|
-| 1Panel 监控 | 服务器资源监控 | 免费 |
-| UptimeRobot | 网站可用性监控 | 免费/付费 |
-| Sentry | 错误追踪 | 免费/付费 |
-| Better Stack | 日志 + 告警 | 免费/付费 |
-| Docker 日志 | 容器日志查看 | 免费 |
+| 1Panel monitoring | Giám sát tài nguyên server | Miễn phí |
+| UptimeRobot | Giám sát tính khả dụng website | Miễn phí/Trả phí |
+| Sentry | Theo dõi lỗi | Miễn phí/Trả phí |
+| Better Stack | Log + Cảnh báo | Miễn phí/Trả phí |
+| Docker logs | Xem log container | Miễn phí |
 
-## 快速开始
+## Bắt đầu nhanh
 
-### 1. 健康检查端点
+### 1. Health check endpoint
 
 ```typescript
 // NestJS
@@ -99,19 +98,19 @@ healthCheck() {
 }
 ```
 
-### 2. 查看 Docker 日志
+### 2. Xem Docker logs
 
 ```bash
-# 查看应用日志
+# Xem log ứng dụng
 docker logs -f --tail 100 app-container
 
-# 查看所有服务日志
+# Xem log tất cả service
 docker-compose logs -f
 ```
 
-### 3. 配置告警
+### 3. Cấu hình cảnh báo
 
-在 UptimeRobot 创建监控：
-- 监控地址：`https://example.com/api/health`
-- 检查间隔：5 分钟
-- 告警方式：邮件/Webhook
+Tạo monitoring trong UptimeRobot:
+- Địa chỉ giám sát: `https://example.com/api/health`
+- Khoảng thời gian kiểm tra: 5 phút
+- Cách thức cảnh báo: Email/Webhook

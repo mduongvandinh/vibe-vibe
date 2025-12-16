@@ -1,52 +1,52 @@
 ---
-title: "A.4 文档生成类模板"
+title: "A.4 Template tạo tài liệu"
 ---
 
-# A.4 文档生成类模板
+# A.4 Template tạo tài liệu
 
-本节提供生成各类文档的 Prompt 模板，包括代码注释、README、API 文档和使用说明。
+Phần này cung cấp các Prompt template để tạo các loại tài liệu, bao gồm comment code, README, API docs và hướng dẫn sử dụng.
 
 
-## 模板一：代码注释生成
+## Template 1: Tạo comment code
 
-适用于：为现有代码添加注释
-
-```markdown
-## 注释需求
-
-请为以下代码添加中文注释：
-
-```[语言]
-[粘贴代码]
-```
-
-## 注释要求
-
-**注释类型**：
-- [ ] 文件头注释（说明文件用途）
-- [ ] 函数注释（说明参数、返回值、功能）
-- [ ] 关键逻辑注释（解释复杂逻辑）
-- [ ] TODO 注释（标记待完善的地方）
-
-**注释风格**：
-- 语言：中文
-- 格式：[JSDoc 风格 / 普通注释 / 你的规范]
-- 详细程度：[简洁/适中/详尽]
-
-**特别说明**：
-- [其他要求，如"不需要给简单的变量加注释"]
-
-## 输出要求
-
-请输出添加注释后的完整代码，保持原有代码逻辑不变。
-```
-
-### 填写示例
+Áp dụng cho: Thêm comment cho code hiện có
 
 ```markdown
-## 注释需求
+## Nhu cầu comment
 
-请为以下代码添加中文注释：
+Vui lòng thêm comment tiếng Việt cho code sau:
+
+```[ngôn ngữ]
+[Dán code]
+```
+
+## Yêu cầu comment
+
+**Loại comment**:
+- [ ] Comment đầu file (giải thích mục đích file)
+- [ ] Comment hàm (giải thích tham số, giá trị trả về, chức năng)
+- [ ] Comment logic quan trọng (giải thích logic phức tạp)
+- [ ] Comment TODO (đánh dấu chỗ cần hoàn thiện)
+
+**Phong cách comment**:
+- Ngôn ngữ: Tiếng Việt
+- Định dạng: [JSDoc style / comment thường / quy chuẩn của bạn]
+- Mức độ chi tiết: [Ngắn gọn/vừa phải/chi tiết]
+
+**Lưu ý đặc biệt**:
+- [Yêu cầu khác, như "không cần thêm comment cho biến đơn giản"]
+
+## Yêu cầu đầu ra
+
+Vui lòng output code đầy đủ đã thêm comment, giữ nguyên logic code gốc.
+```
+
+### Ví dụ điền
+
+```markdown
+## Nhu cầu comment
+
+Vui lòng thêm comment tiếng Việt cho code sau:
 
 ```typescript
 interface Task {
@@ -58,7 +58,7 @@ interface Task {
 
 function useTasks() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  
+
   const addTask = useCallback((title: string) => {
     const newTask: Task = {
       id: crypto.randomUUID(),
@@ -68,128 +68,128 @@ function useTasks() {
     };
     setTasks(prev => [...prev, newTask]);
   }, []);
-  
+
   const toggleTask = useCallback((id: string) => {
-    setTasks(prev => 
-      prev.map(task => 
+    setTasks(prev =>
+      prev.map(task =>
         task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
   }, []);
-  
+
   return { tasks, addTask, toggleTask };
 }
 ```
 
-## 注释要求
+## Yêu cầu comment
 
-**注释类型**：
-- [x] 文件头注释
-- [x] 函数注释（JSDoc 格式）
-- [x] 关键逻辑注释
+**Loại comment**:
+- [x] Comment đầu file
+- [x] Comment hàm (định dạng JSDoc)
+- [x] Comment logic quan trọng
 
-**注释风格**：
-- 语言：中文
-- 格式：JSDoc 风格
-- 详细程度：适中
+**Phong cách comment**:
+- Ngôn ngữ: Tiếng Việt
+- Định dạng: JSDoc style
+- Mức độ chi tiết: Vừa phải
 
-**特别说明**：
-- interface 的每个字段需要注释
-- useCallback 需要解释为什么用它
+**Lưu ý đặc biệt**:
+- Mỗi field của interface cần comment
+- useCallback cần giải thích tại sao dùng nó
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请输出添加注释后的完整代码。
+Vui lòng output code đầy đủ đã thêm comment.
 ```
 
 
-## 模板二：README 生成
+## Template 2: Tạo README
 
-适用于：为项目生成说明文档
+Áp dụng cho: Tạo tài liệu giới thiệu cho dự án
 
 ```markdown
-## 项目信息
+## Thông tin dự án
 
-**项目名称**：[名称]
-**一句话描述**：[简述项目做什么]
+**Tên dự án**: [Tên]
+**Mô tả một câu**: [Mô tả ngắn dự án làm gì]
 
-**技术栈**：
-- 前端：[技术]
-- 后端：[技术，如无则写"无"]
-- 数据库：[技术，如无则写"无"]
+**Tech stack**:
+- Frontend: [Công nghệ]
+- Backend: [Công nghệ, nếu không có viết "Không"]
+- Database: [Công nghệ, nếu không có viết "Không"]
 
-**目标用户**：[谁会用这个项目]
+**Người dùng mục tiêu**: [Ai sẽ dùng dự án này]
 
-## 项目功能
+## Tính năng dự án
 
-**核心功能**：
-1. [功能1]
-2. [功能2]
-3. [功能3]
+**Tính năng cốt lõi**:
+1. [Tính năng 1]
+2. [Tính năng 2]
+3. [Tính năng 3]
 
-**功能截图**（可选）：
-[如果有截图，描述截图内容]
+**Screenshot tính năng** (tùy chọn):
+[Nếu có screenshot, mô tả nội dung screenshot]
 
-## 技术细节
+## Chi tiết kỹ thuật
 
-**项目结构**：
+**Cấu trúc dự án**:
 ```
-[粘贴项目目录结构]
+[Dán cấu trúc thư mục dự án]
 ```
 
-**环境要求**：
-- Node.js 版本：[版本]
-- 其他依赖：[列出]
+**Yêu cầu môi trường**:
+- Phiên bản Node.js: [Phiên bản]
+- Dependencies khác: [Liệt kê]
 
-**安装步骤**：
-[如果你知道安装步骤，可以先写出来]
+**Các bước cài đặt**:
+[Nếu bạn biết các bước cài đặt, có thể viết ra trước]
 
-## README 要求
+## Yêu cầu README
 
-**包含内容**：
-- [ ] 项目简介
-- [ ] 功能特性
-- [ ] 快速开始（安装和运行）
-- [ ] 项目结构说明
-- [ ] 技术栈说明
-- [ ] 贡献指南
+**Nội dung bao gồm**:
+- [ ] Giới thiệu dự án
+- [ ] Tính năng đặc biệt
+- [ ] Quick start (cài đặt và chạy)
+- [ ] Giải thích cấu trúc dự án
+- [ ] Giải thích tech stack
+- [ ] Hướng dẫn đóng góp
 - [ ] License
 
-**风格要求**：
-- 语言：中文
-- 风格：[简洁专业/友好亲切/技术范]
+**Yêu cầu phong cách**:
+- Ngôn ngữ: Tiếng Việt
+- Phong cách: [Ngắn gọn chuyên nghiệp/thân thiện gần gũi/phong cách kỹ thuật]
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请生成完整的 README.md 文件内容。
+Vui lòng tạo nội dung file README.md đầy đủ.
 ```
 
-### 填写示例
+### Ví dụ điền
 
 ```markdown
-## 项目信息
+## Thông tin dự án
 
-**项目名称**：极简待办
-**一句话描述**：一个打开浏览器就能用的极简待办清单
+**Tên dự án**: Todo Tối Giản
+**Mô tả một câu**: Danh sách công việc tối giản có thể dùng ngay khi mở trình duyệt
 
-**技术栈**：
-- 前端：React + TypeScript + Tailwind CSS
-- 后端：无
-- 数据库：浏览器 localStorage
+**Tech stack**:
+- Frontend: React + TypeScript + Tailwind CSS
+- Backend: Không
+- Database: localStorage của trình duyệt
 
-**目标用户**：想要简单记录每日待办的个人用户
+**Người dùng mục tiêu**: Người dùng cá nhân muốn ghi chú công việc hàng ngày đơn giản
 
-## 项目功能
+## Tính năng dự án
 
-**核心功能**：
-1. 添加待办任务
-2. 标记任务完成
-3. 删除任务
-4. 数据本地持久化
+**Tính năng cốt lõi**:
+1. Thêm task công việc
+2. Đánh dấu task hoàn thành
+3. Xóa task
+4. Dữ liệu lưu trữ local persistent
 
-## 技术细节
+## Chi tiết kỹ thuật
 
-**项目结构**：
+**Cấu trúc dự án**:
 ```
 src/
 ├── components/
@@ -204,91 +204,91 @@ src/
 └── main.tsx
 ```
 
-**环境要求**：
-- Node.js 版本：18+
-- 包管理器：npm 或 pnpm
+**Yêu cầu môi trường**:
+- Phiên bản Node.js: 18+
+- Package manager: npm hoặc pnpm
 
-## README 要求
+## Yêu cầu README
 
-**包含内容**：
-- [x] 项目简介
-- [x] 功能特性
-- [x] 快速开始
-- [x] 项目结构说明
-- [ ] 贡献指南（不需要）
-- [ ] License（不需要）
+**Nội dung bao gồm**:
+- [x] Giới thiệu dự án
+- [x] Tính năng đặc biệt
+- [x] Quick start
+- [x] Giải thích cấu trúc dự án
+- [ ] Hướng dẫn đóng góp (không cần)
+- [ ] License (không cần)
 
-**风格要求**：
-- 语言：中文
-- 风格：简洁专业
+**Yêu cầu phong cách**:
+- Ngôn ngữ: Tiếng Việt
+- Phong cách: Ngắn gọn chuyên nghiệp
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请生成完整的 README.md 文件内容。
+Vui lòng tạo nội dung file README.md đầy đủ.
 ```
 
 
-## 模板三：API 文档生成
+## Template 3: Tạo API documentation
 
-适用于：为后端接口生成文档
+Áp dụng cho: Tạo tài liệu cho API backend
 
 ```markdown
-## API 基本信息
+## Thông tin API cơ bản
 
-**API 名称**：[接口名称]
-**请求路径**：[如 /api/users]
-**请求方法**：[GET/POST/PUT/DELETE]
-**功能描述**：[这个接口做什么]
+**Tên API**: [Tên interface]
+**Request path**: [Ví dụ /api/users]
+**Request method**: [GET/POST/PUT/DELETE]
+**Mô tả chức năng**: [API này làm gì]
 
-## 接口代码
+## Code interface
 
-```[语言]
-[粘贴接口实现代码]
+```[ngôn ngữ]
+[Dán code implementation của interface]
 ```
 
-## 文档要求
+## Yêu cầu tài liệu
 
-**文档格式**：[Markdown / OpenAPI YAML / 其他]
+**Định dạng tài liệu**: [Markdown / OpenAPI YAML / Khác]
 
-**包含内容**：
-- [ ] 接口描述
-- [ ] 请求参数说明
-- [ ] 请求体示例
-- [ ] 响应格式说明
-- [ ] 响应示例
-- [ ] 错误码说明
-- [ ] 调用示例（curl/JavaScript）
+**Nội dung bao gồm**:
+- [ ] Mô tả interface
+- [ ] Giải thích tham số request
+- [ ] Ví dụ request body
+- [ ] Giải thích định dạng response
+- [ ] Ví dụ response
+- [ ] Giải thích mã lỗi
+- [ ] Ví dụ gọi API (curl/JavaScript)
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请生成完整的 API 文档。
+Vui lòng tạo API documentation đầy đủ.
 ```
 
-### 填写示例
+### Ví dụ điền
 
 ```markdown
-## API 基本信息
+## Thông tin API cơ bản
 
-**API 名称**：创建任务
-**请求路径**：/api/tasks
-**请求方法**：POST
-**功能描述**：创建一个新的待办任务
+**Tên API**: Tạo task
+**Request path**: /api/tasks
+**Request method**: POST
+**Mô tả chức năng**: Tạo một task công việc mới
 
-## 接口代码
+## Code interface
 
 ```typescript
 // POST /api/tasks
 export async function POST(request: Request) {
   const body = await request.json();
   const { title, priority } = body;
-  
+
   if (!title || title.trim() === '') {
     return Response.json(
       { error: 'Title is required' },
       { status: 400 }
     );
   }
-  
+
   const task = {
     id: crypto.randomUUID(),
     title: title.trim(),
@@ -296,212 +296,212 @@ export async function POST(request: Request) {
     completed: false,
     createdAt: new Date().toISOString(),
   };
-  
-  // 保存到数据库...
+
+  // Lưu vào database...
   await db.tasks.create(task);
-  
+
   return Response.json(task, { status: 201 });
 }
 ```
 
-## 文档要求
+## Yêu cầu tài liệu
 
-**文档格式**：Markdown
+**Định dạng tài liệu**: Markdown
 
-**包含内容**：
-- [x] 接口描述
-- [x] 请求参数说明
-- [x] 请求体示例
-- [x] 响应格式说明
-- [x] 响应示例
-- [x] 错误码说明
-- [x] 调用示例（curl）
+**Nội dung bao gồm**:
+- [x] Mô tả interface
+- [x] Giải thích tham số request
+- [x] Ví dụ request body
+- [x] Giải thích định dạng response
+- [x] Ví dụ response
+- [x] Giải thích mã lỗi
+- [x] Ví dụ gọi API (curl)
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请生成完整的 API 文档。
+Vui lòng tạo API documentation đầy đủ.
 ```
 
 
-## 模板四：使用说明生成
+## Template 4: Tạo hướng dẫn sử dụng
 
-适用于：为非技术用户编写使用指南
+Áp dụng cho: Viết hướng dẫn cho người dùng không chuyên kỹ thuật
 
 ```markdown
-## 产品信息
+## Thông tin sản phẩm
 
-**产品名称**：[名称]
-**产品类型**：[网页/App/桌面软件/脚本]
-**目标用户**：[谁会用，技术水平如何]
+**Tên sản phẩm**: [Tên]
+**Loại sản phẩm**: [Web/App/Phần mềm desktop/Script]
+**Người dùng mục tiêu**: [Ai sẽ dùng, trình độ kỹ thuật như thế nào]
 
-## 核心功能
+## Tính năng cốt lõi
 
-请为以下功能编写使用说明：
+Vui lòng viết hướng dẫn sử dụng cho các tính năng sau:
 
-1. **[功能1]**
-   - 功能描述：[做什么]
-   - 入口位置：[在哪里找到这个功能]
-   
-2. **[功能2]**
-   - 功能描述：[做什么]
-   - 入口位置：[在哪里找到这个功能]
+1. **[Tính năng 1]**
+   - Mô tả tính năng: [Làm gì]
+   - Vị trí: [Tìm tính năng này ở đâu]
 
-## 说明要求
+2. **[Tính năng 2]**
+   - Mô tả tính năng: [Làm gì]
+   - Vị trí: [Tìm tính năng này ở đâu]
 
-**语言风格**：
-- 语气：[正式/亲切/简洁]
-- 技术术语：[避免使用/简单解释后使用]
+## Yêu cầu hướng dẫn
 
-**内容结构**：
-- [ ] 功能介绍
-- [ ] 操作步骤（分步骤说明）
-- [ ] 注意事项
-- [ ] 常见问题
+**Phong cách ngôn ngữ**:
+- Giọng điệu: [Trang trọng/thân thiện/ngắn gọn]
+- Thuật ngữ kỹ thuật: [Tránh dùng/giải thích đơn giản rồi dùng]
 
-**配图说明**（可选）：
-[描述需要配什么图，或标注"无需配图"]
+**Cấu trúc nội dung**:
+- [ ] Giới thiệu tính năng
+- [ ] Các bước thao tác (hướng dẫn từng bước)
+- [ ] Lưu ý
+- [ ] Câu hỏi thường gặp
 
-## 输出要求
+**Giải thích hình ảnh** (tùy chọn):
+[Mô tả cần hình ảnh gì, hoặc ghi "không cần hình"]
 
-请生成用户友好的使用说明文档。
+## Yêu cầu đầu ra
+
+Vui lòng tạo tài liệu hướng dẫn thân thiện với người dùng.
 ```
 
 
-## 模板五：学习笔记整理
+## Template 5: Chỉnh lý ghi chú học tập
 
-适用于：整理技术学习内容
+Áp dụng cho: Chỉnh lý nội dung học tập kỹ thuật
 
 ```markdown
-## 学习主题
+## Chủ đề học tập
 
-我学习了 [主题]，请帮我整理笔记。
+Tôi đã học [chủ đề], vui lòng giúp tôi chỉnh lý ghi chú.
 
-## 学习内容
+## Nội dung học tập
 
-以下是我学习过程中记录的零散笔记：
+Dưới đây là ghi chú rời rạc tôi ghi trong quá trình học:
 
 ```
-[粘贴你的学习笔记、代码片段、关键词等]
+[Dán ghi chú học tập, đoạn code, từ khóa của bạn]
 ```
 
-## 整理要求
+## Yêu cầu chỉnh lý
 
-**笔记结构**：
-- [ ] 概念定义
-- [ ] 核心要点（3-5 条）
-- [ ] 代码示例
-- [ ] 使用场景
-- [ ] 常见误区
-- [ ] 相关概念链接
+**Cấu trúc ghi chú**:
+- [ ] Định nghĩa khái niệm
+- [ ] Điểm cốt lõi (3-5 điểm)
+- [ ] Ví dụ code
+- [ ] Tình huống sử dụng
+- [ ] Sai lầm thường gặp
+- [ ] Liên kết khái niệm liên quan
 
-**格式偏好**：
-- 使用 Markdown
-- 代码块带语法高亮
-- 重点用加粗标注
+**Ưu tiên định dạng**:
+- Dùng Markdown
+- Code block có syntax highlighting
+- Điểm quan trọng dùng in đậm
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请输出结构化的学习笔记，方便日后复习。
+Vui lòng output ghi chú học tập có cấu trúc, tiện cho việc ôn tập sau này.
 ```
 
-### 填写示例
+### Ví dụ điền
 
 ```markdown
-## 学习主题
+## Chủ đề học tập
 
-我学习了 React Hooks 中的 useEffect，请帮我整理笔记。
+Tôi đã học useEffect trong React Hooks, vui lòng giúp tôi chỉnh lý ghi chú.
 
-## 学习内容
+## Nội dung học tập
 
-以下是我学习过程中记录的零散笔记：
+Dưới đây là ghi chú rời rạc tôi ghi trong quá trình học:
 
 ```
-useEffect 副作用
-- 获取数据
-- 订阅事件
-- 修改 DOM
+useEffect side effect
+- Fetch data
+- Subscribe event
+- Modify DOM
 
-依赖数组
-[] 空数组 - 只在挂载时执行一次
-不写 - 每次渲染都执行
-[dep1, dep2] - 依赖变化时执行
+dependency array
+[] mảng rỗng - chỉ chạy khi mount
+không viết - chạy mỗi lần render
+[dep1, dep2] - chạy khi dependency thay đổi
 
-清理函数 return () => {}
-组件卸载时调用
-避免内存泄漏
+cleanup function return () => {}
+Gọi khi component unmount
+Tránh memory leak
 
-常见错误：
-无限循环 - 依赖数组没写对
-内存泄漏 - 忘记清理订阅
+Lỗi thường gặp:
+Vòng lặp vô hạn - dependency array viết sai
+Memory leak - quên cleanup subscription
 ```
 
-## 整理要求
+## Yêu cầu chỉnh lý
 
-**笔记结构**：
-- [x] 概念定义
-- [x] 核心要点
-- [x] 代码示例
-- [x] 使用场景
-- [x] 常见误区
+**Cấu trúc ghi chú**:
+- [x] Định nghĩa khái niệm
+- [x] Điểm cốt lõi
+- [x] Ví dụ code
+- [x] Tình huống sử dụng
+- [x] Sai lầm thường gặp
 
-**格式偏好**：
-- 使用 Markdown
-- 代码块带语法高亮
-- 重点用加粗标注
+**Ưu tiên định dạng**:
+- Dùng Markdown
+- Code block có syntax highlighting
+- Điểm quan trọng dùng in đậm
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请输出结构化的学习笔记。
+Vui lòng output ghi chú học tập có cấu trúc.
 ```
 
 
-## 精简版：快速生成文档
+## Phiên bản tối giản: Tạo tài liệu nhanh
 
-当需求简单时，可以用这个精简版：
+Khi nhu cầu đơn giản, có thể dùng phiên bản tối giản này:
 
 ```markdown
-请为以下代码生成 [注释/文档/说明]：
+Vui lòng tạo [comment/tài liệu/hướng dẫn] cho code sau:
 
-```[语言]
-[代码]
+```[ngôn ngữ]
+[Code]
 ```
 
-要求：
-- 语言：中文
-- 格式：[Markdown/JSDoc/其他]
-- [其他要求]
+Yêu cầu:
+- Ngôn ngữ: Tiếng Việt
+- Định dạng: [Markdown/JSDoc/Khác]
+- [Yêu cầu khác]
 ```
 
 
-## 文档生成技巧
+## Kỹ thuật tạo tài liệu
 
-### 技巧一：提供足够的上下文
+### Kỹ thuật 1: Cung cấp đủ ngữ cảnh
 
-AI 需要理解代码的用途才能写出好的文档。简单说明这段代码"是做什么的"，能让文档更准确。
+AI cần hiểu mục đích của code mới viết được tài liệu tốt. Giải thích đơn giản đoạn code này "làm gì", có thể làm tài liệu chính xác hơn.
 
-### 技巧二：指定目标读者
+### Kỹ thuật 2: Chỉ định đối tượng đọc
 
-给开发者看的文档和给普通用户看的说明，写法完全不同。明确读者是谁。
+Tài liệu cho developer và hướng dẫn cho người dùng thường, cách viết hoàn toàn khác. Nói rõ người đọc là ai.
 
-### 技巧三：给出格式示例
+### Kỹ thuật 3: Đưa ra ví dụ định dạng
 
-如果你有特定的文档格式要求，给一个示例比文字描述更有效。
+Nếu bạn có yêu cầu định dạng tài liệu cụ thể, đưa ví dụ hiệu quả hơn mô tả bằng văn bản.
 
 
-## 常见填写误区
+## Sai lầm thường gặp khi điền
 
-| 误区 | 问题 | 正确做法 |
+| Sai lầm | Vấn đề | Cách làm đúng |
 |-----|------|---------|
-| 不说明用途 | AI 不理解代码做什么 | 简要说明功能和场景 |
-| 不指定格式 | 输出格式随机 | 明确要 Markdown/JSDoc 等 |
-| 不指定语言 | 可能输出英文 | 明确要求中文 |
-| 要求过于笼统 | "写个文档" | 具体说明包含哪些内容 |
+| Không nói rõ mục đích | AI không hiểu code làm gì | Giải thích ngắn gọn chức năng và tình huống |
+| Không chỉ định định dạng | Định dạng output ngẫu nhiên | Nói rõ cần Markdown/JSDoc, v.v. |
+| Không chỉ định ngôn ngữ | Có thể output tiếng Anh | Yêu cầu rõ ràng tiếng Việt |
+| Yêu cầu quá chung chung | "Viết tài liệu" | Nói cụ thể bao gồm nội dung gì |
 
 
-## 本节要点
+## Điểm chính của phần này
 
-- ✅ **代码注释**：指定注释类型 + 风格 + 详细程度
-- ✅ **README**：提供项目信息 + 功能列表 + 技术细节
-- ✅ **API 文档**：提供接口代码 + 指定文档格式
-- ✅ **使用说明**：明确目标用户 + 指定语言风格
-- ✅ **关键技巧**：提供上下文 + 指定目标读者 + 给出格式示例
+- ✅ **Comment code**: Chỉ định loại comment + phong cách + mức độ chi tiết
+- ✅ **README**: Cung cấp thông tin dự án + danh sách tính năng + chi tiết kỹ thuật
+- ✅ **API documentation**: Cung cấp code interface + chỉ định định dạng tài liệu
+- ✅ **Hướng dẫn sử dụng**: Nói rõ người dùng mục tiêu + chỉ định phong cách ngôn ngữ
+- ✅ **Kỹ thuật quan trọng**: Cung cấp ngữ cảnh + chỉ định đối tượng đọc + đưa ra ví dụ định dạng

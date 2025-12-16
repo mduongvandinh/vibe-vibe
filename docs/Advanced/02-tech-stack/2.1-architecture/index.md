@@ -1,40 +1,39 @@
 ---
-title: "2.1 为什么我们选这套装备——Next.js + TS + Prisma + OSS 架构全景"
-typora-root-url: ../../public
+title: "2.1 Tại sao chúng ta chọn bộ trang bị này—Tổng quan kiến trúc Next.js + TS + Prisma + OSS"
 ---
 
-# 2.1 为什么我们选这套装备——架构全景
+# 2.1 Tại sao chúng ta chọn bộ trang bị này—Tổng quan kiến trúc
 
-## 一句话破题
+## Phá đề bằng một câu
 
-Next.js + TypeScript + Prisma + OSS 是 2024-2025 年全栈开发的"黄金组合"——它们不是最新潮的，但却是 AI 最擅长、生态最完善、生产验证最充分的技术栈。
+Next.js + TypeScript + Prisma + OSS là "bộ kết hợp vàng" cho phát triển fullstack năm 2024-2025—chúng không phải là xu hướng mới nhất, nhưng lại là công nghệ mà AI thành thạo nhất, hệ sinh thái hoàn thiện nhất, được kiểm chứng production đầy đủ nhất.
 
-## 架构全景图
+## Sơ đồ tổng quan kiến trúc
 
 ```mermaid
 flowchart LR
-    subgraph Client["客户端"]
-        Browser["浏览器"]
+    subgraph Client["Client"]
+        Browser["Trình duyệt"]
     end
-    
-    subgraph NextJS["Next.js 应用"]
+
+    subgraph NextJS["Ứng dụng Next.js"]
         direction TB
-        AppRouter["App Router<br/>文件系统路由"]
-        RSC["React Server Components<br/>服务器组件"]
-        RCC["Client Components<br/>客户端组件"]
-        SA["Server Actions<br/>服务端操作"]
-        API["API Routes<br/>RESTful 接口"]
+        AppRouter["App Router<br/>File system routing"]
+        RSC["React Server Components<br/>Server Components"]
+        RCC["Client Components<br/>Client Components"]
+        SA["Server Actions<br/>Server-side operations"]
+        API["API Routes<br/>RESTful API"]
     end
-    
-    subgraph DataLayer["数据层"]
-        Prisma["Prisma ORM<br/>类型安全查询"]
-        PG["PostgreSQL<br/>关系型数据库"]
+
+    subgraph DataLayer["Tầng dữ liệu"]
+        Prisma["Prisma ORM<br/>Type-safe queries"]
+        PG["PostgreSQL<br/>Relational database"]
     end
-    
-    subgraph Storage["存储服务"]
-        OSS["对象存储<br/>文件/图片"]
+
+    subgraph Storage["Dịch vụ lưu trữ"]
+        OSS["Object Storage<br/>File/Hình ảnh"]
     end
-    
+
     Browser --> AppRouter
     AppRouter --> RSC
     AppRouter --> RCC
@@ -47,51 +46,51 @@ flowchart LR
     API --> OSS
 ```
 
-## 各层职责速览
+## Tóm tắt trách nhiệm từng tầng
 
-| 层级 | 技术 | 核心职责 |
+| Tầng | Công nghệ | Trách nhiệm cốt lõi |
 |------|------|----------|
-| **路由层** | App Router | URL 映射、布局嵌套、加载状态 |
-| **视图层** | RSC + Client Components | UI 渲染、交互处理 |
-| **操作层** | Server Actions | 表单处理、数据变更 |
-| **接口层** | API Routes | 对外 API、第三方集成 |
-| **数据层** | Prisma + PostgreSQL | 数据持久化、事务处理 |
-| **存储层** | OSS | 文件存储、CDN 分发 |
+| **Tầng routing** | App Router | Ánh xạ URL, nested layout, loading states |
+| **Tầng view** | RSC + Client Components | Render UI, xử lý tương tác |
+| **Tầng operations** | Server Actions | Xử lý form, thay đổi dữ liệu |
+| **Tầng interface** | API Routes | API công khai, tích hợp bên thứ ba |
+| **Tầng data** | Prisma + PostgreSQL | Lưu trữ dữ liệu, xử lý transaction |
+| **Tầng storage** | OSS | Lưu trữ file, phân phối CDN |
 
-## 为什么是这套组合？
+## Tại sao là bộ kết hợp này?
 
-### 1. AI 友好度最高
+### 1. Độ thân thiện với AI cao nhất
 
-这套技术栈在 AI 训练数据中占比极高，意味着：
+Bộ công nghệ này chiếm tỷ trọng cực lớn trong dữ liệu huấn luyện AI, có nghĩa là:
 
-- AI 生成的代码更符合最佳实践
-- 遇到问题时能得到更准确的解决方案
-- 代码审查时 AI 能发现更多潜在问题
+- Code được AI tạo ra phù hợp hơn với best practices
+- Khi gặp vấn đề có thể nhận được giải pháp chính xác hơn
+- Khi review code, AI có thể phát hiện nhiều vấn đề tiềm ẩn hơn
 
-### 2. 开发体验统一
+### 2. Trải nghiệm phát triển thống nhất
 
-传统全栈开发需要在前后端之间频繁切换上下文。而这套技术栈：
+Phát triển fullstack truyền thống cần chuyển đổi context thường xuyên giữa frontend-backend. Còn bộ công nghệ này:
 
-- **一种语言**：全栈 TypeScript
-- **一个项目**：前后端代码共存
-- **一套类型**：Prisma 生成的类型前后端共享
+- **Một ngôn ngữ**: TypeScript fullstack
+- **Một project**: Code frontend-backend cùng tồn tại
+- **Một bộ type**: Type được Prisma tạo ra, frontend-backend chia sẻ
 
-### 3. 生产验证充分
+### 3. Kiểm chứng production đầy đủ
 
-| 技术 | 使用者 |
+| Công nghệ | Người dùng |
 |------|--------|
-| Next.js | Vercel、Netflix、TikTok、Notion |
-| Prisma | Hashicorp、Miro、Mercedes-Benz |
-| PostgreSQL | Instagram、Spotify、Reddit |
+| Next.js | Vercel, Netflix, TikTok, Notion |
+| Prisma | Hashicorp, Miro, Mercedes-Benz |
+| PostgreSQL | Instagram, Spotify, Reddit |
 
-## 本节小结
+## Tóm tắt phần này
 
-选择技术栈的核心原则：**不选最新的，选最稳的；不选最酷的，选 AI 最懂的。**
+Nguyên tắc cốt lõi khi chọn công nghệ: **Không chọn mới nhất, chọn ổn định nhất; không chọn ngầu nhất, chọn AI hiểu rõ nhất.**
 
-接下来我们将深入探讨这套架构的每个核心组件：
+Tiếp theo chúng ta sẽ đi sâu vào từng thành phần cốt lõi của kiến trúc này:
 
-- 2.1.1 技术栈选择理由
-- 2.1.2 App Router 架构
-- 2.1.3 RSC 渲染策略
+- 2.1.1 Lý do chọn công nghệ
+- 2.1.2 Kiến trúc App Router
+- 2.1.3 Chiến lược render RSC
 - 2.1.4 Server Actions
-- 2.1.5 OSS 对象存储
+- 2.1.5 OSS Object Storage

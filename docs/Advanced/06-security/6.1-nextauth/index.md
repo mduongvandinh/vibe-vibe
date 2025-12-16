@@ -1,51 +1,50 @@
 ---
-title: "6.1 别再从零开始写登录注册——NextAuth 快速上手：Google/GitHub 登录实战"
-typora-root-url: ../../public
+title: "6.1 Đừng viết đăng nhập đăng ký từ đầu nữa—Bắt đầu nhanh với NextAuth: Thực hành đăng nhập Google/GitHub"
 ---
 
-# 6.1 别再从零开始写登录注册——NextAuth 快速上手
+# 6.1 Đừng viết đăng nhập đăng ký từ đầu nữa—Bắt đầu nhanh với NextAuth
 
-## 一句话破题
+## Tóm tắt một câu
 
-NextAuth.js（现已更名为 Auth.js）是 Next.js 生态中最流行的认证解决方案——它让你用几行配置就能接入 Google、GitHub 等主流登录方式，省去从零实现认证系统的繁琐。
+NextAuth.js (hiện đã đổi tên thành Auth.js) là giải pháp xác thực phổ biến nhất trong hệ sinh thái Next.js—nó cho phép bạn tích hợp các phương thức đăng nhập chính thống như Google, GitHub chỉ với vài dòng cấu hình, tiết kiệm công sức triển khai hệ thống xác thực từ đầu.
 
-## 核心价值
+## Giá trị cốt lõi
 
-自己实现登录系统意味着：密码加密、Session 管理、Token 签发、OAuth 回调处理、安全漏洞防护……每一项都是坑。NextAuth 把这些复杂性封装成开箱即用的 API，让你专注于业务逻辑。
+Tự triển khai hệ thống đăng nhập nghĩa là: mã hóa mật khẩu, quản lý Session, cấp phát Token, xử lý callback OAuth, phòng thủ lỗ hổng bảo mật... mỗi thứ đều là cạm bẫy. NextAuth đóng gói những phức tạp này thành API có thể sử dụng ngay, giúp bạn tập trung vào logic nghiệp vụ.
 
 ```mermaid
 flowchart LR
-    subgraph Before["自己实现"]
-        A1["密码哈希"] --> A2["Session 存储"]
-        A2 --> A3["Token 签发"]
-        A3 --> A4["OAuth 回调"]
-        A4 --> A5["安全防护"]
+    subgraph Before["Tự triển khai"]
+        A1["Hash mật khẩu"] --> A2["Lưu trữ Session"]
+        A2 --> A3["Cấp phát Token"]
+        A3 --> A4["Callback OAuth"]
+        A4 --> A5["Bảo vệ bảo mật"]
     end
-    
-    subgraph After["使用 NextAuth"]
-        B1["配置 Provider"] --> B2["搞定"]
+
+    subgraph After["Sử dụng NextAuth"]
+        B1["Cấu hình Provider"] --> B2["Hoàn thành"]
     end
 ```
 
-## 本节内容
+## Nội dung chương này
 
-| 小节 | 学习目标 |
+| Tiểu mục | Mục tiêu học tập |
 |------|----------|
-| 6.1.1 NextAuth 配置 | 理解 providers 和 callbacks 的基础设置 |
-| 6.1.2 Google OAuth | 实战接入 Google 登录 |
-| 6.1.3 GitHub OAuth | 实战接入 GitHub 登录 |
-| 6.1.4 会话管理 | 理解用户状态持久化与路由保护 |
-| 6.1.5 常见问题 | 登录失败的排查与解决方案 |
+| 6.1.1 Cấu hình NextAuth | Hiểu thiết lập cơ bản về providers và callbacks |
+| 6.1.2 Google OAuth | Thực hành tích hợp đăng nhập Google |
+| 6.1.3 GitHub OAuth | Thực hành tích hợp đăng nhập GitHub |
+| 6.1.4 Quản lý phiên | Hiểu duy trì trạng thái người dùng và bảo vệ route |
+| 6.1.5 Vấn đề thường gặp | Khắc phục và giải pháp khi đăng nhập thất bại |
 
-## 快速上手预览
+## Xem trước nhanh
 
-10 分钟内，你将实现这样的登录流程：
+Trong 10 phút, bạn sẽ triển khai quy trình đăng nhập như sau:
 
 ```typescript
-// 1. 安装依赖
+// 1. Cài đặt dependencies
 // npm install next-auth
 
-// 2. 创建配置文件 app/api/auth/[...nextauth]/route.ts
+// 2. Tạo file cấu hình app/api/auth/[...nextauth]/route.ts
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import GitHubProvider from "next-auth/providers/github"
@@ -67,36 +66,36 @@ export { handler as GET, handler as POST }
 ```
 
 ```typescript
-// 3. 在页面中使用
+// 3. Sử dụng trong trang
 import { signIn, signOut, useSession } from "next-auth/react"
 
 export function LoginButton() {
   const { data: session } = useSession()
-  
+
   if (session) {
     return (
       <div>
-        <p>欢迎, {session.user?.name}</p>
-        <button onClick={() => signOut()}>退出登录</button>
+        <p>Chào mừng, {session.user?.name}</p>
+        <button onClick={() => signOut()}>Đăng xuất</button>
       </div>
     )
   }
-  
-  return <button onClick={() => signIn()}>登录</button>
+
+  return <button onClick={() => signIn()}>Đăng nhập</button>
 }
 ```
 
-## AI 协作指南
+## Hướng dẫn hợp tác với AI
 
-向 AI 描述你的认证需求时，使用这些关键词：
+Khi mô tả nhu cầu xác thực cho AI, hãy sử dụng các từ khóa sau:
 
-- **核心意图**："使用 NextAuth 实现社交登录"
-- **关键术语**：`providers`、`callbacks`、`session`、`signIn`、`signOut`
-- **交互策略**：先让 AI 生成基础配置，确认能跑通后，再添加自定义 callbacks
+- **Ý định cốt lõi**: "Sử dụng NextAuth để triển khai đăng nhập mạng xã hội"
+- **Thuật ngữ chính**: `providers`, `callbacks`, `session`, `signIn`, `signOut`
+- **Chiến lược tương tác**: Trước tiên cho AI tạo cấu hình cơ bản, xác nhận chạy được rồi mới thêm callbacks tùy chỉnh
 
-::: tip 验收清单
-在接受 AI 生成的 NextAuth 代码前，检查：
-1. 环境变量是否正确引用（不要硬编码密钥）
-2. 是否使用了 App Router 的 route handler 写法
-3. SessionProvider 是否包裹在合适的层级
+::: tip Danh sách nghiệm thu
+Trước khi chấp nhận mã NextAuth do AI tạo, hãy kiểm tra:
+1. Biến môi trường có được tham chiếu đúng không (không hardcode khóa)
+2. Có sử dụng cách viết route handler của App Router không
+3. SessionProvider có được bao bọc ở tầng phù hợp không
 :::

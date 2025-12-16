@@ -1,74 +1,73 @@
 ---
-title: "10.1 上线前必须知道的事——云服务/网络/域名/证书"
-typora-root-url: ../../public
+title: "10.1 Những điều phải biết trước khi ra mắt — Cloud Service/Network/Domain/Certificate"
 ---
 
-# 10.1 上线前必须知道的事——云服务/网络/域名/证书
+# 10.1 Những điều phải biết trước khi ra mắt — Cloud Service/Network/Domain/Certificate
 
-代码能跑只是开始，上线前还有一堆"行政手续"要办。
+Code chạy được chỉ là khởi đầu, trước khi ra mắt còn một đống "thủ tục hành chính" phải lo.
 
-## 为什么需要"飞行前检查"
+## Tại sao cần "Kiểm tra trước chuyến bay"
 
-很多开发者第一次部署时会遇到这样的困境：代码推上去了，服务起来了，但用户就是访问不了。原因往往不是技术问题，而是**域名没解析**、**端口没开放**、**备案没完成**这些前置工作没做。
+Nhiều developer lần đầu deploy thường gặp tình huống này: code đã đẩy lên, service đã chạy, nhưng người dùng vẫn không truy cập được. Nguyên nhân thường không phải vấn đề kỹ thuật, mà là các công việc tiền đề như **domain chưa resolve**, **port chưa mở**, **đăng ký chưa hoàn tất** chưa làm.
 
 ```mermaid
 flowchart TB
-    A[准备上线] --> B{服务器就绪?}
-    B -->|否| C[选择云服务商]
-    B -->|是| D{域名就绪?}
-    D -->|否| E[购买并解析域名]
-    D -->|是| F{需要备案?}
-    F -->|是| G[完成ICP备案]
-    F -->|否| H{HTTPS证书?}
+    A[Chuẩn bị ra mắt] --> B{Server sẵn sàng?}
+    B -->|Không| C[Chọn nhà cung cấp cloud]
+    B -->|Có| D{Domain sẵn sàng?}
+    D -->|Không| E[Mua và resolve domain]
+    D -->|Có| F{Cần đăng ký?}
+    F -->|Có| G[Hoàn tất đăng ký ICP]
+    F -->|Không| H{Chứng chỉ HTTPS?}
     G --> H
-    H -->|否| I[申请SSL证书]
-    H -->|是| J[开始部署]
+    H -->|Không| I[Xin chứng chỉ SSL]
+    H -->|Có| J[Bắt đầu deploy]
     I --> J
 ```
 
-## 上线前清单
+## Checklist trước khi ra mắt
 
-| 检查项 | 说明 | 预计耗时 |
+| Mục kiểm tra | Giải thích | Thời gian dự kiến |
 |--------|------|----------|
-| 云服务器 | 购买并配置 ECS/CVM | 30分钟 |
-| 域名 | 购买并完成实名认证 | 1-3天 |
-| ICP 备案 | 中国大陆服务器必须 | 7-20天 |
-| 公安备案 | 网站上线后30天内完成 | 3-7天 |
-| SSL 证书 | 启用 HTTPS 加密 | 10分钟 |
-| 安全组 | 开放必要端口 | 10分钟 |
+| Cloud server | Mua và cấu hình ECS/CVM | 30 phút |
+| Domain | Mua và hoàn thành xác thực tên thật | 1-3 ngày |
+| Đăng ký ICP | Bắt buộc cho server Trung Quốc đại lục | 7-20 ngày |
+| Đăng ký Công an | Hoàn thành trong 30 ngày sau khi website hoạt động | 3-7 ngày |
+| Chứng chỉ SSL | Kích hoạt mã hóa HTTPS | 10 phút |
+| Security group | Mở các port cần thiết | 10 phút |
 
-## 核心概念速览
+## Tổng quan các khái niệm cốt lõi
 
-### 云服务的三层结构
+### Cấu trúc 3 tầng của Cloud Service
 
-| 层级 | 资源类型 | 对应云产品 |
+| Tầng | Loại tài nguyên | Sản phẩm cloud tương ứng |
 |------|----------|------------|
-| 计算层 | CPU + 内存 | ECS、CVM、轻量应用服务器 |
-| 存储层 | 磁盘 + 对象存储 | 云盘、OSS/COS |
-| 网络层 | 带宽 + IP | 弹性公网IP、负载均衡 |
+| Tầng tính toán | CPU + RAM | ECS, CVM, Lightweight Application Server |
+| Tầng lưu trữ | Disk + Object Storage | Cloud Disk, OSS/COS |
+| Tầng mạng | Bandwidth + IP | Elastic Public IP, Load Balancer |
 
-### 域名解析流程
+### Quy trình resolve domain
 
 ```
-用户输入 www.example.com
+Người dùng nhập www.example.com
     ↓
-DNS 服务器查询
+DNS server truy vấn
     ↓
-返回 IP 地址 (如 1.2.3.4)
+Trả về địa chỉ IP (như 1.2.3.4)
     ↓
-浏览器访问该 IP
+Trình duyệt truy cập IP đó
 ```
 
-## 本节目录
+## Mục lục phần này
 
-- **10.1.1 服务器放哪** — 云服务商选择与资源规划
-- **10.1.2 网站要备案吗** — ICP 备案与公安备案流程
+- **10.1.1 Đặt server ở đâu** — Lựa chọn nhà cung cấp cloud và lập kế hoạch tài nguyên
+- **10.1.2 Website có cần đăng ký không** — Quy trình đăng ký ICP và Công an
 
-## 避坑指南
+## Hướng dẫn tránh bẫy
 
-::: warning 常见坑点
-1. **域名备案周期长**：至少预留 2-3 周时间
-2. **海外服务器不用备案**：但访问速度慢，SEO 也受影响
-3. **轻量服务器有流量限制**：月流量超了会额外计费
-4. **安全组默认全关**：别忘了开放 80/443 端口
+::: warning Bẫy thường gặp
+1. **Chu kỳ đăng ký domain dài**: Dành ít nhất 2-3 tuần
+2. **Server nước ngoài không cần đăng ký**: Nhưng tốc độ truy cập chậm, SEO cũng bị ảnh hưởng
+3. **Lightweight server có giới hạn lưu lượng**: Lưu lượng tháng vượt quá sẽ tính phí thêm
+4. **Security group mặc định đóng hết**: Đừng quên mở port 80/443
 :::

@@ -1,100 +1,100 @@
 ---
-title: "第 1 章：觉醒 —— 为什么现在是编程最好的时代"
+title: "Chương 1: Thức tỉnh - Tại sao bây giờ là thời đại tốt nhất của lập trình"
 ---
 
-# 第 1 章：觉醒 —— 为什么现在是编程最好的时代
+# Chương 1: Thức tỉnh - Tại sao bây giờ là thời đại tốt nhất của lập trình
 
-> **本章目标**：理解 AI 编程的时代背景，完成你的第一个 AI 网页。
+> **Mục tiêu chương này**: Hiểu bối cảnh thời đại lập trình AI, hoàn thành trang web AI đầu tiên của bạn.
 
 
-2025 年，AI 编程工具让"用自然语言描述需求，AI 生成代码"成为现实。本章介绍这场变革的背景，并带你完成第一个 AI 网页。
+Năm 2025, các công cụ lập trình AI biến "mô tả yêu cầu bằng ngôn ngữ tự nhiên, AI tạo code" thành hiện thực. Chương này giới thiệu bối cảnh của cuộc cách mạng này, và đưa bạn hoàn thành trang web AI đầu tiên.
 
-## 本章你将学到
+## Trong chương này bạn sẽ học được
 
-读完这一章，你会：
+Sau khi đọc xong chương này, bạn sẽ:
 
-| 收获 | 说明 |
+| Thu hoạch | Giải thích |
 |------|------|
-| **理解变革** | 明白为什么"编程"正在被重新定义 |
-| **掌握概念** | 了解 Vibe Coding、Spec Coding 等核心概念 |
-| **建立信心** | 打破"编程很难"的心理障碍 |
-| **认识工具** | 知道有哪些 AI 编程工具可以用 |
-| **动手实践** | 做出你人生中第一个 AI 网页 |
+| **Hiểu về sự biến đổi** | Hiểu tại sao "lập trình" đang được định nghĩa lại |
+| **Nắm vững khái niệm** | Tìm hiểu các khái niệm cốt lõi như Vibe Coding, Spec Coding |
+| **Xây dựng tự tin** | Phá vỡ rào cản tâm lý "lập trình rất khó" |
+| **Làm quen công cụ** | Biết có những công cụ lập trình AI nào có thể dùng |
+| **Thực hành** | Làm ra trang web AI đầu tiên trong đời bạn |
 
 
-## 章节导航
+## Điều hướng chương
 
-### 1.1 编程已死，编程永生：从 Coder 到 Commander
+### 1.1 Lập trình đã chết, lập trình vạn tuế: Từ Coder đến Commander
 
-2025 年发生了什么？Andrej Karpathy 的那条推文为什么引发轰动？"Vibe Coding" 为什么成为年度词汇？
+Năm 2025 đã xảy ra chuyện gì? Tại sao tweet của Andrej Karpathy gây chấn động? Tại sao "Vibe Coding" trở thành từ của năm?
 
-这一节带你了解这场变革的来龙去脉。
+Phần này đưa bạn tìm hiểu đầu đuôi của cuộc cách mạng này.
 
-[开始阅读 →](./1.1-coder-to-commander/)
-
-
-### 1.2 核心概念：Vibe Coding 与 Spec Coding 详解
-
-什么是 Vibe Coding？什么是 Spec Coding？它们有什么区别？什么时候用哪个？
-
-这一节帮你建立正确的概念框架。
-
-[开始阅读 →](./1.2-vibe-vs-spec/)
+[Bắt đầu đọc →](./1.1-coder-to-commander/)
 
 
-### 1.3 破除迷信：不懂英文、数学不好也能写代码吗？
+### 1.2 Khái niệm cốt lõi: Giải thích chi tiết Vibe Coding và Spec Coding
 
-"编程需要数学很好"、"要先学好英文"、"Vibe Coding 只是玩具"……
+Vibe Coding là gì? Spec Coding là gì? Chúng khác nhau như thế nào? Khi nào dùng cái nào?
 
-这些说法是真的吗？这一节帮你破除迷信，建立信心。
+Phần này giúp bạn xây dựng khung khái niệm đúng đắn.
 
-[开始阅读 →](./1.3-busting-myths/)
-
-
-### 1.4 工具初探：AI 编程工具选型指南
-
-Cursor、Trae、Kiro、Windsurf、Bolt.new、Replit……这么多工具，该用哪个？
-
-这一节给你一份清晰的选型指南，帮你找到最适合自己的工具。
-
-[开始阅读 →](./1.4-tools-guide/)
+[Bắt đầu đọc →](./1.2-vibe-vs-spec/)
 
 
-### 1.5 Hello World：你的第一个 3 分钟 AI 网页
+### 1.3 Phá bỏ mê tín: Không biết tiếng Anh, toán kém cũng có thể viết code?
 
-理论讲完了，是时候动手了。
+"Lập trình cần toán giỏi", "phải học tiếng Anh trước", "Vibe Coding chỉ là đồ chơi"...
 
-这一节带你在 **3 分钟内**，用 AI 做出你人生中第一个网页。
+Những điều này có đúng không? Phần này giúp bạn phá bỏ mê tín, xây dựng tự tin.
 
-[开始阅读 →](./1.5-hello-world/)
+[Bắt đầu đọc →](./1.3-busting-myths/)
 
 
-## 学习建议
+### 1.4 Khám phá công cụ: Hướng dẫn lựa chọn công cụ lập trình AI
 
-::: tip 如何阅读本章
+Cursor, Trae, Kiro, Windsurf, Bolt.new, Replit... có quá nhiều công cụ, nên dùng cái nào?
 
-**如果你赶时间**：
-- 直接跳到 [1.5 Hello World](./1.5-hello-world/)，先动手做出东西
-- 有了感性认识后，再回来看前面的内容
+Phần này cung cấp hướng dẫn lựa chọn rõ ràng, giúp bạn tìm công cụ phù hợp nhất với mình.
 
-**如果你想系统学习**：
-- 按顺序阅读 1.1 → 1.2 → 1.3 → 1.4 → 1.5
-- 每节大概 5-10 分钟，整章约 30-45 分钟
+[Bắt đầu đọc →](./1.4-tools-guide/)
 
-**无论哪种方式**：
-- 1.5 的实战环节一定要亲自动手
-- 做出第一个东西，比看十篇文章都有用
+
+### 1.5 Hello World: Trang web AI 3 phút đầu tiên của bạn
+
+Lý thuyết đã xong, đến lúc thực hành.
+
+Phần này đưa bạn **trong vòng 3 phút**, dùng AI làm ra trang web đầu tiên trong đời.
+
+[Bắt đầu đọc →](./1.5-hello-world/)
+
+
+## Gợi ý học tập
+
+::: tip Cách đọc chương này
+
+**Nếu bạn vội**:
+- Nhảy trực tiếp đến [1.5 Hello World](./1.5-hello-world/), thực hành làm ra thứ gì đó trước
+- Sau khi có cảm nhận trực quan, quay lại xem nội dung phía trước
+
+**Nếu bạn muốn học có hệ thống**:
+- Đọc theo thứ tự 1.1 → 1.2 → 1.3 → 1.4 → 1.5
+- Mỗi phần khoảng 5-10 phút, toàn chương khoảng 30-45 phút
+
+**Bất kể cách nào**:
+- Phần thực chiến 1.5 nhất định phải tự tay làm
+- Làm ra thứ đầu tiên, hữu ích hơn đọc mười bài viết
 :::
 
 
-## 准备好了吗？
+## Sẵn sàng chưa?
 
-接下来的旅程，会彻底改变你对"编程"的认知。
+Hành trình tiếp theo sẽ thay đổi hoàn toàn nhận thức của bạn về "lập trình".
 
-你会发现，原来做出一个网页、一个小工具，并没有那么难。
+Bạn sẽ phát hiện ra, hóa ra làm một trang web, một công cụ nhỏ, không khó như vậy.
 
-你需要的，只是**愿意试一试**。
+Bạn cần, chỉ là **sẵn sàng thử**.
 
-让我们开始吧。
+Hãy bắt đầu nào.
 
-[进入 1.1 节：从 Coder 到 Commander →](./1.1-coder-to-commander/)
+[Vào mục 1.1: Từ Coder đến Commander →](./1.1-coder-to-commander/)

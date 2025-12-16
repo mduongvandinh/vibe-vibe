@@ -1,68 +1,67 @@
 ---
-title: "10.4 网站的交通指挥官——反向代理与负载均衡：Nginx 配置实战"
-typora-root-url: ../../public
+title: "10.4 Cảnh sát giao thông của website — Reverse proxy và Load balancing: Thực chiến cấu hình Nginx"
 ---
 
-# 10.4 网站的交通指挥官——反向代理与负载均衡：Nginx 配置实战
+# 10.4 Cảnh sát giao thông của website — Reverse proxy và Load balancing: Thực chiến cấu hình Nginx
 
-用户访问的是域名，Nginx 决定请求去哪。
+Người dùng truy cập domain, Nginx quyết định request đi đâu.
 
-## 为什么需要 Nginx
+## Tại sao cần Nginx
 
-Nginx 在现代 Web 架构中扮演着"门卫"角色：
+Nginx đóng vai trò "bảo vệ" trong kiến trúc Web hiện đại:
 
 ```mermaid
 flowchart LR
-    A[用户] -->|HTTPS| B[Nginx]
+    A[Người dùng] -->|HTTPS| B[Nginx]
     B -->|HTTP| C[Next.js :3000]
     B -->|HTTP| D[NestJS :3001]
-    B -->|直接返回| E[静态资源]
+    B -->|Trả về trực tiếp| E[Tài nguyên tĩnh]
 ```
 
-## 核心功能
+## Chức năng cốt lõi
 
-| 功能 | 说明 |
+| Chức năng | Giải thích |
 |------|------|
-| 反向代理 | 将请求转发到后端服务 |
-| SSL 终止 | 处理 HTTPS 加密/解密 |
-| 负载均衡 | 将请求分发到多个实例 |
-| 静态文件 | 直接返回静态资源 |
-| 缓存 | 缓存响应，减少后端压力 |
-| 压缩 | Gzip 压缩响应内容 |
+| Reverse proxy | Chuyển tiếp request đến backend service |
+| SSL termination | Xử lý mã hóa/giải mã HTTPS |
+| Load balancing | Phân phối request đến nhiều instance |
+| Static file | Trả về trực tiếp tài nguyên tĩnh |
+| Caching | Cache response, giảm áp lực backend |
+| Compression | Nén Gzip nội dung response |
 
-## 1Panel 中的 Nginx
+## Nginx trong 1Panel
 
-1Panel 默认使用 **OpenResty**（Nginx 的增强版），通过 **网站** 功能管理：
+1Panel mặc định dùng **OpenResty** (phiên bản nâng cấp của Nginx), quản lý qua chức năng **Website**:
 
-| 操作 | 路径 |
+| Thao tác | Đường dẫn |
 |------|------|
-| 创建网站 | 网站 → 网站 → 创建网站 |
-| 配置反向代理 | 网站 → 选择站点 → 反向代理 |
-| SSL 证书 | 网站 → 选择站点 → HTTPS |
-| 查看配置 | 网站 → 选择站点 → 配置文件 |
+| Tạo website | Website → Website → Tạo website |
+| Cấu hình reverse proxy | Website → Chọn site → Reverse proxy |
+| Chứng chỉ SSL | Website → Chọn site → HTTPS |
+| Xem cấu hình | Website → Chọn site → File cấu hình |
 
-## 本节目录
+## Mục lục phần này
 
-- **10.4.1 请求该转发给谁** — 反向代理基础配置
-- **10.4.2 HTTPS 证书怎么配** — SSL 配置与自动续期
-- **10.4.3 用户太多了怎么办** — 负载均衡策略
-- **10.4.4 图片如何加速访问** — 静态资源与 CDN
+- **10.4.1 Request nên chuyển tiếp cho ai** — Cấu hình reverse proxy cơ bản
+- **10.4.2 Chứng chỉ HTTPS cấu hình thế nào** — Cấu hình SSL và tự động gia hạn
+- **10.4.3 Người dùng quá đông thì làm sao** — Chiến lược load balancing
+- **10.4.4 Hình ảnh làm sao truy cập nhanh** — Tài nguyên tĩnh và CDN
 
-## 典型配置架构
+## Kiến trúc cấu hình điển hình
 
 ```mermaid
 flowchart TB
-    subgraph 互联网
-        A[用户浏览器]
+    subgraph Internet
+        A[Trình duyệt người dùng]
     end
-    
-    subgraph 服务器
+
+    subgraph Server
         B[Nginx :80/443]
         C[Next.js :3000]
         D[NestJS :3001]
-        E[静态文件目录]
+        E[Thư mục file tĩnh]
     end
-    
+
     A -->|www.example.com| B
     A -->|api.example.com| B
     B -->|/| C
@@ -70,39 +69,39 @@ flowchart TB
     B -->|/_next/static| E
 ```
 
-## 常用命令
+## Lệnh thường dùng
 
 ```bash
-# 测试配置语法
+# Test cú pháp cấu hình
 nginx -t
 
-# 重载配置（不中断服务）
+# Reload cấu hình (không gián đoạn service)
 nginx -s reload
 
-# 查看 Nginx 状态
+# Xem trạng thái Nginx
 systemctl status nginx
 
-# 查看访问日志
+# Xem access log
 tail -f /var/log/nginx/access.log
 
-# 查看错误日志
+# Xem error log
 tail -f /var/log/nginx/error.log
 ```
 
-## 配置文件结构
+## Cấu trúc file cấu hình
 
 ```nginx
-# /etc/nginx/nginx.conf 主配置
+# /etc/nginx/nginx.conf Cấu hình chính
 http {
-    # 全局设置
-    include /etc/nginx/conf.d/*.conf;  # 包含站点配置
+    # Cài đặt toàn cục
+    include /etc/nginx/conf.d/*.conf;  # Include cấu hình site
 }
 
-# /etc/nginx/conf.d/example.conf 站点配置
+# /etc/nginx/conf.d/example.conf Cấu hình site
 server {
     listen 80;
     server_name example.com;
-    
+
     location / {
         proxy_pass http://localhost:3000;
     }

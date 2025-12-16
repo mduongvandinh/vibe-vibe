@@ -1,38 +1,38 @@
 ---
-title: "1.1 编程已死，编程永生：从 Coder 到 Commander"
+title: "1.1 Lập trình đã chết, lập trình vạn tuế: Từ Coder đến Commander"
 ---
 
-# 1.1 编程已死，编程永生：从 Coder 到 Commander
+# 1.1 Lập trình đã chết, lập trình vạn tuế: Từ Coder đến Commander
 
 > "There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
-> 
-> —— Andrej Karpathy, 2025年2月
+>
+> —— Andrej Karpathy, tháng 2/2025
 
 
-## 本节你将了解
+## Trong phần này bạn sẽ tìm hiểu
 
-如果你从未写过代码，却听说"编程很难"、"需要学好几年"，那这一节会让你大吃一惊。
+Nếu bạn chưa bao giờ viết code, nhưng nghe nói "lập trình rất khó", "cần học mấy năm", thì phần này sẽ khiến bạn ngạc nhiên.
 
-2025年，编程世界发生了一场静悄悄的革命。你不需要记住任何语法，不需要理解复杂的算法，甚至不需要看懂代码——**你只需要把想要的东西说清楚**。
+Năm 2025, thế giới lập trình đã trải qua một cuộc cách mạng thầm lặng. Bạn không cần nhớ bất kỳ cú pháp nào, không cần hiểu thuật toán phức tạp, thậm chí không cần hiểu code - **bạn chỉ cần nói rõ điều mình muốn**.
 
-在这一节，你会看到：
+Trong phần này, bạn sẽ thấy:
 
-- **世界正在发生什么**：一条推文如何引发编程方式的巨变
-- **角色如何转变**：从"敲代码的人"变成"指挥AI的人"
-- **一个生动的类比**：用开车来理解这场变革
-- **这对你意味着什么**：为什么说"人人都能成为Builder"
+- **Thế giới đang diễn ra chuyện gì**: Một tweet gây ra sự biến đổi lớn trong cách lập trình
+- **Vai trò thay đổi như thế nào**: Từ "người đánh code" thành "người chỉ huy AI"
+- **Một ví dụ sinh động**: Dùng lái xe để hiểu cuộc cách mạng này
+- **Điều này có ý nghĩa gì với bạn**: Tại sao nói "mọi người đều có thể trở thành Builder"
 
 
-## 为什么要读这一节？
+## Tại sao nên đọc phần này?
 
-你可能会想："我又不想当程序员，为什么要了解编程的变化？"
+Bạn có thể nghĩ: "Tôi không muốn làm lập trình viên, tại sao lại phải hiểu về sự thay đổi của lập trình?"
 
-答案很简单：**这场变化让编程不再只属于程序员了**。
+Câu trả lời rất đơn giản: **Sự thay đổi này khiến lập trình không còn chỉ thuộc về lập trình viên nữa**.
 
-根据2025年的调研，**63%的Vibe Coding用户是非开发者**——设计师、产品经理、创业者、甚至英语专业毕业生。
+Theo khảo sát năm 2025, **63% người dùng Vibe Coding không phải là nhà phát triển** - họ là designer, product manager, người khởi nghiệp, thậm chí sinh viên tốt nghiệp chuyên ngành Anh.
 
-就像智能手机让每个人都能拍出好照片一样，AI 编程工具正在让每个人都能把想法变成现实。
+Giống như smartphone khiến mọi người đều có thể chụp ảnh đẹp, các công cụ lập trình AI đang khiến mọi người đều có thể biến ý tưởng thành hiện thực.
 
-不管你是想做一个小工具解决工作中的烦恼，还是想验证一个创业点子，或者只是想给孩子做一个有趣的小游戏——现在，你都可以自己动手了。
+Dù bạn muốn làm một công cụ nhỏ giải quyết phiền toái trong công việc, muốn kiểm chứng một ý tưởng khởi nghiệp, hay chỉ muốn làm một trò chơi nhỏ thú vị cho con - bây giờ, bạn đều có thể tự tay làm.
 
-准备好了吗？让我们从一条改变世界的推文说起。
+Sẵn sàng chưa? Hãy bắt đầu từ một tweet thay đổi thế giới.

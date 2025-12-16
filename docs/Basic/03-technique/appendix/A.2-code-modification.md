@@ -1,68 +1,68 @@
 ---
-title: "A.2 代码修改类模板"
+title: "A.2 Template sửa đổi code"
 ---
 
-# A.2 代码修改类模板
+# A.2 Template sửa đổi code
 
-本节提供修改现有代码的 Prompt 模板，包括功能扩展、代码重构、性能优化和样式调整。
+Phần này cung cấp các Prompt template để sửa đổi code hiện có, bao gồm mở rộng tính năng, refactor code, tối ưu hiệu suất và điều chỉnh style.
 
 
-## 模板一：功能扩展
+## Template 1: Mở rộng tính năng
 
-适用于：在现有代码基础上添加新功能
-
-```markdown
-## 当前状态
-
-**项目背景**：[简述项目是做什么的]
-**技术栈**：[使用的技术]
-**要扩展的模块**：[哪个文件/组件]
-
-## 现有代码
-
-```[语言]
-[粘贴现有代码]
-```
-
-## 扩展需求
-
-**新增功能**：[描述要添加什么功能]
-
-**功能细节**：
-- [细节1]
-- [细节2]
-- [细节3]
-
-**触发方式**：[用户如何触发这个功能]
-**预期结果**：[功能执行后应该发生什么]
-
-## 约束条件
-
-**必须保持**：
-- [现有功能A 不能受影响]
-- [现有功能B 要继续正常工作]
-
-**不要改动**：
-- [不要修改的部分1]
-- [不要修改的部分2]
-
-## 输出要求
-
-- [ ] 只输出修改后的代码，不需要重复未修改的部分
-- [ ] 用注释标注新增的代码
-- [ ] 说明需要额外安装的依赖（如有）
-```
-
-### 填写示例：待办清单添加"撤销删除"功能
+Áp dụng cho: Thêm tính năng mới trên nền code hiện có
 
 ```markdown
-## 当前状态
+## Trạng thái hiện tại
 
-**项目背景**：个人待办清单网页应用
-**技术栈**：React + TypeScript + Tailwind CSS
-**要扩展的模块**：TaskList.tsx 组件
+**Bối cảnh dự án**: [Mô tả ngắn dự án làm gì]
+**Tech stack**: [Công nghệ sử dụng]
+**Module cần mở rộng**: [File/component nào]
 
-## 现有代码
+## Code hiện có
+
+```[ngôn ngữ]
+[Dán code hiện có]
+```
+
+## Nhu cầu mở rộng
+
+**Tính năng mới**: [Mô tả tính năng cần thêm]
+
+**Chi tiết tính năng**:
+- [Chi tiết 1]
+- [Chi tiết 2]
+- [Chi tiết 3]
+
+**Cách kích hoạt**: [Người dùng kích hoạt tính năng này như thế nào]
+**Kết quả mong đợi**: [Sau khi thực thi tính năng nên xảy ra gì]
+
+## Điều kiện ràng buộc
+
+**Phải giữ nguyên**:
+- [Tính năng A hiện có không được ảnh hưởng]
+- [Tính năng B phải tiếp tục hoạt động bình thường]
+
+**Không được thay đổi**:
+- [Phần không được sửa 1]
+- [Phần không được sửa 2]
+
+## Yêu cầu đầu ra
+
+- [ ] Chỉ output code đã sửa, không cần lặp lại phần chưa sửa
+- [ ] Dùng comment đánh dấu code mới thêm
+- [ ] Nói rõ dependencies cần cài thêm (nếu có)
+```
+
+### Ví dụ điền: Todo list thêm tính năng "hoàn tác xóa"
+
+```markdown
+## Trạng thái hiện tại
+
+**Bối cảnh dự án**: Ứng dụng web danh sách công việc cá nhân
+**Tech stack**: React + TypeScript + Tailwind CSS
+**Module cần mở rộng**: Component TaskList.tsx
+
+## Code hiện có
 
 ```tsx
 function TaskList({ tasks, onDelete }) {
@@ -71,7 +71,7 @@ function TaskList({ tasks, onDelete }) {
       {tasks.map(task => (
         <li key={task.id}>
           {task.content}
-          <button onClick={() => onDelete(task.id)}>删除</button>
+          <button onClick={() => onDelete(task.id)}>Xóa</button>
         </li>
       ))}
     </ul>
@@ -79,300 +79,300 @@ function TaskList({ tasks, onDelete }) {
 }
 ```
 
-## 扩展需求
+## Nhu cầu mở rộng
 
-**新增功能**：删除任务后显示"撤销"提示，3 秒内可恢复
+**Tính năng mới**: Sau khi xóa task hiển thị thông báo "Hoàn tác", có thể khôi phục trong 3 giây
 
-**功能细节**：
-- 删除任务后，底部显示"已删除，点击撤销"提示
-- 提示显示 3 秒后自动消失
-- 点击"撤销"按钮，任务恢复到原位置
-- 同时只能有一个撤销提示
+**Chi tiết tính năng**:
+- Sau khi xóa task, hiển thị thông báo "Đã xóa, nhấn hoàn tác" ở dưới cùng
+- Thông báo tự động biến mất sau 3 giây
+- Nhấn nút "Hoàn tác", task được khôi phục về vị trí cũ
+- Chỉ có thể có một thông báo hoàn tác cùng lúc
 
-**触发方式**：用户点击删除按钮
-**预期结果**：任务从列表消失，底部出现撤销提示
+**Cách kích hoạt**: Người dùng nhấn nút xóa
+**Kết quả mong đợi**: Task biến khỏi danh sách, thông báo hoàn tác xuất hiện ở dưới
 
-## 约束条件
+## Điều kiện ràng buộc
 
-**必须保持**：
-- 现有的任务展示逻辑不变
-- 删除按钮的位置和样式不变
+**Phải giữ nguyên**:
+- Logic hiển thị task hiện tại không đổi
+- Vị trí và style nút xóa không đổi
 
-**不要改动**：
-- 不要改变 props 的类型定义
-- 不要引入新的状态管理库
+**Không được thay đổi**:
+- Không được thay đổi định nghĩa kiểu props
+- Không được thêm thư viện quản lý state mới
 
-## 输出要求
+## Yêu cầu đầu ra
 
-- [x] 只输出修改后的代码
-- [x] 用注释标注新增的代码
-- [ ] 说明需要额外安装的依赖
+- [x] Chỉ output code đã sửa
+- [x] Dùng comment đánh dấu code mới thêm
+- [ ] Nói rõ dependencies cần cài thêm
 ```
 
 
-## 模板二：代码重构
+## Template 2: Refactor code
 
-适用于：改进代码质量、提高可读性、统一代码风格
+Áp dụng cho: Cải thiện chất lượng code, tăng khả năng đọc, thống nhất code style
 
 ```markdown
-## 重构目标
+## Mục tiêu refactor
 
-**当前问题**：[代码现在有什么问题]
-**期望改进**：[重构后希望达到什么效果]
+**Vấn đề hiện tại**: [Code hiện tại có vấn đề gì]
+**Mong muốn cải thiện**: [Sau refactor mong đợi đạt được hiệu quả gì]
 
-## 待重构代码
+## Code cần refactor
 
-```[语言]
-[粘贴需要重构的代码]
+```[ngôn ngữ]
+[Dán code cần refactor]
 ```
 
-## 重构要求
+## Yêu cầu refactor
 
-**方向**：[可多选]
-- [ ] 提高可读性（变量命名、函数拆分）
-- [ ] 减少重复代码（提取公共函数）
-- [ ] 统一代码风格
-- [ ] 添加类型定义（TypeScript）
-- [ ] 改进错误处理
-- [ ] 其他：[具体说明]
+**Hướng**: [Có thể chọn nhiều]
+- [ ] Tăng khả năng đọc (đặt tên biến, tách hàm)
+- [ ] Giảm code trùng lặp (trích xuất hàm chung)
+- [ ] Thống nhất code style
+- [ ] Thêm định nghĩa kiểu (TypeScript)
+- [ ] Cải thiện xử lý lỗi
+- [ ] Khác: [Giải thích cụ thể]
 
-**必须保持**：
-- 功能行为完全不变
-- [其他约束]
+**Phải giữ nguyên**:
+- Hành vi chức năng hoàn toàn không đổi
+- [Ràng buộc khác]
 
-**参考规范**（可选）：
-[如果有特定的代码规范，可以贴在这里]
+**Tham khảo quy chuẩn** (tùy chọn):
+[Nếu có quy chuẩn code cụ thể, có thể dán vào đây]
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供：
-1. 重构后的完整代码
-2. 简要说明做了哪些改动
-3. 改动的理由
+Vui lòng cung cấp:
+1. Code đầy đủ sau refactor
+2. Giải thích ngắn gọn những thay đổi đã làm
+3. Lý do thay đổi
 ```
 
-### 填写示例：重构重复的表单验证代码
+### Ví dụ điền: Refactor code validate form trùng lặp
 
 ```markdown
-## 重构目标
+## Mục tiêu refactor
 
-**当前问题**：注册、登录、修改密码三个表单都有类似的验证代码，复制粘贴了三遍
-**期望改进**：提取公共的验证函数，减少重复
+**Vấn đề hiện tại**: Ba form đăng ký, đăng nhập, đổi mật khẩu đều có code validate tương tự, copy paste ba lần
+**Mong muốn cải thiện**: Trích xuất hàm validate chung, giảm trùng lặp
 
-## 待重构代码
+## Code cần refactor
 
 ```typescript
-// 注册表单
+// Form đăng ký
 function validateRegister(data) {
   if (!data.email || !data.email.includes('@')) {
-    return '邮箱格式不正确';
+    return 'Email không đúng định dạng';
   }
   if (!data.password || data.password.length < 8) {
-    return '密码至少8位';
+    return 'Mật khẩu ít nhất 8 ký tự';
   }
   if (data.password !== data.confirmPassword) {
-    return '两次密码不一致';
+    return 'Hai mật khẩu không khớp';
   }
   return null;
 }
 
-// 登录表单
+// Form đăng nhập
 function validateLogin(data) {
   if (!data.email || !data.email.includes('@')) {
-    return '邮箱格式不正确';
+    return 'Email không đúng định dạng';
   }
   if (!data.password || data.password.length < 8) {
-    return '密码至少8位';
+    return 'Mật khẩu ít nhất 8 ký tự';
   }
   return null;
 }
 
-// 修改密码表单
+// Form đổi mật khẩu
 function validateChangePassword(data) {
   if (!data.oldPassword || data.oldPassword.length < 8) {
-    return '旧密码至少8位';
+    return 'Mật khẩu cũ ít nhất 8 ký tự';
   }
   if (!data.newPassword || data.newPassword.length < 8) {
-    return '新密码至少8位';
+    return 'Mật khẩu mới ít nhất 8 ký tự';
   }
   if (data.newPassword !== data.confirmPassword) {
-    return '两次密码不一致';
+    return 'Hai mật khẩu không khớp';
   }
   return null;
 }
 ```
 
-## 重构要求
+## Yêu cầu refactor
 
-**方向**：
-- [x] 减少重复代码（提取公共函数）
-- [x] 添加类型定义（TypeScript）
-- [x] 改进错误处理（支持返回多个错误）
+**Hướng**:
+- [x] Giảm code trùng lặp (trích xuất hàm chung)
+- [x] Thêm định nghĩa kiểu (TypeScript)
+- [x] Cải thiện xử lý lỗi (hỗ trợ trả về nhiều lỗi)
 
-**必须保持**：
-- 功能行为完全不变
-- 错误信息文案保持一致
+**Phải giữ nguyên**:
+- Hành vi chức năng hoàn toàn không đổi
+- Nội dung thông báo lỗi giữ nguyên
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供：
-1. 重构后的完整代码
-2. 简要说明做了哪些改动
-3. 如何在原有表单中使用新的验证函数
+Vui lòng cung cấp:
+1. Code đầy đủ sau refactor
+2. Giải thích ngắn gọn những thay đổi đã làm
+3. Cách sử dụng hàm validate mới trong form gốc
 ```
 
 
-## 模板三：性能优化
+## Template 3: Tối ưu hiệu suất
 
-适用于：页面加载慢、操作卡顿、内存占用高
+Áp dụng cho: Trang tải chậm, thao tác bị lag, chiếm bộ nhớ cao
 
 ```markdown
-## 性能问题描述
+## Mô tả vấn đề hiệu suất
 
-**问题现象**：[具体描述慢在哪里、卡在哪里]
-**触发条件**：[什么情况下会出现这个问题]
-**影响程度**：[大概延迟多久、卡顿多久]
+**Hiện tượng**: [Mô tả cụ thể chậm ở đâu, lag ở đâu]
+**Điều kiện kích hoạt**: [Tình huống nào xuất hiện vấn đề này]
+**Mức độ ảnh hưởng**: [Delay khoảng bao lâu, lag bao lâu]
 
-## 相关代码
+## Code liên quan
 
-```[语言]
-[粘贴可能导致性能问题的代码]
+```[ngôn ngữ]
+[Dán code có thể gây vấn đề hiệu suất]
 ```
 
-## 优化目标
+## Mục tiêu tối ưu
 
-**期望效果**：[优化后应该达到什么程度]
-**度量标准**：[如何判断优化成功]
+**Hiệu quả mong đợi**: [Sau tối ưu nên đạt mức độ nào]
+**Tiêu chuẩn đo lường**: [Làm thế nào đánh giá tối ưu thành công]
 
-## 已知信息
+## Thông tin đã biết
 
-**数据规模**：[处理的数据量大概多少]
-**运行环境**：[浏览器/Node.js/移动端]
-**已尝试的优化**：[如果有的话]
+**Quy mô dữ liệu**: [Khối lượng dữ liệu xử lý khoảng bao nhiêu]
+**Môi trường chạy**: [Trình duyệt/Node.js/Mobile]
+**Đã thử tối ưu**: [Nếu có]
 
-## 约束条件
+## Điều kiện ràng buộc
 
-- 功能逻辑不能改变
-- [其他约束]
+- Logic chức năng không được thay đổi
+- [Ràng buộc khác]
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供：
-1. 优化后的代码
-2. 解释性能问题的原因
-3. 优化的原理和效果预估
+Vui lòng cung cấp:
+1. Code sau tối ưu
+2. Giải thích nguyên nhân vấn đề hiệu suất
+3. Nguyên lý tối ưu và dự đoán hiệu quả
 ```
 
 
-## 模板四：样式调整
+## Template 4: Điều chỉnh style
 
-适用于：UI 美化、布局修改、响应式适配
+Áp dụng cho: Làm đẹp UI, sửa layout, responsive
 
 ```markdown
-## 当前样式
+## Style hiện tại
 
-**问题描述**：[当前界面哪里不满意]
+**Mô tả vấn đề**: [Giao diện hiện tại chỗ nào không hài lòng]
 
-**当前代码**：
+**Code hiện tại**:
 ```[css/html]
-[粘贴当前样式相关代码]
+[Dán code style liên quan]
 ```
 
-## 期望效果
+## Hiệu quả mong đợi
 
-**描述**：[用文字描述想要的效果]
+**Mô tả**: [Dùng văn bản mô tả hiệu quả muốn có]
 
-**参考**（可选）：
-- 参考网站：[URL]
-- 参考图片：[描述或链接]
-- 关键词：[简洁/现代/圆角/阴影/渐变/...]
+**Tham khảo** (tùy chọn):
+- Website tham khảo: [URL]
+- Hình ảnh tham khảo: [Mô tả hoặc link]
+- Từ khóa: [Tối giản/hiện đại/bo góc/đổ bóng/gradient/...]
 
-## 具体要求
+## Yêu cầu cụ thể
 
-**布局调整**：
-- [调整1]
-- [调整2]
+**Điều chỉnh layout**:
+- [Điều chỉnh 1]
+- [Điều chỉnh 2]
 
-**视觉效果**：
-- [效果1]
-- [效果2]
+**Hiệu ứng hình ảnh**:
+- [Hiệu ứng 1]
+- [Hiệu ứng 2]
 
-**响应式**：
-- 桌面端（>1024px）：[要求]
-- 平板端（768-1024px）：[要求]
-- 手机端（<768px）：[要求]
+**Responsive**:
+- Desktop (>1024px): [Yêu cầu]
+- Tablet (768-1024px): [Yêu cầu]
+- Mobile (<768px): [Yêu cầu]
 
-## 技术约束
+## Ràng buộc kỹ thuật
 
-**使用技术**：[Tailwind CSS/原生 CSS/其他]
-**必须兼容**：[浏览器版本要求]
+**Công nghệ sử dụng**: [Tailwind CSS/CSS thuần/Khác]
+**Phải tương thích**: [Yêu cầu phiên bản trình duyệt]
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供修改后的样式代码，并标注改动的部分。
+Vui lòng cung cấp code style sau sửa đổi, và đánh dấu phần thay đổi.
 ```
 
 
-## 模板五：代码迁移（精简版）
+## Template 5: Migration code (Phiên bản tối giản)
 
-适用于：升级框架版本、更换技术栈
+Áp dụng cho: Nâng cấp phiên bản framework, chuyển tech stack
 
 ```markdown
-## 迁移需求
+## Nhu cầu migration
 
-**原技术**：[如 React Class 组件]
-**目标技术**：[如 React Hooks 函数组件]
+**Công nghệ gốc**: [Ví dụ React Class component]
+**Công nghệ đích**: [Ví dụ React Hooks function component]
 
-## 原代码
+## Code gốc
 
-```[语言]
-[粘贴需要迁移的代码]
+```[ngôn ngữ]
+[Dán code cần migrate]
 ```
 
-## 迁移要求
+## Yêu cầu migration
 
-- 保持功能完全一致
-- 遵循目标技术的最佳实践
-- [其他要求]
+- Giữ chức năng hoàn toàn giống nhau
+- Tuân theo best practice của công nghệ đích
+- [Yêu cầu khác]
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供迁移后的代码，并说明主要改动点。
+Vui lòng cung cấp code sau migration, và nói rõ các điểm thay đổi chính.
 ```
 
 
-## 精简版：快速修改模板
+## Phiên bản tối giản: Template sửa nhanh
 
-当你只需要做一个小改动时，可以使用这个精简版：
+Khi bạn chỉ cần sửa nhỏ, có thể dùng phiên bản tối giản này:
 
 ```markdown
-请修改以下代码：
+Vui lòng sửa đổi code sau:
 
-```[语言]
-[代码]
+```[ngôn ngữ]
+[Code]
 ```
 
-**修改内容**：[简述要改什么]
+**Nội dung sửa đổi**: [Mô tả ngắn gọn cần sửa gì]
 
-**约束**：
-- 保持其他部分不变
-- [其他约束]
+**Ràng buộc**:
+- Giữ nguyên các phần khác
+- [Ràng buộc khác]
 ```
 
 
-## 常见填写误区
+## Sai lầm thường gặp khi điền
 
-| 误区 | 问题 | 正确做法 |
+| Sai lầm | Vấn đề | Cách làm đúng |
 |-----|------|---------|
-| 不贴现有代码 | AI 无法了解上下文 | 贴出相关的代码片段 |
-| 只说"优化一下" | 不知道优化什么方向 | 明确是可读性/性能/结构 |
-| 忘记说"不要改" | AI 可能重构整个文件 | 明确边界，哪些不动 |
-| 参考描述太抽象 | "好看一点"太模糊 | 给参考网站或具体描述 |
+| Không dán code hiện có | AI không thể hiểu ngữ cảnh | Dán đoạn code liên quan |
+| Chỉ nói "tối ưu một chút" | Không biết tối ưu hướng nào | Nói rõ là khả năng đọc/hiệu suất/cấu trúc |
+| Quên nói "không được sửa" | AI có thể refactor cả file | Nói rõ ranh giới, phần nào không động |
+| Mô tả tham khảo quá trừu tượng | "Đẹp hơn một chút" quá mơ hồ | Đưa website tham khảo hoặc mô tả cụ thể |
 
 
-## 本节要点
+## Điểm chính của phần này
 
-- ✅ **功能扩展**：贴出现有代码 + 描述新功能 + 明确不能动的部分
-- ✅ **代码重构**：明确重构方向 + 保证功能不变
-- ✅ **性能优化**：描述问题现象 + 给出数据规模 + 设定度量标准
-- ✅ **样式调整**：提供参考 + 具体描述期望效果
+- ✅ **Mở rộng tính năng**: Dán code hiện có + mô tả tính năng mới + nói rõ phần không được động
+- ✅ **Refactor code**: Nói rõ hướng refactor + đảm bảo chức năng không đổi
+- ✅ **Tối ưu hiệu suất**: Mô tả hiện tượng + đưa ra quy mô dữ liệu + thiết lập tiêu chuẩn đo lường
+- ✅ **Điều chỉnh style**: Cung cấp tham khảo + mô tả cụ thể hiệu quả mong đợi

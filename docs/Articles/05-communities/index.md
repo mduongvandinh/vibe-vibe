@@ -1,9 +1,9 @@
 ---
-title: "开发者社区"
+title: "Cộng Đồng Nhà Phát Triển"
 ---
 
-# 开发者社区
+# Cộng Đồng Nhà Phát Triển
 
-Discord 服务器、Twitter 推荐关注、GitHub 优质开源项目。
+Server Discord, tài khoản Twitter đáng theo dõi, dự án mã nguồn mở chất lượng trên GitHub.
 
-教程开发中
+Hướng dẫn đang được phát triển

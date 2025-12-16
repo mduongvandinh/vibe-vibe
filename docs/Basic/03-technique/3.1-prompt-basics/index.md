@@ -1,52 +1,52 @@
 ---
-title: "3.1 提示词工程基础：Context is King"
+title: "3.1 Cơ bản về kỹ thuật lời nhắc: Context is King"
 ---
 
-# 3.1 提示词工程基础：Context is King
+# 3.1 Cơ bản về kỹ thuật lời nhắc: Context is King
 
-在第二章，你学会了用产品经理的思维工具「想清楚」要做什么。现在，是时候学习如何「说明白」——把你想清楚的东西，用 AI 能理解的方式表达出来。
-
-
-## 经过本节学习，你将掌握
-
-- 理解什么是提示词工程，以及 2025 年的最新趋势
-- 掌握「三层上下文」模型，知道该告诉 AI 什么信息
-- 识别并避免初学者最常犯的五个错误
+Ở chương hai, bạn đã học cách sử dụng các công cụ tư duy của quản lý sản phẩm để "suy nghĩ rõ ràng" về cần làm gì. Bây giờ, là lúc học cách "diễn đạt rõ ràng" — biểu đạt những gì suy nghĩ rõ ràng theo cách AI có thể hiểu.
 
 
-## 本节核心洞见
+## Sau khi học phần này, bạn sẽ nắm vững
 
-> "AI 输出的质量 = 你提供的上下文质量 × AI 的能力。你能控制的只有前者。"
-
-很多人把「提示词工程」想象成一种神秘的咒语艺术——仿佛存在某些魔法词汇，说对了 AI 就能给出完美答案。
-
-事实恰恰相反。
-
-提示词工程的核心不是「怎么问」，而是「告诉 AI 什么」。AI 就像一个能力很强但刚入职的实习生：它什么都能做，但对你的项目一无所知。你的任务不是教它编程，而是告诉它足够的背景信息。
-
-**说白了：上下文为王，Context is King。**
+- Hiểu kỹ thuật lời nhắc là gì và xu hướng mới nhất năm 2025
+- Nắm vững mô hình "ba lớp ngữ cảnh", biết cần nói cho AI biết thông tin gì
+- Xác định và tránh được năm lỗi phổ biến nhất mà người mới bắt đầu mắc phải
 
 
-## 本节结构
+## Hiểu biết cốt lõi của phần này
+
+> "Chất lượng đầu ra của AI = Chất lượng ngữ cảnh bạn cung cấp × Khả năng của AI. Bạn chỉ có thể kiểm soát phần trước."
+
+Nhiều người tưởng tượng "kỹ thuật lời nhắc" là một loại nghệ thuật bùa chú bí ẩn — như thể có những từ ngữ kỳ diệu nào đó, nếu nói đúng, AI sẽ đưa ra câu trả lời hoàn hảo.
+
+Sự thật hoàn toàn ngược lại.
+
+Lõi của kỹ thuật lời nhắc không phải là "hỏi cách nào", mà là "nói cho AI biết gì". AI giống như một thực tập sinh có khả năng mạnh nhưng mới vào làm việc: nó có thể làm bất cứ điều gì, nhưng hoàn toàn không biết về dự án của bạn. Nhiệm vụ của bạn không phải dạy nó lập trình, mà là nói cho nó biết đủ thông tin nền.
+
+**Nói thẳng ra: ngữ cảnh là vua, Context is King.**
+
+
+## Cấu trúc phần này
 
 ```
-3.1.1 什么是提示词工程 → 建立正确认知，消除神秘感
-3.1.2 Context is King → 掌握三层上下文模型
-3.1.3 初学者常犯的五个错误 → 对照检查，避开常见坑
+3.1.1 Kỹ thuật lời nhắc là gì → Xây dựng nhận thức đúng, loại bỏ bí ẩn
+3.1.2 Context is King → Nắm vững mô hình ba lớp ngữ cảnh
+3.1.3 Năm lỗi phổ biến mà người mới bắt đầu mắc phải → So sánh và kiểm tra, tránh những cái bẫy phổ biến
 ```
 
 
-## 与第二章的衔接
+## Kết nối với chương hai
 
-本节内容与第二章紧密相连：
+Nội dung phần này liên quan chặt chẽ với chương hai:
 
-| 第二章成果 | 在本节的应用 |
+| Kết quả chương hai | Áp dụng trong phần này |
 |-----------|------------|
-| 灵魂三问（用户是谁、痛点在哪、为什么选你） | 构建「任务上下文」的基础材料 |
-| 用户画像 | 帮助描述项目的目标用户 |
-| 减法思维（不做清单） | 用于约束 AI 的输出范围 |
+| Ba câu hỏi về linh hồn (ai là người dùng, điểm yếu ở đâu, tại sao chọn bạn) | Tài liệu cơ bản để xây dựng "ngữ cảnh nhiệm vụ" |
+| Hình ảnh người dùng | Giúp mô tả người dùng mục tiêu của dự án |
+| Tư duy trừ (danh sách không làm) | Dùng để ràng buộc phạm vi đầu ra của AI |
 
-第二章帮你「想清楚」，本节帮你「说清楚」。两者缺一不可。
+Chương hai giúp bạn "suy nghĩ rõ ràng", phần này giúp bạn "diễn đạt rõ ràng". Hai cái đều cần thiết.
 
 
-准备好了吗？让我们从「什么是提示词工程」开始。
+Bạn đã sẵn sàng chưa? Hãy bắt đầu từ "Kỹ thuật lời nhắc là gì".

@@ -1,76 +1,75 @@
 ---
-title: "4.5 线上数据库动手术——数据库迁移策略：生产环境的变更管理"
-typora-root-url: ../../public
+title: "4.5 Phẫu thuật trên database production — Chiến lược Migration: Quản lý thay đổi trên môi trường production"
 ---
 
-# 4.5 线上数据库动手术——数据库迁移策略：生产环境的变更管理
+# 4.5 Phẫu thuật trên database production — Chiến lược Migration: Quản lý thay đổi trên môi trường production
 
-### 认知重构
+### Tái cấu trúc nhận thức
 
-生产环境的数据库变更就像给飞行中的飞机换引擎——需要极其谨慎的策略和充分的准备。
+Thay đổi database trên môi trường production giống như thay động cơ cho máy bay đang bay — cần chiến lược cực kỳ cẩn thận và chuẩn bị kỹ lưỡng.
 
-### 为什么迁移很重要？
+### Tại sao Migration lại quan trọng?
 
 ```mermaid
 graph TD
-    A["开发环境"] --> B["测试环境"]
-    B --> C["生产环境"]
-    
-    D["Schema 变更"] --> E{"安全吗？"}
-    E -- "是" --> F["应用迁移"]
-    E -- "否" --> G["回滚/修复"]
+    A["Môi trường Dev"] --> B["Môi trường Test"]
+    B --> C["Môi trường Production"]
+
+    D["Thay đổi Schema"] --> E{"An toàn?"}
+    E -- "Có" --> F["Áp dụng Migration"]
+    E -- "Không" --> G["Rollback/Sửa lỗi"]
 ```
 
-**迁移失败的后果**：
-- 服务中断
-- 数据丢失
-- 用户流失
+**Hậu quả khi Migration thất bại**:
+- Dịch vụ bị gián đoạn
+- Mất dữ liệu
+- Người dùng rời bỏ
 
-### 子章节导航
+### Điều hướng các chương con
 
-| 章节 | 主题 | 核心问题 |
+| Chương | Chủ đề | Vấn đề cốt lõi |
 |------|------|----------|
-| 4.5.1 | 环境同步 | 如何保证开发/测试/生产环境一致？ |
-| 4.5.2 | 回滚机制 | 迁移失败了怎么恢复？ |
-| 4.5.3 | 数据迁移 | 改表结构时数据怎么处理？ |
+| 4.5.1 | Đồng bộ môi trường | Làm thế nào đảm bảo các môi trường dev/test/production nhất quán? |
+| 4.5.2 | Cơ chế Rollback | Khi migration thất bại thì phục hồi như thế nào? |
+| 4.5.3 | Data Migration | Khi thay đổi cấu trúc bảng thì xử lý dữ liệu ra sao? |
 
-### 迁移的基本原则
+### Nguyên tắc cơ bản của Migration
 
-1. **先备份**：生产环境迁移前必须备份
-2. **先测试**：在测试环境验证迁移脚本
-3. **小步快跑**：大变更拆分成多个小迁移
-4. **可回滚**：每次迁移都要有回滚方案
+1. **Backup trước**: Bắt buộc phải backup trước khi migration trên production
+2. **Test trước**: Xác minh migration script trong môi trường test
+3. **Từng bước nhỏ**: Chia các thay đổi lớn thành nhiều migration nhỏ
+4. **Có thể Rollback**: Mỗi migration đều phải có phương án rollback
 
-### Prisma 迁移工作流
+### Quy trình Migration của Prisma
 
-**开发环境**：
+**Môi trường Development**:
 ```bash
 npx prisma migrate dev --name add_user_role
 ```
 
-**生产环境**：
+**Môi trường Production**:
 ```bash
 npx prisma migrate deploy
 ```
 
-| 命令 | 环境 | 作用 |
+| Lệnh | Môi trường | Tác dụng |
 |------|------|------|
-| `migrate dev` | 开发 | 生成并应用迁移 |
-| `migrate deploy` | 生产 | 只应用已有迁移 |
-| `migrate reset` | 开发 | 重置数据库 |
+| `migrate dev` | Development | Tạo và áp dụng migration |
+| `migrate deploy` | Production | Chỉ áp dụng migration đã có |
+| `migrate reset` | Development | Reset database |
 
-### 迁移前检查清单
+### Checklist trước khi Migration
 
-- [ ] 已在本地测试迁移
-- [ ] 已在测试环境验证
-- [ ] 已备份生产数据库
-- [ ] 了解迁移的预计执行时间
-- [ ] 准备好回滚方案
-- [ ] 安排在低峰期执行
+- [ ] Đã test migration trên local
+- [ ] Đã xác minh trên môi trường test
+- [ ] Đã backup database production
+- [ ] Đã hiểu thời gian thực thi ước tính của migration
+- [ ] Đã chuẩn bị phương án rollback
+- [ ] Đã lên lịch thực thi vào giờ thấp điểm
 
-### 本章小结
+### Tóm tắt chương này
 
-- 生产迁移需要谨慎策略
-- 使用 `migrate deploy` 部署生产环境
-- 始终先备份、先测试
-- 准备回滚方案应对失败
+- Migration production cần chiến lược cẩn thận
+- Sử dụng `migrate deploy` để triển khai môi trường production
+- Luôn backup trước, test trước
+- Chuẩn bị phương án rollback để đối phó với thất bại

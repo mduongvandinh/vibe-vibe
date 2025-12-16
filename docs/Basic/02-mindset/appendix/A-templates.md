@@ -1,360 +1,361 @@
 ---
-title: "A. 思维模型速查表"
+title: "A. Bảng tra cứu nhanh mô hình tư duy"
 ---
 
-# A. 思维模型速查表
+# A. Bảng tra cứu nhanh mô hình tư duy
 
-本附录汇总第二章七个思维模型的核心模板，每个模板都附有填写示例和使用场景说明。
+Phụ lục này tổng hợp các template cốt lõi của bảy mô hình tư duy trong Chương 2, mỗi template đều có ví dụ điền mẫu và hướng dẫn tình huống sử dụng.
 
 
-## 模板使用顺序建议
+## Đề xuất thứ tự sử dụng template
 
 ```
-问题发现 → JTBD → 逆向思维 → 减法思维 → 故事思维 → 灵魂三问 → 场景适配
+Phát hiện vấn đề → JTBD → Tư duy ngược → Tư duy trừ → Tư duy câu chuyện → Ba câu hỏi linh hồn → Áp dụng theo tình huống
     ↓         ↓         ↓           ↓           ↓           ↓
- 找到问题   定义任务   预防失败    聚焦MVP    理解用户    最终自检
+ Tìm vấn đề  Định nghĩa  Phòng tránh  Tập trung   Hiểu người   Kiểm tra
+              nhiệm vụ    thất bại     vào MVP      dùng      cuối cùng
 ```
 
-不必每次都走完整流程。简单项目可以跳过部分步骤，但**灵魂三问**是最后的底线检查。
+Không nhất thiết phải đi qua toàn bộ quy trình mỗi lần. Với dự án đơn giản có thể bỏ qua một số bước, nhưng **Ba câu hỏi linh hồn** là kiểm tra đáy cuối cùng.
 
 
-## 1. JTBD 任务描述模板
+## 1. Template mô tả nhiệm vụ JTBD
 
-**适用场景**：当你有了一个想法，需要明确「用户到底要完成什么任务」时使用。
+**Tình huống áp dụng**: Khi bạn có một ý tưởng, cần làm rõ "người dùng thực sự muốn hoàn thành nhiệm vụ gì".
 
-### 模板
+### Template
 
 ```markdown
-当 [用户类型] 在 [具体场景] 时，
-想要 [完成的任务]，
-以便于 [获得的结果或感受]。
+Khi [loại người dùng] đang ở trong [tình huống cụ thể],
+muốn [hoàn thành nhiệm vụ],
+để có thể [kết quả hoặc cảm giác đạt được].
 ```
 
-### 填写示例
+### Ví dụ điền mẫu
 
 ```markdown
-当 职场新人 在 早上到公司开始工作 时，
-想要 快速记录今天要做的事，
-以便于 不会遗漏重要任务，可以安心投入工作。
+Khi người mới đi làm vào sáng đến công ty bắt đầu làm việc,
+muốn nhanh chóng ghi lại những việc cần làm hôm nay,
+để có thể không bỏ sót công việc quan trọng, yên tâm tập trung vào công việc.
 ```
 
-### 进阶：三层任务
+### Nâng cao: Ba tầng nhiệm vụ
 
-| 任务层次 | 问题 | 示例 |
+| Tầng nhiệm vụ | Câu hỏi | Ví dụ |
 |---------|------|------|
-| 功能任务 | 要完成什么具体事情？ | 记录和查看待办事项 |
-| 情感任务 | 想要什么感受？ | 减少焦虑，感到安心 |
-| 社会任务 | 想被别人如何看待？ | 在同事面前显得靠谱 |
+| Nhiệm vụ chức năng | Cần hoàn thành việc gì cụ thể? | Ghi lại và xem danh sách công việc |
+| Nhiệm vụ cảm xúc | Muốn cảm giác gì? | Giảm lo lắng, cảm thấy an tâm |
+| Nhiệm vụ xã hội | Muốn người khác nhìn nhận mình như thế nào? | Được đồng nghiệp đánh giá là đáng tin cậy |
 
 
-## 2. Pre-mortem 预演失败模板
+## 2. Template Pre-mortem dự kiến thất bại
 
-**适用场景**：在开始项目前，用逆向思维提前识别可能导致失败的因素。
+**Tình huống áp dụng**: Trước khi bắt đầu dự án, dùng tư duy ngược để sớm nhận diện các yếu tố có thể dẫn đến thất bại.
 
-### 模板
+### Template
 
 ```markdown
-## Pre-mortem 分析
+## Phân tích Pre-mortem
 
-假设 [时间] 后项目失败了，可能的原因是：
+Giả sử sau [thời gian] dự án thất bại, nguyên nhân có thể là:
 
-| 失败原因 | 可能性(高/中/低) | 严重性(高/中/低) | 预防措施 |
+| Nguyên nhân thất bại | Khả năng (cao/trung/thấp) | Mức độ nghiêm trọng (cao/trung/thấp) | Biện pháp phòng tránh |
 |---------|----------------|----------------|---------|
 | 1.      |                |                |         |
 | 2.      |                |                |         |
 | 3.      |                |                |         |
 
-最需要警惕的风险（可能性高 + 严重性高）：
+Rủi ro cần cảnh giác nhất (khả năng cao + mức độ nghiêm trọng cao):
 _______________
 
-对应的具体行动：
+Hành động cụ thể tương ứng:
 _______________
 ```
 
-### 填写示例
+### Ví dụ điền mẫu
 
 ```markdown
-## Pre-mortem 分析
+## Phân tích Pre-mortem
 
-假设 3个月 后项目失败了，可能的原因是：
+Giả sử sau 3 tháng dự án thất bại, nguyên nhân có thể là:
 
-| 失败原因 | 可能性 | 严重性 | 预防措施 |
+| Nguyên nhân thất bại | Khả năng | Mức độ nghiêm trọng | Biện pháp phòng tránh |
 |---------|-------|-------|---------|
-| 功能太多，做不完 | 高 | 高 | 第一版只做3个核心功能 |
-| 用起来比便签还麻烦 | 中 | 高 | 添加任务必须在3秒内完成 |
-| 做完了自己都不用 | 中 | 高 | 先用一周纸质清单验证习惯 |
+| Quá nhiều tính năng, làm không kịp | Cao | Cao | Phiên bản đầu chỉ làm 3 tính năng cốt lõi |
+| Dùng phức tạp hơn cả ghi chú giấy | Trung | Cao | Thêm task phải hoàn thành trong 3 giây |
+| Làm xong tự mình cũng không dùng | Trung | Cao | Dùng thử danh sách giấy 1 tuần để xác minh thói quen |
 
-最需要警惕的风险：功能太多，做不完
+Rủi ro cần cảnh giác nhất: Quá nhiều tính năng, làm không kịp
 
-对应的具体行动：明确P0功能只有3个，其他全部放入「不做清单」
+Hành động cụ thể tương ứng: Làm rõ chỉ có 3 tính năng P0, tất cả tính năng khác đưa vào "danh sách không làm"
 ```
 
 
-## 3. MVP 设计模板
+## 3. Template thiết kế MVP
 
-**适用场景**：当你需要确定第一版要做什么、不做什么时使用。
+**Tình huống áp dụng**: Khi bạn cần xác định phiên bản đầu làm gì, không làm gì.
 
-### 模板
+### Template
 
 ```markdown
-## MVP 设计
+## Thiết kế MVP
 
-**核心假设**：_______________
-（用一句话描述你要验证的最重要假设）
+**Giả định cốt lõi**: _______________
+(Dùng một câu mô tả giả định quan trọng nhất bạn muốn xác minh)
 
-**验证标准**：_______________
-（什么结果能证明假设成立？）
+**Tiêu chí xác minh**: _______________
+(Kết quả nào chứng minh giả định đúng?)
 
-**P0 功能（必须有，3个以内）**：
+**Tính năng P0 (bắt buộc phải có, tối đa 3)**:
 1. _______________
 2. _______________
 3. _______________
 
-**不做清单（明确不做的事情）**：
-- 不做 _______________ ，因为 _______________
-- 不做 _______________ ，因为 _______________
-- 不做 _______________ ，因为 _______________
+**Danh sách không làm (những việc rõ ràng không làm)**:
+- Không làm _______________ , vì _______________
+- Không làm _______________ , vì _______________
+- Không làm _______________ , vì _______________
 ```
 
-### 填写示例
+### Ví dụ điền mẫu
 
 ```markdown
-## MVP 设计
+## Thiết kế MVP
 
-**核心假设**：一个极简的每日待办清单，比便签纸和手机备忘录更好用
+**Giả định cốt lõi**: Một danh sách công việc hàng ngày cực kỳ đơn giản, dễ dùng hơn giấy note và ghi chú trên điện thoại
 
-**验证标准**：自己连续使用7天，每天都用它记录和完成任务
+**Tiêu chí xác minh**: Tự mình dùng liên tục 7 ngày, mỗi ngày đều dùng để ghi và hoàn thành công việc
 
-**P0 功能（必须有）**：
-1. 添加任务
-2. 完成任务（打勾）
-3. 查看今日任务
+**Tính năng P0 (bắt buộc phải có)**:
+1. Thêm công việc
+2. Hoàn thành công việc (đánh dấu tick)
+3. Xem công việc hôm nay
 
-**不做清单**：
-- 不做 多设备同步 ，因为 需要后端开发，大大增加复杂度
-- 不做 任务分类标签 ，因为 不是极简体验的核心
-- 不做 截止日期提醒 ，因为 先验证「记录」这个核心价值
+**Danh sách không làm**:
+- Không làm đồng bộ đa thiết bị, vì cần phát triển backend, tăng độ phức tạp rất nhiều
+- Không làm phân loại nhãn công việc, vì không phải cốt lõi của trải nghiệm cực đơn giản
+- Không làm nhắc deadline, vì trước tiên xác minh giá trị cốt lõi "ghi lại"
 ```
 
 
-## 4. 用户故事模板（三维画像）
+## 4. Template User Story (chân dung ba chiều)
 
-**适用场景**：当你需要清晰描述「用户是谁」时使用。
+**Tình huống áp dụng**: Khi bạn cần mô tả rõ ràng "người dùng là ai".
 
-### 模板
+### Template
 
 ```markdown
-## 用户画像
+## Chân dung người dùng
 
-**用户名字**：_______________（给TA起个名字）
+**Tên người dùng**: _______________(Đặt tên cho người dùng)
 
-**一句话描述**：_______________
+**Mô tả một câu**: _______________
 
-| 维度 | 内容 |
+| Chiều | Nội dung |
 |-----|------|
-| 表面属性 | 年龄、职业、每天处理多少事务 |
-| 行为习惯 | 日常使用什么工具、什么时候用、怎么用 |
-| 深层动机 | 害怕什么、追求什么、想成为什么样的人 |
+| Thuộc tính bề mặt | Tuổi, nghề nghiệp, mỗi ngày xử lý bao nhiêu công việc |
+| Thói quen hành vi | Hàng ngày dùng công cụ gì, khi nào dùng, dùng như thế nào |
+| Động cơ sâu xa | Sợ điều gì, theo đuổi điều gì, muốn trở thành người như thế nào |
 
-**使用场景**：
-- 场景1：_______________
-- 场景2：_______________
-- 场景3：_______________
+**Tình huống sử dụng**:
+- Tình huống 1: _______________
+- Tình huống 2: _______________
+- Tình huống 3: _______________
 ```
 
-### 填写示例
+### Ví dụ điền mẫu
 
 ```markdown
-## 用户画像
+## Chân dung người dùng
 
-**用户名字**：小李
+**Tên người dùng**: Tiểu Lý
 
-**一句话描述**：25岁职场新人，怕遗漏任务被领导批评
+**Mô tả một câu**: 25 tuổi, người mới đi làm, sợ bỏ sót công việc bị lãnh đạo phê bình
 
-| 维度 | 内容 |
+| Chiều | Nội dung |
 |-----|------|
-| 表面属性 | 25岁，互联网公司运营，每天处理10-15件事务 |
-| 行为习惯 | 早上到公司先看邮件，用手机备忘录记事但经常忘记看 |
-| 深层动机 | 害怕遗漏任务被批评，想成为一个靠谱的人 |
+| Thuộc tính bề mặt | 25 tuổi, nhân viên vận hành công ty internet, mỗi ngày xử lý 10-15 công việc |
+| Thói quen hành vi | Sáng đến công ty xem email trước, dùng ghi chú trên điện thoại nhưng thường quên xem |
+| Động cơ sâu xa | Sợ bỏ sót công việc bị phê bình, muốn trở thành người đáng tin cậy |
 
-**使用场景**：
-- 场景1：早上到公司，打开电脑，快速记录今天要做的事
-- 场景2：工作中突然想起一件事，需要3秒内记下来
-- 场景3：下班前，检查今天的事情是否都完成了
+**Tình huống sử dụng**:
+- Tình huống 1: Sáng đến công ty, mở máy tính, nhanh chóng ghi lại việc cần làm hôm nay
+- Tình huống 2: Giữa công việc đột nhiên nhớ ra một việc, cần ghi lại trong 3 giây
+- Tình huống 3: Trước khi tan làm, kiểm tra công việc hôm nay đã hoàn thành chưa
 ```
 
 
-## 5. 灵魂三问自检模板
+## 5. Template tự kiểm tra Ba câu hỏi linh hồn
 
-**适用场景**：在开始动手前，做最后一次自检。三个绿灯才能开始。
+**Tình huống áp dụng**: Trước khi bắt tay vào làm, tự kiểm tra lần cuối. Cả ba đều xanh mới được bắt đầu.
 
-### 模板
+### Template
 
 ```markdown
-## 灵魂三问自检
+## Tự kiểm tra Ba câu hỏi linh hồn
 
-**项目名称**：_______________
+**Tên dự án**: _______________
 
-| 问题 | 回答 | 状态 |
+| Câu hỏi | Trả lời | Trạng thái |
 |-----|------|------|
-| 用户是谁？ | _______________ | 🟢/🟡/🔴 |
-| 痛点在哪？ | _______________ | 🟢/🟡/🔴 |
-| 为什么选我？ | _______________ | 🟢/🟡/🔴 |
+| Người dùng là ai? | _______________ | 🟢/🟡/🔴 |
+| Điểm đau ở đâu? | _______________ | 🟢/🟡/🔴 |
+| Tại sao chọn tôi? | _______________ | 🟢/🟡/🔴 |
 
-**状态说明**：
-- 🟢 绿灯：能用一句话清晰回答
-- 🟡 黄灯：有想法但说不清楚
-- 🔴 红灯：完全回答不出来
+**Giải thích trạng thái**:
+- 🟢 Đèn xanh: Có thể trả lời rõ ràng bằng một câu
+- 🟡 Đèn vàng: Có ý tưởng nhưng nói không rõ
+- 🔴 Đèn đỏ: Hoàn toàn không trả lời được
 
-**结论**：□ 可以开始（全绿） □ 需要完善（有黄） □ 先停下来（有红）
+**Kết luận**: □ Có thể bắt đầu (toàn xanh) □ Cần hoàn thiện (có vàng) □ Dừng lại trước (có đỏ)
 ```
 
-### 填写示例
+### Ví dụ điền mẫu
 
 ```markdown
-## 灵魂三问自检
+## Tự kiểm tra Ba câu hỏi linh hồn
 
-**项目名称**：极简待办清单
+**Tên dự án**: Danh sách công việc cực đơn giản
 
-| 问题 | 回答 | 状态 |
+| Câu hỏi | Trả lời | Trạng thái |
 |-----|------|------|
-| 用户是谁？ | 小李——25岁职场新人，怕遗漏任务 | 🟢 |
-| 痛点在哪？ | 经常忘事被批评，现有工具要么太复杂要么容易忘记看 | 🟢 |
-| 为什么选我？ | 打开就是今日待办，3秒添加任务，比便签和备忘录更顺手 | 🟢 |
+| Người dùng là ai? | Tiểu Lý - 25 tuổi người mới đi làm, sợ bỏ sót công việc | 🟢 |
+| Điểm đau ở đâu? | Thường quên việc bị phê bình, công cụ hiện tại hoặc quá phức tạp hoặc dễ quên xem | 🟢 |
+| Tại sao chọn tôi? | Mở ra là công việc hôm nay, 3 giây thêm task, tiện tay hơn giấy note và ghi chú | 🟢 |
 
-**结论**：☑ 可以开始（全绿）
+**Kết luận**: ☑ Có thể bắt đầu (toàn xanh)
 ```
 
 
-## 6. 烦恼日记模板
+## 6. Template nhật ký phiền não
 
-**适用场景**：当你不知道做什么项目时，用这个方法发现值得解决的问题。
+**Tình huống áp dụng**: Khi bạn không biết làm dự án gì, dùng phương pháp này phát hiện vấn đề đáng giải quyết.
 
-### 模板
+### Template
 
 ```markdown
-## 烦恼日记
+## Nhật ký phiền não
 
-**日期**：_______________
+**Ngày**: _______________
 
-**烦恼瞬间**：_______________（一句话描述发生了什么）
+**Khoảnh khắc phiền não**: _______________(Mô tả một câu chuyện gì xảy ra)
 
-**当时在做什么**：_______________
+**Lúc đó đang làm gì**: _______________
 
-**为什么烦**：□ 太慢 □ 太麻烦 □ 容易出错 □ 其他：___
+**Tại sao phiền**: □ Quá chậm □ Quá phức tạp □ Dễ sai sót □ Khác: ___
 
-**我最后怎么解决的**：□ 忍着做完 □ 找人帮忙 □ 放弃了 □ 其他：___
+**Cuối cùng tôi giải quyết như thế nào**: □ Chịu đựng làm xong □ Nhờ người giúp □ Bỏ cuộc □ Khác: ___
 
-**这件事多久发生一次**：□ 每天 □ 每周 □ 每月 □ 偶尔
+**Việc này bao lâu xảy ra một lần**: □ Mỗi ngày □ Mỗi tuần □ Mỗi tháng □ Thỉnh thoảng
 ```
 
-### 填写示例
+### Ví dụ điền mẫu
 
 ```markdown
-## 烦恼日记
+## Nhật ký phiền não
 
-**日期**：周三
+**Ngày**: Thứ Tư
 
-**烦恼瞬间**：又要从5个Excel里汇总数据做周报
+**Khoảnh khắc phiền não**: Lại phải tổng hợp dữ liệu từ 5 file Excel để làm báo cáo tuần
 
-**当时在做什么**：准备周五的部门汇报
+**Lúc đó đang làm gì**: Chuẩn bị báo cáo họp bộ phận thứ Sáu
 
-**为什么烦**：☑ 太麻烦（每次都要打开5个文件，复制粘贴，检查有没有错）
+**Tại sao phiền**: ☑ Quá phức tạp (mỗi lần phải mở 5 file, copy paste, kiểm tra có sai không)
 
-**我最后怎么解决的**：☑ 忍着做完（花了40分钟）
+**Cuối cùng tôi giải quyết như thế nào**: ☑ Chịu đựng làm xong (mất 40 phút)
 
-**这件事多久发生一次**：☑ 每周
+**Việc này bao lâu xảy ra một lần**: ☑ Mỗi tuần
 ```
 
 
-## 7. 问题筛选评分表
+## 7. Bảng chấm điểm lọc vấn đề
 
-**适用场景**：当你有多个问题/想法时，用这个表格筛选出最适合 Vibe Coding 解决的问题。
+**Tình huống áp dụng**: Khi bạn có nhiều vấn đề/ý tưởng, dùng bảng này lọc ra vấn đề phù hợp nhất để giải quyết bằng Vibe Coding.
 
-### 模板
+### Template
 
 ```markdown
-## 问题筛选评分表
+## Bảng chấm điểm lọc vấn đề
 
-| 问题 | 重复性 | 规则性 | 可验证 | 不敏感 | 容错高 | 总分 |
+| Vấn đề | Tính lặp lại | Tính quy tắc | Có thể xác minh | Không nhạy cảm | Dung sai cao | Tổng điểm |
 |-----|-------|-------|-------|-------|-------|-----|
 |     | /5    | /5    | /5    | /5    | /5    | /25 |
 
-**评分标准**：
-- 重复性：这个问题多久发生一次？（每天5分，每周4分，每月2分，偶尔1分）
-- 规则性：能用清晰的规则描述吗？（完全能5分，大部分能3分，说不清1分）
-- 可验证：自己用就能验证效果吗？（自己用5分，需要别人3分，很难验证1分）
-- 不敏感：不涉及隐私和资金吗？（完全不涉及5分，略有涉及3分，高度敏感1分）
-- 容错高：错了容易发现和修复吗？（很容易5分，一般3分，错了麻烦大1分）
+**Tiêu chí chấm điểm**:
+- Tính lặp lại: Vấn đề này bao lâu xảy ra một lần? (Mỗi ngày 5 điểm, mỗi tuần 4 điểm, mỗi tháng 2 điểm, thỉnh thoảng 1 điểm)
+- Tính quy tắc: Có thể mô tả bằng quy tắc rõ ràng không? (Hoàn toàn được 5 điểm, phần lớn được 3 điểm, không rõ 1 điểm)
+- Có thể xác minh: Tự mình dùng có thể xác minh hiệu quả không? (Tự dùng 5 điểm, cần người khác 3 điểm, khó xác minh 1 điểm)
+- Không nhạy cảm: Không liên quan đến quyền riêng tư và tài chính? (Hoàn toàn không 5 điểm, có chút liên quan 3 điểm, rất nhạy cảm 1 điểm)
+- Dung sai cao: Sai dễ phát hiện và sửa không? (Rất dễ 5 điểm, bình thường 3 điểm, sai rắc rối lớn 1 điểm)
 
-**建议**：总分 ≥ 18 分的问题适合用 Vibe Coding 解决
+**Đề xuất**: Vấn đề có tổng điểm ≥ 18 điểm phù hợp giải quyết bằng Vibe Coding
 ```
 
-### 填写示例
+### Ví dụ điền mẫu
 
 ```markdown
-## 问题筛选评分表
+## Bảng chấm điểm lọc vấn đề
 
-| 问题 | 重复性 | 规则性 | 可验证 | 不敏感 | 容错高 | 总分 |
+| Vấn đề | Tính lặp lại | Tính quy tắc | Có thể xác minh | Không nhạy cảm | Dung sai cao | Tổng điểm |
 |-----|-------|-------|-------|-------|-------|-----|
-| 待办遗漏 | 5 | 4 | 5 | 5 | 4 | 23 ✓ |
-| Excel汇总 | 4 | 5 | 5 | 4 | 4 | 22 ✓ |
-| 投资决策 | 2 | 2 | 1 | 2 | 1 | 8 ✗ |
+| Bỏ sót công việc | 5 | 4 | 5 | 5 | 4 | 23 ✓ |
+| Tổng hợp Excel | 4 | 5 | 5 | 4 | 4 | 22 ✓ |
+| Quyết định đầu tư | 2 | 2 | 1 | 2 | 1 | 8 ✗ |
 
-结论：「待办遗漏」和「Excel汇总」适合做，「投资决策」不适合
+Kết luận: "Bỏ sót công việc" và "Tổng hợp Excel" phù hợp làm, "Quyết định đầu tư" không phù hợp
 ```
 
 
-## 8. 场景化需求模板
+## 8. Template nhu cầu theo tình huống
 
-**适用场景**：根据不同场景（数据分析、自动化脚本等）描述需求。
+**Tình huống áp dụng**: Mô tả nhu cầu theo các tình huống khác nhau (phân tích dữ liệu, script tự động hóa, v.v.).
 
-### 数据分析需求模板
+### Template nhu cầu phân tích dữ liệu
 
 ```markdown
-**背景**：我是_______________，需要向_______________汇报
+**Bối cảnh**: Tôi là_______________, cần báo cáo cho_______________
 
-**核心问题**：我要回答「_______________」这个问题
+**Vấn đề cốt lõi**: Tôi cần trả lời câu hỏi "_______________"
 
-**需要的分析**：
+**Phân tích cần thiết**:
 1. _______________
 2. _______________
 3. _______________
 
-**数据来源**：_______________
+**Nguồn dữ liệu**: _______________
 
-**输出要求**：_______________（图表/表格/文字报告）
+**Yêu cầu output**: _______________(biểu đồ/bảng/báo cáo văn bản)
 ```
 
-### 自动化脚本需求模板
+### Template nhu cầu script tự động hóa
 
 ```markdown
-**我的重复性任务**：_______________
+**Công việc lặp lại của tôi**: _______________
 
-**目前我怎么做的**：
-1. _______________ （耗时___分钟）
-2. _______________ （耗时___分钟）
-3. _______________ （耗时___分钟）
+**Hiện tại tôi làm như thế nào**:
+1. _______________ (mất___phút)
+2. _______________ (mất___phút)
+3. _______________ (mất___phút)
 
-**我希望自动化的部分**：_______________
+**Phần tôi muốn tự động hóa**: _______________
 
-**输入是什么**：_______________
+**Input là gì**: _______________
 
-**输出是什么**：_______________
+**Output là gì**: _______________
 
-**可能出错的情况**：_______________
+**Tình huống có thể lỗi**: _______________
 ```
 
 
-## 快速查找指南
+## Hướng dẫn tra cứu nhanh
 
-| 你的问题 | 使用哪个模板 |
+| Vấn đề của bạn | Dùng template nào |
 |---------|-------------|
-| 不知道做什么项目 | 烦恼日记 + 问题筛选评分表 |
-| 想清楚用户要完成什么 | JTBD 任务描述模板 |
-| 担心项目会失败 | Pre-mortem 模板 |
-| 不知道第一版做什么 | MVP 设计模板 |
-| 不清楚用户是谁 | 用户故事模板 |
-| 不确定是否准备好开始 | 灵魂三问自检模板 |
-| 要做数据分析 | 数据分析需求模板 |
-| 要做自动化脚本 | 自动化脚本需求模板 |
+| Không biết làm dự án gì | Nhật ký phiền não + Bảng chấm điểm lọc vấn đề |
+| Nghĩ rõ người dùng cần hoàn thành gì | Template mô tả nhiệm vụ JTBD |
+| Lo lắng dự án sẽ thất bại | Template Pre-mortem |
+| Không biết phiên bản đầu làm gì | Template thiết kế MVP |
+| Không rõ người dùng là ai | Template User Story |
+| Không chắc đã sẵn sàng bắt đầu chưa | Template tự kiểm tra Ba câu hỏi linh hồn |
+| Làm phân tích dữ liệu | Template nhu cầu phân tích dữ liệu |
+| Làm script tự động hóa | Template nhu cầu script tự động hóa |

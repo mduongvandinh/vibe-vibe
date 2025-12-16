@@ -1,88 +1,87 @@
 ---
-title: "10.3 一键启动所有服务——Docker Compose 编排：多服务协同"
-typora-root-url: ../../public
+title: "10.3 Một phím khởi động tất cả service — Điều phối Docker Compose: Đa service phối hợp"
 ---
 
-# 10.3 一键启动所有服务——Docker Compose 编排：多服务协同
+# 10.3 Một phím khởi động tất cả service — Điều phối Docker Compose: Đa service phối hợp
 
-一个命令，启动整个应用栈。
+Một lệnh, khởi động toàn bộ stack ứng dụng.
 
-## 为什么需要 Docker Compose
+## Tại sao cần Docker Compose
 
-当你的应用不只有一个容器时（前端 + 后端 + 数据库 + 缓存），手动一个个启动既繁琐又容易出错。Docker Compose 让你用一个 YAML 文件定义所有服务，然后一键启动。
+Khi ứng dụng của bạn không chỉ có một container (frontend + backend + database + cache), khởi động thủ công từng cái vừa phiền phức vừa dễ lỗi. Docker Compose cho phép bạn dùng một file YAML định nghĩa tất cả service, sau đó khởi động một phím.
 
 ```mermaid
 flowchart TB
-    subgraph 手动管理
+    subgraph Quản lý thủ công
         A1[docker run postgres] --> A2[docker run redis]
         A2 --> A3[docker run nestjs]
         A3 --> A4[docker run nextjs]
         A4 --> A5[docker run nginx]
     end
-    
+
     subgraph Docker Compose
-        B1[docker compose up] --> B2[所有服务同时启动]
+        B1[docker compose up] --> B2[Tất cả service khởi động cùng lúc]
     end
 ```
 
-## 核心优势
+## Ưu điểm cốt lõi
 
-| 特性 | 说明 |
+| Tính năng | Giải thích |
 |------|------|
-| 声明式配置 | 用 YAML 描述期望状态，而非命令序列 |
-| 一键操作 | `up` 启动、`down` 停止、`restart` 重启 |
-| 依赖管理 | 自动按顺序启动有依赖关系的服务 |
-| 网络隔离 | 自动创建专属网络，服务间用名称通信 |
-| 环境一致 | 开发和生产使用相同的编排文件 |
+| Cấu hình khai báo | Dùng YAML mô tả trạng thái mong muốn, không phải chuỗi lệnh |
+| Thao tác một phím | `up` khởi động, `down` dừng, `restart` khởi động lại |
+| Quản lý phụ thuộc | Tự động khởi động theo thứ tự các service có phụ thuộc |
+| Cách ly mạng | Tự động tạo mạng riêng, service giao tiếp qua tên |
+| Môi trường nhất quán | Development và production dùng cùng file điều phối |
 
-## 典型应用栈
+## Stack ứng dụng điển hình
 
 ```yaml
 # docker-compose.yml
 services:
-  frontend:    # Next.js 前端
-  api:         # NestJS 后端
-  postgres:    # PostgreSQL 数据库
-  redis:       # Redis 缓存
-  nginx:       # 反向代理
+  frontend:    # Frontend Next.js
+  api:         # Backend NestJS
+  postgres:    # Database PostgreSQL
+  redis:       # Cache Redis
+  nginx:       # Reverse proxy
 ```
 
-## 本节目录
+## Mục lục phần này
 
-- **10.3.1 编排文件怎么写** — Compose 文件结构详解
-- **10.3.2 服务之间如何对话** — 网络与数据卷配置
-- **10.3.3 开发和生产用一套配置吗** — 多环境配置策略
-- **10.3.4 服务挂了能自动重启吗** — 健康检查与自愈
+- **10.3.1 File điều phối viết thế nào** — Cấu trúc file Compose chi tiết
+- **10.3.2 Service giao tiếp với nhau thế nào** — Cấu hình network và volume
+- **10.3.3 Development và production dùng một bộ config không** — Chiến lược cấu hình đa môi trường
+- **10.3.4 Service crash có tự động restart không** — Health check và tự phục hồi
 
-## 常用命令速查
+## Lệnh thường dùng nhanh
 
-| 命令 | 作用 |
+| Lệnh | Công dụng |
 |------|------|
-| `docker compose up -d` | 后台启动所有服务 |
-| `docker compose down` | 停止并删除容器 |
-| `docker compose ps` | 查看服务状态 |
-| `docker compose logs -f` | 实时查看日志 |
-| `docker compose restart api` | 重启指定服务 |
-| `docker compose pull` | 拉取最新镜像 |
-| `docker compose build` | 构建自定义镜像 |
+| `docker compose up -d` | Khởi động tất cả service ở chế độ nền |
+| `docker compose down` | Dừng và xóa container |
+| `docker compose ps` | Xem trạng thái service |
+| `docker compose logs -f` | Xem log real-time |
+| `docker compose restart api` | Restart service chỉ định |
+| `docker compose pull` | Pull image mới nhất |
+| `docker compose build` | Build image tùy chỉnh |
 
-## 快速上手
+## Nhanh chóng làm quen
 
 ```bash
-# 1. 创建 docker-compose.yml
-# 2. 启动所有服务
+# 1. Tạo docker-compose.yml
+# 2. Khởi động tất cả service
 docker compose up -d
 
-# 3. 查看状态
+# 3. Xem trạng thái
 docker compose ps
 
-# 4. 查看日志
+# 4. Xem log
 docker compose logs -f api
 
-# 5. 停止服务
+# 5. Dừng service
 docker compose down
 ```
 
-::: tip 版本说明
-Docker Compose V2 已集成到 Docker CLI，命令从 `docker-compose` 变为 `docker compose`（去掉了连字符）。
+::: tip Lưu ý phiên bản
+Docker Compose V2 đã được tích hợp vào Docker CLI, lệnh đổi từ `docker-compose` thành `docker compose` (bỏ dấu gạch nối).
 :::

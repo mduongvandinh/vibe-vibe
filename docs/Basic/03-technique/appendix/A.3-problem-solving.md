@@ -1,65 +1,65 @@
 ---
-title: "A.3 问题解决类模板"
+title: "A.3 Template giải quyết vấn đề"
 ---
 
-# A.3 问题解决类模板
+# A.3 Template giải quyết vấn đề
 
-本节提供排查问题和寻求帮助的 Prompt 模板，覆盖错误排查、技术选型、概念解释等场景。
+Phần này cung cấp các Prompt template để debug và tìm kiếm trợ giúp, bao gồm debug lỗi, chọn công nghệ, giải thích khái niệm và các tình huống khác.
 
 
-## 模板一：运行时错误排查
+## Template 1: Debug lỗi runtime
 
-适用于：代码报错、程序崩溃、控制台报红
-
-```markdown
-## 错误信息
-
-运行时遇到以下错误：
-
-```
-[完整粘贴错误信息，包括堆栈跟踪]
-```
-
-## 触发场景
-
-**操作步骤**：
-1. [第一步做了什么]
-2. [第二步做了什么]
-3. [然后就报错了]
-
-**触发频率**：[每次都报错/偶尔报错/特定条件下报错]
-
-## 相关代码
-
-错误指向的代码：
-```[语言]
-[粘贴错误信息中提到的代码，以及上下文]
-```
-
-## 环境信息
-
-- 运行环境：[浏览器版本/Node.js 版本/Python 版本]
-- 框架版本：[React 18/Vue 3/...]
-- 操作系统：[Windows/Mac/Linux]
-
-## 已尝试的方法
-
-1. [尝试1]：结果 [成功/失败/部分解决]
-2. [尝试2]：结果 [成功/失败/部分解决]
-
-## 请帮我
-
-1. 分析错误的根本原因
-2. 给出修复方案
-3. 解释为什么会出现这个问题（帮助我理解）
-```
-
-### 填写示例
+Áp dụng cho: Code báo lỗi, chương trình crash, console báo đỏ
 
 ```markdown
-## 错误信息
+## Thông tin lỗi
 
-运行时遇到以下错误：
+Khi chạy gặp lỗi sau:
+
+```
+[Dán đầy đủ thông tin lỗi, bao gồm stack trace]
+```
+
+## Tình huống kích hoạt
+
+**Các bước thao tác**:
+1. [Bước 1 làm gì]
+2. [Bước 2 làm gì]
+3. [Rồi báo lỗi]
+
+**Tần suất kích hoạt**: [Lần nào cũng lỗi/thỉnh thoảng lỗi/lỗi ở điều kiện cụ thể]
+
+## Code liên quan
+
+Code mà lỗi chỉ tới:
+```[ngôn ngữ]
+[Dán code trong thông báo lỗi đề cập, và ngữ cảnh]
+```
+
+## Thông tin môi trường
+
+- Môi trường chạy: [Phiên bản trình duyệt/phiên bản Node.js/phiên bản Python]
+- Phiên bản framework: [React 18/Vue 3/...]
+- Hệ điều hành: [Windows/Mac/Linux]
+
+## Phương pháp đã thử
+
+1. [Thử 1]: Kết quả [thành công/thất bại/giải quyết một phần]
+2. [Thử 2]: Kết quả [thành công/thất bại/giải quyết một phần]
+
+## Vui lòng giúp tôi
+
+1. Phân tích nguyên nhân gốc rễ của lỗi
+2. Đưa ra phương án sửa lỗi
+3. Giải thích tại sao xuất hiện vấn đề này (giúp tôi hiểu)
+```
+
+### Ví dụ điền
+
+```markdown
+## Thông tin lỗi
+
+Khi chạy gặp lỗi sau:
 
 ```
 TypeError: Cannot read properties of undefined (reading 'map')
@@ -68,384 +68,384 @@ TypeError: Cannot read properties of undefined (reading 'map')
     at mountIndeterminateComponent (react-dom.development.js:17811:13)
 ```
 
-## 触发场景
+## Tình huống kích hoạt
 
-**操作步骤**：
-1. 打开应用首页
-2. 页面加载时直接报错
-3. 任务列表没有显示出来
+**Các bước thao tác**:
+1. Mở trang chủ ứng dụng
+2. Khi trang tải thì báo lỗi luôn
+3. Danh sách task không hiển thị
 
-**触发频率**：每次刷新页面都报错
+**Tần suất kích hoạt**: Mỗi lần refresh trang đều lỗi
 
-## 相关代码
+## Code liên quan
 
-错误指向的代码：
+Code mà lỗi chỉ tới:
 ```tsx
 // TaskList.tsx
 function TaskList({ tasks }) {
   return (
     <ul>
-      {tasks.map(task => (          // 第 15 行
+      {tasks.map(task => (          // Dòng 15
         <li key={task.id}>{task.title}</li>
       ))}
     </ul>
   );
 }
 
-// App.tsx 中的调用
+// Gọi trong App.tsx
 function App() {
-  const [tasks, setTasks] = useState();  // 注意这里
-  
+  const [tasks, setTasks] = useState();  // Chú ý chỗ này
+
   return <TaskList tasks={tasks} />;
 }
 ```
 
-## 环境信息
+## Thông tin môi trường
 
-- 运行环境：Chrome 120
-- 框架版本：React 18.2.0 + TypeScript 5.0
-- 操作系统：Mac
+- Môi trường chạy: Chrome 120
+- Phiên bản framework: React 18.2.0 + TypeScript 5.0
+- Hệ điều hành: Mac
 
-## 已尝试的方法
+## Phương pháp đã thử
 
-1. 检查 tasks 数据：console.log 发现是 undefined
-2. 刷新页面：问题依旧
+1. Kiểm tra dữ liệu tasks: console.log phát hiện là undefined
+2. Refresh trang: Vấn đề vẫn còn
 
-## 请帮我
+## Vui lòng giúp tôi
 
-1. 分析错误的根本原因
-2. 给出修复方案
-3. 解释为什么会出现这个问题
+1. Phân tích nguyên nhân gốc rễ của lỗi
+2. Đưa ra phương án sửa lỗi
+3. Giải thích tại sao xuất hiện vấn đề này
 ```
 
 
-## 模板二：逻辑错误分析
+## Template 2: Phân tích lỗi logic
 
-适用于：代码能跑但结果不对
+Áp dụng cho: Code chạy được nhưng kết quả sai
 
 ```markdown
-## 问题描述
+## Mô tả vấn đề
 
-代码可以运行，但结果不符合预期。
+Code có thể chạy, nhưng kết quả không như mong đợi.
 
-**期望行为**：[应该是什么结果]
-**实际行为**：[实际得到什么结果]
+**Hành vi mong đợi**: [Nên ra kết quả gì]
+**Hành vi thực tế**: [Thực tế nhận được kết quả gì]
 
-## 测试用例
+## Test case
 
-| 输入 | 期望输出 | 实际输出 | 是否正确 |
+| Input | Output mong đợi | Output thực tế | Đúng không |
 |-----|---------|---------|---------|
-| [输入1] | [期望1] | [实际1] | ❌ |
-| [输入2] | [期望2] | [实际2] | ❌ |
-| [输入3] | [期望3] | [实际3] | ✅ |
+| [Input 1] | [Mong đợi 1] | [Thực tế 1] | ❌ |
+| [Input 2] | [Mong đợi 2] | [Thực tế 2] | ❌ |
+| [Input 3] | [Mong đợi 3] | [Thực tế 3] | ✅ |
 
-## 相关代码
+## Code liên quan
 
-```[语言]
-[粘贴相关代码]
+```[ngôn ngữ]
+[Dán code liên quan]
 ```
 
-## 我的分析
+## Phân tích của tôi
 
-我怀疑问题可能出在：[你的猜测]
+Tôi nghi ngờ vấn đề có thể ở: [Dự đoán của bạn]
 
-## 请帮我
+## Vui lòng giúp tôi
 
-1. 找出逻辑错误所在
-2. 解释为什么当前逻辑会产生错误结果
-3. 给出修复后的代码
+1. Tìm ra lỗi logic nằm ở đâu
+2. Giải thích tại sao logic hiện tại tạo ra kết quả sai
+3. Đưa ra code sau khi sửa
 ```
 
-### 填写示例
+### Ví dụ điền
 
 ```markdown
-## 问题描述
+## Mô tả vấn đề
 
-代码可以运行，但结果不符合预期。
+Code có thể chạy, nhưng kết quả không như mong đợi.
 
-**期望行为**：计算购物车总价时，满 100 减 20
-**实际行为**：无论金额多少，都减了 20
+**Hành vi mong đợi**: Khi tính tổng giỏ hàng, đủ 100 giảm 20
+**Hành vi thực tế**: Dù số tiền bao nhiêu, đều giảm 20
 
-## 测试用例
+## Test case
 
-| 输入（商品总价） | 期望输出 | 实际输出 | 是否正确 |
+| Input (tổng tiền SP) | Output mong đợi | Output thực tế | Đúng không |
 |---------------|---------|---------|---------|
 | 150 | 130 | 130 | ✅ |
 | 80 | 80 | 60 | ❌ |
 | 100 | 80 | 80 | ✅ |
 
-## 相关代码
+## Code liên quan
 
 ```javascript
 function calculateTotal(items) {
   let total = items.reduce((sum, item) => sum + item.price, 0);
-  
-  // 满 100 减 20
+
+  // Đủ 100 giảm 20
   if (total > 100) {
     total = total - 20;
   } else {
-    total = total - 20;  // 问题可能在这里？
+    total = total - 20;  // Vấn đề có thể ở đây?
   }
-  
+
   return total;
 }
 ```
 
-## 我的分析
+## Phân tích của tôi
 
-我怀疑问题可能出在：else 分支也减了 20，应该是复制粘贴时忘记删掉
+Tôi nghi ngờ vấn đề có thể ở: else cũng trừ 20, chắc là copy paste quên xóa
 
-## 请帮我
+## Vui lòng giúp tôi
 
-1. 确认我的分析是否正确
-2. 给出修复后的代码
-3. 建议如何避免这类复制粘贴错误
+1. Xác nhận phân tích của tôi đúng không
+2. Đưa ra code sau khi sửa
+3. Gợi ý cách tránh lỗi copy paste kiểu này
 ```
 
 
-## 模板三：技术选型咨询
+## Template 3: Tư vấn chọn công nghệ
 
-适用于：不知道选什么库、框架、工具
+Áp dụng cho: Không biết chọn thư viện, framework, công cụ nào
 
 ```markdown
-## 项目背景
+## Bối cảnh dự án
 
-**项目类型**：[简述项目是做什么的]
-**技术栈**：[当前使用的技术]
-**团队情况**：[个人项目/团队规模/技术水平]
+**Loại dự án**: [Mô tả ngắn dự án làm gì]
+**Tech stack**: [Công nghệ đang dùng]
+**Tình hình team**: [Dự án cá nhân/quy mô team/trình độ kỹ thuật]
 
-## 选型需求
+## Nhu cầu chọn công nghệ
 
-我需要选择一个 [类型] 来实现 [功能]。
+Tôi cần chọn một [loại] để thực hiện [chức năng].
 
-**核心需求**：
-- [需求1]
-- [需求2]
-- [需求3]
+**Nhu cầu cốt lõi**:
+- [Nhu cầu 1]
+- [Nhu cầu 2]
+- [Nhu cầu 3]
 
-**考虑因素**：
-| 因素 | 重要程度 | 说明 |
+**Yếu tố xem xét**:
+| Yếu tố | Mức độ quan trọng | Giải thích |
 |-----|---------|------|
-| 学习成本 | 高/中/低 | [说明] |
-| 社区活跃度 | 高/中/低 | [说明] |
-| 性能 | 高/中/低 | [说明] |
-| 包体积 | 高/中/低 | [说明] |
-| 长期维护 | 高/中/低 | [说明] |
+| Chi phí học | Cao/Trung/Thấp | [Giải thích] |
+| Cộng đồng hoạt động | Cao/Trung/Thấp | [Giải thích] |
+| Hiệu suất | Cao/Trung/Thấp | [Giải thích] |
+| Kích thước package | Cao/Trung/Thấp | [Giải thích] |
+| Bảo trì dài hạn | Cao/Trung/Thấp | [Giải thích] |
 
-## 已知候选（可选）
+## Ứng viên đã biết (tùy chọn)
 
-我目前了解到的选项有：
-1. [选项A]：[简单印象]
-2. [选项B]：[简单印象]
-3. [选项C]：[简单印象]
+Các lựa chọn tôi hiện biết:
+1. [Lựa chọn A]: [Ấn tượng đơn giản]
+2. [Lựa chọn B]: [Ấn tượng đơn giản]
+3. [Lựa chọn C]: [Ấn tượng đơn giản]
 
-## 请帮我
+## Vui lòng giúp tôi
 
-1. 补充我可能遗漏的候选方案
-2. 从多个维度对比各方案的优缺点
-3. 给出推荐方案及理由
-4. 说明什么情况下应该选择其他方案
+1. Bổ sung phương án ứng viên tôi có thể bỏ sót
+2. So sánh ưu nhược điểm các phương án từ nhiều góc độ
+3. Đưa ra phương án đề xuất và lý do
+4. Nói rõ trường hợp nào nên chọn phương án khác
 ```
 
-### 填写示例
+### Ví dụ điền
 
 ```markdown
-## 项目背景
+## Bối cảnh dự án
 
-**项目类型**：个人博客网站
-**技术栈**：Next.js + TypeScript
-**团队情况**：个人项目，前端熟练，后端初学
+**Loại dự án**: Website blog cá nhân
+**Tech stack**: Next.js + TypeScript
+**Tình hình team**: Dự án cá nhân, frontend thành thạo, backend mới học
 
-## 选型需求
+## Nhu cầu chọn công nghệ
 
-我需要选择一个数据库方案来存储博客文章。
+Tôi cần chọn một phương án database để lưu bài viết blog.
 
-**核心需求**：
-- 存储文章内容（Markdown 格式）
-- 支持分类和标签
-- 能按时间排序查询
+**Nhu cầu cốt lõi**:
+- Lưu nội dung bài viết (định dạng Markdown)
+- Hỗ trợ phân loại và tag
+- Có thể query sắp xếp theo thời gian
 
-**考虑因素**：
-| 因素 | 重要程度 | 说明 |
+**Yếu tố xem xét**:
+| Yếu tố | Mức độ quan trọng | Giải thích |
 |-----|---------|------|
-| 学习成本 | 高 | 后端不熟，希望上手简单 |
-| 免费额度 | 高 | 个人项目，不想花钱 |
-| 与 Next.js 集成 | 中 | 希望有现成教程 |
-| 性能 | 低 | 博客访问量不大 |
+| Chi phí học | Cao | Backend không quen, mong dễ làm quen |
+| Quota miễn phí | Cao | Dự án cá nhân, không muốn tốn tiền |
+| Tích hợp với Next.js | Trung | Mong có tutorial sẵn |
+| Hiệu suất | Thấp | Lượng truy cập blog không nhiều |
 
-## 已知候选
+## Ứng viên đã biết
 
-我目前了解到的选项有：
-1. Supabase：听说是 Firebase 替代品
-2. MongoDB Atlas：NoSQL 数据库
-3. PlanetScale：MySQL 云服务
+Các lựa chọn tôi hiện biết:
+1. Supabase: Nghe nói là thay thế Firebase
+2. MongoDB Atlas: NoSQL database
+3. PlanetScale: MySQL cloud service
 
-## 请帮我
+## Vui lòng giúp tôi
 
-1. 补充我可能遗漏的候选方案
-2. 从多个维度对比各方案的优缺点
-3. 给出推荐方案及理由
-4. 说明什么情况下应该选择其他方案
+1. Bổ sung phương án ứng viên tôi có thể bỏ sót
+2. So sánh ưu nhược điểm các phương án từ nhiều góc độ
+3. Đưa ra phương án đề xuất và lý do
+4. Nói rõ trường hợp nào nên chọn phương án khác
 ```
 
 
-## 模板四：概念解释
+## Template 4: Giải thích khái niệm
 
-适用于：不理解某个技术概念
+Áp dụng cho: Không hiểu khái niệm kỹ thuật nào đó
 
 ```markdown
-## 想了解的概念
+## Khái niệm muốn hiểu
 
-我想理解 [概念名称]。
+Tôi muốn hiểu [tên khái niệm].
 
-## 当前困惑
+## Chỗ hiện đang bối rối
 
-**我目前的理解**：[你现在认为它是什么]
-**困惑的地方**：[哪里不理解]
+**Hiểu biết hiện tại của tôi**: [Bạn nghĩ hiện tại nó là gì]
+**Chỗ bối rối**: [Chỗ nào không hiểu]
 
-## 希望的解释方式
+## Cách giải thích mong muốn
 
-**技术深度**：[只要知道怎么用/想了解原理/需要深入细节]
-**类比偏好**：[喜欢生活化类比/喜欢技术类比/直接解释就好]
+**Độ sâu kỹ thuật**: [Chỉ cần biết cách dùng/muốn hiểu nguyên lý/cần chi tiết sâu]
+**Ưu tiên so sánh**: [Thích so sánh đời thường/thích so sánh kỹ thuật/giải thích thẳng là được]
 
-## 相关背景
+## Bối cảnh liên quan
 
-**我的技术背景**：[熟悉什么技术/语言]
-**为什么要了解这个**：[应用场景]
+**Background kỹ thuật của tôi**: [Quen thuộc công nghệ/ngôn ngữ gì]
+**Tại sao cần hiểu cái này**: [Tình huống ứng dụng]
 
-## 请帮我
+## Vui lòng giúp tôi
 
-1. 用通俗的语言解释这个概念
-2. 给出一个简单的代码示例
-3. 说明什么时候会用到它
-4. 指出常见的理解误区
+1. Dùng ngôn ngữ dễ hiểu giải thích khái niệm này
+2. Đưa ra ví dụ code đơn giản
+3. Nói rõ khi nào sẽ dùng đến nó
+4. Chỉ ra sai lầm hiểu biết thường gặp
 ```
 
-### 填写示例
+### Ví dụ điền
 
 ```markdown
-## 想了解的概念
+## Khái niệm muốn hiểu
 
-我想理解 React 中的 useEffect。
+Tôi muốn hiểu useEffect trong React.
 
-## 当前困惑
+## Chỗ hiện đang bối rối
 
-**我目前的理解**：好像是用来处理"副作用"的，但不知道什么算副作用
-**困惑的地方**：
-- 什么时候需要用 useEffect？
-- 依赖数组是干什么的？
-- 为什么有时候会"无限循环"？
+**Hiểu biết hiện tại của tôi**: Có vẻ dùng để xử lý "side effect", nhưng không biết cái gì gọi là side effect
+**Chỗ bối rối**:
+- Khi nào cần dùng useEffect?
+- Dependency array là để làm gì?
+- Tại sao đôi khi "vòng lặp vô hạn"?
 
-## 希望的解释方式
+## Cách giải thích mong muốn
 
-**技术深度**：只要知道怎么用就行，原理以后再说
-**类比偏好**：喜欢生活化类比
+**Độ sâu kỹ thuật**: Chỉ cần biết cách dùng, nguyên lý nói sau
+**Ưu tiên so sánh**: Thích so sánh đời thường
 
-## 相关背景
+## Bối cảnh liên quan
 
-**我的技术背景**：会基础 JavaScript，正在学 React
-**为什么要了解这个**：想在组件加载时获取数据
+**Background kỹ thuật của tôi**: Biết JavaScript cơ bản, đang học React
+**Tại sao cần hiểu cái này**: Muốn fetch data khi component load
 
-## 请帮我
+## Vui lòng giúp tôi
 
-1. 用通俗的语言解释 useEffect
-2. 给出"获取数据"的代码示例
-3. 说明依赖数组的作用
-4. 解释为什么会"无限循环"以及如何避免
+1. Dùng ngôn ngữ dễ hiểu giải thích useEffect
+2. Đưa ra ví dụ code "fetch data"
+3. Nói rõ tác dụng của dependency array
+4. Giải thích tại sao "vòng lặp vô hạn" và cách tránh
 ```
 
 
-## 模板五：代码审查
+## Template 5: Code review
 
-适用于：让 AI 检查代码质量
+Áp dụng cho: Để AI kiểm tra chất lượng code
 
 ```markdown
-## 审查目标
+## Mục tiêu review
 
-请帮我审查以下代码：
+Vui lòng giúp tôi review code sau:
 
-```[语言]
-[粘贴代码]
+```[ngôn ngữ]
+[Dán code]
 ```
 
-## 审查维度
+## Góc độ review
 
-请从以下维度检查：
+Vui lòng kiểm tra từ các góc độ sau:
 
-- [ ] **功能正确性**：逻辑是否正确，边界情况是否处理
-- [ ] **安全性**：是否有安全隐患（XSS、SQL注入等）
-- [ ] **性能**：是否有明显的性能问题
-- [ ] **可读性**：命名是否清晰，结构是否合理
-- [ ] **可维护性**：是否容易扩展和修改
-- [ ] **错误处理**：异常情况是否妥善处理
+- [ ] **Tính đúng đắn chức năng**: Logic có đúng, xử lý trường hợp biên không
+- [ ] **Bảo mật**: Có lỗ hổng bảo mật không (XSS, SQL injection, v.v.)
+- [ ] **Hiệu suất**: Có vấn đề hiệu suất rõ ràng không
+- [ ] **Khả năng đọc**: Đặt tên có rõ ràng, cấu trúc có hợp lý không
+- [ ] **Khả năng bảo trì**: Có dễ mở rộng và sửa đổi không
+- [ ] **Xử lý lỗi**: Tình huống ngoại lệ có được xử lý tốt không
 
-## 代码背景
+## Background code
 
-**这段代码的作用**：[简述功能]
-**使用场景**：[在什么情况下运行]
+**Code này làm gì**: [Mô tả ngắn chức năng]
+**Tình huống sử dụng**: [Chạy trong tình huống nào]
 
-## 输出格式
+## Định dạng đầu ra
 
-请按以下格式输出：
+Vui lòng output theo định dạng sau:
 
-1. **问题清单**：列出发现的问题，按严重程度排序
-2. **改进建议**：针对每个问题给出具体建议
-3. **优化后代码**：给出改进后的完整代码
+1. **Danh sách vấn đề**: Liệt kê vấn đề phát hiện, sắp xếp theo mức độ nghiêm trọng
+2. **Đề xuất cải thiện**: Đưa ra gợi ý cụ thể cho từng vấn đề
+3. **Code sau tối ưu**: Đưa ra code đầy đủ sau cải thiện
 ```
 
 
-## 精简版：快速提问模板
+## Phiên bản tối giản: Template hỏi nhanh
 
-当问题比较简单时，可以用这个精简版：
+Khi vấn đề đơn giản hơn, có thể dùng phiên bản tối giản này:
 
 ```markdown
-**问题**：[一句话描述问题]
+**Vấn đề**: [Mô tả vấn đề trong một câu]
 
-**背景**：[必要的上下文]
+**Background**: [Ngữ cảnh cần thiết]
 
-**代码**：
-```[语言]
-[相关代码]
+**Code**:
+```[ngôn ngữ]
+[Code liên quan]
 ```
 
-**期望**：[你希望得到什么帮助]
+**Mong muốn**: [Bạn mong nhận được trợ giúp gì]
 ```
 
 
-## 提问技巧：如何让回答更有用
+## Kỹ thuật đặt câu hỏi: Làm thế nào để câu trả lời hữu ích hơn
 
-### 技巧一：先说结论，再给细节
+### Kỹ thuật 1: Nói kết luận trước, chi tiết sau
 
 ```markdown
-❌ 我有一个 React 项目，用的是 TypeScript，然后我在做一个表单验证...
-   （AI 读了半天还不知道问题是什么）
+❌ Tôi có một dự án React, dùng TypeScript, rồi tôi đang làm một form validate...
+   (AI đọc nửa ngày vẫn không biết vấn đề là gì)
 
-✅ 我的表单验证代码报错了。
-   技术栈是 React + TypeScript，错误信息是 [xxx]。
+✅ Code validate form của tôi báo lỗi.
+   Tech stack là React + TypeScript, thông báo lỗi là [xxx].
 ```
 
-### 技巧二：给出最小复现代码
+### Kỹ thuật 2: Đưa ra code tái hiện tối thiểu
 
-不要贴整个文件，只贴**能复现问题的最小代码**。这样 AI 更容易定位问题。
+Không dán cả file, chỉ dán **code tối thiểu có thể tái hiện vấn đề**. Như vậy AI dễ dàng định vị vấn đề hơn.
 
-### 技巧三：说明已经尝试过什么
+### Kỹ thuật 3: Nói rõ đã thử gì rồi
 
-这能帮助 AI 避免给出你已经试过的无效方案。
+Điều này giúp AI tránh đưa ra phương án vô hiệu mà bạn đã thử.
 
 
-## 常见填写误区
+## Sai lầm thường gặp khi điền
 
-| 误区 | 问题 | 正确做法 |
+| Sai lầm | Vấn đề | Cách làm đúng |
 |-----|------|---------|
-| 只说"不工作" | AI 不知道具体症状 | 描述期望 vs 实际的差异 |
-| 错误信息只截一半 | 丢失关键信息 | 完整粘贴，包括堆栈跟踪 |
-| 不给代码 | AI 只能猜测 | 贴出相关代码片段 |
-| 概念问题太宽泛 | "解释一下 JavaScript" | 具体到某个点，如"解释闭包" |
+| Chỉ nói "không hoạt động" | AI không biết triệu chứng cụ thể | Mô tả khác biệt giữa mong đợi vs thực tế |
+| Thông báo lỗi chỉ cắt nửa | Mất thông tin quan trọng | Dán đầy đủ, bao gồm stack trace |
+| Không đưa code | AI chỉ có thể đoán | Dán đoạn code liên quan |
+| Câu hỏi khái niệm quá rộng | "Giải thích JavaScript" | Cụ thể đến điểm nào đó, như "giải thích closure" |
 
 
-## 本节要点
+## Điểm chính của phần này
 
-- ✅ **错误排查**：完整错误信息 + 触发步骤 + 相关代码 + 已尝试方法
-- ✅ **逻辑错误**：用测试用例展示"期望 vs 实际"
-- ✅ **技术选型**：明确需求优先级 + 列出考虑因素
-- ✅ **概念解释**：说明当前理解和困惑点 + 期望的解释深度
+- ✅ **Debug lỗi**: Thông tin lỗi đầy đủ + các bước kích hoạt + code liên quan + phương pháp đã thử
+- ✅ **Lỗi logic**: Dùng test case thể hiện "mong đợi vs thực tế"
+- ✅ **Chọn công nghệ**: Nói rõ ưu tiên nhu cầu + liệt kê yếu tố xem xét
+- ✅ **Giải thích khái niệm**: Nói rõ hiểu biết hiện tại và chỗ bối rối + độ sâu giải thích mong muốn

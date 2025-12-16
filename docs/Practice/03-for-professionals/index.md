@@ -1,9 +1,9 @@
 ---
-title: "职场人士项目"
+title: "Dự Án Người Đi Làm"
 ---
 
-# 职场人士项目
+# Dự Án Người Đi Làm
 
-适合职场人士的入门实战项目，专注于工作流自动化和效率提升。
+Các dự án thực chiến nhập môn phù hợp với người đi làm, tập trung vào tự động hóa quy trình và nâng cao hiệu suất.
 
-教程开发中
+Hướng dẫn đang được phát triển

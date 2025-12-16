@@ -1,43 +1,43 @@
 ---
-title: "附录：心法篇补充材料"
+title: "Phụ lục: Tài liệu bổ sung phần Tư duy"
 ---
 
-# 附录：心法篇补充材料
+# Phụ lục: Tài liệu bổ sung phần Tư duy
 
-本附录为第二章「心法篇」提供补充材料，帮助你更好地理解和应用七个思维模型。
+Phụ lục này cung cấp tài liệu bổ sung cho Chương 2 "Phần Tư duy", giúp bạn hiểu rõ hơn và áp dụng bảy mô hình tư duy.
 
 
-## 附录内容导航
+## Điều hướng nội dung phụ lục
 
-| 附录 | 内容 | 适合谁 |
+| Phụ lục | Nội dung | Phù hợp cho ai |
 |-----|------|-------|
-| [A. 思维模型速查表](./A-templates.md) | 七个模型的模板汇总，带填写示例 | 需要快速查阅模板的读者 |
-| [B. 扩展案例库](./B-case-studies.md) | 6 个真实案例的思维模型应用 | 想看更多实例的读者 |
-| [C. 常见误区诊断](./C-mistakes.md) | 七个模型的典型误区与改进建议 | 想自检和避坑的读者 |
-| [D. 深度参考资源](./D-references.md) | 框架出处、推荐书单、在线资源 | 想深入学习的读者 |
+| [A. Bảng tra cứu nhanh mô hình tư duy](./A-templates.md) | Tổng hợp template của bảy mô hình, có ví dụ điền mẫu | Độc giả cần tra cứu template nhanh |
+| [B. Thư viện case study mở rộng](./B-case-studies.md) | 6 case study thực tế áp dụng mô hình tư duy | Độc giả muốn xem thêm ví dụ thực tế |
+| [C. Chẩn đoán sai lầm thường gặp](./C-mistakes.md) | Sai lầm điển hình của bảy mô hình và đề xuất cải thiện | Độc giả muốn tự kiểm tra và tránh sai lầm |
+| [D. Tài liệu tham khảo chuyên sâu](./D-references.md) | Nguồn gốc framework, sách khuyên đọc, tài nguyên online | Độc giả muốn học sâu hơn |
 
 
-## 如何使用本附录
+## Cách sử dụng phụ lục này
 
-**场景一：正在做项目，需要快速查模板**
-→ 直接翻阅 [A. 思维模型速查表](./A-templates.md)
+**Tình huống 1: Đang làm dự án, cần tra cứu template nhanh**
+→ Xem trực tiếp [A. Bảng tra cứu nhanh mô hình tư duy](./A-templates.md)
 
-**场景二：想看看别人是怎么用这些思维模型的**
-→ 阅读 [B. 扩展案例库](./B-case-studies.md)
+**Tình huống 2: Muốn xem người khác sử dụng các mô hình tư duy này như thế nào**
+→ Đọc [B. Thư viện case study mở rộng](./B-case-studies.md)
 
-**场景三：感觉自己哪里没想清楚，但不知道问题在哪**
-→ 用 [C. 常见误区诊断](./C-mistakes.md) 自检
+**Tình huống 3: Cảm thấy mình chưa nghĩ rõ ràng ở đâu đó, nhưng không biết vấn đề ở đâu**
+→ Dùng [C. Chẩn đoán sai lầm thường gặp](./C-mistakes.md) để tự kiểm tra
 
-**场景四：想深入了解这些框架的理论背景**
-→ 参考 [D. 深度参考资源](./D-references.md)
+**Tình huống 4: Muốn hiểu sâu nền tảng lý thuyết của các framework này**
+→ Tham khảo [D. Tài liệu tham khảo chuyên sâu](./D-references.md)
 
 
-## 与正文的关系
+## Mối quan hệ với nội dung chính
 
-本附录是正文的**补充**，而非替代。
+Phụ lục này là phần **bổ sung**, không phải thay thế nội dung chính.
 
-- 如果你还没读过正文，建议先阅读第二章各节内容
-- 附录提供的是「工具性」材料：模板、案例、误区清单、参考资源
-- 正文提供的是「理解性」内容：为什么需要这些思维模型、如何思考
+- Nếu bạn chưa đọc nội dung chính, nên đọc các phần của Chương 2 trước
+- Phụ lục cung cấp tài liệu "công cụ": template, case study, danh sách sai lầm, tài nguyên tham khảo
+- Nội dung chính cung cấp phần "hiểu biết": tại sao cần các mô hình tư duy này, cách tư duy
 
-**建议的使用方式**：先读正文理解原理，再用附录辅助实践。
+**Cách sử dụng đề xuất**: Đọc nội dung chính để hiểu nguyên lý trước, sau đó dùng phụ lục để hỗ trợ thực hành.

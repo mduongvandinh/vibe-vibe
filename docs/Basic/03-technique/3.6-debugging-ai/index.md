@@ -1,44 +1,44 @@
 ---
-title: "3.6 当 AI 不听话时"
+title: "3.6 Khi AI không nghe lời"
 ---
 
-# 3.6 当 AI 不听话时：调试、修正与兜底策略
+# 3.6 Khi AI không nghe lời: Debugging, sửa lỗi và chiến lược dự phòng
 
-## 经过本节学习，你将掌握
+## Sau khi học xong phần này, bạn sẽ nắm được
 
-- 识别 AI 输出问题的六种常见类型
-- 诊断问题根源的「三分钟快速法」
-- 四种让 AI 改对的修正策略
-- 当 AI 真的搞不定时的兜底方案
-- 预防问题发生的实用技巧
+- Nhận diện 6 loại vấn đề phổ biến trong output của AI
+- Chẩn đoán nguyên nhân gốc rễ bằng "phương pháp nhanh 3 phút"
+- 4 chiến lược sửa lỗi để AI làm đúng
+- Phương án dự phòng khi AI thực sự không làm được
+- Kỹ thuật thực tế để phòng ngừa vấn đề
 
-## 为什么需要学「调试 AI」
+## Tại sao cần học "Debugging AI"
 
-在前面的章节中，你学会了如何写出好的提示词（3.1-3.4），也掌握了迭代对话的技巧（3.5）。但即便你做得再好，AI 有时还是会「不听话」：
+Trong các phần trước, bạn đã học cách viết prompt tốt (3.1-3.4), và nắm được kỹ năng đối thoại lặp (3.5). Nhưng dù bạn làm tốt đến đâu, đôi khi AI vẫn sẽ "không nghe lời":
 
-- 给的代码跑不起来
-- 理解的意思和你想的不一样
-- 推荐了根本不存在的库
-- 反复修改却越改越乱
+- Code sinh ra không chạy được
+- Hiểu ý nghĩa khác với ý bạn muốn
+- Đề xuất thư viện hoàn toàn không tồn tại
+- Sửa đi sửa lại càng sửa càng rối
 
-别担心，这很正常。
+Đừng lo, điều này rất bình thường.
 
-与人类错误不同，AI 的错误往往是**可预期的、有规律的**。一旦你掌握了这些规律，就能从「慌张」变成「从容」——知道问题出在哪，知道怎么修，也知道什么时候该换个方案。
+Khác với lỗi của con người, lỗi của AI thường **có thể dự đoán trước và có quy luật**. Một khi bạn nắm được những quy luật này, bạn sẽ chuyển từ "hoảng loạn" thành "tự tin" - biết vấn đề nằm ở đâu, biết cách sửa, và biết khi nào nên đổi phương án.
 
-## 本节结构
+## Cấu trúc phần này
 
-| 小节 | 主题 | 你将学到 |
+| Phần nhỏ | Chủ đề | Bạn sẽ học được |
 |-----|------|---------|
-| 3.6.1 | AI 常见的「不听话」表现 | 六种问题类型，重点：AI 幻觉与安全风险 |
-| 3.6.2 | 诊断问题：AI 错在哪里 | 三分钟诊断法，根因分析四象限 |
-| 3.6.3 | 修正策略：怎么让 AI 改对 | 四种修正策略，错误驱动开发 |
-| 3.6.4 | 兜底策略：当 AI 真的搞不定 | AI 的能力边界，混合开发模式 |
-| 3.6.5 | 预防胜于治疗 | 发送前自检，复述技巧，小步快跑 |
+| 3.6.1 | Những biểu hiện "không nghe lời" phổ biến của AI | 6 loại vấn đề, trọng tâm: Hallucination và rủi ro bảo mật |
+| 3.6.2 | Chẩn đoán vấn đề: AI sai ở đâu | Phương pháp chẩn đoán 3 phút, phân tích nguyên nhân bốn góc |
+| 3.6.3 | Chiến lược sửa lỗi: Làm sao để AI sửa đúng | 4 chiến lược sửa lỗi, phát triển dựa trên lỗi |
+| 3.6.4 | Chiến lược dự phòng: Khi AI thực sự không làm được | Ranh giới khả năng của AI, mô hình phát triển kết hợp |
+| 3.6.5 | Phòng bệnh hơn chữa bệnh | Tự kiểm tra trước khi gửi, kỹ thuật nhắc lại, tiến nhanh từng bước nhỏ |
 
-## 核心心法
+## Tâm pháp cốt lõi
 
-> **AI 出错不可怕，可怕的是不知道它错了。**
+> **AI mắc lỗi không đáng sợ, đáng sợ là không biết nó đã sai.**
 
-在 Vibe Coding 中，你的角色不是写代码，而是**指挥和验收**。这意味着你需要具备识别问题、引导修正的能力。这一节教的就是这个能力。
+Trong Vibe Coding, vai trò của bạn không phải là viết code, mà là **chỉ huy và nghiệm thu**. Điều này có nghĩa bạn cần có khả năng nhận diện vấn đề, hướng dẫn sửa lỗi. Phần này sẽ dạy bạn khả năng đó.
 
-准备好了吗？让我们从认识 AI 的各种「不听话」表现开始。
+Sẵn sàng chưa? Hãy bắt đầu từ việc nhận diện các biểu hiện "không nghe lời" khác nhau của AI.

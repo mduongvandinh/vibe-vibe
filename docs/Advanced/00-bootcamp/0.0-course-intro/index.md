@@ -1,74 +1,73 @@
 ---
-title: "0.0 进阶版要学什么——课程概念定义"
-typora-root-url: ../public
+title: "0.0 Phiên bản nâng cao học gì - Định nghĩa khái niệm khóa học"
 ---
 
-# 0.0 进阶版要学什么
+# 0.0 Phiên bản nâng cao học gì
 
-在基础版中，你已经学会了 Vibe Coding 的核心心法：用自然语言表达需求，让 AI 帮你生成代码。
+Trong phiên bản cơ bản, bạn đã học được tâm pháp cốt lõi của Vibe Coding: dùng ngôn ngữ tự nhiên diễn đạt yêu cầu, để AI giúp bạn sinh code.
 
-**进阶版的目标是：让你能独立完成一个完整的全栈项目。**
+**Mục tiêu phiên bản nâng cao là: Giúp bạn có thể tự mình hoàn thành một dự án full-stack hoàn chỉnh.**
 
-> **一句话定位**：从"能做出东西"到"能做出专业的产品"——一个人搞定从界面到数据库到部署的全流程。
+> **Định vị một câu**: Từ "có thể làm ra thứ gì đó" đến "có thể làm ra sản phẩm chuyên nghiệp" - Một người lo xong toàn bộ quy trình từ giao diện đến database đến triển khai.
 
-## 基础版 vs 进阶版
+## Phiên bản cơ bản vs Phiên bản nâng cao
 
-| 维度 | 基础版（已完成） | 进阶版（即将开始） |
+| Tiêu chí | Phiên bản cơ bản (đã hoàn thành) | Phiên bản nâng cao (sắp bắt đầu) |
 |-----|----------------|------------------|
-| **核心能力** | 用 AI 做出简单项目 | 用 AI 构建完整产品 |
-| **技术深度** | 点到为止，AI 处理细节 | 理解原理，能审查 AI 输出 |
-| **项目复杂度** | 单页应用、静态网站 | 全栈应用、数据库、认证 |
-| **部署方式** | 一键部署 | 容器化、CI/CD |
+| **Năng lực cốt lõi** | Dùng AI làm ra dự án đơn giản | Dùng AI xây dựng sản phẩm hoàn chỉnh |
+| **Độ sâu kỹ thuật** | Điểm qua, AI xử lý chi tiết | Hiểu nguyên lý, có thể kiểm tra output AI |
+| **Độ phức tạp dự án** | Ứng dụng đơn trang, website tĩnh | Ứng dụng full-stack, database, authentication |
+| **Cách triển khai** | Triển khai một cú | Container hóa, CI/CD |
 
-## 你的角色升级
+## Nâng cấp vai trò của bạn
 
-在基础版中，你是"需求定义者"。
+Trong phiên bản cơ bản, bạn là "người định nghĩa yêu cầu".
 
-在进阶版中，你还需要成为"架构决策者"和"质量把关人"：
+Trong phiên bản nâng cao, bạn còn cần trở thành "người quyết định kiến trúc" và "người kiểm soát chất lượng":
 
 ```mermaid
 graph LR
-    A[定义需求] --> B[AI 生成代码]
-    B --> C[理解代码在做什么]
-    C --> D[判断是否正确]
-    D -->|需要调整| A
-    D -->|通过| E[集成到项目]
+    A[Định nghĩa yêu cầu] --> B[AI sinh code]
+    B --> C[Hiểu code đang làm gì]
+    C --> D[Đánh giá có đúng không]
+    D -->|Cần điều chỉnh| A
+    D -->|Pass| E[Tích hợp vào dự án]
 ```
 
-## 本章导读
+## Hướng dẫn đọc chương này
 
-| 小节 | 核心问题 | 你将获得 |
+| Tiểu mục | Câu hỏi cốt lõi | Bạn sẽ có được |
 |-----|---------|---------|
-| [0.0.1 全栈开发定义](./0.0.1-fullstack-definition.md) | 什么是全栈？一个人能做到吗？ | 全栈边界的清晰认知 |
-| [0.0.2 Vibe Coding vs 传统编程](./0.0.2-vibe-coding-vs-traditional.md) | 为什么自然语言就能编程？ | 两种范式的本质差异 |
-| [0.0.3 课程目标](./0.0.3-goals.md) | 学完能做什么？ | 具体的能力清单和交付物 |
+| [0.0.1 Định nghĩa phát triển Full-stack](./0.0.1-fullstack-definition.md) | Full-stack là gì? Một người có làm được không? | Nhận thức rõ ràng về ranh giới full-stack |
+| [0.0.2 Vibe Coding vs Lập trình truyền thống](./0.0.2-vibe-coding-vs-traditional.md) | Tại sao ngôn ngữ tự nhiên lại có thể lập trình? | Sự khác biệt bản chất giữa hai mô hình |
+| [0.0.3 Mục tiêu khóa học](./0.0.3-goals.md) | Học xong có thể làm gì? | Danh sách năng lực và sản phẩm cụ thể |
 
 
-## 技术栈预览
+## Xem trước Tech stack
 
-本课程锁定以下技术栈，所有实战项目都将基于此：
+Khóa học này chốt tech stack sau đây, tất cả các dự án thực chiến sẽ dựa trên cơ sở này:
 
-| 层级 | 技术选型 | 选择理由 |
+| Tầng | Lựa chọn công nghệ | Lý do lựa chọn |
 |-----|---------|---------|
-| 前端框架 | Next.js (App Router) | React 生态 + 全栈能力 + Vercel 原生支持 |
-| 类型系统 | TypeScript | AI 生成代码的类型安全保障 |
-| 后端服务 | Supabase | 开箱即用的 PostgreSQL + Auth + Storage |
-| ORM | Prisma | 类型安全的数据库操作 |
-| AI 集成 | Vercel AI SDK | 流式响应 + 多模型支持 |
-| 部署 | Vercel | 零配置部署 + 边缘网络 |
-| 容器化 | Docker + 1Panel | 自托管场景的标准方案 |
+| Frontend framework | Next.js (App Router) | Hệ sinh thái React + Năng lực full-stack + Hỗ trợ nguyên bản Vercel |
+| Hệ thống kiểu | TypeScript | Đảm bảo type safety cho code do AI sinh ra |
+| Backend service | Supabase | PostgreSQL + Auth + Storage sẵn sàng sử dụng |
+| ORM | Prisma | Thao tác database với type safety |
+| Tích hợp AI | Vercel AI SDK | Streaming response + Hỗ trợ đa model |
+| Triển khai | Vercel | Triển khai không cần cấu hình + Mạng edge |
+| Container hóa | Docker + 1Panel | Phương án chuẩn cho tình huống self-hosted |
 
 
-## 觉知
+## Nhận thức
 
-> **这门课不适合谁？**
-> - 想要系统学习计算机科学基础的人（这不是 CS101）
-> - 追求"完全不看代码"的人（你需要能读懂 AI 生成的代码）
-> - 不愿意动手实践的人（Vibe Coding 的核心是迭代验证）
+> **Khóa học này không phù hợp với ai?**
+> - Người muốn học hệ thống nền tảng khoa học máy tính (đây không phải CS101)
+> - Người theo đuổi "hoàn toàn không xem code" (bạn cần có thể đọc hiểu code do AI sinh ra)
+> - Người không muốn thực hành (cốt lõi của Vibe Coding là lặp lại xác minh)
 
 
-## 本节小结
+## Tóm tắt phần này
 
-- 这是一门**实战优先**的课程，用 AI 加速从想法到产品的全过程
-- 你的角色是**需求定义者和结果验收者**，而非代码编写者
-- 技术栈已锁定，专注于 Next.js + Supabase + Vercel 生态
+- Đây là khóa học **ưu tiên thực chiến**, dùng AI tăng tốc toàn bộ quá trình từ ý tưởng đến sản phẩm
+- Vai trò của bạn là **người định nghĩa yêu cầu và người nghiệm thu kết quả**, chứ không phải người viết code
+- Tech stack đã được chốt, tập trung vào hệ sinh thái Next.js + Supabase + Vercel

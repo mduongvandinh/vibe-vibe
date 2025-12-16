@@ -1,60 +1,59 @@
 ---
-title: "3.1 你的文件目录就是网站地图——App Router：文件路由与数据获取"
-typora-root-url: ../../public
+title: "3.1 Cấu trúc thư mục chính là sơ đồ website——App Router: File routing và Data fetching"
 ---
 
-# 3.1 你的文件目录就是网站地图——App Router：文件路由与数据获取
+# 3.1 Cấu trúc thư mục chính là sơ đồ website——App Router: File routing và Data fetching
 
-> 回归 Web 的本质，URL 路径即资源路径。
+> Quay về bản chất của Web, đường dẫn URL chính là đường dẫn tài nguyên.
 
-在这一节，我们要彻底重构你对“路由”的认知。
+Trong phần này, chúng ta sẽ cải tổ hoàn toàn nhận thức của bạn về "routing".
 
-在传统的 SPA（单页应用）时代，你可能习惯了在一个巨大的 `router.js` 配置文件里写满 `path: '/about', component: About` 的映射关系。那是一种人工维护的映射。
+Trong thời đại SPA (Single Page Application) truyền thống, bạn có thể đã quen với việc viết đầy đủ các mối quan hệ ánh xạ `path: '/about', component: About` trong một file cấu hình `router.js` khổng lồ. Đó là một loại ánh xạ được duy trì thủ công.
 
-但现在，Next.js App Router 带我们回归了 Web 的**第一性原理**：**文件系统的结构，就是 URL 的结构**。你把文件放在哪里，它的网址就是什么。这不仅是工程上的简化，更是“所见即所得”思维的极致体现。
+Nhưng giờ đây, Next.js App Router đưa chúng ta quay về **nguyên lý đầu tiên** của Web: **Cấu trúc file system chính là cấu trúc URL**. Bạn đặt file ở đâu, địa chỉ web của nó sẽ là gì. Đây không chỉ là sự đơn giản hóa về mặt kỹ thuật, mà còn là thể hiện tột cùng của tư duy "what you see is what you get".
 
-## 1. 定义边界：App Router 的物理法则
+## 1. Định nghĩa ranh giới: Quy luật vật lý của App Router
 
-在开始写代码之前，我们需要先建立一套物理法则。这就像是告诉 AI 建筑师：“在这个世界里，砖块怎么摆放决定了房子的形状。”
+Trước khi bắt đầu viết code, chúng ta cần thiết lập một bộ quy luật vật lý. Giống như việc nói với kiến trúc sư AI: "Trong thế giới này, cách đặt gạch quyết định hình dạng của ngôi nhà."
 
-- **输入 (URL)**：用户在浏览器地址栏输入的路径（如 `/dashboard/settings`）。
-- **映射机制**：Next.js 自动寻找 `app/dashboard/settings/page.tsx`。
-- **输出 (UI)**：由层层嵌套的 `layout.tsx` 包裹着最终的 `page.tsx` 渲染出的 HTML。
-- **异常边界**：找不到文件？显示 `not-found.tsx`。报错了？显示 `error.tsx`。
+- **Input (URL)**: Đường dẫn người dùng nhập vào thanh địa chỉ trình duyệt (như `/dashboard/settings`).
+- **Cơ chế ánh xạ**: Next.js tự động tìm `app/dashboard/settings/page.tsx`.
+- **Output (UI)**: HTML được render bởi `page.tsx` cuối cùng, được bao bọc bởi các `layout.tsx` lồng nhau từng lớp.
+- **Biên giới ngoại lệ**: Không tìm thấy file? Hiển thị `not-found.tsx`. Báo lỗi? Hiển thị `error.tsx`.
 
-**一句话心法**：**文件夹是路径，`page.tsx` 是终点，`layout.tsx` 是包装纸。**
+**Tâm pháp một câu**: **Thư mục là đường dẫn, `page.tsx` là điểm đích, `layout.tsx` là giấy gói.**
 
-## 2. 可视化解构：看不见的路由逻辑
+## 2. Trực quan hóa cấu trúc: Logic routing vô hình
 
-App Router 最难理解的不是“对应关系”，而是“嵌套关系”。当你访问一个深层页面时，Next.js 其实是在像“俄罗斯套娃”一样组装组件。
+Điều khó hiểu nhất ở App Router không phải là "quan hệ tương ứng", mà là "quan hệ lồng nhau". Khi bạn truy cập một trang sâu, Next.js thực chất đang lắp ráp các component giống như "búp bê Nga".
 
 ```mermaid
 graph TD
-    subgraph Browser_URL [浏览器 URL]
-        URL1["/ (根路径)"]
+    subgraph Browser_URL [URL Trình duyệt]
+        URL1["/ (đường dẫn gốc)"]
         URL2["/blog"]
         URL3["/blog/my-first-post"]
     end
 
-    subgraph File_System [文件系统结构]
-        RootLayout["app/layout.tsx (根布局)"]
-        HomePage["app/page.tsx (首页)"]
-        
+    subgraph File_System [Cấu trúc File System]
+        RootLayout["app/layout.tsx (Layout gốc)"]
+        HomePage["app/page.tsx (Trang chủ)"]
+
         BlogFolder["app/blog/"]
-        BlogLayout["app/blog/layout.tsx (博客布局)"]
-        BlogIndex["app/blog/page.tsx (博客列表)"]
-        
+        BlogLayout["app/blog/layout.tsx (Layout blog)"]
+        BlogIndex["app/blog/page.tsx (Danh sách blog)"]
+
         PostFolder["app/blog/[slug]/"]
-        PostPage["app/blog/[slug]/page.tsx (文章详情)"]
+        PostPage["app/blog/[slug]/page.tsx (Chi tiết bài viết)"]
     end
 
     URL1 --> RootLayout
     RootLayout --> HomePage
-    
+
     URL2 --> RootLayout
     RootLayout --> BlogLayout
     BlogLayout --> BlogIndex
-    
+
     URL3 --> RootLayout
     RootLayout --> BlogLayout
     BlogLayout --> PostPage
@@ -64,89 +63,89 @@ graph TD
     style PostPage fill:#ff9,stroke:#333,stroke-width:2px,color:#000
 ```
 
-> **觉知点**：注意看图，`layout` 是**持久化**的。当你从 `/blog` 跳转到 `/blog/my-first-post` 时，`RootLayout` 和 `BlogLayout` **不会**重新渲染，只有最里面的 `page.tsx` 变了。这就是 Next.js 极速体验的秘密。
+> **Điểm giác ngộ**: Chú ý xem biểu đồ, `layout` là **persistent**. Khi bạn chuyển từ `/blog` sang `/blog/my-first-post`, `RootLayout` và `BlogLayout` **không** re-render, chỉ có `page.tsx` bên trong thay đổi. Đây chính là bí mật của trải nghiệm cực nhanh của Next.js.
 
-## 3. 渐进式开发策略：与 AI 结对编程
+## 3. Chiến lược phát triển lũy tiến: Pair programming với AI
 
-不要试图一次性写出完美的路由结构。我们要用**MV P（最小可行性产品）**思维，一步步指挥 AI 搭建。
+Đừng cố viết ra cấu trúc routing hoàn hảo trong một lần. Chúng ta sẽ dùng tư duy **MVP (Minimum Viable Product)**, từng bước một chỉ huy AI xây dựng.
 
-### 第一步：搭建骨架（Static Routes & Layouts）
+### Bước 1: Dựng khung xương (Static Routes & Layouts)
 
-先让 AI 帮你搞定最基础的页面结构。
+Trước tiên hãy để AI giúp bạn hoàn thành cấu trúc trang cơ bản nhất.
 
-> **🤖 AI 指令意图**： "帮我创建 App Router 的基础结构。我要一个首页、一个关于页，还有一个共用的导航栏布局。"
+> **🤖 Ý định chỉ dẫn AI**: "Hãy giúp tôi tạo cấu trúc cơ bản của App Router. Tôi muốn một trang chủ, một trang giới thiệu, và một layout thanh điều hướng dùng chung."
 
-**关键文件结构：**
+**Cấu trúc file quan trọng:**
 
-- `app/layout.tsx`：**必须存在**。这里定义 `<html>` 和 `<body>` 标签。
-- `app/page.tsx`：首页内容。
-- `app/about/page.tsx`：`/about` 页面内容。
+- `app/layout.tsx`: **Bắt buộc phải có**. Đây là nơi định nghĩa thẻ `<html>` và `<body>`.
+- `app/page.tsx`: Nội dung trang chủ.
+- `app/about/page.tsx`: Nội dung trang `/about`.
 
-**验收清单：**
+**Checklist nghiệm thu:**
 
-- [ ] 访问 `http://localhost:3000/` 能看到首页？
-- [ ] 访问 `http://localhost:3000/about` 能看到关于页？
-- [ ] 两个页面是否都有相同的导航栏（来自 `layout.tsx`）？
+- [ ] Truy cập `http://localhost:3000/` có thấy trang chủ không?
+- [ ] Truy cập `http://localhost:3000/about` có thấy trang giới thiệu không?
+- [ ] Cả hai trang có cùng thanh điều hướng (từ `layout.tsx`) không?
 
-### 第二步：处理动态内容（Dynamic Routes）
+### Bước 2: Xử lý nội dung động (Dynamic Routes)
 
-现在，我们要处理“成千上万”个页面了，比如博客文章或用户资料。我们不能手动创建 `post-1.tsx`, `post-2.tsx`。
+Bây giờ, chúng ta sẽ xử lý "hàng nghìn" trang, ví dụ như bài viết blog hoặc hồ sơ người dùng. Chúng ta không thể tạo thủ công `post-1.tsx`, `post-2.tsx`.
 
-> **AI 指令意图**： "我要做一个博客详情页。请在 `app/blog` 下创建一个动态路由，用 `slug` 作为参数。并在页面中把这个 `slug` 参数打印出来。"
+> **Ý định chỉ dẫn AI**: "Tôi muốn làm trang chi tiết blog. Hãy tạo một dynamic route trong `app/blog`, dùng `slug` làm tham số. Và in tham số `slug` này ra trong trang."
 
-**关键代码逻辑 (`app/blog/[slug]/page.tsx`)：**
+**Logic code quan trọng (`app/blog/[slug]/page.tsx`):**
 
 ```
-// 这里的 params 是 Next.js 自动传入的
-// 注意：params 在 Next.js 16+ 中可能是异步的，具体视版本而定，但在 Vibe Coding 体系中我们通常直接解构
+// params ở đây được Next.js tự động truyền vào
+// Lưu ý: params trong Next.js 16+ có thể là async, tùy thuộc phiên bản, nhưng trong hệ thống Vibe Coding chúng ta thường destructure trực tiếp
 export default async function BlogPost({ params }: { params: { slug: string } }) {
-  // 1. 获取 URL 上的参数
-  const { slug } = params; 
-  
-  return <div>正在阅读文章：{slug}</div>;
+  // 1. Lấy tham số trên URL
+  const { slug } = params;
+
+  return <div>Đang đọc bài viết: {slug}</div>;
 }
 ```
 
-### 第三步：组织与整理（Route Groups）
+### Bước 3: Tổ chức & Sắp xếp (Route Groups)
 
-如果你的项目变大了，`app` 文件夹下一堆文件夹乱糟糟的怎么办？比如你想区分“管理后台”和“营销页面”，但不想让 URL 变成 `/marketing/home`。
+Nếu dự án của bạn lớn lên, một đống thư mục trong `app` rối loạn thì sao? Ví dụ bạn muốn phân biệt "admin backend" và "marketing pages", nhưng không muốn URL thành `/marketing/home`.
 
-这时候就需要 **Route Groups（路由组）**。这是一种**“只有文件夹，没有 URL”**的魔法。
+Lúc này cần dùng **Route Groups**. Đây là một loại phép thuật **"chỉ có thư mục, không có URL"**.
 
-> **🤖 AI 指令意图**： "我想把代码组织得更清晰。请把营销相关的页面（首页、关于）放在 `(marketing)` 组里，把后台页面放在 `(dashboard)` 组里。确保 URL 路径**不包含**括号里的名字。"
+> **🤖 Ý định chỉ dẫn AI**: "Tôi muốn tổ chức code rõ ràng hơn. Hãy đặt các trang liên quan marketing (trang chủ, giới thiệu) vào nhóm `(marketing)`, đặt các trang backend vào nhóm `(dashboard)`. Đảm bảo đường dẫn URL **không bao gồm** tên trong ngoặc."
 
-**效果：**
+**Hiệu quả:**
 
-- `app/(marketing)/about/page.tsx` -> URL 依然是 `/about`
-- `app/(dashboard)/settings/page.tsx` -> URL 依然是 `/settings`
+- `app/(marketing)/about/page.tsx` -> URL vẫn là `/about`
+- `app/(dashboard)/settings/page.tsx` -> URL vẫn là `/settings`
 
-## 4. 数据获取：Server Component 的“特权”
+## 4. Lấy dữ liệu: "Đặc quyền" của Server Component
 
-这是 Vibe Coding 技术栈最迷人的地方。忘记 `useEffect`，忘记 `isLoading` 状态管理。在 App Router 里，我们在**服务器**上直接拿数据。
+Đây là nơi hấp dẫn nhất của tech stack Vibe Coding. Hãy quên `useEffect`, quên quản lý state `isLoading`. Trong App Router, chúng ta lấy dữ liệu trực tiếp trên **server**.
 
-### 核心概念：Fetch, Cache, Revalidate
+### Khái niệm cốt lõi: Fetch, Cache, Revalidate
 
-在 `page.tsx` (Server Component) 中，获取数据就像写普通的 Node.js 脚本一样简单。
+Trong `page.tsx` (Server Component), việc lấy dữ liệu đơn giản như viết script Node.js thông thường.
 
-> **🤖 AI 协作指南**： 告诉 AI：“我要在这个页面获取博客列表数据。请使用 `fetch` API，并配置数据缓存策略。”
+> **🤖 Hướng dẫn cộng tác AI**: Nói với AI: "Tôi muốn lấy dữ liệu danh sách blog trong trang này. Hãy dùng `fetch` API và cấu hình chiến lược cache dữ liệu."
 
-**实战代码模板：**
+**Template code thực chiến:**
 
 ```
 // app/blog/page.tsx
 
-// 1. 定义数据获取函数
+// 1. Định nghĩa hàm lấy dữ liệu
 async function getPosts() {
-  // Next.js 扩展了原生的 fetch
-  const res = await fetch('[https://api.example.com/posts](https://api.example.com/posts)', {
-    // 策略 A: 静态生成 (默认) - 像 SSG，构建时获取，永久缓存
-    // cache: 'force-cache', 
-    
-    // 策略 B: 动态渲染 - 像 SSR，每次请求都重新获取
+  // Next.js đã mở rộng fetch native
+  const res = await fetch('https://api.example.com/posts', {
+    // Chiến lược A: Static generation (mặc định) - giống SSG, lấy lúc build, cache vĩnh viễn
+    // cache: 'force-cache',
+
+    // Chiến lược B: Dynamic rendering - giống SSR, lấy lại mỗi request
     // cache: 'no-store',
-    
-    // 策略 C: 增量静态再生 (ISR) - Vibe Coding 推荐！
-    // 每 3600 秒更新一次缓存，兼顾速度与新鲜度
+
+    // Chiến lược C: Incremental Static Regeneration (ISR) - Vibe Coding khuyến nghị!
+    // Cập nhật cache mỗi 3600 giây, cân bằng tốc độ và độ mới
     next: { revalidate: 3600 }
   });
 
@@ -154,9 +153,9 @@ async function getPosts() {
   return res.json();
 }
 
-// 2. 页面组件直接变成 async
+// 2. Page component trực tiếp biến thành async
 export default async function BlogPage() {
-  // 3. 直接 await 数据，就像在后端写代码一样
+  // 3. Trực tiếp await dữ liệu, giống như viết code backend
   const posts = await getPosts();
 
   return (
@@ -169,21 +168,21 @@ export default async function BlogPage() {
 }
 ```
 
-### 为什么这很“Vibe”？
+### Tại sao điều này rất "Vibe"?
 
-1. **没有白屏加载**：数据在服务器拿好后，带着 HTML 一起发给浏览器。
-2. **零客户端 JS**：获取数据的逻辑不会打包到客户端，减小体积。
-3. **直觉**：需要数据？那就去拿。不需要复杂的状态管理库。
+1. **Không có màn hình trắng loading**: Dữ liệu đã được lấy trên server, gửi cùng HTML đến trình duyệt.
+2. **Zero client JS**: Logic lấy dữ liệu không được đóng gói vào client, giảm kích thước.
+3. **Trực quan**: Cần dữ liệu? Thì lấy thôi. Không cần thư viện quản lý state phức tạp.
 
-## 5. 验收清单 (Checklist)
+## 5. Checklist nghiệm thu
 
-在这一章结束时，请按照以下标准验收你的成果：
+Khi kết thúc chương này, hãy nghiệm thu thành quả của bạn theo các tiêu chuẩn sau:
 
-1. [ ] **文件结构清晰**：我能通过看文件目录，就能画出网站的 Sitemap。
-2. [ ] **路由跳转流畅**：使用 `<Link>` 组件在页面间跳转，且 Layout 没有不必要的闪烁。
-3. [ ] **Loading 状态**：在数据加载慢的页面旁边放一个 `loading.tsx`，验证是否能自动显示骨架屏。
-4. [ ] **数据获取正确**：修改数据库或 API 数据后，页面的更新行为符合你设置的 `revalidate` 时间（试试设置为 0 或 10 秒来测试）。
+1. [ ] **Cấu trúc file rõ ràng**: Tôi có thể vẽ ra Sitemap của website chỉ bằng cách xem cấu trúc thư mục.
+2. [ ] **Chuyển trang mượt mà**: Dùng component `<Link>` để chuyển giữa các trang, và Layout không nhấp nháy không cần thiết.
+3. [ ] **Trạng thái Loading**: Đặt một `loading.tsx` bên cạnh trang load dữ liệu chậm, kiểm tra xem có tự động hiển thị skeleton screen không.
+4. [ ] **Lấy dữ liệu chính xác**: Sau khi sửa dữ liệu database hoặc API, hành vi cập nhật trang phù hợp với thời gian `revalidate` bạn đã đặt (thử đặt 0 hoặc 10 giây để test).
 
-## 6. 下一步
+## 6. Bước tiếp theo
 
-现在你的页面已经跑起来了，数据也有了。但是它们长得还很丑，而且是一堆散乱的积木。下一节，我们将学习**3.2 像搭乐高一样构建页面**，用组件化思维把这些页面变得漂亮且可复用。
+Bây giờ trang của bạn đã chạy được, dữ liệu cũng có rồi. Nhưng chúng vẫn còn xấu, và là một đống khối lego rời rạc. Phần tiếp theo, chúng ta sẽ học **3.2 Xây dựng trang như lắp ráp Lego**, dùng tư duy component hóa để biến những trang này thành đẹp và có thể tái sử dụng.

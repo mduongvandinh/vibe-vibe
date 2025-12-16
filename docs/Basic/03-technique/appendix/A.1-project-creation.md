@@ -1,366 +1,366 @@
 ---
-title: "A.1 项目创建类模板"
+title: "A.1 Template tạo dự án"
 ---
 
-# A.1 项目创建类模板
+# A.1 Template tạo dự án
 
-本节提供从零开始创建项目的 Prompt 模板，覆盖网页应用、数据分析、自动化脚本等常见场景。
+Phần này cung cấp các Prompt template để tạo dự án từ đầu, bao gồm ứng dụng web, phân tích dữ liệu, script tự động hóa và các tình huống phổ biến khác.
 
 
-## 模板一：网页应用从零搭建
+## Template 1: Xây dựng ứng dụng web từ đầu
 
-适用于：个人工具、产品原型、小型网站
+Áp dụng cho: Công cụ cá nhân, nguyên mẫu sản phẩm, website nhỏ
 
 ```markdown
-## 项目背景
+## Bối cảnh dự án
 
-我想创建一个 [项目类型]。
+Tôi muốn tạo một [loại dự án].
 
-**目标用户**：[谁会使用这个应用]
-**核心需求**：[用一句话描述这个应用要解决什么问题]
+**Người dùng mục tiêu**: [Ai sẽ sử dụng ứng dụng này]
+**Nhu cầu cốt lõi**: [Dùng một câu mô tả ứng dụng này giải quyết vấn đề gì]
 
-## 技术要求
+## Yêu cầu kỹ thuật
 
-**技术栈偏好**：
-- 前端：[React/Vue/纯 HTML+CSS+JS/不限]
-- 样式：[Tailwind CSS/原生 CSS/不限]
-- 是否需要后端：[是/否]
-- 数据存储：[localStorage/无需存储/需要数据库]
+**Tech stack ưu tiên**:
+- Frontend: [React/Vue/HTML+CSS+JS thuần/không giới hạn]
+- Styling: [Tailwind CSS/CSS thuần/không giới hạn]
+- Cần backend không: [Có/Không]
+- Lưu trữ dữ liệu: [localStorage/không cần lưu/cần database]
 
-**我的技术水平**：[零基础/有一点基础/熟悉前端开发]
+**Trình độ kỹ thuật của tôi**: [Mới bắt đầu/có chút kiến thức/thành thạo frontend]
 
-## 功能需求
+## Yêu cầu tính năng
 
-**必须实现（P0）**：
-- [ ] [功能1]
-- [ ] [功能2]
-- [ ] [功能3]
+**Phải thực hiện (P0)**:
+- [ ] [Tính năng 1]
+- [ ] [Tính năng 2]
+- [ ] [Tính năng 3]
 
-**暂不需要**：
-- [功能A]（原因：[为什么不需要]）
-- [功能B]（原因：[为什么不需要]）
+**Tạm thời không cần**:
+- [Tính năng A] (Lý do: [Tại sao không cần])
+- [Tính năng B] (Lý do: [Tại sao không cần])
 
-## 界面要求
+## Yêu cầu giao diện
 
-**风格**：[简洁/现代/可爱/专业/参考某网站]
-**配色**：[主色调偏好，如"蓝白配色"/"暗色主题"]
-**响应式**：[需要适配手机/只需桌面端]
+**Phong cách**: [Tối giản/hiện đại/dễ thương/chuyên nghiệp/tham khảo website nào đó]
+**Màu sắc**: [Ưu tiên màu chủ đạo, ví dụ "phối màu xanh trắng"/"chủ đề tối"]
+**Responsive**: [Cần tương thích mobile/chỉ cần desktop]
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供：
-1. 项目的文件结构说明
-2. 完整的代码文件
-3. 如何在本地运行的说明
+Vui lòng cung cấp:
+1. Giải thích cấu trúc file của dự án
+2. Các file code đầy đủ
+3. Hướng dẫn chạy trên máy local
 ```
 
-### 填写示例：个人记账本
+### Ví dụ điền: Sổ ghi chi cá nhân
 
 ```markdown
-## 项目背景
+## Bối cảnh dự án
 
-我想创建一个极简记账网页应用。
+Tôi muốn tạo một ứng dụng web ghi chi tối giản.
 
-**目标用户**：我自己（想养成记账习惯但嫌其他 App 太复杂）
-**核心需求**：快速记录每笔支出，月底能看到总花费
+**Người dùng mục tiêu**: Bản thân tôi (muốn tạo thói quen ghi chi nhưng các App khác quá phức tạp)
+**Nhu cầu cốt lõi**: Ghi nhanh từng khoản chi tiêu, cuối tháng xem tổng chi tiêu
 
-## 技术要求
+## Yêu cầu kỹ thuật
 
-**技术栈偏好**：
-- 前端：纯 HTML+CSS+JS（我是初学者，想从简单的开始）
-- 样式：原生 CSS
-- 是否需要后端：否
-- 数据存储：localStorage
+**Tech stack ưu tiên**:
+- Frontend: HTML+CSS+JS thuần (Tôi là người mới, muốn bắt đầu từ đơn giản)
+- Styling: CSS thuần
+- Cần backend không: Không
+- Lưu trữ dữ liệu: localStorage
 
-**我的技术水平**：零基础，刚学完 Hello World
+**Trình độ kỹ thuật của tôi**: Mới bắt đầu, vừa học xong Hello World
 
-## 功能需求
+## Yêu cầu tính năng
 
-**必须实现（P0）**：
-- [ ] 记录支出：金额 + 简单备注
-- [ ] 显示今日支出列表
-- [ ] 显示本月总支出
-- [ ] 删除错误记录
+**Phải thực hiện (P0)**:
+- [ ] Ghi chi tiêu: số tiền + ghi chú đơn giản
+- [ ] Hiển thị danh sách chi tiêu trong ngày
+- [ ] Hiển thị tổng chi tiêu trong tháng
+- [ ] Xóa bản ghi sai
 
-**暂不需要**：
-- 收入记录（原因：我只想管支出）
-- 分类统计（原因：先跑起来，以后再加）
-- 图表可视化（原因：数字足够，不需要花哨）
+**Tạm thời không cần**:
+- Ghi thu nhập (Lý do: Tôi chỉ muốn quản lý chi tiêu)
+- Thống kê phân loại (Lý do: Chạy được đã, sau này thêm sau)
+- Trực quan hóa biểu đồ (Lý do: Số liệu là đủ, không cần fancy)
 
-## 界面要求
+## Yêu cầu giao diện
 
-**风格**：极简，类似 iOS 备忘录的干净感
-**配色**：白色背景，深灰文字，绿色强调色
-**响应式**：需要适配手机（我主要在手机上用）
+**Phong cách**: Tối giản, cảm giác sạch sẽ như iOS Notes
+**Màu sắc**: Nền trắng, chữ xám đậm, màu nhấn xanh lá
+**Responsive**: Cần tương thích mobile (Tôi chủ yếu dùng trên điện thoại)
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供：
-1. 项目的文件结构说明
-2. 完整的代码文件
-3. 如何在本地运行的说明
+Vui lòng cung cấp:
+1. Giải thích cấu trúc file của dự án
+2. Các file code đầy đủ
+3. Hướng dẫn chạy trên máy local
 ```
 
 
-## 模板二：数据分析项目
+## Template 2: Dự án phân tích dữ liệu
 
-适用于：Excel 数据处理、销售分析、问卷统计、可视化报告
+Áp dụng cho: Xử lý dữ liệu Excel, phân tích bán hàng, thống kê khảo sát, báo cáo trực quan
 
 ```markdown
-## 分析背景
+## Bối cảnh phân tích
 
-我需要分析一份 [数据类型] 数据。
+Tôi cần phân tích dữ liệu [loại dữ liệu].
 
-**数据来源**：[Excel/CSV/数据库/API]
-**数据规模**：约 [行数] 行，[列数] 列
-**分析目的**：[回答什么业务问题/支持什么决策]
+**Nguồn dữ liệu**: [Excel/CSV/Database/API]
+**Quy mô dữ liệu**: Khoảng [số dòng] dòng, [số cột] cột
+**Mục đích phân tích**: [Trả lời câu hỏi kinh doanh gì/hỗ trợ quyết định gì]
 
-## 数据描述
+## Mô tả dữ liệu
 
-**主要字段**：
-| 字段名 | 含义 | 数据类型 | 示例值 |
+**Các trường chính**:
+| Tên trường | Ý nghĩa | Kiểu dữ liệu | Giá trị mẫu |
 |-------|------|---------|-------|
-| [字段1] | [说明] | [文本/数字/日期] | [示例] |
-| [字段2] | [说明] | [文本/数字/日期] | [示例] |
+| [Trường 1] | [Giải thích] | [Text/Number/Date] | [Ví dụ] |
+| [Trường 2] | [Giải thích] | [Text/Number/Date] | [Ví dụ] |
 
-**数据质量问题**（如有）：
-- [问题1，如"部分日期格式不统一"]
-- [问题2，如"有些行缺少金额数据"]
+**Vấn đề chất lượng dữ liệu** (nếu có):
+- [Vấn đề 1, ví dụ "một số ngày định dạng không đồng nhất"]
+- [Vấn đề 2, ví dụ "một số dòng thiếu dữ liệu số tiền"]
 
-## 分析需求
+## Nhu cầu phân tích
 
-**想要回答的问题**：
-1. [问题1]
-2. [问题2]
-3. [问题3]
+**Câu hỏi muốn trả lời**:
+1. [Câu hỏi 1]
+2. [Câu hỏi 2]
+3. [Câu hỏi 3]
 
-**输出形式**：
-- [ ] 数据清洗后的表格
-- [ ] 统计数字（如总和、平均值、占比）
-- [ ] 可视化图表（柱状图/折线图/饼图）
-- [ ] 分析结论文字说明
+**Hình thức đầu ra**:
+- [ ] Bảng dữ liệu sau khi làm sạch
+- [ ] Số liệu thống kê (như tổng, trung bình, tỷ lệ)
+- [ ] Biểu đồ trực quan (cột/đường/tròn)
+- [ ] Kết luận phân tích dạng văn bản
 
-## 技术要求
+## Yêu cầu kỹ thuật
 
-**使用工具**：[Python + Pandas / Excel 公式 / SQL]
-**运行环境**：[本地 Python / Jupyter Notebook / Google Colab]
-**我的水平**：[零基础/会基本 Python/熟悉数据分析]
+**Công cụ sử dụng**: [Python + Pandas / Excel formula / SQL]
+**Môi trường chạy**: [Python local / Jupyter Notebook / Google Colab]
+**Trình độ của tôi**: [Mới bắt đầu/biết Python cơ bản/thành thạo phân tích dữ liệu]
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供：
-1. 完整的代码（带注释说明每一步在做什么）
-2. 代码运行后预期看到的结果示例
-3. 如何修改代码以适应我的实际数据
+Vui lòng cung cấp:
+1. Code đầy đủ (có comment giải thích từng bước đang làm gì)
+2. Ví dụ kết quả mong đợi sau khi chạy code
+3. Cách sửa code để phù hợp với dữ liệu thực tế của tôi
 ```
 
-### 填写示例：销售数据月度分析
+### Ví dụ điền: Phân tích dữ liệu bán hàng theo tháng
 
 ```markdown
-## 分析背景
+## Bối cảnh phân tích
 
-我需要分析一份电商销售数据。
+Tôi cần phân tích dữ liệu bán hàng thương mại điện tử.
 
-**数据来源**：Excel 文件（从后台导出）
-**数据规模**：约 5000 行，8 列
-**分析目的**：了解本月销售情况，找出畅销商品和问题商品
+**Nguồn dữ liệu**: File Excel (xuất từ backend)
+**Quy mô dữ liệu**: Khoảng 5000 dòng, 8 cột
+**Mục đích phân tích**: Hiểu tình hình bán hàng trong tháng, tìm sản phẩm bán chạy và sản phẩm có vấn đề
 
-## 数据描述
+## Mô tả dữ liệu
 
-**主要字段**：
-| 字段名 | 含义 | 数据类型 | 示例值 |
+**Các trường chính**:
+| Tên trường | Ý nghĩa | Kiểu dữ liệu | Giá trị mẫu |
 |-------|------|---------|-------|
-| 订单号 | 唯一标识 | 文本 | ORD20241201001 |
-| 商品名 | 商品名称 | 文本 | 无线蓝牙耳机 |
-| 分类 | 商品类别 | 文本 | 数码配件 |
-| 金额 | 订单金额 | 数字 | 299 |
-| 下单时间 | 订单时间 | 日期 | 2024-12-01 14:30 |
+| Mã đơn hàng | ID duy nhất | Text | ORD20241201001 |
+| Tên sản phẩm | Tên SP | Text | Tai nghe Bluetooth |
+| Phân loại | Danh mục SP | Text | Phụ kiện số |
+| Số tiền | Giá trị đơn hàng | Number | 299 |
+| Thời gian đặt | Thời điểm đặt hàng | Date | 2024-12-01 14:30 |
 
-**数据质量问题**：
-- 部分订单金额为 0（可能是退款订单）
-- 下单时间格式有两种：有的带时分，有的只有日期
+**Vấn đề chất lượng dữ liệu**:
+- Một số đơn hàng có số tiền = 0 (có thể là đơn hoàn trả)
+- Thời gian đặt hàng có hai định dạng: một số có giờ phút, một số chỉ có ngày
 
-## 分析需求
+## Nhu cầu phân tích
 
-**想要回答的问题**：
-1. 本月总销售额是多少？日均销售额？
-2. 哪个商品类别卖得最好？占比多少？
-3. 哪些商品是 Top 10 畅销品？
-4. 销售额的日趋势是什么样的？
+**Câu hỏi muốn trả lời**:
+1. Tổng doanh thu tháng này là bao nhiêu? Doanh thu trung bình mỗi ngày?
+2. Danh mục sản phẩm nào bán tốt nhất? Chiếm tỷ lệ bao nhiêu?
+3. Top 10 sản phẩm bán chạy là gì?
+4. Xu hướng doanh thu theo ngày như thế nào?
 
-**输出形式**：
-- [x] 统计数字（总额、日均、类别占比）
-- [x] 可视化图表（类别饼图、日趋势折线图、Top10 柱状图）
-- [x] 分析结论文字说明
+**Hình thức đầu ra**:
+- [x] Số liệu thống kê (tổng, trung bình ngày, tỷ lệ danh mục)
+- [x] Biểu đồ trực quan (biểu đồ tròn danh mục, đường xu hướng ngày, cột Top10)
+- [x] Kết luận phân tích dạng văn bản
 
-## 技术要求
+## Yêu cầu kỹ thuật
 
-**使用工具**：Python + Pandas + Matplotlib
-**运行环境**：本地 Jupyter Notebook
-**我的水平**：会基本 Python，Pandas 用得不熟
+**Công cụ sử dụng**: Python + Pandas + Matplotlib
+**Môi trường chạy**: Jupyter Notebook local
+**Trình độ của tôi**: Biết Python cơ bản, chưa thạo Pandas
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供：
-1. 完整的代码（带注释说明每一步在做什么）
-2. 代码运行后预期看到的结果示例
-3. 如何修改代码以适应我的实际数据
+Vui lòng cung cấp:
+1. Code đầy đủ (có comment giải thích từng bước đang làm gì)
+2. Ví dụ kết quả mong đợi sau khi chạy code
+3. Cách sửa code để phù hợp với dữ liệu thực tế của tôi
 ```
 
 
-## 模板三：自动化脚本
+## Template 3: Script tự động hóa
 
-适用于：文件批量处理、Excel 汇总、定时任务、数据抓取
+Áp dụng cho: Xử lý file hàng loạt, tổng hợp Excel, tác vụ định kỳ, thu thập dữ liệu
 
 ```markdown
-## 自动化需求
+## Nhu cầu tự động hóa
 
-我想自动完成 [任务描述]。
+Tôi muốn tự động hoàn thành [mô tả nhiệm vụ].
 
-**目前的痛点**：
-[描述现在手动做这件事有多麻烦]
+**Pain point hiện tại**:
+[Mô tả việc làm thủ công hiện nay phiền phức thế nào]
 
-**期望效果**：
-[运行脚本后，应该发生什么]
+**Hiệu quả mong muốn**:
+[Sau khi chạy script, điều gì nên xảy ra]
 
-## 输入输出
+## Input và Output
 
-**输入**：
-- 来源：[文件夹/单个文件/网页/...]
-- 格式：[Excel/CSV/TXT/图片/...]
-- 位置：[具体路径或描述]
-- 示例：[举一个具体例子]
+**Input**:
+- Nguồn: [Thư mục/file đơn/trang web/...]
+- Định dạng: [Excel/CSV/TXT/hình ảnh/...]
+- Vị trí: [Đường dẫn cụ thể hoặc mô tả]
+- Ví dụ: [Đưa ra ví dụ cụ thể]
 
-**输出**：
-- 格式：[Excel/CSV/新文件/...]
-- 位置：[保存到哪里]
-- 命名规则：[如"原文件名_processed.xlsx"]
+**Output**:
+- Định dạng: [Excel/CSV/file mới/...]
+- Vị trí: [Lưu vào đâu]
+- Quy tắc đặt tên: [Ví dụ "tên file gốc_processed.xlsx"]
 
-## 处理逻辑
+## Logic xử lý
 
-请按以下步骤处理：
-1. [第一步：做什么]
-2. [第二步：做什么]
-3. [第三步：做什么]
+Vui lòng xử lý theo các bước sau:
+1. [Bước 1: Làm gì]
+2. [Bước 2: Làm gì]
+3. [Bước 3: Làm gì]
 
-**特殊情况处理**：
-- 如果遇到 [情况A]，则 [处理方式]
-- 如果遇到 [情况B]，则 [处理方式]
+**Xử lý trường hợp đặc biệt**:
+- Nếu gặp [trường hợp A], thì [cách xử lý]
+- Nếu gặp [trường hợp B], thì [cách xử lý]
 
-## 技术要求
+## Yêu cầu kỹ thuật
 
-**语言**：[Python/批处理脚本/PowerShell]
-**运行环境**：[Windows/Mac/Linux]
-**依赖限制**：[尽量少用第三方库/可以用常见库]
-**我的水平**：[会运行脚本即可/想学习理解代码]
+**Ngôn ngữ**: [Python/Batch script/PowerShell]
+**Môi trường chạy**: [Windows/Mac/Linux]
+**Giới hạn dependencies**: [Càng ít thư viện bên ngoài càng tốt/có thể dùng thư viện phổ biến]
+**Trình độ của tôi**: [Chỉ cần chạy được/muốn học hiểu code]
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供：
-1. 完整可运行的脚本代码
-2. 需要安装的依赖（如 pip install xxx）
-3. 使用说明（如何运行、如何修改参数）
-4. 常见问题及解决方法
+Vui lòng cung cấp:
+1. Script code hoàn chỉnh có thể chạy được
+2. Dependencies cần cài đặt (ví dụ pip install xxx)
+3. Hướng dẫn sử dụng (cách chạy, cách sửa tham số)
+4. Các vấn đề thường gặp và cách giải quyết
 ```
 
-### 填写示例：批量重命名图片
+### Ví dụ điền: Đổi tên hàng loạt ảnh
 
 ```markdown
-## 自动化需求
+## Nhu cầu tự động hóa
 
-我想自动批量重命名文件夹中的图片。
+Tôi muốn tự động đổi tên hàng loạt ảnh trong thư mục.
 
-**目前的痛点**：
-从相机导出的照片命名是 IMG_0001.jpg 这种格式，很难找到特定日期的照片。
-手动重命名几百张图片太费时间。
+**Pain point hiện tại**:
+Ảnh xuất từ máy ảnh được đặt tên theo kiểu IMG_0001.jpg, rất khó tìm ảnh theo ngày cụ thể.
+Đổi tên thủ công hàng trăm ảnh mất quá nhiều thời gian.
 
-**期望效果**：
-运行脚本后，所有图片按拍摄日期重命名为 2024-12-01_001.jpg 格式
+**Hiệu quả mong muốn**:
+Sau khi chạy script, tất cả ảnh được đổi tên theo ngày chụp với định dạng 2024-12-01_001.jpg
 
-## 输入输出
+## Input và Output
 
-**输入**：
-- 来源：指定文件夹
-- 格式：jpg、png 图片
-- 位置：用户指定（运行时输入）
-- 示例：IMG_0001.jpg、IMG_0002.jpg...
+**Input**:
+- Nguồn: Thư mục chỉ định
+- Định dạng: Ảnh jpg, png
+- Vị trí: Người dùng chỉ định (nhập khi chạy)
+- Ví dụ: IMG_0001.jpg, IMG_0002.jpg...
 
-**输出**：
-- 格式：原图片（只改名，不改内容）
-- 位置：原地重命名
-- 命名规则：拍摄日期_序号.扩展名（如 2024-12-01_001.jpg）
+**Output**:
+- Định dạng: Ảnh gốc (chỉ đổi tên, không đổi nội dung)
+- Vị trí: Đổi tên tại chỗ
+- Quy tắc đặt tên: Ngày chụp_số thứ tự.extension (ví dụ 2024-12-01_001.jpg)
 
-## 处理逻辑
+## Logic xử lý
 
-请按以下步骤处理：
-1. 读取文件夹中所有图片
-2. 从图片 EXIF 信息中提取拍摄日期
-3. 按日期排序，同一天的图片按时间顺序编号
-4. 重命名文件
+Vui lòng xử lý theo các bước sau:
+1. Đọc tất cả ảnh trong thư mục
+2. Trích xuất ngày chụp từ thông tin EXIF của ảnh
+3. Sắp xếp theo ngày, ảnh cùng ngày đánh số theo thứ tự thời gian
+4. Đổi tên file
 
-**特殊情况处理**：
-- 如果图片没有 EXIF 信息，使用文件修改时间
-- 如果目标文件名已存在，添加 _dup 后缀
+**Xử lý trường hợp đặc biệt**:
+- Nếu ảnh không có thông tin EXIF, dùng thời gian sửa đổi file
+- Nếu tên file đích đã tồn tại, thêm hậu tố _dup
 
-## 技术要求
+## Yêu cầu kỹ thuật
 
-**语言**：Python
-**运行环境**：Windows 11
-**依赖限制**：可以用 Pillow 库读取 EXIF
-**我的水平**：会运行脚本即可，代码不需要太详细的注释
+**Ngôn ngữ**: Python
+**Môi trường chạy**: Windows 11
+**Giới hạn dependencies**: Có thể dùng thư viện Pillow để đọc EXIF
+**Trình độ của tôi**: Chỉ cần chạy được, code không cần comment quá chi tiết
 
-## 输出要求
+## Yêu cầu đầu ra
 
-请提供：
-1. 完整可运行的脚本代码
-2. 需要安装的依赖
-3. 使用说明（如何运行）
+Vui lòng cung cấp:
+1. Script code hoàn chỉnh có thể chạy được
+2. Dependencies cần cài đặt
+3. Hướng dẫn sử dụng (cách chạy)
 ```
 
 
-## 模板四：CLI 命令行工具（精简版）
+## Template 4: CLI Command-line Tool (Phiên bản tối giản)
 
-适用于：开发者工具、效率脚本、系统管理
+Áp dụng cho: Công cụ developer, script hiệu suất, quản trị hệ thống
 
 ```markdown
-## 工具需求
+## Nhu cầu công cụ
 
-我想创建一个命令行工具，用于 [用途]。
+Tôi muốn tạo một command-line tool, dùng để [mục đích].
 
-**使用方式示例**：
+**Ví dụ cách sử dụng**:
 ```bash
-[命令名] [参数示例]
-# 例如：mytool --input data.csv --output result.json
+[tên lệnh] [tham số mẫu]
+# Ví dụ: mytool --input data.csv --output result.json
 ```
 
-**主要功能**：
-1. [功能1]
-2. [功能2]
+**Chức năng chính**:
+1. [Chức năng 1]
+2. [Chức năng 2]
 
-**参数说明**：
-| 参数 | 必填 | 说明 | 默认值 |
+**Giải thích tham số**:
+| Tham số | Bắt buộc | Giải thích | Giá trị mặc định |
 |-----|-----|------|-------|
-| [参数1] | 是/否 | [说明] | [默认值] |
+| [Tham số 1] | Có/Không | [Giải thích] | [Mặc định] |
 
-**技术栈**：[Python argparse / Node.js commander / Go cobra]
+**Tech stack**: [Python argparse / Node.js commander / Go cobra]
 
-请提供完整代码和使用示例。
+Vui lòng cung cấp code đầy đủ và ví dụ sử dụng.
 ```
 
 
-## 常见填写误区
+## Sai lầm thường gặp khi điền
 
-| 误区 | 问题 | 正确做法 |
+| Sai lầm | Vấn đề | Cách làm đúng |
 |-----|------|---------|
-| 不写技术水平 | AI 给的代码太复杂或太简单 | 明确说明自己的水平 |
-| 功能需求太模糊 | "做一个好用的工具" | 列出具体的功能点 |
-| 忘记写"不需要" | AI 自作主张加了很多功能 | 明确边界，写清不做什么 |
-| 数据描述不清 | AI 无法写出正确的处理逻辑 | 给出字段说明和示例数据 |
+| Không viết trình độ kỹ thuật | Code AI đưa quá phức tạp hoặc quá đơn giản | Nói rõ trình độ của mình |
+| Yêu cầu tính năng quá mơ hồ | "Làm một công cụ dễ dùng" | Liệt kê các điểm tính năng cụ thể |
+| Quên viết "không cần" | AI tự ý thêm nhiều tính năng | Nói rõ ranh giới, viết rõ không làm gì |
+| Mô tả dữ liệu không rõ | AI không thể viết logic xử lý đúng | Đưa ra giải thích trường và dữ liệu mẫu |
 
 
-## 本节要点
+## Điểm chính của phần này
 
-- ✅ **网页应用模板**：技术栈 + 功能需求 + 界面要求 + 输出格式
-- ✅ **数据分析模板**：数据描述 + 分析问题 + 输出形式
-- ✅ **自动化脚本模板**：输入输出 + 处理逻辑 + 异常处理
-- ✅ **关键技巧**：说明技术水平，AI 会调整代码复杂度
+- ✅ **Template ứng dụng web**: Tech stack + yêu cầu tính năng + yêu cầu giao diện + định dạng đầu ra
+- ✅ **Template phân tích dữ liệu**: Mô tả dữ liệu + câu hỏi phân tích + hình thức đầu ra
+- ✅ **Template script tự động hóa**: Input output + logic xử lý + xử lý ngoại lệ
+- ✅ **Kỹ thuật quan trọng**: Nói rõ trình độ kỹ thuật, AI sẽ điều chỉnh độ phức tạp code

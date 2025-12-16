@@ -1,50 +1,49 @@
 ---
-title: "12.7 功能下线的艺术——版本化与变更日志：兼容期与弃用路线图"
-typora-root-url: ../../public
+title: "12.7 Nghệ thuật tắt chức năng — Phiên bản hóa và Nhật ký thay đổi: Khoảng thời gian tương thích và Lộ trình loại bỏ"
 ---
 
-# 12.7 功能下线的艺术——版本化与变更日志：兼容期与弃用路线图
+# 12.7 Nghệ thuật tắt chức năng — Phiên bản hóa và Nhật ký thay đổi: Khoảng thời gian tương thích và Lộ trình loại bỏ
 
-### 一句话破题
+### Một câu phá đề
 
-功能下线比上线更难——既要推动用户迁移，又不能搞砸他们正在运行的应用。这需要周密的计划和清晰的沟通。
+Tắt chức năng khó hơn bật — vừa phải thúc đẩy người dùng di chuyển, vừa không được làm hỏng ứng dụng đang chạy của họ. Điều này cần có kế hoạch chu đáo và giao tiếp rõ ràng.
 
-### 核心价值
+### Giá trị cốt lõi
 
-为什么要学会"优雅地下线"？
+Tại sao phải học "tắt một cách thanh lịch"?
 
-- **技术债务**：旧 API 维护成本越来越高
-- **安全隐患**：老版本可能存在安全漏洞
-- **用户体验**：旧功能可能阻碍产品发展
-- **开发效率**：团队需要集中精力在新功能上
+- **Nợ kỹ thuật**: Chi phí bảo trì API cũ ngày càng tăng cao
+- **Lỗ hổng bảo mật**: Các phiên bản cũ có thể chứa lỗ hổng bảo mật
+- **Trải nghiệm người dùng**: Các chức năng cũ có thể cản trở sự phát triển sản phẩm
+- **Hiệu quả phát triển**: Nhóm cần tập trung vào các tính năng mới
 
-但粗暴下线会：
-- 破坏用户的应用
-- 损害品牌信任
-- 引发客户投诉
+Nhưng tắt một cách thô bạo sẽ:
+- Phá hỏng ứng dụng của người dùng
+- Làm tổn hại độ tin cậy của thương hiệu
+- Gây ra các khiếu nại từ khách hàng
 
-### 本章导览
+### Hướng dẫn chương
 
 ```mermaid
 graph LR
-    A["API 版本策略"] --> B["向后兼容"]
-    B --> C["功能下线"]
-    C --> D["开发者沟通"]
-    
+    A["API Versioning Strategy"] --> B["Backward Compatibility"]
+    B --> C["Feature Sunsetting"]
+    C --> D["Developer Communication"]
+
     style A fill:#e3f2fd
     style D fill:#c8e6c9
 ```
 
-1. **API 版本策略**：如何设计可演进的 API
-2. **向后兼容**：避免破坏性变更
-3. **功能下线**：平滑过渡的方法
-4. **开发者沟通**：如何告知用户变更
+1. **API Versioning Strategy**: Cách thiết kế API có thể phát triển được
+2. **Backward Compatibility**: Tránh breaking changes
+3. **Feature Sunsetting**: Phương pháp chuyển đổi suôn sẻ
+4. **Developer Communication**: Cách thông báo cho người dùng về thay đổi
 
-### 为什么 Vibe Coder 要学这个？
+### Tại sao Vibe Coder phải học điều này?
 
-无论你是 API 的提供者还是使用者：
+Dù bạn là nhà cung cấp hay người sử dụng API:
 
-- **作为提供者**：你需要知道如何安全地演进 API
-- **作为使用者**：你需要理解弃用警告并及时迁移
+- **Là nhà cung cấp**: Bạn cần biết cách phát triển API một cách an toàn
+- **Là người sử dụng**: Bạn cần hiểu các cảnh báo deprecation và di chuyển kịp thời
 
-> **关键洞察**：最好的弃用是用户感知不到的——新版本如此优秀，用户自愿迁移。
+> **Hiểu biết chính yếu**: Deprecation tốt nhất là người dùng không cảm nhận được — phiên bản mới xuất sắc đến mức người dùng tự nguyện di chuyển.

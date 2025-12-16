@@ -1,104 +1,103 @@
 ---
-title: "4.2 数据库到底在忙什么——关系型数据库：CRUD/索引/事务"
-typora-root-url: ../../public
+title: "4.2 Cơ sở dữ liệu đang bận gì — Cơ sở dữ liệu quan hệ: CRUD/Index/Transaction"
 ---
 
-# 4.2 数据库到底在忙什么——关系型数据库：CRUD/索引/事务
+# 4.2 Cơ sở dữ liệu đang bận gì — Cơ sở dữ liệu quan hệ: CRUD/Index/Transaction
 
-### 认知重构
+### Tái cấu trúc nhận thức
 
-关系型数据库不仅仅是"存数据的地方"，它是一个**保证数据正确性和一致性的系统**。理解它的工作原理，能帮你写出更高效、更安全的代码。
+Cơ sở dữ liệu quan hệ không chỉ là "nơi lưu trữ dữ liệu", nó là một **hệ thống đảm bảo tính đúng đắn và nhất quán của dữ liệu**. Hiểu nguyên lý hoạt động của nó có thể giúp bạn viết code hiệu quả và an toàn hơn.
 
-### 关系型数据库核心概念
+### Các khái niệm cốt lõi của cơ sở dữ liệu quan hệ
 
 ```mermaid
 graph TB
-    subgraph 数据操作
-        CRUD["CRUD 增删改查"]
+    subgraph Thao tác dữ liệu
+        CRUD["CRUD: Thêm/Xóa/Sửa/Tra cứu"]
     end
-    
-    subgraph 性能优化
-        Index["索引加速查询"]
+
+    subgraph Tối ưu hiệu suất
+        Index["Index tăng tốc truy vấn"]
     end
-    
-    subgraph 数据安全
-        Transaction["事务保证一致性"]
-        Lock["锁控制并发"]
-        RLS["行级安全"]
+
+    subgraph An toàn dữ liệu
+        Transaction["Transaction đảm bảo tính nhất quán"]
+        Lock["Lock kiểm soát đồng thời"]
+        RLS["Bảo mật cấp hàng"]
     end
-    
+
     CRUD --> Index
     Index --> Transaction
     Transaction --> Lock
     Lock --> RLS
 ```
 
-| 概念 | 作用 | 解决的问题 |
+| Khái niệm | Vai trò | Vấn đề được giải quyết |
 |------|------|------------|
-| **CRUD** | 基本数据操作 | 如何读写数据 |
-| **索引** | 加速查询 | 查询太慢怎么办 |
-| **事务** | 保证一致性 | 多步操作如何原子执行 |
-| **并发控制** | 处理冲突 | 多人同时操作怎么办 |
-| **RLS** | 数据隔离 | 如何限制用户只看自己的数据 |
+| **CRUD** | Thao tác dữ liệu cơ bản | Làm sao đọc ghi dữ liệu |
+| **Index** | Tăng tốc truy vấn | Truy vấn quá chậm phải làm sao |
+| **Transaction** | Đảm bảo tính nhất quán | Nhiều bước thao tác làm sao thực thi nguyên tử |
+| **Kiểm soát đồng thời** | Xử lý xung đột | Nhiều người thao tác cùng lúc phải làm sao |
+| **RLS** | Cách ly dữ liệu | Làm sao hạn chế user chỉ xem dữ liệu của mình |
 
-### 子章节导航
+### Điều hướng chương con
 
-| 章节 | 主题 | 核心问题 |
+| Chương | Chủ đề | Vấn đề cốt lõi |
 |------|------|----------|
-| 4.2.1 | CRUD 操作 | 增删改查的本质是什么？ |
-| 4.2.2 | 索引原理 | 为什么加了索引查询就快了？ |
-| 4.2.3 | 事务特性 | 转账为什么是安全的？ |
-| 4.2.4 | 并发控制 | 同时修改数据怎么办？ |
-| 4.2.5 | 行级安全 | 张三为什么看不了李四的数据？ |
+| 4.2.1 | Thao tác CRUD | Bản chất của thêm/xóa/sửa/tra cứu là gì? |
+| 4.2.2 | Nguyên lý Index | Tại sao thêm index truy vấn lại nhanh? |
+| 4.2.3 | Đặc tính Transaction | Tại sao chuyển tiền lại an toàn? |
+| 4.2.4 | Kiểm soát đồng thời | Sửa dữ liệu cùng lúc phải làm sao? |
+| 4.2.5 | Bảo mật cấp hàng | Tại sao Trần Anh không xem được dữ liệu của Lý Tứ? |
 
-### 为什么选择关系型数据库？
+### Tại sao chọn cơ sở dữ liệu quan hệ?
 
-| 特性 | 关系型数据库 | NoSQL |
+| Đặc tính | Cơ sở dữ liệu quan hệ | NoSQL |
 |------|-------------|-------|
-| **数据结构** | 结构化表格 | 灵活文档/键值 |
-| **数据一致性** | 强一致性（ACID） | 最终一致性 |
-| **查询能力** | 强大的 SQL | 简单查询 |
-| **适用场景** | 事务性应用 | 大数据/实时应用 |
+| **Cấu trúc dữ liệu** | Bảng có cấu trúc | Document/Key-value linh hoạt |
+| **Tính nhất quán dữ liệu** | Nhất quán mạnh (ACID) | Nhất quán cuối cùng |
+| **Khả năng truy vấn** | SQL mạnh mẽ | Truy vấn đơn giản |
+| **Trường hợp áp dụng** | Ứng dụng giao dịch | Big data/Ứng dụng realtime |
 
-**本课程选择 PostgreSQL 的原因**：
+**Lý do khóa học chọn PostgreSQL**:
 
-1. 功能最全面的开源关系型数据库
-2. 原生支持 JSON，兼顾灵活性
-3. 与 Prisma 配合最佳
-4. 内置行级安全（RLS），适合多租户应用
+1. Cơ sở dữ liệu quan hệ mã nguồn mở đầy đủ tính năng nhất
+2. Hỗ trợ JSON native, kiêm cả tính linh hoạt
+3. Phối hợp tốt nhất với Prisma
+4. Tích hợp sẵn Row Level Security (RLS), phù hợp với ứng dụng multi-tenant
 
-### 数据库操作的全景图
+### Toàn cảnh thao tác cơ sở dữ liệu
 
 ```mermaid
 sequenceDiagram
-    participant App as 应用代码
+    participant App as Mã ứng dụng
     participant ORM as Prisma ORM
     participant DB as PostgreSQL
-    
+
     App->>ORM: prisma.user.create()
     ORM->>DB: INSERT INTO users...
-    DB->>DB: 检查约束
-    DB->>DB: 更新索引
-    DB-->>ORM: 返回结果
-    ORM-->>App: 返回类型安全的对象
+    DB->>DB: Kiểm tra ràng buộc
+    DB->>DB: Cập nhật index
+    DB-->>ORM: Trả về kết quả
+    ORM-->>App: Trả về object type-safe
 ```
 
-### AI 协作指南
+### Hướng dẫn cộng tác với AI
 
-**核心意图**：让 AI 帮你理解数据库概念或优化查询。
+**Ý định cốt lõi**: Để AI giúp bạn hiểu khái niệm cơ sở dữ liệu hoặc tối ưu truy vấn.
 
-**常用提问模板**：
+**Template đặt câu hỏi thường dùng**:
 ```
-我的查询很慢：[查询代码]
-表结构是：[表结构]
-数据量大约 [X] 条
-请帮我分析原因并给出优化建议。
+Truy vấn của tôi rất chậm: [code truy vấn]
+Cấu trúc bảng là: [cấu trúc bảng]
+Lượng dữ liệu khoảng [X] bản ghi
+Hãy giúp tôi phân tích nguyên nhân và đưa ra đề xuất tối ưu.
 ```
 
-**关键术语**：`索引`、`事务`、`ACID`、`锁`、`死锁`、`RLS`
+**Thuật ngữ quan trọng**: `index`, `transaction`, `ACID`, `lock`, `deadlock`, `RLS`
 
-### 学习建议
+### Đề xuất học tập
 
-- 如果你只用 Prisma，可以快速浏览本节，重点理解概念
-- 如果你需要优化性能，重点学习 4.2.2 索引原理
-- 如果你处理支付等敏感操作，重点学习 4.2.3 事务特性
+- Nếu bạn chỉ dùng Prisma, có thể xem nhanh phần này, tập trung hiểu khái niệm
+- Nếu bạn cần tối ưu hiệu suất, tập trung học 4.2.2 Nguyên lý Index
+- Nếu bạn xử lý các thao tác nhạy cảm như thanh toán, tập trung học 4.2.3 Đặc tính Transaction

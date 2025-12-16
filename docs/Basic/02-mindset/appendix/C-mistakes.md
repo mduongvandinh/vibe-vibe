@@ -1,454 +1,453 @@
 ---
-title: "C. 常见误区诊断清单"
+title: "C. Danh sách chẩn đoán sai lầm thường gặp"
 ---
 
-# C. 常见误区诊断清单
+# C. Danh sách chẩn đoán sai lầm thường gặp
 
-本附录汇总第二章七个思维模型的常见误区。每个误区都配有「症状描述」「问题诊断」「改进建议」，帮助你自检和避坑。
-
-
-## 如何使用本清单
-
-1. **自检**：对照每个误区的「症状」，看看自己是否踩坑
-2. **诊断**：理解为什么这是问题
-3. **改进**：按建议调整你的思路
+Phụ lục này tổng hợp các sai lầm thường gặp của bảy mô hình tư duy trong Chương 2. Mỗi sai lầm đều có "mô tả triệu chứng", "chẩn đoán vấn đề", "đề xuất cải thiện", giúp bạn tự kiểm tra và tránh sai lầm.
 
 
-## 一、JTBD 思维的常见误区
+## Cách sử dụng danh sách này
 
-### 误区 1.1：只描述功能，不描述任务
-
-**症状**
-
-你的需求描述是这样的：
-> 「我想做一个待办清单 App，要有添加任务、删除任务、分类标签、截止日期……」
-
-**问题诊断**
-
-这是「功能清单」，不是「任务描述」。它告诉 AI 你想要什么功能，但没有说明用户要完成什么任务、为什么需要这些功能。
-
-AI 可能会照单全做，但做出来的东西不一定能解决真正的问题。
-
-**改进建议**
-
-用 JTBD 句式重新描述：
-> 「当职场新人在早上开始工作时，想要快速记录今天要做的事，以便于不会遗漏重要任务。」
-
-然后再推导功能：既然任务是「快速记录」，那么「添加任务」必须在 3 秒内完成。「分类标签」可能反而会拖慢速度，可以不做。
+1. **Tự kiểm tra**: Đối chiếu "triệu chứng" của mỗi sai lầm, xem mình có mắc không
+2. **Chẩn đoán**: Hiểu tại sao đây là vấn đề
+3. **Cải thiện**: Theo đề xuất điều chỉnh tư duy của bạn
 
 
-### 误区 1.2：只看功能任务，忽略情感和社会任务
+## I. Sai lầm thường gặp của tư duy JTBD
 
-**症状**
+### Sai lầm 1.1: Chỉ mô tả tính năng, không mô tả nhiệm vụ
 
-你只考虑用户「要做什么」，没有考虑用户「想要什么感受」和「想被如何看待」。
+**Triệu chứng**
 
-**问题诊断**
+Mô tả nhu cầu của bạn như thế này:
+> "Tôi muốn làm một App danh sách công việc, phải có thêm task, xóa task, phân loại nhãn, deadline..."
 
-用户选择一个产品，往往不只是因为功能，还因为情感和社会因素。
+**Chẩn đoán vấn đề**
 
-- 一个待办清单 App，功能任务是「记录任务」
-- 情感任务可能是「减少焦虑、感到掌控」
-- 社会任务可能是「在同事面前显得靠谱」
+Đây là "danh sách tính năng", không phải "mô tả nhiệm vụ". Nó nói cho AI biết bạn muốn tính năng gì, nhưng không nói rõ người dùng cần hoàn thành nhiệm vụ gì, tại sao cần các tính năng này.
 
-如果你只关注功能任务，可能会做出一个「功能正确但没人想用」的产品。
+AI có thể làm theo danh sách, nhưng thứ làm ra chưa chắc giải quyết được vấn đề thực sự.
 
-**改进建议**
+**Đề xuất cải thiện**
 
-每次做 JTBD 分析时，都问自己三个问题：
+Dùng cú pháp JTBD mô tả lại:
+> "Khi người mới đi làm vào sáng bắt đầu làm việc, muốn nhanh chóng ghi lại việc cần làm hôm nay, để có thể không bỏ sót công việc quan trọng."
 
-| 层次 | 问题 |
+Sau đó mới suy ra tính năng: Vì nhiệm vụ là "ghi nhanh", thì "thêm task" phải hoàn thành trong 3 giây. "Phân loại nhãn" có thể làm chậm tốc độ, có thể không làm.
+
+
+### Sai lầm 1.2: Chỉ xem nhiệm vụ chức năng, bỏ qua nhiệm vụ cảm xúc và xã hội
+
+**Triệu chứng**
+
+Bạn chỉ xem xét người dùng "cần làm gì", không xem xét người dùng "muốn cảm giác gì" và "muốn được người khác nhìn nhận như thế nào".
+
+**Chẩn đoán vấn đề**
+
+Người dùng chọn một sản phẩm, thường không chỉ vì tính năng, còn vì yếu tố cảm xúc và xã hội.
+
+- Một App danh sách công việc, nhiệm vụ chức năng là "ghi task"
+- Nhiệm vụ cảm xúc có thể là "giảm lo lắng, cảm thấy kiểm soát"
+- Nhiệm vụ xã hội có thể là "trước mặt đồng nghiệp trông đáng tin cậy"
+
+Nếu bạn chỉ quan tâm nhiệm vụ chức năng, có thể làm ra sản phẩm "tính năng đúng nhưng không ai muốn dùng".
+
+**Đề xuất cải thiện**
+
+Mỗi lần làm phân tích JTBD, đều tự hỏi ba câu hỏi:
+
+| Tầng | Câu hỏi |
 |-----|------|
-| 功能任务 | 用户要完成什么具体事情？ |
-| 情感任务 | 用户想要什么感受？ |
-| 社会任务 | 用户想被别人如何看待？ |
+| Nhiệm vụ chức năng | Người dùng cần hoàn thành việc gì cụ thể? |
+| Nhiệm vụ cảm xúc | Người dùng muốn cảm giác gì? |
+| Nhiệm vụ xã hội | Người dùng muốn được người khác nhìn nhận như thế nào? |
 
 
-### 误区 1.3：把「我想做」当成「用户需要」
+### Sai lầm 1.3: Coi "tôi muốn làm" là "người dùng cần"
 
-**症状**
+**Triệu chứng**
 
-你的出发点是「我想做一个 xxx」，而不是「我发现用户需要 xxx」。
+Xuất phát điểm của bạn là "tôi muốn làm một xxx", chứ không phải "tôi phát hiện người dùng cần xxx".
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-这是一个常见的心理偏差。我们往往会假设自己的想法就是用户的需求，而不去验证这个假设。
+Đây là thiên kiến tâm lý thường gặp. Chúng ta thường giả định ý tưởng của mình chính là nhu cầu người dùng, mà không xác minh giả định này.
 
-结果是：花了大量时间做出来的东西，只有自己觉得好。
+Kết quả là: mất nhiều thời gian làm ra thứ, chỉ có mình cảm thấy tốt.
 
-**改进建议**
+**Đề xuất cải thiện**
 
-把「我想做」转换成「用户需要」：
+Chuyển "tôi muốn làm" thành "người dùng cần":
 
-| 原始想法 | 转换后 |
+| Ý tưởng ban đầu | Sau khi chuyển đổi |
 |---------|-------|
-| 我想做一个待办清单 | 谁需要待办清单？他们现在怎么解决这个问题？ |
-| 我觉得这个功能很酷 | 有没有用户真的需要这个功能？ |
+| Tôi muốn làm danh sách công việc | Ai cần danh sách công việc? Họ hiện giải quyết vấn đề này thế nào? |
+| Tôi thấy tính năng này rất ngầu | Có người dùng thực sự cần tính năng này không? |
 
-最好的验证方式：找到 3 个目标用户，问问他们现在是怎么做的。
+Cách xác minh tốt nhất: Tìm 3 người dùng mục tiêu, hỏi họ hiện giải quyết thế nào.
 
 
-## 二、逆向思维的常见误区
+## II. Sai lầm thường gặp của tư duy ngược
 
-### 误区 2.1：只列风险，不想应对措施
+### Sai lầm 2.1: Chỉ liệt kê rủi ro, không nghĩ biện pháp ứng phó
 
-**症状**
+**Triệu chứng**
 
-你的 Pre-mortem 分析是这样的：
-> 「可能失败的原因：功能太多做不完、用户不买账、技术实现不了……」
+Phân tích Pre-mortem của bạn như thế này:
+> "Nguyên nhân có thể thất bại: Quá nhiều tính năng làm không xong, người dùng không mua, kỹ thuật không thực hiện được..."
 
-然后就没了。
+Rồi không có gì thêm.
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-列出风险只是第一步。如果没有对应的预防措施，这个分析就是空谈。
+Liệt kê rủi ro chỉ là bước đầu. Nếu không có biện pháp phòng tránh tương ứng, phân tích này chỉ là nói suông.
 
-**改进建议**
+**Đề xuất cải thiện**
 
-每个风险必须配一个预防措施。用这个格式：
+Mỗi rủi ro phải kèm một biện pháp phòng tránh. Dùng format này:
 
 ```
-风险：_______________
-预防措施：_______________
+Rủi ro: _______________
+Biện pháp phòng tránh: _______________
 ```
 
-如果想不出预防措施，说明这个风险需要更认真对待——要么它真的很难避免（那可能不该做），要么你还没想清楚（那需要继续思考）。
+Nếu nghĩ không ra biện pháp phòng tránh, chứng tỏ rủi ro này cần nghiêm túc hơn - hoặc thực sự khó tránh (có thể không nên làm), hoặc bạn chưa nghĩ rõ (cần tiếp tục suy nghĩ).
 
 
-### 误区 2.2：过度悲观，被风险吓住
+### Sai lầm 2.2: Quá bi quan, bị rủi ro dọa nản
 
-**症状**
+**Triệu chứng**
 
-你做完 Pre-mortem 分析后，发现有 10 个可能失败的原因，然后决定不做了。
+Sau khi làm phân tích Pre-mortem, phát hiện có 10 nguyên nhân có thể thất bại, rồi quyết định không làm.
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-逆向思维不是为了让你放弃，而是为了让你「明知有坑还能避开」。
+Tư duy ngược không phải để bạn từ bỏ, mà để "biết có hố mà vẫn tránh được".
 
-每个项目都有风险，关键是识别哪些是「致命风险」（必须避免），哪些是「可控风险」（可以接受）。
+Mỗi dự án đều có rủi ro, quan trọng là nhận diện đâu là "rủi ro chí mạng" (phải tránh), đâu là "rủi ro kiểm soát được" (có thể chấp nhận).
 
-**改进建议**
+**Đề xuất cải thiện**
 
-用「可能性 × 严重性」矩阵评估每个风险：
+Dùng ma trận "khả năng × mức độ nghiêm trọng" đánh giá từng rủi ro:
 
-| | 严重性高 | 严重性低 |
+| | Mức độ nghiêm trọng cao | Mức độ nghiêm trọng thấp |
 |---|---------|---------|
-| **可能性高** | 必须解决 | 注意即可 |
-| **可能性低** | 准备预案 | 可以忽略 |
+| **Khả năng cao** | Phải giải quyết | Chú ý là được |
+| **Khả năng thấp** | Chuẩn bị phương án | Có thể bỏ qua |
 
-只有「可能性高 + 严重性高」的风险是致命的。如果这类风险无法避免，可能确实不该做。但如果可以预防，那就做好预防措施，然后继续。
-
-
-### 误区 2.3：Pre-mortem 做一次就完了
-
-**症状**
-
-你在项目开始时做了 Pre-mortem，然后再也没有回顾过。
-
-**问题诊断**
-
-项目进行过程中，会出现新的信息。当初没预料到的风险可能会出现，当初担心的风险可能已经化解。
-
-**改进建议**
-
-在项目关键节点（如 MVP 完成、第一次用户反馈后）重新审视 Pre-mortem 清单：
-- 有没有新增的风险？
-- 当初的预防措施有效吗？
-- 有没有风险已经可以划掉？
+Chỉ có rủi ro "khả năng cao + mức độ nghiêm trọng cao" mới chí mạng. Nếu loại rủi ro này không thể tránh, có thể thực sự không nên làm. Nhưng nếu có thể phòng tránh, thì làm tốt biện pháp phòng tránh, rồi tiếp tục.
 
 
-## 三、减法思维的常见误区
+### Sai lầm 2.3: Pre-mortem làm một lần rồi xong
 
-### 误区 3.1：把 MVP 当成「简陋版」
+**Triệu chứng**
 
-**症状**
+Bạn khi dự án bắt đầu làm Pre-mortem, rồi không bao giờ xem lại.
 
-你的 MVP 是「功能残缺、体验粗糙、凑合能用」的版本。
+**Chẩn đoán vấn đề**
 
-**问题诊断**
+Trong quá trình dự án, sẽ xuất hiện thông tin mới. Rủi ro ban đầu không lường trước có thể xuất hiện, rủi ro ban đầu lo lắng có thể đã giải quyết.
 
-MVP 是「最小可验证版本」，不是「最小可运行版本」。
+**Đề xuất cải thiện**
 
-关键区别：
-- 错误理解：功能越少越好，能跑就行
-- 正确理解：保留足以验证核心假设的功能，这些功能要做好
+Tại điểm quan trọng của dự án (như MVP hoàn thành, sau phản hồi người dùng đầu tiên) xem lại danh sách Pre-mortem:
+- Có rủi ro mới thêm không?
+- Biện pháp phòng tránh ban đầu có hiệu quả không?
+- Có rủi ro nào đã có thể gạch bỏ không?
 
-如果你的 MVP 体验太差，用户可能因为「不好用」而放弃，而不是因为「不需要」而放弃。你就没法判断问题是出在产品还是需求。
 
-**改进建议**
+## III. Sai lầm thường gặp của tư duy trừ
 
-MVP 的原则是：功能要少，但核心功能要做到位。
+### Sai lầm 3.1: Coi MVP là "phiên bản sơ sài"
 
-| 维度 | MVP 应该做的 | MVP 不应该做的 |
+**Triệu chứng**
+
+MVP của bạn là phiên bản "tính năng thiếu sót, trải nghiệm thô sơ, tạm được".
+
+**Chẩn đoán vấn đề**
+
+MVP là "phiên bản tối thiểu có thể xác minh", không phải "phiên bản tối thiểu có thể chạy".
+
+Sự khác biệt quan trọng:
+- Hiểu sai: Tính năng càng ít càng tốt, chạy được là được
+- Hiểu đúng: Giữ lại tính năng đủ xác minh giả định cốt lõi, các tính năng này phải làm tốt
+
+Nếu trải nghiệm MVP của bạn quá tệ, người dùng có thể từ bỏ vì "không dùng được" chứ không phải vì "không cần". Bạn sẽ không phán đoán được vấn đề nằm ở sản phẩm hay nhu cầu.
+
+**Đề xuất cải thiện**
+
+Nguyên tắc MVP là: Tính năng phải ít, nhưng tính năng cốt lõi phải làm đúng.
+
+| Chiều | MVP nên làm | MVP không nên làm |
 |-----|------------|--------------|
-| 功能数量 | 只做 P0（3 个以内） | 不做 P1、P2 |
-| 功能深度 | P0 功能做到好用 | 不凑合、不敷衍 |
-| 视觉设计 | 清晰可用 | 不需要精美 |
+| Số lượng tính năng | Chỉ làm P0 (tối đa 3) | Không làm P1, P2 |
+| Độ sâu tính năng | Tính năng P0 làm đến dễ dùng | Không qua loa, không chiếu lệ |
+| Thiết kế visual | Rõ ràng dùng được | Không cần đẹp mắt |
 
 
-### 误区 3.2：砍功能时心里过不去
+### Sai lầm 3.2: Khi cắt tính năng lòng không qua được
 
-**症状**
+**Triệu chứng**
 
-你知道应该做 MVP，但每个功能都舍不得砍：
-> 「这个功能很重要啊……那个功能竞品都有……这个功能我都想好怎么做了……」
+Bạn biết nên làm MVP, nhưng từng tính năng đều không nỡ cắt:
+> "Tính năng này quan trọng lắm... Tính năng kia đối thủ đều có... Tính năng này tôi đã nghĩ ra cách làm rồi..."
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-这是正常的心理。人类天生厌恶损失，砍掉已经想过的功能会让你觉得「亏了」。
+Đây là tâm lý bình thường. Con người vốn ghét mất mát, cắt bỏ tính năng đã nghĩ ra sẽ khiến bạn cảm thấy "thiệt".
 
-但如果不砍，你会花更多时间在不重要的功能上，拖延真正的验证。
+Nhưng nếu không cắt, bạn sẽ mất nhiều thời gian hơn cho tính năng không quan trọng, trì hoãn xác minh thực sự.
 
-**改进建议**
+**Đề xuất cải thiện**
 
-用「不做清单」代替「功能清单」。不是「删掉功能」，而是「把功能放到不做清单」。
+Dùng "danh sách không làm" thay "danh sách tính năng". Không phải "xóa tính năng", mà là "đưa tính năng vào danh sách không làm".
 
-心理上的区别：
-- 「删掉」= 这个功能没了
-- 「放到不做清单」= 这个功能我想过了，决定不做，原因是 xxx，将来 xxx 时候再考虑
+Sự khác biệt tâm lý:
+- "Xóa" = Tính năng này mất rồi
+- "Đưa vào danh sách không làm" = Tính năng này tôi đã nghĩ qua rồi, quyết định không làm, lý do là xxx, sau này xxx lúc mới xem xét
 
+### Sai lầm 3.3: Danh sách không làm quá chung chung
 
-### 误区 3.3：不做清单太空泛
+**Triệu chứng**
 
-**症状**
+Danh sách không làm của bạn như thế này:
+> "Không làm tính năng phức tạp" "Không làm tính năng không cần thiết"
 
-你的不做清单是这样的：
-> 「不做复杂的功能」「不做不必要的功能」
+**Chẩn đoán vấn đề**
 
-**问题诊断**
+Danh sách không làm này tương đương không có. Cái gì là "phức tạp"? Cái gì là "không cần thiết"? Không có ranh giới rõ ràng, gặp vấn đề cụ thể vẫn sẽ phân vân.
 
-这种不做清单等于没有。什么是「复杂」？什么是「不必要」？没有清晰的边界，遇到具体问题时还是会纠结。
+**Đề xuất cải thiện**
 
-**改进建议**
-
-不做清单要具体到功能名称，并写明理由：
+Danh sách không làm phải cụ thể đến tên tính năng, và viết rõ lý do:
 
 ```
-不做 多设备同步，因为 需要后端开发，大大增加复杂度
-不做 任务分类标签，因为 不是极简体验的核心
-不做 截止日期提醒，因为 先验证「记录」这个核心价值
+Không làm đồng bộ đa thiết bị, vì cần phát triển backend, tăng độ phức tạp rất nhiều
+Không làm phân loại nhãn task, vì không phải cốt lõi trải nghiệm cực đơn giản
+Không làm nhắc deadline, vì trước tiên xác minh giá trị cốt lõi "ghi lại"
 ```
 
 
-## 四、故事思维的常见误区
+## IV. Sai lầm thường gặp của tư duy câu chuyện
 
-### 误区 4.1：用户画像只有人口统计学特征
+### Sai lầm 4.1: Chân dung người dùng chỉ có đặc điểm nhân khẩu học
 
-**症状**
+**Triệu chứng**
 
-你的用户画像是这样的：
-> 「25-35 岁，大城市，大学学历，月收入 1-2 万」
+Chân dung người dùng của bạn như thế này:
+> "25-35 tuổi, thành phố lớn, học đại học, thu nhập tháng 1-2 vạn"
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-这些信息对产品设计几乎没有帮助。知道用户是「25-35 岁」，并不能告诉你他需要什么功能、会在什么场景下使用、有什么顾虑。
+Những thông tin này gần như không giúp gì cho thiết kế sản phẩm. Biết người dùng là "25-35 tuổi", không nói cho bạn biết họ cần tính năng gì, dùng trong tình huống nào, có quan ngại gì.
 
-**改进建议**
+**Đề xuất cải thiện**
 
-用「三维画像」代替人口统计学：
+Dùng "chân dung ba chiều" thay nhân khẩu học:
 
-| 维度 | 应该包含的内容 |
+| Chiều | Nên bao gồm nội dung |
 |-----|--------------|
-| 表面属性 | 职业、每天处理多少事务、使用什么设备 |
-| 行为习惯 | 什么时候用、怎么用、现在用什么替代方案 |
-| 深层动机 | 害怕什么、追求什么、想成为什么样的人 |
+| Thuộc tính bề mặt | Nghề nghiệp, mỗi ngày xử lý bao nhiêu công việc, dùng thiết bị gì |
+| Thói quen hành vi | Khi nào dùng, dùng thế nào, hiện dùng phương án thay thế gì |
+| Động cơ sâu xa | Sợ điều gì, theo đuổi điều gì, muốn trở thành người như thế nào |
 
 
-### 误区 4.2：用户是「一群人」而不是「一个人」
+### Sai lầm 4.2: Người dùng là "một nhóm người" chứ không phải "một người"
 
-**症状**
+**Triệu chứng**
 
-你说的用户是「年轻人」「上班族」「学生」这样的群体。
+Người dùng bạn nói là "người trẻ" "nhân viên văn phòng" "sinh viên" nhóm như thế này.
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-群体太抽象，无法指导具体的产品设计。「年轻人」里有学生、有职场新人、有创业者，他们的需求完全不同。
+Nhóm quá trừu tượng, không thể hướng dẫn thiết kế sản phẩm cụ thể. Trong "người trẻ" có sinh viên, có người mới đi làm, có doanh nhân, nhu cầu của họ hoàn toàn khác.
 
-**改进建议**
+**Đề xuất cải thiện**
 
-给你的用户起个名字，把 TA 具体化到「能发微信问问」的程度：
+Đặt tên cho người dùng của bạn, cụ thể hóa TA đến mức "có thể gửi WeChat hỏi":
 
-| 抽象 | 具体 |
+| Trừu tượng | Cụ thể |
 |-----|------|
-| 年轻的上班族 | 小李，25 岁，互联网公司运营，每天处理 10-15 件事务 |
-| 经常忘事的人 | 小李，上周因为忘了给客户回邮件被领导批评 |
+| Nhân viên văn phòng trẻ | Tiểu Lý, 25 tuổi, nhân viên vận hành công ty internet, mỗi ngày xử lý 10-15 công việc |
+| Người hay quên việc | Tiểu Lý, tuần trước vì quên trả lời email khách hàng bị lãnh đạo phê bình |
 
 
-### 误区 4.3：用户旅程只考虑「正常路径」
+### Sai lầm 4.3: Hành trình người dùng chỉ xem "đường đi bình thường"
 
-**症状**
+**Triệu chứng**
 
-你的用户旅程是「打开 App → 添加任务 → 完成任务 → 关闭」。
+Hành trình người dùng của bạn là "Mở App → Thêm task → Hoàn thành task → Đóng".
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-这只是理想情况。真实场景中，用户会遇到各种意外：
-- 添加任务时被打断怎么办？
-- 任务太多看不过来怎么办？
-- 几天没用再打开时怎么办？
+Đây chỉ là trường hợp lý tưởng. Trong tình huống thực, người dùng sẽ gặp nhiều ý ngoại:
+- Khi thêm task bị gián đoạn thì sao?
+- Task quá nhiều nhìn không hết thì sao?
+- Vài ngày không dùng mở lại thì sao?
 
-**改进建议**
+**Đề xuất cải thiện**
 
-在用户旅程中加入「异常路径」和「边界情况」：
-
-```
-正常路径：打开 → 添加 → 完成 → 关闭
-异常路径 1：打开 → 添加到一半被打断 → 下次打开时能看到草稿吗？
-异常路径 2：打开 → 看到 50 个未完成任务 → 会不会焦虑到关掉？
-边界情况：3 天没用 → 再打开时显示什么？
-```
-
-
-## 五、灵魂三问的常见误区
-
-### 误区 5.1：用户描述太泛
-
-**症状**
-
-你回答「用户是谁」时，说的是：
-> 「想提高效率的人」「有待办需求的人」「年轻人」
-
-**问题诊断**
-
-这种描述等于没有描述。「想提高效率的人」可能是学生、是职场人、是创业者，他们的需求差异巨大。
-
-判断标准：你能给这个用户发微信吗？如果不能，说明不够具体。
-
-**改进建议**
-
-用这个检验标准：我能不能用一句话描述 TA 是谁、TA 在什么场景下遇到什么问题？
+Trong hành trình người dùng thêm "đường đi bất thường" và "trường hợp biên":
 
 ```
-❌ 想提高效率的人
-✅ 小李，25 岁职场新人，经常忘事被领导批评
+Đường đi bình thường: Mở → Thêm → Hoàn thành → Đóng
+Đường đi bất thường 1: Mở → Thêm đến nửa bị gián đoạn → Lần mở sau có thấy bản nháp không?
+Đường đi bất thường 2: Mở → Thấy 50 task chưa hoàn thành → Có lo lắng đến mức đóng không?
+Trường hợp biên: 3 ngày không dùng → Mở lại hiển thị gì?
 ```
 
 
-### 误区 5.2：痛点只有「想要」没有「痛」
+## V. Sai lầm thường gặp của Ba câu hỏi linh hồn
 
-**症状**
+### Sai lầm 5.1: Mô tả người dùng quá chung
 
-你描述的痛点是：
-> 「用户想要一个好用的待办清单」「用户想要更方便地记录任务」
+**Triệu chứng**
 
-**问题诊断**
+Khi trả lời "người dùng là ai", bạn nói:
+> "Người muốn nâng cao hiệu suất" "Người có nhu cầu công việc" "Người trẻ"
 
-「想要 xxx」是需求，不是痛点。痛点应该带有负面情绪：焦虑、烦躁、尴尬、害怕。
+**Chẩn đoán vấn đề**
 
-如果用户只是「想要」而没有「痛」，他可能不会真的去用你的解决方案——因为现状还过得去。
+Mô tả này tương đương không mô tả. "Người muốn nâng cao hiệu suất" có thể là sinh viên, là người đi làm, là doanh nhân, nhu cầu của họ khác biệt rất lớn.
 
-**改进建议**
+Tiêu chí phán đoán: Bạn có thể gửi WeChat cho người dùng này không? Nếu không, chứng tỏ chưa đủ cụ thể.
 
-检验痛点的三个标准：
+**Đề xuất cải thiện**
 
-| 标准 | 问题 |
+Dùng tiêu chí kiểm tra này: Tôi có thể dùng một câu mô tả TA là ai, TA trong tình huống nào gặp vấn đề gì không?
+
+```
+❌ Người muốn nâng cao hiệu suất
+✅ Tiểu Lý, 25 tuổi người mới đi làm, thường quên việc bị lãnh đạo phê bình
+```
+
+
+### Sai lầm 5.2: Điểm đau chỉ có "muốn" không có "đau"
+
+**Triệu chứng**
+
+Điểm đau bạn mô tả là:
+> "Người dùng muốn một danh sách công việc dễ dùng" "Người dùng muốn ghi task thuận tiện hơn"
+
+**Chẩn đoán vấn đề**
+
+"Muốn xxx" là nhu cầu, không phải điểm đau. Điểm đau nên mang cảm xúc tiêu cực: lo lắng, phiền muộn, xấu hổ, sợ hãi.
+
+Nếu người dùng chỉ "muốn" mà không "đau", họ có thể không thực sự dùng giải pháp của bạn - vì hiện trạng còn qua được.
+
+**Đề xuất cải thiện**
+
+Kiểm tra điểm đau bằng ba tiêu chí:
+
+| Tiêu chí | Câu hỏi |
 |-----|------|
-| 有负面情绪 | 用户会因为这个问题感到焦虑/烦躁/尴尬吗？ |
-| 正在发生 | 用户这周遇到过这个问题吗？ |
-| 愿意付出 | 如果有解决方案，用户会立刻用吗？ |
+| Có cảm xúc tiêu cực | Người dùng có vì vấn đề này cảm thấy lo lắng/phiền muộn/xấu hổ không? |
+| Đang xảy ra | Tuần này người dùng có gặp vấn đề này không? |
+| Sẵn sàng bỏ công sức | Nếu có giải pháp, người dùng có dùng ngay không? |
 
-三个都满足，才是真痛点。
+Cả ba đều thỏa mãn, mới là điểm đau thực sự.
 
 
-### 误区 5.3：「为什么选我」只说「我更好」
+### Sai lầm 5.3: "Tại sao chọn tôi" chỉ nói "tôi tốt hơn"
 
-**症状**
+**Triệu chứng**
 
-你回答「为什么选我」时，说的是：
-> 「因为我的产品更好」「因为我的设计更简洁」
+Khi trả lời "tại sao chọn tôi", bạn nói:
+> "Vì sản phẩm của tôi tốt hơn" "Vì thiết kế của tôi đơn giản hơn"
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-「更好」不是差异化。用户为什么相信你「更好」？相比谁「更好」？好在哪里？
+"Tốt hơn" không phải khác biệt hóa. Tại sao người dùng tin bạn "tốt hơn"? So với ai "tốt hơn"? Tốt ở chỗ nào?
 
-**改进建议**
+**Đề xuất cải thiện**
 
-用这个句式回答：
+Dùng cú pháp này trả lời:
 
-> 「用户现在用 [现有方案] 解决这个问题，但 [痛点]。我的方案是 [具体差异]，所以用户应该选我。」
+> "Người dùng hiện dùng [phương án hiện tại] giải quyết vấn đề này, nhưng [điểm đau]. Phương án của tôi là [khác biệt cụ thể], nên người dùng nên chọn tôi."
 
 ```
-❌ 因为我的产品更好
-✅ 用户现在用手机备忘录记事，但经常忘记看。我的方案是「打开就是今日待办」，3秒添加任务，所以更适合需要快速记录的职场人。
+❌ Vì sản phẩm của tôi tốt hơn
+✅ Người dùng hiện dùng ghi chú điện thoại ghi việc, nhưng thường quên xem. Phương án của tôi là "mở ra là công việc hôm nay", 3 giây thêm task, nên phù hợp hơn với người đi làm cần ghi nhanh.
 ```
 
 
-## 六、场景应用的常见误区
+## VI. Sai lầm thường gặp của áp dụng theo tình huống
 
-### 误区 6.1：生搬硬套产品思维
+### Sai lầm 6.1: Áp dụng cứng nhắc tư duy sản phẩm
 
-**症状**
+**Triệu chứng**
 
-你在做数据分析或自动化脚本时，也在纠结「用户画像」「MVP」「灵魂三问」。
+Khi làm phân tích dữ liệu hoặc script tự động hóa, bạn cũng phân vân "chân dung người dùng" "MVP" "Ba câu hỏi linh hồn".
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-思维模型是工具，不是教条。不同场景需要灵活调整：
-- 做产品：需要完整的用户画像、MVP 规划
-- 做数据分析：核心是「给谁看、回答什么问题」
-- 做自动化脚本：核心是「什么任务值得自动化」
+Mô hình tư duy là công cụ, không phải giáo điều. Tình huống khác cần điều chỉnh linh hoạt:
+- Làm sản phẩm: Cần chân dung người dùng hoàn chỉnh, quy hoạch MVP
+- Làm phân tích dữ liệu: Cốt lõi là "cho ai xem, trả lời câu hỏi gì"
+- Làm script tự động hóa: Cốt lõi là "task nào đáng tự động hóa"
 
-**改进建议**
+**Đề xuất cải thiện**
 
-根据场景选择重点：
+Chọn mô hình trọng tâm theo tình huống:
 
-| 场景 | 重点模型 | 次要模型 |
+| Tình huống | Mô hình trọng tâm | Mô hình phụ |
 |-----|---------|---------|
-| 产品/工具 | JTBD、减法、灵魂三问 | 全部 |
-| 数据分析 | 灵魂三问（给谁看、回答什么） | 逆向（什么会让分析出错） |
-| 自动化脚本 | 问题发现、逆向思维 | 减法（先自动化哪一步） |
-| 给家人做 | 故事思维 | 减法（极简设计） |
+| Sản phẩm/Công cụ | JTBD, Tư duy trừ, Ba câu hỏi linh hồn | Tất cả |
+| Phân tích dữ liệu | Ba câu hỏi linh hồn (cho ai xem, trả lời gì) | Tư duy ngược (gì khiến phân tích sai) |
+| Script tự động hóa | Phát hiện vấn đề, Tư duy ngược | Tư duy trừ (tự động hóa bước nào trước) |
+| Làm cho gia đình | Tư duy câu chuyện | Tư duy trừ (thiết kế cực đơn giản) |
 
 
-## 七、问题发现的常见误区
+## VII. Sai lầm thường gặp của phát hiện vấn đề
 
-### 误区 7.1：烦恼日记只记不分析
+### Sai lầm 7.1: Nhật ký phiền não chỉ ghi không phân tích
 
-**症状**
+**Triệu chứng**
 
-你记了一周的烦恼日记，然后就放在那里了。
+Bạn ghi nhật ký phiền não một tuần, rồi để đó.
 
-**问题诊断**
+**Chẩn đoán vấn đề**
 
-记录只是第一步。价值在于分析和筛选。
+Ghi chép chỉ là bước đầu. Giá trị nằm ở phân tích và lọc.
 
-**改进建议**
+**Đề xuất cải thiện**
 
-第 8 天必须做分析：
-1. 按频率和痛苦程度打分
-2. 用「问题筛选评分表」评估每个问题
-3. 选出分数最高的 1-2 个问题，开始做 JTBD 分析
-
-
-### 误区 7.2：选了一个「不适合自动化」的问题
-
-**症状**
-
-你选择自动化的任务是：
-- 涉及大量主观判断（如「帮我写一份好的报告」）
-- 涉及敏感数据（如「自动交易股票」）
-- 错了后果很严重（如「自动给客户发合同」）
-
-**问题诊断**
-
-不是所有问题都适合用 Vibe Coding 解决。规则性低、敏感性高、容错性低的任务，应该谨慎处理。
-
-**改进建议**
-
-用「问题筛选评分表」评估，总分低于 15 分的问题，要么不做，要么只做辅助（人工复核）。
+Ngày thứ 8 phải làm phân tích:
+1. Chấm điểm theo tần suất và mức độ đau khổ
+2. Dùng "Bảng chấm điểm lọc vấn đề" đánh giá mỗi vấn đề
+3. Chọn 1-2 vấn đề điểm cao nhất, bắt đầu phân tích JTBD
 
 
-## 自检清单总结
+### Sai lầm 7.2: Chọn vấn đề "không phù hợp tự động hóa"
 
-完成项目前，用这个清单快速自检：
+**Triệu chứng**
 
-- [ ] 我用的是「任务描述」而非「功能清单」？
-- [ ] 我考虑了功能、情感、社会三层任务？
-- [ ] 每个风险都有对应的预防措施？
-- [ ] MVP 的核心功能做到位了，而不是凑合？
-- [ ] 不做清单是具体的功能名称，而非空泛描述？
-- [ ] 用户画像具体到「能发微信」的程度？
-- [ ] 痛点带有负面情绪，而非只是「想要」？
-- [ ] 「为什么选我」说清楚了和现有方案的差异？
+Task bạn chọn tự động hóa là:
+- Liên quan nhiều phán đoán chủ quan (như "giúp tôi viết báo cáo tốt")
+- Liên quan dữ liệu nhạy cảm (như "tự động giao dịch cổ phiếu")
+- Sai hậu quả rất nghiêm trọng (như "tự động gửi hợp đồng cho khách hàng")
 
-如果有任何一项打不了勾，回到对应章节重新思考。
+**Chẩn đoán vấn đề**
+
+Không phải mọi vấn đề đều phù hợp giải quyết bằng Vibe Coding. Task tính quy tắc thấp, tính nhạy cảm cao, dung sai thấp, nên thận trọng xử lý.
+
+**Đề xuất cải thiện**
+
+Dùng "Bảng chấm điểm lọc vấn đề" đánh giá, vấn đề tổng điểm dưới 15 điểm, hoặc không làm, hoặc chỉ làm hỗ trợ (kiểm tra thủ công).
+
+
+## Tổng kết danh sách tự kiểm tra
+
+Trước khi hoàn thành dự án, dùng danh sách này tự kiểm tra nhanh:
+
+- [ ] Tôi dùng "mô tả nhiệm vụ" chứ không phải "danh sách tính năng"?
+- [ ] Tôi đã xem xét ba tầng nhiệm vụ chức năng, cảm xúc, xã hội?
+- [ ] Mỗi rủi ro đều có biện pháp phòng tránh tương ứng?
+- [ ] Tính năng cốt lõi của MVP làm đến vị, chứ không phải qua loa?
+- [ ] Danh sách không làm là tên tính năng cụ thể, chứ không phải mô tả chung chung?
+- [ ] Chân dung người dùng cụ thể đến mức "có thể gửi WeChat"?
+- [ ] Điểm đau mang cảm xúc tiêu cực, chứ không chỉ "muốn"?
+- [ ] "Tại sao chọn tôi" nói rõ khác biệt với phương án hiện tại?
+
+Nếu có bất kỳ mục nào không thể tích, quay lại phần tương ứng suy nghĩ lại.

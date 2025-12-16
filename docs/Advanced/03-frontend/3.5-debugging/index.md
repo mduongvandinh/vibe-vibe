@@ -1,88 +1,87 @@
 ---
-title: "3.5 别靠猜来找 Bug——Debug 实战：断点/Network/日志/错误边界"
-typora-root-url: ../../public
+title: "3.5 Đừng đoán để tìm Bug——Debug thực chiến: Breakpoint/Network/Log/Error boundary"
 ---
 
-# 3.5 别靠猜来找 Bug——Debug 实战
+# 3.5 Đừng đoán để tìm Bug——Debug thực chiến
 
-### 一句话破题
+### Tóm tắt một câu
 
-调试不是玄学，而是科学——用正确的工具，在正确的位置，观察正确的数据。
+Debugging không phải huyền học, mà là khoa học——dùng công cụ đúng, ở vị trí đúng, quan sát dữ liệu đúng.
 
-### 本节定位
+### Định vị phần này
 
-当代码不按预期工作时，新手往往陷入"猜测-修改-祈祷"的循环。而高手会打开 DevTools，用数据说话。本节将教你掌握 Chrome DevTools 的四大核心面板，让问题无所遁形。
+Khi code không hoạt động như kỳ vọng, người mới thường rơi vào vòng lặp "đoán-sửa-cầu nguyện". Còn cao thủ sẽ mở DevTools, dùng dữ liệu nói lên sự thật. Phần này sẽ dạy bạn nắm vững bốn panel cốt lõi của Chrome DevTools, khiến vấn đề không còn chỗ ẩn náu.
 
 ```mermaid
 graph LR
-    A["发现问题"] --> B{"问题类型?"}
-    B -->|"请求失败/数据错误"| C["Network 面板"]
-    B -->|"代码报错/逻辑问题"| D["Console 面板"]
-    B -->|"页面卡顿/渲染慢"| E["Performance 面板"]
-    B -->|"组件状态异常"| F["React DevTools"]
+    A["Phát hiện vấn đề"] --> B{"Loại vấn đề?"}
+    B -->|"Request fail/Data error"| C["Panel Network"]
+    B -->|"Code error/Logic issue"| D["Panel Console"]
+    B -->|"Page lag/Render slow"| E["Panel Performance"]
+    B -->|"Component state abnormal"| F["React DevTools"]
 ```
 
-### 调试思维模型
+### Mô hình tư duy debugging
 
-高效调试遵循**定位-观察-验证**的循环：
+Debugging hiệu quả tuân theo vòng lặp **định vị-quan sát-xác minh**:
 
-| 阶段 | 行动 | 工具 |
+| Giai đoạn | Hành động | Công cụ |
 |------|------|------|
-| **定位** | 缩小问题范围 | 二分法注释代码 |
-| **观察** | 收集运行时数据 | DevTools 各面板 |
-| **验证** | 确认假设是否正确 | 修改代码并测试 |
+| **Định vị** | Thu hẹp phạm vi vấn đề | Binary search comment code |
+| **Quan sát** | Thu thập runtime data | Các panel DevTools |
+| **Xác minh** | Xác nhận giả thuyết đúng hay không | Sửa code và test |
 
-### 调试前的准备
+### Chuẩn bị trước khi debug
 
-在开始调试之前，确保你的开发环境配置正确：
+Trước khi bắt đầu debug, đảm bảo môi trường development đã config đúng:
 
-1. **开发模式**：确保运行的是 `npm run dev` 而非生产构建
-2. **Source Maps**：确保 TypeScript/JavaScript 的 source map 已启用
-3. **React DevTools**：安装 Chrome 扩展程序
-4. **禁用缓存**：在 Network 面板勾选 "Disable cache"
+1. **Development mode**: Đảm bảo chạy `npm run dev` chứ không phải production build
+2. **Source Maps**: Đảm bảo source map của TypeScript/JavaScript đã bật
+3. **React DevTools**: Cài đặt Chrome extension
+4. **Disable cache**: Trong panel Network tick "Disable cache"
 
-### 本节导航
+### Điều hướng phần này
 
-| 小节 | 主题 | 解决什么问题 |
+| Mục | Chủ đề | Giải quyết vấn đề gì |
 |------|------|--------------|
-| **3.5.1** | Network 面板 | 请求失败、数据格式错误、接口慢 |
-| **3.5.2** | Console 调试 | 代码报错、逻辑判断、变量值检查 |
-| **3.5.3** | Performance 分析 | 页面卡顿、渲染性能、内存泄漏 |
-| **3.5.4** | React DevTools | 组件状态、Props 传递、重渲染问题 |
+| **3.5.1** | Panel Network | Request fail, data format error, API chậm |
+| **3.5.2** | Console debug | Code error, logic check, kiểm tra giá trị biến |
+| **3.5.3** | Performance analysis | Page lag, render performance, memory leak |
+| **3.5.4** | React DevTools | Component state, Props truyền, vấn đề re-render |
 
-### 常见问题速查表
+### Bảng tra cứu nhanh vấn đề thường gặp
 
-| 现象 | 可能原因 | 检查工具 | 检查要点 |
+| Hiện tượng | Nguyên nhân có thể | Công cụ kiểm tra | Điểm cần kiểm tra |
 |------|----------|----------|----------|
-| 白屏 | JS 报错 | Console | 红色错误信息 |
-| 数据不显示 | 请求失败 | Network | 状态码、响应体 |
-| 页面卡顿 | 渲染性能 | Performance | 长任务、重绘 |
-| 状态不更新 | React 状态 | React DevTools | 组件状态、Props |
+| Màn hình trắng | JS error | Console | Thông tin lỗi màu đỏ |
+| Data không hiển thị | Request fail | Network | Status code, response body |
+| Page lag | Render performance | Performance | Long task, repaint |
+| State không update | React state | React DevTools | Component state, Props |
 
-### AI 协作指南
+### Hướng dẫn cộng tác AI
 
-**核心意图**：当遇到 Bug 时，先用 DevTools 收集信息，再让 AI 帮你分析。
+**Ý định cốt lõi**: Khi gặp Bug, dùng DevTools thu thập thông tin trước, rồi mới để AI giúp phân tích.
 
-**有效的求助方式**：
-- "Network 显示请求返回 500，响应体是 [粘贴响应]，这是什么问题？"
-- "Console 报错 [粘贴错误栈]，这个错误是什么意思？"
-- "Performance 录制显示这个函数执行了 200ms，如何优化？"
+**Cách cầu cứu hiệu quả**:
+- "Network hiển thị request trả về 500, response body là [paste response], đây là vấn đề gì?"
+- "Console báo lỗi [paste error stack], lỗi này nghĩa là gì?"
+- "Performance recording hiển thị hàm này chạy 200ms, làm sao tối ưu?"
 
-**无效的求助方式**：
-- "页面白屏了，怎么办？"（信息不足）
-- "代码不工作"（没有具体描述）
+**Cách cầu cứu không hiệu quả**:
+- "Màn hình trắng rồi, làm sao?" (thiếu thông tin)
+- "Code không hoạt động" (không có mô tả cụ thể)
 
-### Vibe Coding 视角
+### Góc nhìn Vibe Coding
 
-在 Vibe Coding 体系下，调试能力决定了你能否有效验收 AI 生成的代码。当 AI 写的代码不工作时，你需要：
+Trong hệ thống Vibe Coding, khả năng debug quyết định bạn có thể nghiệm thu hiệu quả code AI generate hay không. Khi code do AI viết không hoạt động, bạn cần:
 
-1. **用 DevTools 定位问题**：而不是盲目让 AI "修一修"
-2. **给 AI 精确的反馈**：提供错误信息、网络请求截图
-3. **验证 AI 的修复**：确认问题真的解决了，而非引入新问题
+1. **Dùng DevTools định vị vấn đề**: Thay vì mù quáng để AI "sửa một chút"
+2. **Đưa feedback chính xác cho AI**: Cung cấp thông tin lỗi, screenshot network request
+3. **Xác minh sửa chữa của AI**: Xác nhận vấn đề thực sự giải quyết, chứ không phải tạo vấn đề mới
 
-### 验收清单
+### Checklist nghiệm thu
 
-- [ ] 知道如何打开 Chrome DevTools（F12 或 Cmd+Option+I）
-- [ ] 能够在 Network 面板找到请求并查看响应
-- [ ] 能够在 Console 面板看懂错误信息
-- [ ] 已安装 React Developer Tools 扩展
+- [ ] Biết cách mở Chrome DevTools (F12 hoặc Cmd+Option+I)
+- [ ] Có thể tìm request trong panel Network và xem response
+- [ ] Có thể hiểu thông tin lỗi trong panel Console
+- [ ] Đã cài React Developer Tools extension

@@ -1,9 +1,9 @@
 ---
-title: "优质播客"
+title: "Podcast Chất Lượng"
 ---
 
-# 优质播客
+# Podcast Chất Lượng
 
-值得收听的 AI、开发者、创业者相关播客推荐。
+Đề xuất các podcast đáng nghe về AI, nhà phát triển, và doanh nhân.
 
-教程开发中
+Hướng dẫn đang được phát triển

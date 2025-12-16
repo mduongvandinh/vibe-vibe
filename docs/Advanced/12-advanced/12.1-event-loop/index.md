@@ -1,47 +1,46 @@
 ---
-title: "12.1 为什么 JS 能一心多用——Node 进程与事件循环：回调/Promise/async-await"
-typora-root-url: ../../public
+title: "12.1 Tại sao JS có thể xử lý nhiều việc cùng lúc — Node Process và Event Loop: Callbacks/Promise/async-await"
 ---
 
-# 12.1 为什么 JS 能一心多用——Node 进程与事件循环：回调/Promise/async-await
+# 12.1 Tại sao JS có thể xử lý nhiều việc cùng lúc — Node Process và Event Loop: Callbacks/Promise/async-await
 
-### 一句话破题
+### Câu hỏi nhìn thấu đáo
 
-JavaScript 是**单线程**语言，却能同时处理网络请求、文件读写、用户交互——这一切的秘密，都藏在**事件循环**这个"任务调度员"身上。
+JavaScript là ngôn ngữ **single-threaded**, nhưng có thể xử lý đồng thời các yêu cầu mạng, đọc/ghi file, tương tác người dùng — bí mật của tất cả điều này nằm trong **event loop**, "nhân viên quản lý nhiệm vụ" này.
 
-### 核心价值
+### Giá trị cốt lõi
 
-理解事件循环，是从"会写异步代码"到"能调试异步 Bug"的分水岭。当你遇到以下问题时，事件循环就是你的诊断工具：
+Hiểu được event loop là ranh giới tách biệt giữa "viết được code bất đồng bộ" và "có thể debug được async bug". Khi bạn gặp các vấn đề sau, event loop là công cụ chẩn đoán của bạn:
 
-- 为什么 `setTimeout(fn, 0)` 不会立即执行？
-- 为什么 `Promise.then` 比 `setTimeout` 先执行？
-- 为什么页面会"卡死"？
-- 为什么数据库查询后拿到的是 `undefined`？
+- Tại sao `setTimeout(fn, 0)` không thực thi ngay lập tức?
+- Tại sao `Promise.then` thực thi trước `setTimeout`?
+- Tại sao trang web "bị đơ"?
+- Tại sao sau khi truy vấn database lại nhận được `undefined`?
 
-### 本章导览
+### Hướng dẫn chương này
 
-本节将从底层机制出发，带你理解 JavaScript 异步编程的演进之路：
+Phần này sẽ bắt đầu từ cơ chế bottom-level, dẫn bạn hiểu được quá trình phát triển của lập trình bất đồng bộ trong JavaScript:
 
 ```mermaid
 graph LR
-    A["事件循环机制"] --> B["回调函数"];
+    A["Event Loop Mechanism"] --> B["Callbacks"];
     B --> C["Promise"];
     C --> D["async/await"];
-    
+
     style A fill:#f9f,stroke:#333
     style D fill:#9f9,stroke:#333
 ```
 
-1. **事件循环机制**：理解 Call Stack、Event Queue、微任务与宏任务的调度规则。
-2. **回调函数**：异步编程的起点，以及它带来的"回调地狱"问题。
-3. **Promise**：用链式调用解决嵌套问题，并引入统一的错误处理。
-4. **async/await**：让异步代码"看起来像同步"，提升可读性和可维护性。
+1. **Event Loop Mechanism**: Hiểu được Call Stack, Event Queue, việc lập lịch của microtask và macrotask.
+2. **Callback Functions**: Điểm bắt đầu của lập trình bất đồng bộ, và vấn đề "callback hell" mà nó gây ra.
+3. **Promise**: Giải quyết vấn đề lồng nhau bằng cách gọi chuỗi, và giới thiệu xử lý lỗi thống nhất.
+4. **async/await**: Làm cho code bất đồng bộ "trông giống như code đồng bộ", nâng cao khả năng đọc và bảo trì.
 
-### 为什么 Vibe Coder 必须懂这些？
+### Tại sao Vibe Coder phải hiểu những điều này?
 
-在 AI 辅助编程的时代，你可以让 AI 帮你写异步代码。但当代码出问题时，AI 给出的解释往往是"照本宣科"的。**只有你真正理解事件循环，才能在 AI 的建议中识别出正确的方向，而非盲目接受一个"看起来合理"的答案。**
+Trong thời đại lập trình hỗ trợ bởi AI, bạn có thể để AI viết code bất đồng bộ cho bạn. Nhưng khi code gặp vấn đề, lời giải thích từ AI thường là "đọc từ sách vở" mà thôi. **Chỉ khi bạn thực sự hiểu event loop, bạn mới có thể nhận ra hướng đúng trong những gợi ý từ AI, thay vì chỉ chấp nhận một câu trả lời "có vẻ hợp lý".**
 
-> 面对 AI 生成的异步代码，你的核心审查点是：
-> - 这段代码的执行顺序是否符合预期？
-> - 是否存在竞态条件？
-> - 错误是否被正确捕获？
+> Khi đối mặt với code bất đồng bộ do AI tạo, điểm kiểm tra cốt lõi của bạn là:
+> - Thứ tự thực thi của code này có đúng với dự kiến không?
+> - Có tồn tại điều kiện race không?
+> - Lỗi có được bắt đúng cách không?

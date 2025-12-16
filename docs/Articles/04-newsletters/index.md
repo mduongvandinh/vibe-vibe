@@ -1,9 +1,9 @@
 ---
-title: "优质 Newsletter"
+title: "Newsletter Chất Lượng"
 ---
 
-# 优质 Newsletter
+# Newsletter Chất Lượng
 
-值得订阅的技术周刊和 Newsletter 推荐。
+Đề xuất bản tin công nghệ hàng tuần và Newsletter đáng đăng ký.
 
-教程开发中
+Hướng dẫn đang được phát triển

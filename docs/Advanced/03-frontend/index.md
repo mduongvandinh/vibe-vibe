@@ -1,55 +1,54 @@
 ---
-title: "3 ｜前端到后端"
-typora-root-url: ../public
+title: "3 ｜Frontend đến Backend"
 ---
 
-# 3 ｜前端到后端（把页面跑起来）
+# 3 ｜Frontend đến Backend (Chạy được giao diện)
 
-### 一句话破题
+### Tóm tắt một câu
 
-前端不是"画页面"，而是用组件化思维构建可交互、可维护的用户界面。
+Frontend không phải là "vẽ giao diện", mà là xây dựng giao diện người dùng có thể tương tác và bảo trì được bằng tư duy component hóa.
 
-### 本章定位
+### Định vị chương này
 
-在完成了技术选型和架构设计后，我们终于要动手写代码了。但在 Vibe Coding 体系下，"写代码"的含义发生了根本变化——你不再是逐行敲代码的程序员，而是**指挥 AI 搭建界面的架构师**。
+Sau khi hoàn thành việc lựa chọn công nghệ và thiết kế kiến trúc, cuối cùng chúng ta sẽ bắt tay vào viết code. Nhưng trong hệ thống Vibe Coding, ý nghĩa của "viết code" đã thay đổi căn bản - bạn không còn là lập trình viên gõ code từng dòng nữa, mà là **kiến trúc sư chỉ huy AI xây dựng giao diện**.
 
-本章将带你掌握 Next.js App Router 的前端开发全流程：
+Chương này sẽ đưa bạn làm chủ toàn bộ quy trình phát triển frontend với Next.js App Router:
 
 ```mermaid
 graph LR
-    A["路由结构"] --> B["组件设计"]
-    B --> C["样式系统"]
-    C --> D["状态管理"]
-    D --> E["API 对接"]
-    E --> F["错误处理"]
-    F --> G["可访问性"]
+    A["Cấu trúc routing"] --> B["Thiết kế component"]
+    B --> C["Hệ thống style"]
+    C --> D["Quản lý state"]
+    D --> E["Kết nối API"]
+    E --> F["Xử lý lỗi"]
+    F --> G["Khả năng truy cập"]
 ```
 
-### 章节导航
+### Điều hướng chương
 
-| 章节 | 主题 | 核心能力 |
+| Chương | Chủ đề | Năng lực cốt lõi |
 |------|------|----------|
-| **3.1** | App Router 路由 | 文件系统路由、动态路由、路由组、数据获取 |
-| **3.2** | 组件构建块 | Props、State、Effects、自定义 Hooks |
-| **3.3** | Figma 集成 | 设计稿到代码的 AI 协作流程 |
-| **3.4** | Tailwind + shadcn | 统一设计系统与组件库 |
-| **3.5** | Debug 实战 | Network、Console、Performance、DevTools |
-| **3.6** | API Route | 服务层分离、请求验证、错误处理 |
-| **3.7** | 可用性设计 | Error Boundary、空态、加载状态 |
-| **3.8** | 可访问性与国际化 | WCAG、设计令牌、i18n/l10n |
+| **3.1** | App Router Routing | File system routing, Dynamic routes, Route groups, Data fetching |
+| **3.2** | Khối xây dựng Component | Props, State, Effects, Custom Hooks |
+| **3.3** | Tích hợp Figma | Quy trình cộng tác AI từ design đến code |
+| **3.4** | Tailwind + shadcn | Hệ thống thiết kế thống nhất và thư viện component |
+| **3.5** | Debug thực chiến | Network, Console, Performance, DevTools |
+| **3.6** | API Route | Tách biệt service layer, Request validation, Error handling |
+| **3.7** | Thiết kế khả dụng | Error Boundary, Empty state, Loading state |
+| **3.8** | Khả năng truy cập và Quốc tế hóa | WCAG, Design tokens, i18n/l10n |
 
-### Vibe Coding 视角
+### Góc nhìn Vibe Coding
 
-在传统开发中，前端工程师需要同时掌握 HTML 结构、CSS 样式、JavaScript 逻辑。但在 Vibe Coding 体系下，你的核心任务变成了：
+Trong phát triển truyền thống, kỹ sư frontend cần đồng thời nắm vững cấu trúc HTML, style CSS, logic JavaScript. Nhưng trong hệ thống Vibe Coding, nhiệm vụ cốt lõi của bạn trở thành:
 
-1. **定义边界**：告诉 AI 组件的输入输出是什么
-2. **描述交互**：用自然语言描述用户行为和系统响应
-3. **验收结果**：检查 AI 生成的代码是否符合预期
+1. **Định nghĩa ranh giới**: Cho AI biết input/output của component là gì
+2. **Mô tả tương tác**: Dùng ngôn ngữ tự nhiên mô tả hành vi người dùng và phản hồi hệ thống
+3. **Nghiệm thu kết quả**: Kiểm tra code AI sinh ra có đáp ứng kỳ vọng không
 
-这种转变并不意味着降低了技术门槛，反而对你的**架构思维**和**验收能力**提出了更高要求。只有真正理解了组件化、状态管理、渲染策略等核心概念，你才能有效地指挥 AI，并在它"胡说八道"时及时纠正。
+Sự chuyển đổi này không có nghĩa là hạ thấp rào cản kỹ thuật, mà ngược lại đặt ra yêu cầu cao hơn về **tư duy kiến trúc** và **năng lực nghiệm thu** của bạn. Chỉ khi thực sự hiểu được component hóa, quản lý state, chiến lược rendering và các khái niệm cốt lõi, bạn mới có thể chỉ huy AI hiệu quả và kịp thời sửa chữa khi nó "nói sai".
 
-### 学习建议
+### Gợi ý học tập
 
-1. **先跑通，再优化**：每个小节都有"最小可行代码"，先让它跑起来
-2. **边学边做**：打开你的项目，跟着教程一步步实践
-3. **善用验收清单**：每节末尾都有 Checklist，完成后再进入下一节
+1. **Chạy được trước, tối ưu sau**: Mỗi tiểu mục đều có "code khả thi tối thiểu", hãy chạy được nó trước
+2. **Vừa học vừa làm**: Mở project của bạn, thực hành từng bước theo hướng dẫn
+3. **Dùng tốt checklist nghiệm thu**: Cuối mỗi mục đều có Checklist, hoàn thành rồi mới chuyển sang mục tiếp

@@ -1,61 +1,60 @@
 ---
-title: "4.7 数据打架了怎么办——数据同步：幂等/冲突处理"
-typora-root-url: ../../public
+title: "4.7 Dữ liệu đánh nhau thì làm sao — Đồng bộ dữ liệu: Idempotency và xử lý xung đột"
 ---
 
-# 4.7 数据打架了怎么办——数据同步：幂等/冲突处理
+# 4.7 Dữ liệu đánh nhau thì làm sao — Đồng bộ dữ liệu: Idempotency và xử lý xung đột
 
-### 认知重构
+### Tái cấu trúc nhận thức
 
-在分布式系统和多用户场景下，数据"打架"是常态而非异常——学会处理冲突是构建健壮应用的必修课。
+Trong hệ thống phân tán và kịch bản nhiều người dùng, dữ liệu "đánh nhau" là điều bình thường chứ không phải ngoại lệ — học cách xử lý xung đột là bài học bắt buộc để xây dựng ứng dụng mạnh mẽ.
 
-### 数据冲突的典型场景
+### Các tình huống xung đột dữ liệu điển hình
 
 ```mermaid
 graph TD
-    A["用户 A 读取数据"] --> B["用户 A 修改中..."]
-    C["用户 B 读取数据"] --> D["用户 B 修改中..."]
-    B --> E["用户 A 保存"]
-    D --> F["用户 B 保存"]
-    E --> G{"冲突！"}
+    A["User A đọc dữ liệu"] --> B["User A đang sửa..."]
+    C["User B đọc dữ liệu"] --> D["User B đang sửa..."]
+    B --> E["User A lưu"]
+    D --> F["User B lưu"]
+    E --> G{"Xung đột!"}
     F --> G
 ```
 
-**常见冲突场景**：
-- 两个用户同时编辑同一篇文章
-- 用户重复点击提交按钮
-- 网络延迟导致请求重发
-- 离线应用数据同步
+**Tình huống xung đột thường gặp**:
+- Hai user cùng sửa một bài viết
+- User click nút submit nhiều lần
+- Độ trễ mạng dẫn đến request bị gửi lại
+- Đồng bộ dữ liệu từ app offline
 
-### 子章节导航
+### Điều hướng các chương con
 
-| 章节 | 主题 | 核心问题 |
+| Chương | Chủ đề | Vấn đề cốt lõi |
 |------|------|----------|
-| 4.7.1 | 幂等性设计 | 如何让重复请求安全无害？ |
-| 4.7.2 | 冲突检测 | 如何发现数据被别人改了？ |
-| 4.7.3 | 冲突解决 | 冲突了该听谁的？ |
-| 4.7.4 | 数据一致性 | 如何保证数据最终正确？ |
+| 4.7.1 | Thiết kế Idempotency | Làm thế nào để request lặp lại an toàn và vô hại? |
+| 4.7.2 | Phát hiện xung đột | Làm thế nào biết dữ liệu đã bị người khác sửa? |
+| 4.7.3 | Giải quyết xung đột | Khi xung đột thì nghe theo ai? |
+| 4.7.4 | Tính nhất quán dữ liệu | Làm thế nào đảm bảo dữ liệu cuối cùng là đúng? |
 
-### 冲突处理策略概览
+### Tổng quan các chiến lược xử lý xung đột
 
-| 策略 | 适用场景 | 优点 | 缺点 |
+| Chiến lược | Tình huống áp dụng | Ưu điểm | Nhược điểm |
 |------|----------|------|------|
-| 悲观锁 | 高冲突场景 | 彻底避免冲突 | 性能差 |
-| 乐观锁 | 低冲突场景 | 性能好 | 需处理冲突 |
-| 幂等键 | 表单重复提交 | 简单有效 | 需要额外存储 |
-| 版本号 | 并发编辑 | 实现简单 | 需前端配合 |
+| Pessimistic Lock | Tình huống xung đột cao | Tránh xung đột triệt để | Hiệu năng kém |
+| Optimistic Lock | Tình huống xung đột thấp | Hiệu năng tốt | Cần xử lý xung đột |
+| Idempotency Key | Submit form trùng lặp | Đơn giản hiệu quả | Cần lưu trữ thêm |
+| Version Number | Chỉnh sửa đồng thời | Triển khai đơn giản | Cần frontend phối hợp |
 
-### 本章定位
+### Định vị của chương này
 
-本章聚焦于**应用层**的数据同步问题，不涉及数据库复制等底层机制。我们关注的是：
+Chương này tập trung vào vấn đề đồng bộ dữ liệu ở **tầng ứng dụng**, không liên quan đến cơ chế nhân bản database ở tầng dưới. Chúng ta quan tâm đến:
 
-1. 如何让 API 安全应对重复请求
-2. 如何检测和解决用户级别的数据冲突
-3. 如何在用户体验和数据正确性之间取得平衡
+1. Làm thế nào để API an toàn khi đối mặt với request trùng lặp
+2. Làm thế nào phát hiện và giải quyết xung đột dữ liệu ở cấp độ user
+3. Làm thế nào cân bằng giữa trải nghiệm người dùng và tính đúng đắn của dữ liệu
 
-### 本章小结
+### Tóm tắt chương này
 
-- 数据冲突在多用户系统中不可避免
-- 根据业务场景选择合适的冲突处理策略
-- 幂等性设计是 API 健壮性的基础
-- 冲突检测和解决需要前后端配合
+- Xung đột dữ liệu không thể tránh khỏi trong hệ thống nhiều user
+- Chọn chiến lược xử lý xung đột phù hợp theo tình huống kinh doanh
+- Thiết kế Idempotency là nền tảng cho tính mạnh mẽ của API
+- Phát hiện và giải quyết xung đột cần frontend và backend phối hợp

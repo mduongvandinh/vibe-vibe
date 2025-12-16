@@ -2,38 +2,38 @@
 layout: home
 hero:
   name: "Vibe Vibe"
-  text: "人人都能学会的 AI 编程"
-  tagline: "不写代码，也能做产品。从零基础到全栈开发，让 AI 成为你的编程搭档"
+  text: "Lập trình AI mà ai cũng có thể học"
+  tagline: "Không cần viết code, vẫn làm được sản phẩm. Từ zero đến full-stack, để AI trở thành cộng sự lập trình của bạn"
   image:
     src: /logo.png
     alt: Vibe Coding
   actions:
     - theme: brand
-      text: 零基础入门
+      text: Nhập môn từ zero
       link: /Basic/
     - theme: alt
-      text: 有基础进阶
+      text: Nâng cao có nền tảng
       link: /Advanced/
     - theme: alt
-      text: 动手做项目
+      text: Thực hành dự án
       link: /Practice/
     - theme: alt
-      text: 优质好文章
+      text: Bài viết chất lượng
       link: /Articles/
 
 features:
-  - title: 零基础友好
-    details: 不需要任何编程经验，从"什么是代码"开始，手把手带你做出第一个作品
-  - title: AI 驱动开发
-    details: 学会"指挥 AI 写代码"而不是"自己写代码"，用自然语言描述需求，让 AI 帮你实现
-  - title: MVP 思维
-    details: 掌握"最小可行产品"理念，用最少的时间验证你的想法，避免功能蔓延的陷阱
-  - title: 现代技术栈
-    details: 进阶篇基于 Next.js + TypeScript + Prisma，学习企业级全栈开发最佳实践
-  - title: 安全意识
-    details: 从第一天就建立安全底线意识，学会保护用户数据和避免常见安全漏洞
-  - title: 渐进式学习
-    details: 基础篇建立认知，进阶篇深入实战。两条路径，适合不同阶段的你
+  - title: Thân thiện với người mới
+    details: Không cần kinh nghiệm lập trình, bắt đầu từ "code là gì", hướng dẫn bạn tạo ra tác phẩm đầu tiên
+  - title: Phát triển bằng AI
+    details: Học cách "chỉ huy AI viết code" thay vì "tự viết code", dùng ngôn ngữ tự nhiên mô tả yêu cầu, để AI giúp bạn thực hiện
+  - title: Tư duy MVP
+    details: Nắm vững khái niệm "Sản phẩm khả thi tối thiểu", dùng ít thời gian nhất để kiểm chứng ý tưởng, tránh bẫy mở rộng tính năng
+  - title: Stack công nghệ hiện đại
+    details: Phần nâng cao dựa trên Next.js + TypeScript + Prisma, học best practices phát triển full-stack cấp doanh nghiệp
+  - title: Ý thức bảo mật
+    details: Xây dựng ý thức bảo mật ngay từ ngày đầu, học cách bảo vệ dữ liệu người dùng và tránh các lỗ hổng bảo mật phổ biến
+  - title: Học tập tiến bộ
+    details: Phần cơ bản xây dựng nhận thức, phần nâng cao thực chiến chuyên sâu. Hai lộ trình, phù hợp với bạn ở từng giai đoạn
 ---
 
 <style>
@@ -70,149 +70,148 @@ features:
 }
 </style>
 
-## 选择你的学习路径
+## Chọn lộ trình học tập của bạn
 
 <div class="paths-container" style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
 
 <div style="flex: 1; min-width: 300px; padding: 1.5rem; border-radius: 12px; background: linear-gradient(135deg, #667eea11 0%, #764ba211 100%); border: 1px solid #667eea33;">
 
-### 基础篇：零基础入门
+### Phần Cơ Bản: Nhập Môn Từ Zero
 
-**适合人群**：从未写过代码的小白、文科生、设计师、产品经理
+**Đối tượng phù hợp**: Người chưa từng viết code, sinh viên nhân văn, designer, product manager
 
-**学习目标**：
-- 理解 Vibe Coding 是什么
-- 学会用 AI 做出你的第一个作品
-- 掌握 MVP 思维和产品感
+**Mục tiêu học tập**:
+- Hiểu Vibe Coding là gì
+- Học cách dùng AI làm ra tác phẩm đầu tiên
+- Nắm vững tư duy MVP và product sense
 
-**章节预览**：
-| 章节 | 内容 |
+**Xem trước các chương**:
+| Chương | Nội dung |
 |------|------|
-| 0. 序章 | 自测清单、学习路径规划 |
-| 1. 觉醒 | 从码农到指挥官的思维转变 |
-| 2. 心法 | MVP 思维、不加功能的艺术 |
-| 3. 技法 | 提示词工程、PRD 编写 |
-| 4. 实战 | 从 0 到 1 做出你的作品 |
-| 5. 进阶 | 版本控制、部署、安全意识 |
-| 6. 路径 | 不同背景的学习建议 |
+| 0. Mở đầu | Checklist tự đánh giá, quy hoạch lộ trình học tập |
+| 1. Thức tỉnh | Chuyển đổi tư duy từ thợ code sang chỉ huy viên |
+| 2. Tâm pháp | Tư duy MVP, nghệ thuật không thêm tính năng |
+| 3. Kỹ pháp | Kỹ thuật viết prompt, soạn PRD |
+| 4. Thực chiến | Từ 0 đến 1 làm ra tác phẩm của bạn |
+| 5. Nâng cao | Quản lý phiên bản, triển khai, ý thức bảo mật |
+| 6. Lộ trình | Gợi ý học tập cho từng background khác nhau |
 
 
 </div>
 
 <div style="flex: 1; min-width: 300px; padding: 1.5rem; border-radius: 12px; background: linear-gradient(135deg, #f093fb11 0%, #f5576c11 100%); border: 1px solid #f093fb33;">
 
-### 进阶篇：全栈实战
+### Phần Nâng Cao: Thực Chiến Full-Stack
 
-**适合人群**：有一定编程基础、想系统学习全栈开发的开发者
+**Đối tượng phù hợp**: Có nền tảng lập trình nhất định, muốn học hệ thống phát triển full-stack
 
-**学习目标**：
-- 掌握 Next.js 现代全栈架构
-- 学会企业级工程化实践
-- 具备独立开发完整产品的能力
+**Mục tiêu học tập**:
+- Nắm vững kiến trúc full-stack hiện đại với Next.js
+- Học thực hành kỹ thuật công nghiệp cấp doanh nghiệp
+- Có khả năng phát triển sản phẩm hoàn chỉnh độc lập
 
-**章节预览**：
-| 章节 | 内容 |
+**Xem trước các chương**:
+| Chương | Nội dung |
 |------|------|
-| Bootcamp | 计算机基础、命令行、开发环境 |
-| 1-2. 架构 | Next.js + TypeScript + Prisma |
-| 3-4. 开发 | 前后端开发、数据库设计 |
-| 5-6. 产品 | 产品思维、认证与安全 |
-| 7-8. 规范 | API 设计、Git 协作流程 |
-| 9-10. 质量 | 测试策略、部署运维 |
-| 11-12. 进阶 | 发布流程、高级优化 |
+| Bootcamp | Nền tảng khoa học máy tính, command line, môi trường dev |
+| 1-2. Kiến trúc | Next.js + TypeScript + Prisma |
+| 3-4. Phát triển | Phát triển frontend-backend, thiết kế database |
+| 5-6. Sản phẩm | Tư duy sản phẩm, xác thực và bảo mật |
+| 7-8. Chuẩn mực | Thiết kế API, quy trình cộng tác Git |
+| 9-10. Chất lượng | Chiến lược testing, vận hành triển khai |
+| 11-12. Nâng cao | Quy trình release, tối ưu hóa nâng cao |
 
 
 </div>
 
 </div>
 
-## 项目状态
+## Trạng thái dự án
 
-::: warning 内部预览版本
-- 本版本为**内部预览版**，并非正式发行版本，不代表最终品质
-- 正式版本需要等待后续对每一个章节进行深度优化、补充互动教学内容、以及完善实战练习环节
-- 如发现问题欢迎通过 [GitHub Issues](https://github.com/datawhalechina/vibe-vibe/issues) 反馈
+::: warning Phiên bản xem trước nội bộ
+- Phiên bản này là **phiên bản xem trước nội bộ**, không phải phiên bản phát hành chính thức, không đại diện cho chất lượng cuối cùng
+- Phiên bản chính thức cần chờ đợi tối ưu hóa chuyên sâu từng chương, bổ sung nội dung giảng dạy tương tác, và hoàn thiện phần bài tập thực chiến
+- Nếu phát hiện vấn đề, hãy phản hồi qua [GitHub Issues](https://github.com/datawhalechina/vibe-vibe/issues)
 :::
 
-::: tip 进阶版预告：Web 互动教学
-我们正在开发**交互式教学内容**，正式版将支持：
-- **可视化原理演示** —— 通过动画和交互图解，直观理解前后端交互、请求响应流程
-- **数据库交互沙盒** —— 在浏览器中体验数据库查询、表关系设计，理解数据流转
-- **架构图解互动** —— 点击探索系统架构，理解各层职责和数据走向
-- **概念对比卡片** —— 交互式对比 SSR/CSR、REST/GraphQL 等核心概念
+::: tip Dự báo phiên bản nâng cao: Giảng dạy tương tác Web
+Chúng tôi đang phát triển **nội dung giảng dạy tương tác**, phiên bản chính thức sẽ hỗ trợ:
+- **Minh họa nguyên lý trực quan** — Qua animation và đồ họa tương tác, hiểu trực quan tương tác frontend-backend, quy trình request-response
+- **Sandbox tương tác database** — Trải nghiệm query database, thiết kế quan hệ bảng trong trình duyệt, hiểu luồng dữ liệu
+- **Tương tác sơ đồ kiến trúc** — Click để khám phá kiến trúc hệ thống, hiểu trách nhiệm từng layer và hướng dữ liệu
+- **Card so sánh khái niệm** — So sánh tương tác các khái niệm cốt lõi như SSR/CSR, REST/GraphQL
 
-让抽象概念变得可触摸，敬请期待！
+Biến khái niệm trừu tượng thành có thể chạm được, mong chờ nhé!
 :::
 
-## 什么是 Vibe Coding？
+## Vibe Coding là gì?
 
 > "There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
-> 
+>
 > — Andrej Karpathy, 2025
 
-**Vibe Coding** 是 2025 年最火的编程方式（Collins 词典年度词汇）。它的核心理念是：
+**Vibe Coding** là phương thức lập trình hot nhất năm 2025 (Từ của năm từ điển Collins). Lý niệm cốt lõi của nó là:
 
-- **用自然语言描述需求**，而不是手写代码
-- **让 AI 生成代码**，你来验收和调整
-- **快速迭代**，做出能用的东西比代码完美更重要
+- **Dùng ngôn ngữ tự nhiên mô tả yêu cầu**, không phải viết code bằng tay
+- **Để AI sinh code**, bạn nghiệm thu và điều chỉnh
+- **Lặp nhanh**, làm ra thứ dùng được quan trọng hơn code hoàn hảo
 
-简单说：**你负责想法，AI 负责实现。**
+Nói đơn giản: **Bạn phụ trách ý tưởng, AI phụ trách thực hiện.**
 
-## 适合谁学习？
+## Phù hợp với ai?
 
-| 你是谁 | 推荐路径 | 理由 |
+| Bạn là ai | Lộ trình đề xuất | Lý do |
 |--------|----------|------|
-| 设计师 / 产品经理 | 基础篇 | 零代码基础也能做出可运行的原型 |
-| 文科生 / 跨专业 | 基础篇 | 从最基础的概念开始，循序渐进 |
-| 前端开发者 | 进阶篇 | 扩展后端能力，成为全栈工程师 |
-| 后端开发者 | 进阶篇 | 了解现代前端生态和 Next.js |
-| 创业者 / 独立开发者 | 两者皆可 | 快速搭建 MVP，独立完成产品 |
-| 想提升效率的开发者 | 基础篇 + 进阶篇 | 系统学习 AI 辅助开发工作流 |
+| Designer / Product Manager | Phần Cơ Bản | Zero nền tảng code vẫn làm được prototype chạy được |
+| Sinh viên nhân văn / Chuyển ngành | Phần Cơ Bản | Bắt đầu từ khái niệm cơ bản nhất, tuần tự tiến bộ |
+| Frontend Developer | Phần Nâng Cao | Mở rộng khả năng backend, trở thành full-stack engineer |
+| Backend Developer | Phần Nâng Cao | Hiểu ecosystem frontend hiện đại và Next.js |
+| Founder / Indie Developer | Cả hai | Build MVP nhanh, hoàn thành sản phẩm độc lập |
+| Developer muốn tăng hiệu suất | Cơ Bản + Nâng Cao | Học hệ thống workflow phát triển hỗ trợ AI |
 
-## 技术栈一览
+## Tổng quan Tech Stack
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
 
 <div style="padding: 1.5rem; border-radius: 12px; background: linear-gradient(135deg, #667eea11 0%, #764ba211 100%); border: 1px solid #667eea33;">
-  <h4 style="margin-top: 0; margin-bottom: 1rem; color: #667eea;">基础篇</h4>
+  <h4 style="margin-top: 0; margin-bottom: 1rem; color: #667eea;">Phần Cơ Bản</h4>
   <ul style="margin: 0; padding-left: 1.5rem;">
-    <li><strong>前端基础</strong>：HTML/CSS/JS</li>
-    <li><strong>AI 工具</strong>：ChatGPT/Claude/Cursor等</li>
-    <li><strong>版本控制</strong>：Git 基础操作</li>
-    <li><strong>部署</strong>：静态网站部署</li>
+    <li><strong>Nền tảng frontend</strong>: HTML/CSS/JS</li>
+    <li><strong>AI Tools</strong>: ChatGPT/Claude/Cursor v.v.</li>
+    <li><strong>Quản lý phiên bản</strong>: Thao tác Git cơ bản</li>
+    <li><strong>Triển khai</strong>: Deploy trang web tĩnh</li>
   </ul>
 </div>
 
 <div style="padding: 1.5rem; border-radius: 12px; background: linear-gradient(135deg, #f093fb11 0%, #f5576c11 100%); border: 1px solid #f093fb33;">
-  <h4 style="margin-top: 0; margin-bottom: 1rem; color: #f093fb;">进阶篇</h4>
+  <h4 style="margin-top: 0; margin-bottom: 1rem; color: #f093fb;">Phần Nâng Cao</h4>
   <ul style="margin: 0; padding-left: 1.5rem;">
-    <li><strong>框架</strong>：Next.js + TypeScript</li>
-    <li><strong>数据层</strong>：PostgreSQL + Prisma</li>
-    <li><strong>UI 框架</strong>：Tailwind CSS + shadcn/ui</li>
-    <li><strong>认证</strong>：NextAuth.js</li>
-    <li><strong>部署</strong>：Docker + Vercel/Edgeone</li>
+    <li><strong>Framework</strong>: Next.js + TypeScript</li>
+    <li><strong>Data Layer</strong>: PostgreSQL + Prisma</li>
+    <li><strong>UI Framework</strong>: Tailwind CSS + shadcn/ui</li>
+    <li><strong>Authentication</strong>: NextAuth.js</li>
+    <li><strong>Deploy</strong>: Docker + Vercel/Edgeone</li>
   </ul>
 </div>
 
 </div>
 
-## 贡献者名单
+## Danh sách cộng tác viên
 
-感谢以下成员为本项目做出的贡献：
+Cảm ơn các thành viên sau đã đóng góp cho dự án này:
 
-| 姓名 | 职务 | 简介 |
+| Tên | Vai trò | Giới thiệu |
 |------|------|------|
-| <a href="http://www.guohaoqi.cn" target="_blank">齐国皓</a> | 项目负责人 & 核心贡献者 | 现就读于新加坡国立大学计算机学院, 湖南大学金融科技协会创始人 |
-| <a href="https://www.hangkangfu.cn/" target="_blank">符航康</a> | 项目负责人 & 核心贡献者 | 湖南大学金融科技协会创始成员, 一名 AI 原生的年轻人，湖南大学信息科学与工程学院24级本科生 |
-| 陈俊希 | 「优质文章篇」板块贡献者 | 湖南大学金融科技协会现任会长，湖南大学金融与统计学院24级本科生 |
-| 金龙 | 「实践篇」板块贡献者 | 北京大学学生创新学社AI俱乐部副部长，北京大学24级研究生 |
-| 舒璐璐 | 「实践篇」板块贡献者 | 湖南大学「麓山人文+」创始人，湖南大学岳麓书院23级本科生 |
+| <a href="http://www.guohaoqi.cn" target="_blank">Qi Guohao</a> | Trưởng dự án & Cộng tác viên cốt lõi | Đang học tại Khoa Khoa học Máy tính, Đại học Quốc gia Singapore, Người sáng lập Hội Fintech Đại học Hunan |
+| <a href="https://www.hangkangfu.cn/" target="_blank">Fu Hangkang</a> | Trưởng dự án & Cộng tác viên cốt lõi | Thành viên sáng lập Hội Fintech Đại học Hunan, một người trẻ native AI, sinh viên năm nhất ngành Khoa học Thông tin và Kỹ thuật Đại học Hunan |
+| Chen Junxi | Cộng tác viên mục «Bài viết chất lượng» | Chủ tịch hiện tại Hội Fintech Đại học Hunan, sinh viên năm nhất Khoa Tài chính và Thống kê Đại học Hunan |
+| Jin Long | Cộng tác viên mục «Thực hành» | Phó trưởng ban AI Club Câu lạc bộ Đổi mới Sinh viên Đại học Bắc Kinh, Nghiên cứu sinh khóa 24 Đại học Bắc Kinh |
+| Shu Lulu | Cộng tác viên mục «Thực hành» | Người sáng lập "Lushan Humanities+", Sinh viên năm thứ 3 Viện Yuelu Đại học Hunan |
 
-## 如何贡献
+## Cách đóng góp
 
-本项目欢迎社区贡献：
+Dự án này hoan nghênh đóng góp từ cộng đồng:
 
-- 在页面底部评论区反馈问题
-- 提交 [GitHub Issues](https://github.com/datawhalechina/vibe-vibe/issues)
-- 提交 Pull Request 完善内容
-
+- Phản hồi vấn đề ở khu bình luận dưới trang
+- Gửi [GitHub Issues](https://github.com/datawhalechina/vibe-vibe/issues)
+- Gửi Pull Request để hoàn thiện nội dung

@@ -1,7 +1,7 @@
-# Vibe Vibe —— 人人都能学会的 AI 编程（Vibe Coding）指南
-> **面向零编程基础学习者的 AI 辅助编程系统化教程，从「我有一个想法」到「我做出了一个产品」，让人人都能成为 Builder。**
+# Vibe Vibe —— Hướng dẫn Lập trình AI (Vibe Coding) mà ai cũng có thể học
+> **Hướng dẫn lập trình hỗ trợ AI có hệ thống dành cho người học không có nền tảng lập trình, từ "Tôi có một ý tưởng" đến "Tôi đã làm ra một sản phẩm", để mọi người đều có thể trở thành Builder.**
 
-- 点击以访问教程主页：www.vibevibe.cn 
+- Truy cập trang chủ hướng dẫn: www.vibevibe.cn
 <!--
 <p align="center">
  <a href='https://mapmyvisitors.com/web/1c0yh'  title='Visit tracker'>
@@ -22,269 +22,269 @@
   </tr>
 </table>
 
-### 核心理念
+### Lý niệm cốt lõi
 
-践行 OpenAI 联合创始人 **Andrej Karpathy** 提出的 Vibe Coding 理念——**从 Coder 到 Commander**：通过自然语言与 AI 对话，让编程从"写代码"转变为"对话式创作"。
+Thực hành lý niệm Vibe Coding do đồng sáng lập OpenAI **Andrej Karpathy** đề xuất——**Từ Coder đến Commander**: Thông qua đối thoại bằng ngôn ngữ tự nhiên với AI, biến lập trình từ "viết code" thành "sáng tạo bằng đối thoại".
 
-> *"完全沉浸于编程的'氛围'中，忘记代码的存在。"*
+> *"Đắm chìm hoàn toàn trong 'không khí' của lập trình, quên đi sự tồn tại của code."*
 
-### 快速开始
+### Bắt đầu nhanh
 
-📖 **在线阅读**：[www.vibevibe.cn](https://www.vibevibe.cn)
+📖 **Đọc trực tuyến**: [www.vibevibe.cn](https://www.vibevibe.cn)
 
-| 你是谁 | 推荐起点 |
+| Bạn là ai | Điểm khởi đầu đề xuất |
 |-------|---------|
-| 完全零基础 | 基础篇 → 第1章 觉醒 |
-| 用过 ChatGPT 等大语言模型工具但没做过项目 | 基础篇 → 第2章 心法 |
-| 有编程基础想学 Vibe Coding | 基础篇快速浏览 → 进阶篇 |
-| 想直接动手做项目 | 基础篇 → 第4章 实战 |
-| 想找项目练手 | 实践篇 |
+| Hoàn toàn zero nền tảng | Phần Cơ Bản → Chương 1 Thức Tỉnh |
+| Đã dùng ChatGPT và các công cụ LLM nhưng chưa làm dự án | Phần Cơ Bản → Chương 2 Tâm Pháp |
+| Có nền tảng lập trình muốn học Vibe Coding | Lướt nhanh Phần Cơ Bản → Phần Nâng Cao |
+| Muốn thực hành làm dự án ngay | Phần Cơ Bản → Chương 4 Thực Chiến |
+| Muốn tìm dự án để luyện tập | Phần Thực Hành |
 
-### 教程定位
+### Định vị hướng dẫn
 
-国内首个系统化的 Vibe Coding 开源教程，分为四大板块：
+Hướng dẫn mã nguồn mở Vibe Coding có hệ thống đầu tiên trong nước, chia thành bốn mảng lớn:
 
-| 板块 | 定位 | 适合人群 |
+| Mảng | Định vị | Đối tượng phù hợp |
 |-----|------|---------|
-| 📘 **基础篇** | AI 编程入门 + 心法 + 第一个项目 | 完全零基础、用过 ChatGPT 但没做过项目 |
-| 📗 **进阶篇** | 全栈技术栈 + 工程化 + 生产级部署 | 想深入学习、有一定编程基础想转型 |
-| 📙 **实践篇** | 分人群项目实战 + 进阶技能训练 | 想通过动手练习巩固所学 |
-| 📕 **优质文章篇** | 精选学习资源 + 行业前沿追踪 | 想持续学习、保持行业敏感度 |
+| 📘 **Phần Cơ Bản** | Nhập môn lập trình AI + Tâm pháp + Dự án đầu tiên | Hoàn toàn zero nền tảng, đã dùng ChatGPT nhưng chưa làm dự án |
+| 📗 **Phần Nâng Cao** | Tech stack full-stack + Kỹ thuật công nghiệp + Deploy cấp production | Muốn học chuyên sâu, có nền tảng lập trình nhất định muốn chuyển đổi |
+| 📙 **Phần Thực Hành** | Thực chiến dự án phân theo đối tượng + Training kỹ năng nâng cao | Muốn củng cố kiến thức đã học qua thực hành |
+| 📕 **Phần Bài Viết Chất Lượng** | Tài nguyên học tập tinh tuyển + Theo dõi xu hướng ngành | Muốn học tập liên tục, duy trì độ nhạy cảm ngành |
 
-- **为什么需要这份教程？** Vibe Coding 已成为全球趋势（越来越多的创业公司大部分代码由 AI 辅助生成），但国内学习资源碎片化严重，缺乏系统化、零基础友好、包含完整进阶路径的教程。
+- **Tại sao cần hướng dẫn này?** Vibe Coding đã trở thành xu hướng toàn cầu (ngày càng nhiều startup có phần lớn code được sinh ra nhờ hỗ trợ AI), nhưng tài nguyên học tập trong nước bị phân mảnh nghiêm trọng, thiếu hướng dẫn có hệ thống, thân thiện với người mới, bao gồm lộ trình nâng cao hoàn chỉnh.
 
-- **适合人群**：编程零基础者、大学生、创业者、传统程序员、职场人士——任何想用 AI 快速实现想法、提升工作效率或学习新范式的人。
+- **Đối tượng phù hợp**: Người zero nền tảng lập trình, sinh viên đại học, founder, lập trình viên truyền thống, người đi làm—bất cứ ai muốn dùng AI để hiện thực hóa ý tưởng nhanh chóng, nâng cao hiệu suất công việc hoặc học paradigm mới.
 
-### 学习产出
+### Đầu ra học tập
 
-| 阶段 | 你将获得 |
+| Giai đoạn | Bạn sẽ nhận được |
 |-----|---------|
-| **基础篇** | 掌握 Vibe Coding 心法 · 用自然语言指挥 AI · 独立完成项目 · 部署上线能力 |
-| **进阶篇** | 现代全栈技术栈 · 前后端架构 · 用户系统开发 · 生产级部署 · 工程化思维 |
+| **Phần Cơ Bản** | Nắm vững tâm pháp Vibe Coding · Dùng ngôn ngữ tự nhiên chỉ huy AI · Hoàn thành dự án độc lập · Khả năng deploy lên mạng |
+| **Phần Nâng Cao** | Tech stack full-stack hiện đại · Kiến trúc frontend-backend · Phát triển hệ thống người dùng · Deploy cấp production · Tư duy kỹ thuật công nghiệp |
 
-## 贡献者名单
+## Danh sách cộng tác viên
 
 
-| 姓名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 职责 | 简介 |
+| Tên&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Vai trò | Giới thiệu |
 | :----| :---- | :---- |
-| [齐国皓](https://www.guohaoqi.cn) | 项目负责人 & 核心贡献者 | 现就读于新加坡国立大学计算机学院, 湖南大学金融科技协会创始人|
-| [符航康](https://www.hangkangfu.cn) | 项目负责人 & 核心贡献者 | 湖南大学金融科技协会创始成员, 一名 AI 原生的年轻人，湖南大学信息科学与工程学院24级本科生|
-| 陈俊希 | 「优质文章篇」板块贡献者 | 湖南大学金融科技协会现任会长，湖南大学金融与统计学院24级本科生 |
-| 金龙   |「实践篇」板块贡献者  | 北京大学学生创新学社AI俱乐部副部长，北京大学24级研究生| 
-| 舒璐璐 | 「实践篇」板块贡献者 | 湖南大学「麓山人文+」创始人，湖南大学岳麓书院23级本科生 |
+| [Qi Guohao](https://www.guohaoqi.cn) | Trưởng dự án & Cộng tác viên cốt lõi | Đang học tại Khoa Khoa học Máy tính, Đại học Quốc gia Singapore, Người sáng lập Hội Fintech Đại học Hunan|
+| [Fu Hangkang](https://www.hangkangfu.cn) | Trưởng dự án & Cộng tác viên cốt lõi | Thành viên sáng lập Hội Fintech Đại học Hunan, một người trẻ native AI, sinh viên năm nhất ngành Khoa học Thông tin và Kỹ thuật Đại học Hunan|
+| Chen Junxi | Cộng tác viên mục «Bài viết chất lượng» | Chủ tịch hiện tại Hội Fintech Đại học Hunan, sinh viên năm nhất Khoa Tài chính và Thống kê Đại học Hunan |
+| Jin Long   | Cộng tác viên mục «Thực hành»  | Phó trưởng ban AI Club Câu lạc bộ Đổi mới Sinh viên Đại học Bắc Kinh, Nghiên cứu sinh khóa 24 Đại học Bắc Kinh|
+| Shu Lulu | Cộng tác viên mục «Thực hành» | Người sáng lập "Lushan Humanities+", Sinh viên năm thứ 3 Viện Yuelu Đại học Hunan |
 
-## 目录
+## Mục lục
 
-本教程分为**四大板块**，采用渐进式学习路径设计（点击展开详细目录）：
+Hướng dẫn này chia thành **bốn mảng lớn**, áp dụng thiết kế lộ trình học tập tiến bộ (click để mở rộng mục lục chi tiết):
 
 <details>
-<summary><b>📘 基础篇：Vibe Coding 启示录（写给所有人的 AI 编程入门）</b></summary>
+<summary><b>📘 Phần Cơ Bản: Khải thị lục Vibe Coding (Nhập môn lập trình AI viết cho mọi người)</b></summary>
 
 ```
-基础篇目录
+Mục lục Phần Cơ Bản
 │
-├── 写在最前面
-│   └── 找到你的位置
+├── Viết ở trước cùng
+│   └── Tìm vị trí của bạn
 │
-├── 第1章：觉醒 —— 为什么现在是编程最好的时代
-│   ├── 1.1 编程已死，编程永生：从 Coder 到 Commander
-│   ├── 1.2 核心概念：Vibe Coding 与 Spec Coding 详解
-│   ├── 1.3 破除迷信：不懂英文、数学不好也能写代码吗？
-│   ├── 1.4 工具初探：Cursor、Windsurf、Bolt.new 与 Replit 选型指南
-│   └── 1.5 Hello World：你的第一个 3 分钟 AI 网页
+├── Chương 1: Thức Tỉnh —— Tại sao bây giờ là thời đại tốt nhất cho lập trình
+│   ├── 1.1 Lập trình đã chết, lập trình bất diệt: Từ Coder đến Commander
+│   ├── 1.2 Khái niệm cốt lõi: Giải thích chi tiết Vibe Coding và Spec Coding
+│   ├── 1.3 Phá bỏ mê tin: Không biết tiếng Anh, toán kém có viết được code không?
+│   ├── 1.4 Khám phá công cụ: Hướng dẫn chọn Cursor, Windsurf, Bolt.new và Replit
+│   └── 1.5 Hello World: Trang web AI 3 phút đầu tiên của bạn
 │
-├── 第2章：心法 —— 像产品经理一样思考
-│   ├── 2.1 拒绝功能堆砌：为什么你的 AI 写不出复杂的 App？
-│   ├── 2.2 MVP 思维：如何设计一个"能跑的最小版本"
-│   ├── 2.3 灵魂三问：用户是谁？痛点在哪？为何用你？
-│   └── 2.4 实战演练：拆解一个"背单词软件"的想法
+├── Chương 2: Tâm Pháp —— Suy nghĩ như product manager
+│   ├── 2.1 Từ chối chồng chất tính năng: Tại sao AI của bạn viết không ra App phức tạp?
+│   ├── 2.2 Tư duy MVP: Cách thiết kế "phiên bản nhỏ nhất chạy được"
+│   ├── 2.3 Ba câu hỏi linh hồn: Người dùng là ai? Pain point ở đâu? Tại sao dùng bạn?
+│   └── 2.4 Thực chiến diễn tập: Phân tích ý tưởng "ứng dụng học từ vựng"
 │
-├── 第3章：技法 —— 与 AI 对话的艺术
-│   ├── 3.1 提示词工程基础：Context is King
-│   ├── 3.2 用户旅程地图：把想法变成 AI 能懂的路径
-│   ├── 3.3 编写第一份 PRD：让 AI 不再胡编乱造
-│   └── 3.4 功能优先级 P0/P1/P2：学会对 AI 说"这个先不做"
+├── Chương 3: Kỹ Pháp —— Nghệ thuật đối thoại với AI
+│   ├── 3.1 Nền tảng kỹ thuật prompt: Context is King
+│   ├── 3.2 User Journey Map: Biến ý tưởng thành đường đi AI hiểu được
+│   ├── 3.3 Viết PRD đầu tiên: Để AI không còn bịa đặt
+│   └── 3.4 Ưu tiên tính năng P0/P1/P2: Học cách nói với AI "Cái này chưa làm"
 │
-├── 第4章：实战 —— 从 0 到 1 开发个人工具
-│   ├── 4.1 环境准备：无需命令行的开发环境搭建
-│   ├── 4.2 第一轮：生成静态页面 —— 先看"脸"
-│   ├── 4.3 第二轮：注入逻辑与交互 —— 再长"脑"
-│   ├── 4.4 第三轮：数据存储基础
-│   └── 4.5 Debug 指南：当 AI 报错时，如何用 AI 修复 AI
+├── Chương 4: Thực Chiến —— Phát triển công cụ cá nhân từ 0 đến 1
+│   ├── 4.1 Chuẩn bị môi trường: Setup môi trường dev không cần command line
+│   ├── 4.2 Vòng đầu tiên: Sinh trang tĩnh —— Nhìn "mặt" trước
+│   ├── 4.3 Vòng thứ hai: Inject logic và tương tác —— Sau đó mọc "não"
+│   ├── 4.4 Vòng thứ ba: Nền tảng lưu trữ dữ liệu
+│   └── 4.5 Hướng dẫn Debug: Khi AI báo lỗi, làm sao dùng AI sửa AI
 │
-├── 第5章：精进 —— 从"能用"到"好用"
-│   ├── 5.1 后悔药：代码改崩了怎么办
-│   ├── 5.2 见世面：把网页发到互联网上
-│   ├── 5.3 护城河：AI 时代的安全意识
-│   ├── 5.4 再进化：项目的持续迭代与优化
-│   ├── 5.5 知边界：Vibe Coding 的能与不能
-│   └── 5.6 启程前：本章总结与进阶预告
+├── Chương 5: Tinh Tiến —— Từ "dùng được" đến "dùng tốt"
+│   ├── 5.1 Thuốc hối hận: Code sửa lỗi thì làm sao
+│   ├── 5.2 Ra mắt thế giới: Đưa trang web lên Internet
+│   ├── 5.3 Hào ngạch: Ý thức bảo mật thời đại AI
+│   ├── 5.4 Tiến hóa tiếp: Lặp và tối ưu dự án liên tục
+│   ├── 5.5 Biết ranh giới: Năng lực và giới hạn của Vibe Coding
+│   └── 5.6 Trước khi khởi hành: Tổng kết chương này và dự báo nâng cao
 │
-├── 结语：给未来的你
+├── Lời kết: Gửi bạn trong tương lai
 │
-├── 下部预告：Vibe Coding 全栈实战教程
+├── Dự báo phần dưới: Hướng dẫn thực chiến full-stack Vibe Coding
 │
-└── 附录
-    ├── A. Prompt 速查清单
-    ├── B. 常见错误与解决方案速查表
-    ├── C. 术语表（中英对照）
-    ├── D. 工具对比速查表
-    └── E. 项目 idea 清单
+└── Phụ lục
+    ├── A. Checklist Prompt nhanh
+    ├── B. Bảng tra cứu nhanh lỗi thường gặp và giải pháp
+    ├── C. Bảng thuật ngữ (Trung-Anh đối chiếu)
+    ├── D. Bảng so sánh công cụ nhanh
+    └── E. Danh sách ý tưởng dự án
 ```
 
 </details>
 
 <details>
-<summary><b>📗 进阶篇：Vibe Coding 全栈实战教程</b></summary>
+<summary><b>📗 Phần Nâng Cao: Hướng dẫn thực chiến full-stack Vibe Coding</b></summary>
 
 ```
-进阶篇目录
+Mục lục Phần Nâng Cao
 │
-├── 第0章：Bootcamp（零基础概念打底）
-│   ├── 0.0 课程概念定义：术语表与课程范围
-│   ├── 0.1 计算机与操作系统基础：文件/进程/端口/路径/权限
-│   ├── 0.2 命令行入门：pwd/ls/cd/cat/grep/nano
-│   ├── 0.3 前端三件套：HTML/CSS/JS 基础语法与作用
-│   ├── 0.4 开发环境配置：Node.js、包管理器与工具链
-│   ├── 0.5 JS → TS 思维转换
-│   ├── 0.6 开发安全底线
-│   └── 0.7 Docker 核心概念
+├── Chương 0: Bootcamp (Đánh nền khái niệm cho người zero nền tảng)
+│   ├── 0.0 Định nghĩa khái niệm khóa học: Bảng thuật ngữ và phạm vi khóa học
+│   ├── 0.1 Nền tảng máy tính và hệ điều hành: File/Process/Port/Path/Permission
+│   ├── 0.2 Nhập môn command line: pwd/ls/cd/cat/grep/nano
+│   ├── 0.3 Ba bộ môn frontend: Cú pháp và tác dụng cơ bản HTML/CSS/JS
+│   ├── 0.4 Config môi trường dev: Node.js, package manager và toolchain
+│   ├── 0.5 Chuyển đổi tư duy JS → TS
+│   ├── 0.6 Đáy bảo mật trong dev
+│   └── 0.7 Khái niệm cốt lõi Docker
 │
-├── 第1章：概念与准备（从思维到工具）
-│   ├── 1.1 工具装配与最小项目验证
-│   ├── 1.2 Vibe Coding 心法
-│   ├── 1.3 最小上线实战与 1Panel 部署
-│   ├── 1.4 AI 协作工作流实战与最佳实践
-│   └── 1.5 工具链与环境
+├── Chương 1: Khái niệm và Chuẩn bị (Từ tư duy đến công cụ)
+│   ├── 1.1 Setup công cụ và kiểm chứng dự án nhỏ nhất
+│   ├── 1.2 Tâm pháp Vibe Coding
+│   ├── 1.3 Thực chiến lên mạng nhỏ nhất và deploy 1Panel
+│   ├── 1.4 Thực chiến workflow cộng tác AI và best practices
+│   └── 1.5 Toolchain và môi trường
 │
-├── 第2章：技术选型与架构蓝图
-│   ├── 2.0 技术栈全景
-│   ├── 2.1 Next.js + TS + Prisma + OSS 架构全景
-│   ├── 2.2 Next.js 渲染策略全景（CSR/SSR/SSG/ISR）
-│   ├── 2.3 Next.js 核心概念深入
-│   ├── 2.4 前后端协作：接口契约/API Route
-│   ├── 2.5 架构分层详解
-│   └── 2.6 拓展：Supabase 适用与取舍
+├── Chương 2: Chọn lựa công nghệ và Blueprint kiến trúc
+│   ├── 2.0 Toàn cảnh tech stack
+│   ├── 2.1 Toàn cảnh kiến trúc Next.js + TS + Prisma + OSS
+│   ├── 2.2 Toàn cảnh chiến lược render Next.js (CSR/SSR/SSG/ISR)
+│   ├── 2.3 Khái niệm cốt lõi Next.js chuyên sâu
+│   ├── 2.4 Cộng tác frontend-backend: Contract API/API Route
+│   ├── 2.5 Giải thích chi tiết phân tầng kiến trúc
+│   └── 2.6 Mở rộng: Phù hợp và chọn lựa Supabase
 │
-├── 第3章：前端到后端（把页面跑起来）
-│   ├── 3.1 App Router：文件路由与数据获取
-│   ├── 3.2 前端构建块：组件/状态/路由/数据获取
-│   ├── 3.3 Figma 集成实战与 AI 协作
-│   ├── 3.4 Tailwind + shadcn/ui：统一设计体系
-│   ├── 3.5 Debug 实战：断点/Network/日志
-│   ├── 3.6 API Route 与服务层分离
-│   ├── 3.7 可用性：错误/空态/加载骨架
-│   └── 3.8 可访问性/UX 原则/i18n
+├── Chương 3: Từ Frontend đến Backend (Chạy trang lên)
+│   ├── 3.1 App Router: File routing và data fetching
+│   ├── 3.2 Building block frontend: Component/State/Routing/Data fetching
+│   ├── 3.3 Thực chiến tích hợp Figma và cộng tác AI
+│   ├── 3.4 Tailwind + shadcn/ui: Hệ thống thiết kế thống nhất
+│   ├── 3.5 Thực chiến Debug: Breakpoint/Network/Log
+│   ├── 3.6 API Route và phân tách service layer
+│   ├── 3.7 Tính khả dụng: Error/Empty state/Loading skeleton
+│   └── 3.8 Accessibility/Nguyên tắc UX/i18n
 │
-├── 第4章：数据库与数据生命周期
-│   ├── 4.1 数据建模与 ER 图
-│   ├── 4.2 关系型数据库：CRUD/索引/事务
-│   ├── 4.3 SQL 基础操作
-│   ├── 4.4 Prisma 实战
-│   └── 4.5 数据迁移与版本管理
+├── Chương 4: Database và vòng đời dữ liệu
+│   ├── 4.1 Data modeling và ER diagram
+│   ├── 4.2 Relational database: CRUD/Index/Transaction
+│   ├── 4.3 Thao tác SQL cơ bản
+│   ├── 4.4 Thực chiến Prisma
+│   └── 4.5 Migration dữ liệu và quản lý version
 │
-├── 第5章：产品文档与沟通规范
+├── Chương 5: Tài liệu sản phẩm và chuẩn mực giao tiếp
 │
-├── 第6章：用户认证与权限
-│   ├── 6.1 NextAuth.js 快速上手
-│   ├── 6.2 认证与授权安全实践
-│   ├── 6.3 API 安全防护实践
-│   ├── 6.4 常见 Web 安全威胁与防护
-│   └── 6.5 第三方登录集成（微信/QQ/钉钉）
+├── Chương 6: Authentication người dùng và Permission
+│   ├── 6.1 Bắt đầu nhanh NextAuth.js
+│   ├── 6.2 Thực hành bảo mật Authentication và Authorization
+│   ├── 6.3 Thực hành bảo vệ bảo mật API
+│   ├── 6.4 Mối đe dọa bảo mật Web thường gặp và phòng thủ
+│   └── 6.5 Tích hợp đăng nhập bên thứ ba (WeChat/QQ/DingTalk)
 │
-├── 第7章：API 设计与开发规范
-│   ├── 7.1 HTTP 与 API 方法/幂等/重试
-│   ├── 7.2 REST 最小原则与错误返回
-│   ├── 7.3 API 文档：Swagger/Postman
-│   └── 7.4 API 版本管理与兼容性
+├── Chương 7: Thiết kế API và chuẩn mực phát triển
+│   ├── 7.1 HTTP và phương thức API/Idempotent/Retry
+│   ├── 7.2 Nguyên tắc nhỏ nhất REST và trả về lỗi
+│   ├── 7.3 Tài liệu API: Swagger/Postman
+│   └── 7.4 Quản lý version API và tương thích
 │
-├── 第8章：项目规则与协作
-│   ├── 8.1 Git 基本流程
-│   ├── 8.2 分支策略与分支保护
-│   ├── 8.3 提交规范：Conventional Commits
-│   ├── 8.4 .gitignore 管理
-│   └── 8.5 文档与评审流程
+├── Chương 8: Quy tắc dự án và cộng tác
+│   ├── 8.1 Quy trình Git cơ bản
+│   ├── 8.2 Chiến lược branch và bảo vệ branch
+│   ├── 8.3 Chuẩn mực commit: Conventional Commits
+│   ├── 8.4 Quản lý .gitignore
+│   └── 8.5 Tài liệu và quy trình review
 │
-├── 第9章：测试与质量
-│   ├── 9.1 测试金字塔
-│   ├── 9.2 测试环境与隔离
-│   ├── 9.3 单元测试/集成测试：Jest
-│   ├── 9.4 错误处理与日志规范
-│   └── 9.5 CI 质量门禁与 GitHub Actions
+├── Chương 9: Testing và chất lượng
+│   ├── 9.1 Testing pyramid
+│   ├── 9.2 Môi trường test và cô lập
+│   ├── 9.3 Unit test/Integration test: Jest
+│   ├── 9.4 Xử lý lỗi và chuẩn mực log
+│   └── 9.5 CI quality gate và GitHub Actions
 │
-├── 第10章：部署与运维
-│   ├── 10.1 云服务/网络/域名/证书
-│   ├── 10.2 1Panel 可视化部署
-│   ├── 10.3 Docker Compose 编排
-│   ├── 10.4 反向代理与负载均衡
-│   └── 10.5 监控与日志
+├── Chương 10: Deploy và vận hành
+│   ├── 10.1 Cloud service/Network/Domain/Certificate
+│   ├── 10.2 Deploy trực quan 1Panel
+│   ├── 10.3 Biên đạo Docker Compose
+│   ├── 10.4 Reverse proxy và load balancing
+│   └── 10.5 Monitoring và logging
 │
-├── 第11章：发布、复盘与教学沉淀
-│   ├── 11.1 语义化版本与发布流
-│   ├── 11.2 GitHub Actions 部署
-│   ├── 11.3 课程化产出
-│   └── 11.4 复盘模板
+├── Chương 11: Release, review và tích lũy giảng dạy
+│   ├── 11.1 Semantic versioning và release flow
+│   ├── 11.2 Deploy GitHub Actions
+│   ├── 11.3 Output khóa học hóa
+│   └── 11.4 Template review
 │
-└── 第12章：高级专题与优化
-    ├── 12.1 Node 进程与事件循环
-    ├── 12.2 SEO：SSR/Meta/站点地图
-    ├── 12.3 Vercel AI SDK 与流式响应
-    ├── 12.4 WebSockets 实时通信
-    ├── 12.5 文件分片传输
-    ├── 12.6 爬虫基础
-    └── 12.7 版本化与变更日志
-```
-
-</details>
-
-<details>
-<summary><b>📙 实践篇：分人群项目实战</b></summary>
-
-```
-实践篇目录
-│
-├── 基础板块（按人群分类）
-│   ├── 文科生/商科生项目 —— 内容创作、数据展示类
-│   ├── 理工科学生项目 —— 算法可视化、数据处理类
-│   └── 职场人士项目 —— 工作流自动化、效率提升类
-│
-└── 进阶板块（基于 Sean's Stories 系列）
-    ├── 核心技能 —— 上线应用、数据库、后端部署、用户认证
-    ├── AI Agent 开发 —— RAG、向量数据库、MCP 集成
-    ├── 全栈项目实战 —— SaaS、地图应用、移动应用
-    └── 工具与效率 —— n8n、GitHub 工作流、React/TS 进阶
+└── Chương 12: Chủ đề nâng cao và tối ưu
+    ├── 12.1 Node process và event loop
+    ├── 12.2 SEO: SSR/Meta/Sitemap
+    ├── 12.3 Vercel AI SDK và streaming response
+    ├── 12.4 WebSockets real-time communication
+    ├── 12.5 Phân mảnh truyền file
+    ├── 12.6 Nền tảng crawler
+    └── 12.7 Versioning và changelog
 ```
 
 </details>
 
 <details>
-<summary><b>📕 优质文章篇：精选学习资源</b></summary>
+<summary><b>📙 Phần Thực Hành: Thực chiến dự án phân theo đối tượng</b></summary>
 
 ```
-优质文章篇目录
+Mục lục Phần Thực Hành
 │
-├── 知名公司博客 —— OpenAI、Anthropic、Vercel 等技术博客
-├── 优质播客 —— AI、开发者、创业者相关播客推荐
-├── 研究报告 —— AI 发展报告、开发者调查、行业趋势
-├── 优质 Newsletter —— 值得订阅的技术周刊
-└── 开发者社区 —— Discord、Twitter、GitHub 优质资源
+├── Mảng Cơ Bản (Phân loại theo đối tượng)
+│   ├── Dự án sinh viên nhân văn/kinh doanh —— Loại sáng tạo nội dung, trình bày dữ liệu
+│   ├── Dự án sinh viên khoa học kỹ thuật —— Loại trực quan hóa thuật toán, xử lý dữ liệu
+│   └── Dự án người đi làm —— Loại tự động hóa workflow, nâng cao hiệu suất
+│
+└── Mảng Nâng Cao (Dựa trên series Sean's Stories)
+    ├── Kỹ năng cốt lõi —— Đưa app lên mạng, database, deploy backend, authentication người dùng
+    ├── Phát triển AI Agent —— RAG, vector database, tích hợp MCP
+    ├── Thực chiến dự án full-stack —— SaaS, ứng dụng bản đồ, mobile app
+    └── Công cụ và hiệu suất —— n8n, GitHub workflow, nâng cao React/TS
 ```
 
 </details>
 
-## 参与贡献
+<details>
+<summary><b>📕 Phần Bài Viết Chất Lượng: Tài nguyên học tập tinh tuyển</b></summary>
 
-- 如果你发现了一些问题，可以提Issue进行反馈，如果提完没有人回复你可以联系[保姆团队](https://github.com/datawhalechina/DOPMC/blob/main/OP.md)的同学进行反馈跟进~
-- 如果你想参与贡献本项目，可以提Pull request，如果提完没有人回复你可以联系[保姆团队](https://github.com/datawhalechina/DOPMC/blob/main/OP.md)的同学进行反馈跟进~
-- 如果你对 Datawhale 很感兴趣并想要发起一个新的项目，请按照[Datawhale开源项目指南](https://github.com/datawhalechina/DOPMC/blob/main/GUIDE.md)进行操作即可~
+```
+Mục lục Phần Bài Viết Chất Lượng
+│
+├── Blog công ty nổi tiếng —— Blog công nghệ OpenAI, Anthropic, Vercel v.v.
+├── Podcast chất lượng —— Đề xuất podcast liên quan AI, developer, founder
+├── Báo cáo nghiên cứu —— Báo cáo phát triển AI, khảo sát developer, xu hướng ngành
+├── Newsletter chất lượng —— Tech newsletter đáng đăng ký
+└── Cộng đồng developer —— Tài nguyên chất lượng Discord, Twitter, GitHub
+```
 
-## 关注我们 
+</details>
+
+## Tham gia đóng góp
+
+- Nếu bạn phát hiện vấn đề, có thể tạo Issue để phản hồi, nếu tạo xong không có người trả lời bạn có thể liên hệ đồng đội [bảo mẫu](https://github.com/datawhalechina/DOPMC/blob/main/OP.md) để phản hồi theo dõi~
+- Nếu bạn muốn tham gia đóng góp dự án này, có thể tạo Pull request, nếu tạo xong không có người trả lời bạn có thể liên hệ đồng đội [bảo mẫu](https://github.com/datawhalechina/DOPMC/blob/main/OP.md) để phản hồi theo dõi~
+- Nếu bạn rất quan tâm đến Datawhale và muốn khởi động dự án mới, hãy thao tác theo [Hướng dẫn dự án mã nguồn mở Datawhale](https://github.com/datawhalechina/DOPMC/blob/main/GUIDE.md)~
+
+## Theo dõi chúng tôi
 
 <div align=center>
-<p>扫描下方二维码关注公众号：Datawhale</p>
+<p>Quét mã QR dưới đây theo dõi công chúng: Datawhale</p>
 <img src="https://raw.githubusercontent.com/datawhalechina/pumpkin-book/master/res/qrcode.jpeg" width = "180" height = "180">
 </div>
 
 ## LICENSE
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey" /></a><br />Tác phẩm này được cấp phép theo <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Giấy phép Quốc tế Creative Commons Ghi công-Phi thương mại-Chia sẻ tương tự 4.0</a>.

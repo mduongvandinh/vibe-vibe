@@ -1,130 +1,129 @@
 ---
-title: "6.2 你是谁与你能做什么——认证与授权安全实践"
-typora-root-url: ../../public
+title: "6.2 Bạn là ai và bạn có thể làm gì - Thực hành bảo mật Xác thực và Phân quyền"
 ---
 
-# 6.2 你是谁与你能做什么——认证与授权安全
+# 6.2 Bạn là ai và bạn có thể làm gì - Bảo mật Xác thực và Phân quyền
 
-## 认知重构：认证与授权的本质区别
+## Tái cấu trúc nhận thức: Sự khác biệt cốt lõi giữa Xác thực và Phân quyền
 
-很多人把"认证"和"授权"混为一谈，但它们解决的是完全不同的问题：
+Nhiều người nhầm lẫn "xác thực" và "phân quyền", nhưng chúng giải quyết những vấn đề hoàn toàn khác nhau:
 
-- **认证（Authentication）**：验证"你是谁"——确认用户身份的真实性
-- **授权（Authorization）**：判断"你能做什么"——决定用户可以访问哪些资源
+- **Xác thực (Authentication)**: Xác minh "bạn là ai" - Xác nhận tính xác thực của danh tính người dùng
+- **Phân quyền (Authorization)**: Xác định "bạn có thể làm gì" - Quyết định người dùng có thể truy cập những tài nguyên nào
 
 ```mermaid
 flowchart LR
-    User["用户"] -->|1. 提供凭据| Auth["认证系统"]
-    Auth -->|2. 验证身份| AuthZ["授权系统"]
-    AuthZ -->|3. 检查权限| Resource["资源"]
-    
-    Auth -->|"你是张三吗？"| Check1["✅ 是"]
-    AuthZ -->|"张三能看这个吗？"| Check2["✅ 能"]
+    User["Người dùng"] -->|1. Cung cấp thông tin xác minh| Auth["Hệ thống Xác thực"]
+    Auth -->|2. Xác minh danh tính| AuthZ["Hệ thống Phân quyền"]
+    AuthZ -->|3. Kiểm tra quyền hạn| Resource["Tài nguyên"]
+
+    Auth -->|"Bạn là Trần Văn A không?"| Check1["✅ Có"]
+    AuthZ -->|"Trần Văn A có thể xem cái này không?"| Check2["✅ Được"]
 ```
 
-## 为什么需要关注认证安全
+## Tại sao cần chú ý đến bảo mật xác thực
 
-认证是整个安全体系的第一道防线。如果认证被突破：
+Xác thực là tuyến phòng thủ đầu tiên của toàn bộ hệ thống bảo mật. Nếu xác thực bị đột phá:
 
-- 攻击者可以冒充任意用户
-- 所有后续的授权检查都失去意义
-- 用户数据面临泄露风险
+- Kẻ tấn công có thể giả mạo bất kỳ người dùng nào
+- Tất cả các kiểm tra phân quyền sau đó đều mất ý nghĩa
+- Dữ liệu người dùng phải đối mặt với rủi ro rò rỉ
 
-## 本节内容
+## Nội dung phần này
 
-| 小节 | 核心问题 | 你将学会 |
+| Phần | Vấn đề cốt lõi | Bạn sẽ học |
 |------|----------|----------|
-| 6.2.1 JWT 安全 | Token 被盗怎么办？ | 密钥管理、过期策略、刷新机制 |
-| 6.2.2 Session 安全 | Session 如何防劫持？ | 安全存储、传输加密、固定攻击防护 |
-| 6.2.3 Cookie 安全 | Cookie 怎么设置才安全？ | HttpOnly/Secure/SameSite 属性详解 |
-| 6.2.4 OAuth 2.0 安全 | OAuth 流程有哪些风险？ | 授权码模式、PKCE、state 参数 |
-| 6.2.5 多因素认证 | 密码不够安全怎么办？ | TOTP、短信验证、硬件密钥 |
+| 6.2.1 JWT Security | Token bị đánh cắp thì sao? | Quản lý khóa, chiến lược hết hạn, cơ chế làm mới |
+| 6.2.2 Session Security | Session làm thế nào để ngăn chặn bị chiếm quyền? | Lưu trữ an toàn, mã hóa truyền tải, bảo vệ chống tấn công cố định |
+| 6.2.3 Cookie Security | Cookie cần cấu hình như thế nào mới an toàn? | Chi tiết về các thuộc tính HttpOnly/Secure/SameSite |
+| 6.2.4 OAuth 2.0 Security | Quy trình OAuth có những rủi ro nào? | Chế độ mã thông qua, PKCE, tham số state |
+| 6.2.5 Xác thực đa yếu tố | Mật khẩu không đủ an toàn thì sao? | TOTP, xác minh SMS, khóa phần cứng |
 
-## 认证方案对比
+## So sánh các phương pháp xác thực
 
-| 方案 | 适用场景 | 优点 | 缺点 |
+| Phương pháp | Trường hợp sử dụng | Ưu điểm | Nhược điểm |
 |------|----------|------|------|
-| **Session** | 传统 Web 应用 | 服务端可控、即时失效 | 需要存储、扩展性差 |
-| **JWT** | 微服务、API | 无状态、易扩展 | 无法即时撤销 |
-| **OAuth 2.0** | 第三方登录 | 标准协议、用户体验好 | 实现复杂 |
+| **Session** | Ứng dụng Web truyền thống | Máy chủ có thể kiểm soát, hết hạn ngay lập tức | Cần lưu trữ, khả năng mở rộng kém |
+| **JWT** | Microservices, API | Không trạng thái, dễ mở rộng | Không thể hủy ngay lập tức |
+| **OAuth 2.0** | Đăng nhập bên thứ ba | Giao thức tiêu chuẩn, trải nghiệm người dùng tốt | Triển khai phức tạp |
 
-## 安全设计原则
+## Nguyên tắc thiết kế bảo mật
 
-### 1. 纵深防御
+### 1. Phòng thủ sâu
 
-不要只依赖一层防护：
+Đừng chỉ dựa vào một lớp bảo vệ:
 
 ```typescript
-// 多层验证
+// Xác minh nhiều lớp
 async function protectedAction(request: Request) {
-  // 第一层：验证 Token 有效性
+  // Lớp 1: Xác minh tính hợp lệ của Token
   const token = await verifyToken(request)
-  
-  // 第二层：验证用户状态
+
+  // Lớp 2: Xác minh trạng thái người dùng
   const user = await getUser(token.userId)
-  if (user.status !== 'active') throw new Error('账号已禁用')
-  
-  // 第三层：验证操作权限
+  if (user.status !== 'active') throw new Error('Tài khoản đã bị vô hiệu hóa')
+
+  // Lớp 3: Xác minh quyền thực hiện hành động
   if (!user.permissions.includes('write')) {
-    throw new Error('无权执行此操作')
+    throw new Error('Không có quyền thực hiện hành động này')
   }
 }
 ```
 
-### 2. 最小权限
+### 2. Quyền hạn tối thiểu
 
-只授予必要的权限：
+Chỉ cấp quyền cần thiết:
 
 ```typescript
-// ❌ 过度授权
-const token = jwt.sign({ 
-  userId, 
-  role: 'admin',  // 太宽泛
-  permissions: ['*']  // 危险
-})
-
-// ✅ 最小权限
+// ❌ Cấp quyền quá mức
 const token = jwt.sign({
   userId,
-  permissions: ['posts:read', 'posts:write']  // 具体权限
+  role: 'admin',  // Quá rộng
+  permissions: ['*']  // Nguy hiểm
+})
+
+// ✅ Quyền hạn tối thiểu
+const token = jwt.sign({
+  userId,
+  permissions: ['posts:read', 'posts:write']  // Quyền cụ thể
 })
 ```
 
-### 3. 安全默认
+### 3. Mặc định an toàn
 
-默认拒绝，显式允许：
+Từ chối theo mặc định, cho phép rõ ràng:
 
 ```typescript
-// ❌ 默认允许
+// ❌ Cho phép theo mặc định
 function checkPermission(user, resource) {
   if (resource.isRestricted) {
     return user.hasAccess(resource)
   }
-  return true  // 默认允许
+  return true  // Cho phép theo mặc định
 }
 
-// ✅ 默认拒绝
+// ✅ Từ chối theo mặc định
 function checkPermission(user, resource) {
   if (resource.isPublic) {
     return true
   }
-  return user.hasAccess(resource)  // 默认需要验证
+  return user.hasAccess(resource)  // Cần xác minh theo mặc định
 }
 ```
 
-## AI 协作提示
+## Gợi ý hợp tác AI
 
-在让 AI 帮你实现认证功能时，务必强调：
+Khi yêu cầu AI giúp bạn triển khai tính năng xác thực, hãy chắc chắn nhấn mạnh:
 
-- "使用 HttpOnly 和 Secure 标志设置 Cookie"
-- "JWT 过期时间设置为较短时间，并实现 refresh token 机制"
-- "对敏感操作要求重新验证身份"
-- "实现登录失败次数限制"
+- "Sử dụng các cờ HttpOnly và Secure để thiết lập Cookie"
+- "Đặt thời gian hết hạn JWT ngắn hơn và triển khai cơ chế refresh token"
+- "Yêu cầu xác minh lại danh tính cho các hoạt động nhạy cảm"
+- "Triển khai giới hạn số lần đăng nhập thất bại"
 
-::: warning 审查要点
-AI 生成的认证代码，重点检查：
-1. 密钥是否硬编码？
-2. Token 过期时间是否合理？
-3. 错误信息是否泄露敏感信息？
-4. 是否有防暴力破解机制？
+::: warning Điểm kiểm tra
+Mã xác thực do AI tạo, hãy tập trung kiểm tra:
+1. Khóa có bị mã hóa cứng không?
+2. Thời gian hết hạn Token có hợp lý không?
+3. Thông báo lỗi có rò rỉ thông tin nhạy cảm không?
+4. Có cơ chế chống tấn công brute force không?
 :::

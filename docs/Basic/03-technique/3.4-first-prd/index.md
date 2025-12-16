@@ -1,45 +1,45 @@
 ---
-title: "3.4 编写你的第一份 PRD"
+title: "3.4 Viết PRD đầu tiên của bạn"
 ---
 
-# 3.4 编写你的第一份 PRD：整合第二章思考
+# 3.4 Viết PRD đầu tiên của bạn: Tích hợp tư duy từ Chương 2
 
-> **本节目标**：学会将第二章的产品思考成果，转化为 AI 能理解和执行的 PRD 文档
+> **Mục tiêu của phần này**: Học cách chuyển đổi kết quả tư duy sản phẩm từ Chương 2 thành tài liệu PRD mà AI có thể hiểu và thực thi
 >
-> **核心定位**：PRD 是连接"想清楚"和"做出来"的桥梁。本节不重复讲解产品思维（那是第二章的内容），而是聚焦于如何把思考结果"翻译"给 AI。
+> **Định vị cốt lõi**: PRD là cầu nối giữa "nghĩ rõ ràng" và "làm ra sản phẩm". Phần này không lặp lại kiến thức về tư duy sản phẩm (đó là nội dung Chương 2), mà tập trung vào cách "dịch" kết quả tư duy cho AI.
 
-## 经过本节学习，你将掌握
+## Sau khi học xong phần này, bạn sẽ nắm được
 
-- 理解 PRD 在 Vibe Coding 中的独特价值（与传统 PRD 的区别）
-- 学会把第二章的思考成果（灵魂三问、减法思维、用户旅程）填入 PRD 模板
-- 获得一份可直接复制使用的精简版 PRD 模板
-- 掌握用 P0/P1/P2 优先级引导 AI 分阶段开发的方法
-- 通过完整案例，从"我想做一个..."走到"AI 开始执行"
+- Hiểu giá trị độc đáo của PRD trong Vibe Coding (sự khác biệt so với PRD truyền thống)
+- Học cách điền kết quả tư duy từ Chương 2 (Ba câu hỏi then chốt, Tư duy trừ, User Journey) vào template PRD
+- Có được một template PRD phiên bản rút gọn có thể sao chép và sử dụng ngay
+- Nắm vững phương pháp sử dụng độ ưu tiên P0/P1/P2 để hướng dẫn AI phát triển từng giai đoạn
+- Qua case study hoàn chỉnh, từ "Tôi muốn làm một..." đến "AI bắt đầu thực thi"
 
-## 本节与其他章节的关系
+## Mối quan hệ của phần này với các phần khác
 
 ```
-第二章（心法）          第三章前半部分           本节
-    ↓                      ↓                   ↓
- 想清楚要做什么    →    学会结构化表达    →    整合成 AI 任务书
- 灵魂三问、减法思维      S.C.A.F.F. 框架         PRD 文档
- 用户画像、旅程地图      提示技巧               分阶段开发
+Chương 2 (Tư duy)          Nửa đầu Chương 3           Phần này
+    ↓                          ↓                       ↓
+Nghĩ rõ muốn làm gì    →   Học cách diễn đạt có cấu trúc    →    Tích hợp thành tài liệu nhiệm vụ cho AI
+Ba câu hỏi then chốt, Tư duy trừ      S.C.A.F.F. Framework         PRD Document
+User Persona, Journey Map            Kỹ thuật Prompt               Phát triển từng giai đoạn
 ```
 
-如果说 3.1-3.3 是教你"说话的方法"，本节就是把这些方法**应用到一份完整文档上**。
+Nếu 3.1-3.3 dạy bạn "phương pháp nói chuyện", thì phần này là **áp dụng các phương pháp đó vào một tài liệu hoàn chỉnh**.
 
-## 本节结构
+## Cấu trúc phần này
 
-| 小节 | 核心内容 | 你会获得 |
+| Tiểu mục | Nội dung cốt lõi | Bạn sẽ nhận được |
 |-----|---------|---------|
-| 3.4.1 | 什么是 PRD，为什么需要 | 正确认知：PRD 是任务书，不是报告 |
-| 3.4.2 | 整合第二章成果 | 映射表：哪些思考填到哪里 |
-| 3.4.3 | PRD 模板（精简版） | 可复制模板 + 填写指南 |
-| 3.4.4 | 分阶段开发策略 | P0→P1→P2 的对话模式 |
-| 3.4.5 | PRD 实战 | 从想法到文档的完整案例 |
+| 3.4.1 | PRD là gì, tại sao cần nó | Nhận thức đúng: PRD là nhiệm vụ thư, không phải báo cáo |
+| 3.4.2 | Tích hợp kết quả từ Chương 2 | Bảng ánh xạ: Tư duy nào điền vào đâu |
+| 3.4.3 | Template PRD (phiên bản rút gọn) | Template có thể sao chép + Hướng dẫn điền |
+| 3.4.4 | Chiến lược phát triển từng giai đoạn | Mô hình đối thoại P0→P1→P2 |
+| 3.4.5 | Thực hành PRD | Case study hoàn chỉnh từ ý tưởng đến tài liệu |
 
-## 延续案例：小李的待办清单
+## Ví dụ liên tục: Danh sách công việc của Tiểu Lý
 
-本节继续使用第二章小李的待办清单项目。你会看到他在第二章做的所有思考，如何一步步转化为一份 AI 能直接执行的 PRD。
+Phần này tiếp tục sử dụng dự án danh sách công việc của Tiểu Lý từ Chương 2. Bạn sẽ thấy tất cả những suy nghĩ mà anh ấy đã làm ở Chương 2, từng bước chuyển đổi thành một PRD mà AI có thể thực thi trực tiếp.
 
-准备好了吗？让我们从"什么是 PRD"开始。
+Sẵn sàng chưa? Hãy bắt đầu từ "PRD là gì".

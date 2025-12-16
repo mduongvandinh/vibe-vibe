@@ -1,66 +1,65 @@
 ---
-title: "5.7 别让文档烂尾——文档即代码：目录与 PR 同步更新"
-typora-root-url: ../../public
+title: "5.7 Đừng để tài liệu dở dang — Tài liệu như mã: Cập nhật đồng bộ thư mục và PR"
 ---
 
-# 5.7 别让文档烂尾——文档即代码
+# 5.7 Đừng để tài liệu dở dang — Tài liệu như mã
 
-### 文档的困境
+### Khó khăn của tài liệu
 
-大多数项目的文档都面临同样的问题：
+Hầu hết các dự án đều gặp phải vấn đề tương tự:
 
 ```
-项目刚开始 → 认真写文档
-开发中期   → 偶尔更新
-项目上线   → 文档过时
-几个月后   → 文档和代码完全对不上
+Dự án vừa bắt đầu → Viết tài liệu một cách nghiêm túc
+Giữa quá trình phát triển → Cập nhật lâu lâu
+Dự án trực tuyến → Tài liệu lỗi thời
+Vài tháng sau → Tài liệu và mã hoàn toàn không khớp
 ```
 
-### 文档即代码的理念
+### Khái niệm tài liệu như mã
 
-**Docs as Code**：把文档当作代码来管理。
+**Docs as Code**: Quản lý tài liệu giống như quản lý mã.
 
-| 代码实践 | 文档实践 |
+| Thực hành mã | Thực hành tài liệu |
 |----------|----------|
-| 放在 Git 仓库 | 文档也放 Git |
-| PR 必须 review | 文档也要 review |
-| 有 CI 检查 | 文档也用 CI 检查 |
-| 改代码提 PR | 改代码时顺便改文档 |
+| Lưu trữ trong kho Git | Tài liệu cũng lưu trữ trong Git |
+| PR phải review | Tài liệu cũng phải review |
+| Có kiểm tra CI | Tài liệu cũng dùng kiểm tra CI |
+| Thay đổi mã thì gửi PR | Khi thay đổi mã thì sửa tài liệu |
 
-### 为什么要文档即代码
+### Tại sao phải dùng tài liệu như mã
 
 ```mermaid
 graph LR
-    A["改了代码"] --> B["同一个 PR"]
-    B --> C["更新文档"]
-    C --> D["一起 review"]
-    D --> E["一起合并"]
+    A["Thay đổi mã"] --> B["Cùng một PR"]
+    B --> C["Cập nhật tài liệu"]
+    C --> D["Review cùng nhau"]
+    D --> E["Hợp nhất cùng nhau"]
 ```
 
-好处：
-- **同步更新**：代码和文档在同一个 PR
-- **版本对应**：每个版本的代码有对应的文档
-- **可追溯**：文档变更历史清晰可查
-- **自动化**：CI 可以检查文档完整性
+Lợi ích:
+- **Cập nhật đồng bộ**: Mã và tài liệu ở cùng một PR
+- **Phiên bản tương ứng**: Mỗi phiên bản mã có tài liệu tương ứng
+- **Có thể truy vết**: Lịch sử thay đổi tài liệu rõ ràng
+- **Tự động hóa**: CI có thể kiểm tra tính hoàn chỉnh của tài liệu
 
-### 本节目标
+### Mục tiêu của phần này
 
-学完本节，你将掌握：
+Sau khi hoàn thành phần này, bạn sẽ nắm vững:
 
-1. **目录结构**：如何组织文档，让它与代码结构对应
-2. **PR 流程**：如何在代码变更时同步更新文档
-3. **版本控制**：如何用 Git 管理文档历史
-4. **自动化检查**：如何用 CI 验证文档完整性
+1. **Cấu trúc thư mục**: Cách tổ chức tài liệu để nó tương ứng với cấu trúc mã
+2. **Quy trình PR**: Cách cập nhật tài liệu đồng bộ khi thay đổi mã
+3. **Kiểm soát phiên bản**: Cách dùng Git để quản lý lịch sử tài liệu
+4. **Kiểm tra tự động**: Cách dùng CI để xác minh tính hoàn chỉnh của tài liệu
 
-### 独立开发者的文档策略
+### Chiến lược tài liệu cho nhà phát triển độc lập
 
-对于一个人的项目，可以简化但不能放弃：
+Với dự án của một người, bạn có thể đơn giản hóa nhưng không thể bỏ qua:
 
-| 完整团队 | 独立开发者 |
+| Đội hoàn chỉnh | Nhà phát triển độc lập |
 |----------|------------|
-| 详细的 API 文档 | 关键接口的说明 |
-| 架构设计文档 | 简单的结构说明 |
-| 开发规范文档 | 记在 README |
-| 用户手册 | 关键功能说明 |
+| Tài liệu API chi tiết | Giải thích giao diện chính |
+| Tài liệu thiết kế kiến trúc | Giải thích cấu trúc đơn giản |
+| Tài liệu quy chuẩn phát triển | Ghi chú trong README |
+| Hướng dẫn người dùng | Giải thích chức năng chính |
 
-**核心原则**：记录**未来的自己**会忘记的东西。
+**Nguyên tắc cốt lõi**: Ghi lại những thứ **bản thân tương lai** sẽ quên.

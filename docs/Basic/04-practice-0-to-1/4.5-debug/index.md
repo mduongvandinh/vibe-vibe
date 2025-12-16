@@ -1,51 +1,51 @@
 ---
-title: "4.5 Debug 实战：当 AI 代码报错时"
+title: "4.5 Thực chiến Debug: Khi code AI báo lỗi"
 order: 1
 ---
 
-# 4.5 Debug 实战：当 AI 代码报错时
+# 4.5 Thực chiến Debug: Khi code AI báo lỗi
 
-经过本节学习，你将掌握：
-- 识别待办清单开发中的四类常见错误
-- 用 AI 诊断和修复代码问题的标准流程
-- 处理真实报错的完整对话技巧
-- 建立「报错不可怕」的 Debug 心态
+Trải qua phần này, bạn sẽ nắm được:
+- Nhận diện bốn loại lỗi thường gặp trong phát triển danh sách công việc
+- Quy trình chuẩn dùng AI chẩn đoán và sửa vấn đề code
+- Kỹ thuật đối thoại hoàn chỉnh xử lý báo lỗi thực tế
+- Xây dựng tâm lý Debug "báo lỗi không đáng sợ"
 
-## 与第三章的关系
+## Quan hệ với chương ba
 
-第三章 3.6 节讲的是**原理层面**：AI 有哪些「不听话」的表现、如何识别 AI 幻觉、诊断问题的思维框架。
+Chương ba phần 3.6 nói về **tầng nguyên lý**: AI có những biểu hiện "không nghe lời" nào, cách nhận diện ảo giác AI, framework tư duy chẩn đoán vấn đề.
 
-本节讲的是**实操层面**：围绕你正在开发的待办清单项目，展示真实的报错信息、完整的修复对话、可直接复制的 Prompt 模板。
+Phần này nói về **tầng thực hành**: Xoay quanh dự án danh sách công việc bạn đang phát triển, trình bày thông tin báo lỗi thực tế, đối thoại sửa chữa hoàn chỉnh, template Prompt có thể sao chép trực tiếp.
 
-简单说：3.6 教你「遇到问题该怎么想」，4.5 教你「遇到问题该怎么做」。
+Nói đơn giản: 3.6 dạy bạn "gặp vấn đề nên nghĩ thế nào", 4.5 dạy bạn "gặp vấn đề nên làm thế nào".
 
-## 为什么报错是正常的
+## Tại sao báo lỗi là bình thường
 
-在开发待办清单的过程中，你可能已经遇到了一些报错。别担心，这完全正常。
+Trong quá trình phát triển danh sách công việc, bạn có thể đã gặp một số báo lỗi. Đừng lo, điều này hoàn toàn bình thường.
 
-| 误解 | 事实 |
+| Hiểu lầm | Sự thật |
 |------|------|
-| "报错说明我做错了" | 报错是代码在告诉你哪里需要调整 |
-| "专业程序员不会遇到报错" | 专业程序员每天都在 debug，只是他们知道怎么解决 |
-| "AI 生成的代码应该没问题" | AI 不了解你的具体环境，需要你帮它调整 |
+| "Báo lỗi chứng tỏ tôi làm sai" | Báo lỗi là code đang nói với bạn chỗ nào cần điều chỉnh |
+| "Lập trình viên chuyên nghiệp không gặp báo lỗi" | Lập trình viên chuyên nghiệp mỗi ngày đều debug, chỉ là họ biết cách giải quyết |
+| "Code AI sinh ra không nên có vấn đề" | AI không hiểu môi trường cụ thể của bạn, cần bạn giúp nó điều chỉnh |
 
-好消息是：**AI 能帮你解决 90% 的常见问题**。你只需要学会「怎么问」。
+Tin tốt là: **AI có thể giúp bạn giải quyết 90% vấn đề thường gặp**. Bạn chỉ cần học "hỏi thế nào".
 
-## 章节导航
+## Điều hướng chương
 
-| 小节 | 主题 | 你将学到 |
+| Phần nhỏ | Chủ đề | Bạn sẽ học được |
 |------|------|---------|
-| [4.5.1](./4.5.1-error-types.md) | 常见错误类型速查 | 四类错误的识别方法，如何阅读控制台报错 |
-| [4.5.2](./4.5.2-fix-with-ai.md) | 用 AI 帮你修 AI 的代码 | 诊断、修复、验证的完整 Prompt 模板 |
-| [4.5.3](./4.5.3-real-cases.md) | 真实案例复盘 | 6 个待办清单开发中的典型错误及解决过程 |
-| [4.5.4](./4.5.4-debug-mindset.md) | Debug 心法总结 | 建立正确的 debug 心态和习惯 |
+| [4.5.1](./4.5.1-error-types.md) | Tra cứu nhanh loại lỗi thường gặp | Phương pháp nhận diện bốn loại lỗi, cách đọc báo lỗi console |
+| [4.5.2](./4.5.2-fix-with-ai.md) | Dùng AI giúp bạn sửa code của AI | Template Prompt hoàn chỉnh cho chẩn đoán, sửa chữa, xác minh |
+| [4.5.3](./4.5.3-real-cases.md) | Ôn lại case thực tế | 6 lỗi điển hình trong phát triển danh sách công việc và quy trình giải quyết |
+| [4.5.4](./4.5.4-debug-mindset.md) | Tổng kết tâm pháp Debug | Xây dựng tâm lý và thói quen debug đúng đắn |
 
-**预计学习时间：约 25-30 分钟**
+**Thời gian học dự kiến: khoảng 25-30 phút**
 
-## 开始之前
+## Trước khi bắt đầu
 
-确保你已经完成了 4.2-4.4 的开发，手上有一个基本可用的待办清单。如果你的代码目前能正常运行，也可以先浏览本章内容，等遇到问题时再回来查阅。
+Hãy chắc chắn bạn đã hoàn thành phát triển 4.2-4.4, có một danh sách công việc cơ bản có thể dùng. Nếu code của bạn hiện tại có thể chạy bình thường, cũng có thể lướt qua nội dung chương này trước, đợi gặp vấn đề rồi quay lại tra cứu.
 
-准备好了吗？让我们从认识常见的错误类型开始。
+Sẵn sàng chưa? Hãy bắt đầu từ nhận biết các loại lỗi thường gặp.
 
-→ [4.5.1 常见错误类型速查](./4.5.1-error-types.md)
+→ [4.5.1 Tra cứu nhanh loại lỗi thường gặp](./4.5.1-error-types.md)

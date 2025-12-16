@@ -1,9 +1,9 @@
 ---
-title: "工具与效率"
+title: "Công Cụ & Hiệu Suất"
 ---
 
-# 工具与效率
+# Công Cụ & Hiệu Suất
 
-掌握开发工具链，提升开发效率，包括 n8n、GitHub 工作流等。
+Nắm vững chuỗi công cụ phát triển, nâng cao hiệu suất phát triển, bao gồm n8n, GitHub workflow, v.v.
 
-教程开发中
+Hướng dẫn đang được phát triển

@@ -1,82 +1,82 @@
 ---
-title: "2.7 问题发现：如何找到值得解决的问题"
+title: "2.7 Khám phá vấn đề: Làm thế nào tìm ra vấn đề đáng giải quyết"
 ---
 
-# 2.7 问题发现：如何找到值得解决的问题
+# 2.7 Khám phá vấn đề: Làm thế nào tìm ra vấn đề đáng giải quyết
 
-## 本节核心洞见
+## Thông điểm cốt lõi của phần này
 
 > "Live in the future, then build what's missing."
-> （活在未来，然后构建缺失的东西。）
-> —— Paul Graham，Y Combinator 联合创始人
+> (Sống trong tương lai, rồi xây dựng những gì còn thiếu.)
+> —— Paul Graham, Đồng sáng lập Y Combinator
 
-很多人在学完前面的章节后，会遇到一个尴尬的问题：
+Nhiều người sau khi học xong các chương trước sẽ gặp phải một vấn đề khó xử:
 
-**"道理我都懂，但我不知道做什么。"**
+**"Mình hiểu hết rồi, nhưng không biết làm gì."**
 
-JTBD 思维告诉你要理解用户任务，但你连用户是谁都不知道。灵魂三问要求你回答"痛点在哪"，但你连问题都没想好。这就像学会了开车，却不知道要去哪里。
+Tư duy JTBD dạy bạn phải hiểu nhiệm vụ của người dùng, nhưng bạn còn chẳng biết người dùng là ai. Ba câu hỏi linh hồn yêu cầu bạn trả lời "điểm đau ở đâu", nhưng bạn chưa nghĩ ra được vấn đề. Giống như học được lái xe nhưng không biết đi đâu.
 
-本节要解决的，正是这个"从 0 到 0.1"的问题——**如何从日常生活中发现值得解决的问题**。
-
-
-## 经过本节学习，你将掌握
-
-- 五种从日常生活中发现问题的渠道
-- "烦恼日记"方法：系统性记录和筛选问题的工具
-- 问题筛选的评分标准：判断什么问题适合用 Vibe Coding 解决
-- 一套可立即使用的问题发现练习
+Phần này giải quyết chính xác vấn đề "từ 0 đến 0.1"—**làm thế nào khám phá từ cuộc sống hàng ngày những vấn đề đáng giải quyết**.
 
 
-## 你可能正处于这三种状态
+## Sau khi học xong phần này, bạn sẽ nắm vững
 
-### 状态一："我有很多想法，但不知道哪个值得做"
-
-你的脑子里有一堆零散的念头：做个记账工具、做个习惯打卡、做个读书笔记……但每个都感觉"好像可以做"，又"好像没必要做"。
-
-**本节能帮你**：用评分表筛选出最值得投入的那一个。
-
-### 状态二："我想做点什么，但完全没想法"
-
-你被 Vibe Coding 的可能性吸引，想亲手做出点什么，但盯着空白的屏幕，脑子也是空白的。
-
-**本节能帮你**：用"烦恼日记"和"五种发现渠道"，从日常生活中挖掘出你没注意到的问题。
-
-### 状态三："我有痛点，但不知道怎么转化成项目"
-
-你知道自己每周做汇报很烦、每天找文件很痛苦，但不知道这些"烦"能变成什么。
-
-**本节能帮你**：通过真实案例，展示从"烦恼"到"项目"的完整转化路径。
+- Năm kênh khám phá vấn đề từ cuộc sống hàng ngày
+- Phương pháp "nhật ký phiền não": công cụ ghi chép và sàng lọc vấn đề một cách có hệ thống
+- Tiêu chuẩn chấm điểm sàng lọc vấn đề: đánh giá vấn đề nào phù hợp để giải quyết bằng Vibe Coding
+- Một bộ bài tập khám phá vấn đề có thể sử dụng ngay
 
 
-## 与其他章节的关系
+## Bạn có thể đang ở một trong ba trạng thái này
 
-| 章节 | 解决的问题 | 本节的位置 |
+### Trạng thái một: "Mình có nhiều ý tưởng, nhưng không biết cái nào đáng làm"
+
+Đầu bạn có một đống ý nghĩ rời rạc: làm công cụ ghi sổ chi tiêu, làm ứng dụng check-in thói quen, làm ghi chú đọc sách... Nhưng mỗi cái đều cảm giác "có vẻ có thể làm", lại "có vẻ không cần thiết".
+
+**Phần này giúp bạn**: Dùng bảng chấm điểm để sàng lọc ra cái đáng đầu tư nhất.
+
+### Trạng thái hai: "Mình muốn làm điều gì đó, nhưng hoàn toàn không có ý tưởng"
+
+Bạn bị thu hút bởi khả năng của Vibe Coding, muốn tự tay làm ra điều gì đó, nhưng nhìn chằm chằm vào màn hình trống, đầu cũng trống rỗng.
+
+**Phần này giúp bạn**: Dùng "nhật ký phiền não" và "năm kênh khám phá", khai thác từ cuộc sống hàng ngày những vấn đề mà bạn chưa để ý.
+
+### Trạng thái ba: "Mình có điểm đau, nhưng không biết chuyển hóa thành dự án như thế nào"
+
+Bạn biết mình làm báo cáo hàng tuần rất phiền, tìm file hàng ngày rất khổ sở, nhưng không biết những "phiền phức" này có thể biến thành gì.
+
+**Phần này giúp bạn**: Qua các ví dụ thực tế, trình bày con đường chuyển hóa hoàn chỉnh từ "phiền não" đến "dự án".
+
+
+## Mối quan hệ với các chương khác
+
+| Chương | Vấn đề giải quyết | Vị trí của phần này |
 |-----|-----------|-----------|
-| 2.1 JTBD 思维 | 如何理解用户的任务 | 本节帮你找到任务的**起点** |
-| 2.5 灵魂三问 | 如何验证和澄清想法 | 本节帮你**产生**待验证的想法 |
-| 2.6 场景应用 | 不同场景如何应用思维工具 | 本节帮你**识别**哪些场景值得做 |
+| 2.1 Tư duy JTBD | Làm thế nào hiểu nhiệm vụ của người dùng | Phần này giúp bạn tìm **điểm khởi đầu** của nhiệm vụ |
+| 2.5 Ba câu hỏi linh hồn | Làm thế nào xác minh và làm rõ ý tưởng | Phần này giúp bạn **sinh ra** ý tưởng cần xác minh |
+| 2.6 Ứng dụng theo tình huống | Các tình huống khác nhau áp dụng công cụ tư duy như thế nào | Phần này giúp bạn **nhận diện** tình huống nào đáng làm |
 
-简单来说：**本节是"心法篇"的源头**。有了问题，才能用 JTBD 分析；有了想法，才能用灵魂三问验证。
-
-
-## 一个关键认知
-
-很多人以为，好的项目 idea 是"灵光一闪"想出来的。
-
-但真相是：**好的问题不是想出来的，是观察出来的。**
-
-那些成功的独立开发者、产品经理、创业者，他们最强的能力不是"创意"，而是"观察"——观察自己的生活，观察身边人的困扰，观察现有工具的不足。
-
-本节要教你的，就是这种"观察"的能力。
+Nói đơn giản: **Phần này là "nguồn gốc" của chương tâm pháp**. Có vấn đề rồi mới dùng JTBD phân tích; có ý tưởng rồi mới dùng ba câu hỏi linh hồn xác minh.
 
 
-## 本节结构
+## Một nhận thức then chốt
 
-1. **问题就在你身边**：五种发现问题的渠道
-2. **"烦恼日记"法**：系统性记录问题的方法
-3. **什么问题适合 Vibe Coding**：五维评估和筛选标准
-4. **给不同人群的建议**：职场人士、学生、自由职业者、给家人做工具
-5. **实战练习**：问题发现工作坊
-6. **核心要点**：带走的三条原则
+Nhiều người cho rằng, ý tưởng dự án tốt được "nghĩ ra trong chớp mắt".
 
-准备好了吗？让我们从"问题就在你身边"开始。
+Nhưng sự thật là: **Vấn đề tốt không phải nghĩ ra, mà quan sát ra.**
+
+Những nhà phát triển độc lập, product manager, nhà khởi nghiệp thành công, khả năng mạnh nhất của họ không phải "sáng tạo", mà là "quan sát"—quan sát cuộc sống của chính mình, quan sát những phiền muộn của người xung quanh, quan sát những thiếu sót của công cụ hiện có.
+
+Phần này dạy bạn chính là khả năng "quan sát" đó.
+
+
+## Cấu trúc phần này
+
+1. **Vấn đề ngay bên cạnh bạn**: Năm kênh khám phá vấn đề
+2. **Phương pháp "nhật ký phiền não"**: Cách ghi chép vấn đề có hệ thống
+3. **Vấn đề nào phù hợp với Vibe Coding**: Tiêu chuẩn đánh giá và sàng lọc năm chiều
+4. **Gợi ý cho các nhóm người khác nhau**: Người đi làm, sinh viên, freelancer, làm công cụ cho gia đình
+5. **Thực hành**: Workshop khám phá vấn đề
+6. **Điểm cốt lõi**: Ba nguyên tắc cần ghi nhớ
+
+Sẵn sàng chưa? Hãy bắt đầu từ "Vấn đề ngay bên cạnh bạn".
